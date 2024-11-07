@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisionTech Anbar Project", "VisionTech Anbar Project\VisionTech Anbar Project.csproj", "{C6E980C1-A8AE-4473-B054-1634DF62129D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6E980C1-A8AE-4473-B054-1634DF62129D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E980C1-A8AE-4473-B054-1634DF62129D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E980C1-A8AE-4473-B054-1634DF62129D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E980C1-A8AE-4473-B054-1634DF62129D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54F8E10E-D397-4759-90BD-401B8BC2070C}
+	EndGlobalSection
+EndGlobal
