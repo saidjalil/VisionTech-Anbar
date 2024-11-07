@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UnityProjects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {}
+    "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {}
   },
   "projects": {
-    "D:\\UnityProjects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {
+    "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UnityProjects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
+        "projectUniqueName": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
         "projectName": "VisionTech Anbar Project",
-        "projectPath": "D:\\UnityProjects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
+        "projectPath": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
         "packagesPath": "C:\\Users\\celil\\.nuget\\packages\\",
-        "outputPath": "D:\\UnityProjects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project\\obj\\",
+        "outputPath": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\celil\\AppData\\Roaming\\NuGet\\NuGet.Config",
