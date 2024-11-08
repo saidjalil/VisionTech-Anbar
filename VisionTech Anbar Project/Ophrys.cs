@@ -28,5 +28,10 @@ namespace VisionTech_Anbar_Project
         {
 
         }
+
+        private void metroSetBadge1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "odZts0pDNqg=",
+  "dgSpecHash": "UquPLZYa3ytCA9xAetfNv/8IEB7KAFr1S70K4qLdK+isOFnLc0lx+N+aZi6+ZPPdejEDRdyVm2uVhneXuvmkXA==",
   "success": true,
-  "projectFilePath": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "E:\\VisionTech\\VissionAnbar\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tural\\.nuget\\packages\\metroset_ui\\2.0.0\\metroset_ui.2.0.0.nupkg.sha512",
+    "C:\\Users\\Tural\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

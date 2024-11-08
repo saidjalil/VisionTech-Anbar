@@ -22,22 +22,6 @@ E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\n
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.pdb
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.genruntimeconfig.cache
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\ref\VisionTech Anbar Project.dll
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\VisionTech Anbar Project.exe
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\VisionTech Anbar Project.deps.json
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\VisionTech Anbar Project.runtimeconfig.json
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\VisionTech Anbar Project.dll
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\VisionTech Anbar Project.pdb
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project..resources
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.Ophrys.resources
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.csproj.GenerateResource.cache
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.GeneratedMSBuildEditorConfig.editorconfig
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.AssemblyInfoInputs.cache
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.AssemblyInfo.cs
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.csproj.CoreCompileInputs.cache
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.sourcelink.json
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.dll
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\refint\VisionTech Anbar Project.dll
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.pdb
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.genruntimeconfig.cache
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\ref\VisionTech Anbar Project.dll
-D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.AddColumnForm.resources
+E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\MetroSet UI.dll
+E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.csproj.AssemblyReference.cache
+E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.csproj.CopyComplete
