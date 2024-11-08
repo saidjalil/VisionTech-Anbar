@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Devices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,31 +8,125 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VisionTech_Anbar_Project.ViewModel;
 
 namespace VisionTech_Anbar_Project
 {
     public partial class AddColumnForm : Form
     {
-        Ophrys Main;
-        public AddColumnForm(Ophrys main)
+        private bool IsEdit;
+        private Package OriginalPackage;
+        public Package EditedPackage;
+        public Package NewPackage;
+        public bool DataSaved;
+        public AddColumnForm()
         {
             InitializeComponent();
-            Main = main;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private AddColumnForm(Package package) 
         {
+            InitializeComponent();
+            IsEdit = true;
+            OriginalPackage = package;
+        }
 
+        private void AddEditMovie_Load(object sender, EventArgs e)
+        {
+            DataSaved = false;
+
+            if (IsEdit)
+            {
+                PopulateOriginalPackage();
+                this.Text = "Edit";
+            }
+
+            else
+            {
+                ClearInput();
+                this.Text = "Add";
+            }
+        }
+
+        private void PopulateOriginalPackage()
+        {
+            textBox1.Text = OriginalPackage.PackageId.ToString();
+            dateTimePicker1.Text = OriginalPackage.CreatedDate.ToString();
+        }
+
+        private void ClearInput()
+        {
+            textBox1.Clear();
+            dateTimePicker1.Text = DateTime.Now.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Main.dataGridView1.Rows.Add(textBox1.Text,textBox2.Text, comboBox1.Text);
+            List<String> errors;
+
+            errors = ValidateInput();
+
+            if (errors.Count > 0)
+            {
+                ShowErrors(errors, 5);
+                return;
+            }
+
+            StoreInput();
+            DataSaved = true;
+            this.Close();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private List<string> ValidateInput()
         {
+            List<String> errors = new List<string>();
 
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+                errors.Add("Id required");
+
+            return errors;
+        }
+
+        private void StoreInput()
+        {
+            string packageId;
+            DateTime createdDate;
+            bool exported = false;
+            int id;
+
+            packageId = textBox1.Text;
+            createdDate = DateTime.Parse(dateTimePicker1.Text.ToString());
+
+
+            if (IsEdit)
+                EditedPackage = new Package(OriginalPackage.Id,packageId,
+                                         createdDate, exported);
+            else
+            {
+                id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
+                NewPackage = new Package(id, packageId, createdDate, exported);
+            }
+
+        }
+
+        private void ShowErrors(List<string> errors, int max)
+        {
+            MessageBoxIcon icon;
+            MessageBoxButtons buttons;
+            string text = null;
+
+            icon = MessageBoxIcon.Error;
+            buttons = MessageBoxButtons.OK;
+
+            if (max > errors.Count)
+                max = errors.Count;
+
+            for (int i = 0; i < max; i++)
+            {
+                text += errors[i] + "\n";
+            }
+
+            MessageBox.Show(text, "", buttons, icon);
         }
     }
 }
