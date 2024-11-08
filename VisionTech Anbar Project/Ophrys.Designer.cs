@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ophrys));
-            ListViewItem listViewItem3 = new ListViewItem("");
+            ListViewItem listViewItem1 = new ListViewItem("");
             pictureBox1 = new PictureBox();
             button1 = new Button();
             listView1 = new ListView();
@@ -37,6 +37,7 @@
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
+            listBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            listView1.Items.AddRange(new ListViewItem[] { listViewItem3 });
+            listView1.Items.AddRange(new ListViewItem[] { listViewItem1 });
             listView1.Location = new Point(64, 164);
             listView1.Margin = new Padding(3, 4, 3, 4);
             listView1.Name = "listView1";
@@ -81,7 +82,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(781, 4);
+            metroSetControlBox1.Location = new Point(714, 4);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
             metroSetControlBox1.MaximizeHoverForeColor = Color.Gray;
@@ -99,12 +100,23 @@
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
             // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 20;
+            listBox1.Location = new Point(302, 30);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(194, 104);
+            listBox1.TabIndex = 4;
+            listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(881, 503);
+            ClientSize = new Size(814, 503);
+            Controls.Add(listBox1);
             Controls.Add(metroSetControlBox1);
             Controls.Add(listView1);
             Controls.Add(button1);
@@ -127,5 +139,6 @@
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
+        private ListBox listBox1;
     }
 }
