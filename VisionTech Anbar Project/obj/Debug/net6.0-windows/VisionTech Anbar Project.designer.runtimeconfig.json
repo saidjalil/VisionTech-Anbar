@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Tural\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Tural\\.nuget\\packages"
+      "C:\\Users\\celil\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\celil\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

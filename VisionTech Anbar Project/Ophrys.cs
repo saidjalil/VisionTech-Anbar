@@ -19,6 +19,8 @@ namespace VisionTech_Anbar_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            AddColumnForm addColumnForm = new AddColumnForm(this);
+            addColumnForm.Show();
 
         }
 
