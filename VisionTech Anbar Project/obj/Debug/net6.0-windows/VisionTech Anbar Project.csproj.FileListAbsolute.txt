@@ -22,3 +22,6 @@ E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\n
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.pdb
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.genruntimeconfig.cache
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\ref\VisionTech Anbar Project.dll
+E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\MetroSet UI.dll
+E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.csproj.AssemblyReference.cache
+E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.csproj.CopyComplete
