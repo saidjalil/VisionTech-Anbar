@@ -7,15 +7,14 @@ using System.Windows.Forms;
 
 namespace VisionTech_Anbar_Project.Utilts
 {
-    internal class ImageSaver
+    internal class ImageManager
     {
         public static void SaveImage(OpenFileDialog openFileDialog)
         {
             string sourceImagePath = openFileDialog.FileName;
 
-            string projectFolder = AppDomain.CurrentDomain.BaseDirectory;
 
-            string imagesFolder = Path.Combine(projectFolder, "Images","Documents");
+            string imagesFolder = FileManager.GetImagesPath();
 
             if (!Directory.Exists(imagesFolder))
             {

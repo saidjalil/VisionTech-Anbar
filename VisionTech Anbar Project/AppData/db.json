@@ -1,3 +1,59 @@
-{
-  
-}
+[
+  {
+    "Products": [
+      {
+        "Id": 1,
+        "Name": "Product A",
+        "Description": "Description for Product A",
+        "Quantity": 10
+      },
+      {
+        "Id": 2,
+        "Name": "Product B",
+        "Description": "Description for Product B",
+        "Quantity": 20
+      }
+    ],
+    "Exported": false
+  },
+  {
+    "Products": [
+      {
+        "Id": 3,
+        "Name": "Product C",
+        "Description": "Description for Product C",
+        "Quantity": 15
+      },
+      {
+        "Id": 4,
+        "Name": "Product D",
+        "Description": "Description for Product D",
+        "Quantity": 8
+      },
+      {
+        "Id": 5,
+        "Name": "Product E",
+        "Description": "Description for Product E",
+        "Quantity": 30
+      }
+    ],
+    "Exported": true
+  },
+  {
+    "Products": [
+      {
+        "Id": 6,
+        "Name": "Product F",
+        "Description": "Description for Product F",
+        "Quantity": 12
+      },
+      {
+        "Id": 7,
+        "Name": "Product G",
+        "Description": "Description for Product G",
+        "Quantity": 25
+      }
+    ],
+    "Exported": false
+  }
+]
