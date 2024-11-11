@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Security.Cryptography.X509Certificates;
 using VisionTech_Anbar_Project.ViewModel;
+using VisionTech_Anbar_Project.ViewModel.Categories;
 
 namespace VisionTech_Anbar_Project.Utilts
 {
@@ -91,6 +92,22 @@ namespace VisionTech_Anbar_Project.Utilts
             var pack = GetPackageById(packageId);
             pack.DeleteProduct(productId);
             EditPackageById(packageId, pack);
+        }
+
+        public static Category GetAllCateogries()
+        {
+            var path = Path.Combine(FileManager.GetAppDataPath(), "categories.json");
+
+
+            string json = File.ReadAllText(path);
+
+            var category = JsonConvert.DeserializeObject<Category>(json);
+            return category;
+        }
+
+        public static void AddCategories()
+        {
+            //bilinmir hele
         }
 
     }

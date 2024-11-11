@@ -25,5 +25,15 @@ namespace VisionTech_Anbar_Project.Utilts
 
             return filePath;
         }
+
+        public static string GetLogPath()
+        {
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string twoFoldersUp = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(currentDirectory))));
+            string filePath = Path.Combine(twoFoldersUp, "Logs");
+
+            return filePath;
+        }
     }
+
 }
