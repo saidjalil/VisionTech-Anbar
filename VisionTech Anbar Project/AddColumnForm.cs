@@ -24,7 +24,7 @@ namespace VisionTech_Anbar_Project
             InitializeComponent();
         }
 
-        private AddColumnForm(Package package) 
+        private AddColumnForm(Package package)
         {
             InitializeComponent();
             IsEdit = true;
@@ -99,7 +99,7 @@ namespace VisionTech_Anbar_Project
 
 
             if (IsEdit)
-                EditedPackage = new Package(OriginalPackage.Id,packageId,
+                EditedPackage = new Package(OriginalPackage.Id, packageId,
                                          createdDate, exported);
             else
             {
@@ -127,6 +127,20 @@ namespace VisionTech_Anbar_Project
             }
 
             MessageBox.Show(text, "", buttons, icon);
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+                // Allow control keys like Backspace, Enter, and Tab
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
+                // Check if the key is a number
+                if (!char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true; 
+                }
         }
     }
 }

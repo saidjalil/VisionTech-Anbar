@@ -30,8 +30,6 @@ namespace VisionTech_Anbar_Project
         private void InitializeComponent()
         {
             button1 = new Button();
-            label2 = new Label();
-            comboBox1 = new ComboBox();
             textBox1 = new TextBox();
             label4 = new Label();
             dateTimePicker1 = new DateTimePicker();
@@ -39,7 +37,7 @@ namespace VisionTech_Anbar_Project
             // 
             // button1
             // 
-            button1.Location = new Point(95, 178);
+            button1.Location = new Point(95, 142);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 0;
@@ -47,32 +45,15 @@ namespace VisionTech_Anbar_Project
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(35, 139);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Exported";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Pending", "Sent" });
-            comboBox1.Location = new Point(95, 136);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(111, 23);
-            comboBox1.TabIndex = 4;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // 
             // textBox1
             // 
             textBox1.Location = new Point(95, 58);
+            textBox1.Margin = new Padding(0);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(111, 23);
             textBox1.TabIndex = 6;
             textBox1.TextChanged += textBox2_TextChanged;
+            textBox1.KeyPress += textBox1_KeyPress;
             // 
             // label4
             // 
@@ -99,8 +80,6 @@ namespace VisionTech_Anbar_Project
             Controls.Add(dateTimePicker1);
             Controls.Add(label4);
             Controls.Add(textBox1);
-            Controls.Add(comboBox1);
-            Controls.Add(label2);
             Controls.Add(button1);
             Name = "AddColumnForm";
             Text = "AddColumnForm";
@@ -126,8 +105,6 @@ namespace VisionTech_Anbar_Project
         #endregion
 
         private Button button1;
-        private Label label2;
-        private ComboBox comboBox1;
         private TextBox textBox1;
         private Label label4;
         private DateTimePicker dateTimePicker1;

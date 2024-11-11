@@ -47,3 +47,4 @@ D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\ne
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTe.FDD264DC.Up2Date
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.genruntimeconfig.cache
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\ref\VisionTech Anbar Project.dll
+D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

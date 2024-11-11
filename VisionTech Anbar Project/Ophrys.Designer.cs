@@ -50,6 +50,7 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button1.Location = new Point(554, 73);
             button1.Name = "button1";
             button1.Size = new Size(46, 30);
@@ -87,10 +88,15 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(12, 130);
+            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
+            flowLayoutPanel1.Location = new Point(0, 142);
+            flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(597, 235);
+            flowLayoutPanel1.Size = new Size(644, 235);
             flowLayoutPanel1.TabIndex = 4;
+            flowLayoutPanel1.WrapContents = false;
             // 
             // contextMenuStrip1
             // 
