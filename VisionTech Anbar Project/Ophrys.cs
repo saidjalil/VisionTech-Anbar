@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisionTech_Anbar_Project.ViewModel;
+using System.Drawing;
+using Image = System.Drawing.Image;
 
 namespace VisionTech_Anbar_Project
 {
@@ -27,15 +29,10 @@ namespace VisionTech_Anbar_Project
             // Example for Section 1
             Control[] section1Controls = {
 
-            new Label { Text = "Label for Section 1", AutoSize = true },
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle},
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle},
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle},
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle},
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle},
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle},
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle},
-            new Panel { Text = "Click Me", Height = 50, BorderStyle = BorderStyle.FixedSingle}
+            CreatePanelWithContent("Label for Section 1", "Click Me", "path_to_image.png"),
+            CreatePanelWithContent("Label for Section 2", "Click Me", "path_to_image.png"),
+            CreatePanelWithContent("Label for Section 3", "Click Me", "path_to_image.png"),
+            CreatePanelWithContent("Label for Section 4", "Click Me", "path_to_image.png")
 
 };
 
@@ -48,9 +45,7 @@ namespace VisionTech_Anbar_Project
                 //Packages.Add(addColumnForm.NewPackage);
                 //AddPackageToUI(addColumnForm.NewPackage);
             }
-
         }
-
         private void AddAccordionSection(string headerText, Control[] contentControls, Package package)
         {
             // Create a panel to hold both header and content
@@ -194,6 +189,63 @@ namespace VisionTech_Anbar_Project
             flowLayoutPanel1.Controls.Add(accordionPanel);
         }
 
+        // Section controls
+        
+        // Helper method to create a Panel with a Label, Button, and Image
+        private Panel CreatePanelWithContent(string labelText, string buttonText, string imagePath)
+        {
+            // Create a Panel
+            Panel panel = new Panel
+            {
+                Height = 80,  // Adjust based on the content size
+                Width = 400,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+
+            // Create a Label
+            Label label = new Label
+            {
+                Text = labelText,
+                Location = new Point(10, 10),
+                AutoSize = true
+            };
+
+            // Create a Button
+            Button button = new Button
+            {
+                Text = buttonText,
+                Location = new Point(250, 10),
+                Size = new Size(100, 30)
+            };
+
+            // Create a PictureBox for the image
+            PictureBox pictureBox = new PictureBox
+            {
+                Location = new Point(150, 10),
+                Size = new Size(80, 50), // Adjust image size
+                SizeMode = PictureBoxSizeMode.StretchImage // Stretch image to fit
+            };
+
+            // Load the image from file path
+            if (System.IO.File.Exists(imagePath))
+            {
+                pictureBox.Image = Image.FromFile(imagePath);
+            }
+            else
+            {
+
+            }
+            {
+                pictureBox.BackColor = Color.Gray; // Default to gray if no image
+            }
+
+            // Add the controls to the Panel
+            panel.Controls.Add(label);
+            panel.Controls.Add(button);
+            panel.Controls.Add(pictureBox);
+
+            return panel;
+        }
 
 
 

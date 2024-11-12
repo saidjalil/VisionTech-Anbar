@@ -66,6 +66,7 @@
           "Children": [
             {
               "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 4,
               "Title": "Category.cs",
               "DocumentMoniker": "E:\\VisionTech\\VissionAnbar\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Categories\\Category.cs",
@@ -73,6 +74,15 @@
               "ToolTip": "E:\\VisionTech\\VissionAnbar\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Categories\\Category.cs",
               "RelativeToolTip": "VisionTech Anbar Project\\ViewModel\\Categories\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
+=======
+              "DocumentIndex": 0,
+              "Title": "Ophrys.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\Ophrys.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\Ophrys.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAmwCMAAAACAAAAAAAAAA==",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-11T18:26:58.813Z",
               "EditorCaption": ""
@@ -100,6 +110,7 @@
               "RelativeToolTip": "VisionTech Anbar Project\\AddColumnForm.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAwBUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< Updated upstream
               "WhenOpened": "2024-11-11T14:33:57.902Z",
               "EditorCaption": ""
             },
@@ -127,6 +138,9 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-11T14:25:34.058Z",
               "EditorCaption": ""
+=======
+              "WhenOpened": "2024-11-08T14:28:50.035Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
@@ -138,11 +152,52 @@
               "RelativeToolTip": "VisionTech Anbar Project\\ViewModel\\Categories\\MainType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< Updated upstream
               "WhenOpened": "2024-11-11T18:27:39.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+=======
+              "WhenOpened": "2024-11-07T20:47:43.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddColumnForm.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddColumnForm.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs [Design]",
+              "RelativeToolTip": "VisionTech Anbar Project\\AddColumnForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-08T13:55:39.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddColumnForm.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddColumnForm.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\AddColumnForm.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAYwIgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T20:27:48.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Ophrys.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\Ophrys.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs [Design]",
+              "RelativeToolTip": "VisionTech Anbar Project\\Ophrys.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T20:39:49.596Z"
+            },
+            {
+              "$type": "Document",
+>>>>>>> Stashed changes
               "DocumentIndex": 6,
               "Title": "Ophrys.cs",
               "DocumentMoniker": "E:\\VisionTech\\VissionAnbar\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs",
@@ -163,6 +218,7 @@
               "ToolTip": "E:\\VisionTech\\VissionAnbar\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "RelativeToolTip": "VisionTech Anbar Project\\AddColumnForm.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< Updated upstream
               "WhenOpened": "2024-11-08T13:55:39.113Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
             },
@@ -177,6 +233,9 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-11T14:35:51.337Z"
+=======
+              "WhenOpened": "2024-11-07T20:43:24.913Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
@@ -188,6 +247,7 @@
               "RelativeToolTip": "VisionTech Anbar Project\\ViewModel\\Categories\\SubType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< Updated upstream
               "WhenOpened": "2024-11-11T18:27:55.322Z"
             },
             {
@@ -225,6 +285,9 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T14:28:50.035Z"
+=======
+              "WhenOpened": "2024-11-07T20:38:27.306Z"
+>>>>>>> Stashed changes
             }
           ]
         }
