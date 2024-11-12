@@ -1,0 +1,3 @@
+2024-11-12 13:49:49.031 +04:00 [INF] Application Starting
+2024-11-12 13:56:47.277 +04:00 [INF] Application Starting
+2024-11-12 13:57:16.335 +04:00 [INF] Application Starting

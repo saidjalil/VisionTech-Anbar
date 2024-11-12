@@ -1,3 +1,58 @@
 {
-  
+  "SubCategories": [
+    {
+      "Name": "Electronics",
+      "mainTypes": [
+        {
+          "Name": "Phones",
+          "SubTypes": [
+            {
+              "Name": "Smartphone"
+            },
+            {
+              "Name": "Feature Phone"
+            }
+          ]
+        },
+        {
+          "Name": "Laptops",
+          "SubTypes": [
+            {
+              "Name": "Gaming Laptop"
+            },
+            {
+              "Name": "Ultrabook"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Home Appliances",
+      "mainTypes": [
+        {
+          "Name": "Refrigerators",
+          "SubTypes": [
+            {
+              "Name": "Double Door"
+            },
+            {
+              "Name": "Single Door"
+            }
+          ]
+        },
+        {
+          "Name": "Washing Machines",
+          "SubTypes": [
+            {
+              "Name": "Front Load"
+            },
+            {
+              "Name": "Top Load"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

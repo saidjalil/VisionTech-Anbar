@@ -1,0 +1,6 @@
+2024-11-11 18:39:56.031 +04:00 [INF] Application Starting
+2024-11-11 18:42:56.173 +04:00 [INF] Application Starting
+2024-11-11 18:43:56.565 +04:00 [INF] Application Starting
+2024-11-11 18:43:57.787 +04:00 [INF] button1_Click is clicked
+2024-11-11 18:43:59.947 +04:00 [INF] button1_Click is clicked
+2024-11-11 18:44:01.714 +04:00 [INF] button1_Click is clicked
