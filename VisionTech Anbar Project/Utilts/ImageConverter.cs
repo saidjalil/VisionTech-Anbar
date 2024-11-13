@@ -1,38 +1,76 @@
-﻿using Serilog;
-using System;
-using System.IO;
+﻿using Newtonsoft.Json;
+using Serilog;
+using VisionTech_Anbar_Project.Utilts;
+
 
 public class ImageConverter
 {
-    public static string ConvertImageToBase64(string imagePath)
+    private static string ConvertImageToBase64(Image image)
     {
-        if (string.IsNullOrEmpty(imagePath))
+        if (image == null)
         {
-            Log.Error("The provided image path is null or empty.");
-            return string.Empty;
-        }
-
-        if (!File.Exists(imagePath))
-        {
-            Log.Error("The image file at path {ImagePath} does not exist.", imagePath);
+            Log.Error("Attempted to convert a null image to Base64.");
             return string.Empty;
         }
 
         try
         {
-            Log.Information("Attempting to convert image at path {ImagePath} to Base64.", imagePath);
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                byte[] imageBytes = ms.ToArray();
+                string base64String = Convert.ToBase64String(imageBytes);
 
-            byte[] imageBytes = File.ReadAllBytes(imagePath);
-            string base64String = Convert.ToBase64String(imageBytes);
-
-            Log.Information("Image at path {ImagePath} successfully converted to Base64.", imagePath);
-            return base64String;
+                Log.Information("Image successfully converted to Base64.");
+                return base64String;
+            }
         }
         catch (Exception ex)
         {
-            Log.Error(ex, "Error converting image to Base64 for image at path {ImagePath}.", imagePath);
+            Log.Error(ex, "Error converting image to Base64.");
             return string.Empty;
         }
     }
+
+    public static void SaveImageToJson(Image image, int imageId)
+    {
+        if (image == null)
+        {
+            Log.Error("Cannot save image to JSON. Provided image is null.");
+            return;
+        }
+
+        try
+        {
+            
+            var base64String = ConvertImageToBase64(image);
+
+            if (string.IsNullOrEmpty(base64String))
+            {
+                Log.Error("Base64 conversion failed. Image could not be saved to JSON.");
+                return;
+            }
+
+            
+            var img = new VisionTech_Anbar_Project.ViewModel.Image
+            {
+                ImgId = imageId,
+                Base64 = base64String
+            };
+
+            
+            string jsonString = JsonConvert.SerializeObject(img, Formatting.Indented);
+            var path = Path.Combine(FileManager.GetAppDataPath(), "imgBase64.json");
+
+            
+            File.WriteAllText(path, jsonString);
+            Log.Information("Image data successfully saved to JSON file at {FilePath}.", path);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "An error occurred while saving the image to JSON at {FilePath}.", Path.Combine(FileManager.GetAppDataPath(), "imgBase64.json"));
+        }
+    }
+
 
 }
