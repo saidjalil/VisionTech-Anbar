@@ -99,12 +99,12 @@ namespace VisionTech_Anbar_Project
 
 
             if (IsEdit)
-                EditedPackage = new Package(OriginalPackage.Id, packageId,
+                EditedPackage = new Package(packageId,
                                          createdDate, exported);
             else
             {
                 id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
-                NewPackage = new Package(id, packageId, createdDate, exported);
+                NewPackage = new Package(packageId, createdDate, exported);
             }
 
         }

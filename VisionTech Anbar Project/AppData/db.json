@@ -1,59 +1,65 @@
 [
   {
+    "PackageId": "PKG001",
+    "CreatedDate": "2024-11-10T09:00:00",
     "Products": [
       {
         "Id": 1,
-        "Name": "Product A",
-        "Description": "Description for Product A",
-        "Quantity": 10
+        "Name": "Laptop",
+        "Description": "Gaming laptop with high performance",
+        "Quantity": 3
       },
       {
         "Id": 2,
-        "Name": "Product B",
-        "Description": "Description for Product B",
-        "Quantity": 20
-      }
-    ],
-    "Exported": false
-  },
-  {
-    "Products": [
+        "Name": "Mouse",
+        "Description": "Wireless mouse with ergonomic design",
+        "Quantity": 7
+      },
       {
         "Id": 3,
-        "Name": "Product C",
-        "Description": "Description for Product C",
-        "Quantity": 15
-      },
-      {
-        "Id": 4,
-        "Name": "Product D",
-        "Description": "Description for Product D",
-        "Quantity": 8
-      },
-      {
-        "Id": 5,
-        "Name": "Product E",
-        "Description": "Description for Product E",
-        "Quantity": 30
+        "Name": "Keyboard",
+        "Description": "Mechanical keyboard with RGB lights",
+        "Quantity": 5
       }
     ],
     "Exported": true
   },
   {
+    "PackageId": "PKG002",
+    "CreatedDate": "2024-11-11T15:30:00",
     "Products": [
       {
-        "Id": 6,
-        "Name": "Product F",
-        "Description": "Description for Product F",
-        "Quantity": 12
+        "Id": 4,
+        "Name": "Smartphone",
+        "Description": "Latest model smartphone with high-end camera",
+        "Quantity": 10
       },
       {
-        "Id": 7,
-        "Name": "Product G",
-        "Description": "Description for Product G",
-        "Quantity": 25
+        "Id": 5,
+        "Name": "Charger",
+        "Description": "Fast charger for smartphone",
+        "Quantity": 15
       }
     ],
     "Exported": false
+  },
+  {
+    "PackageId": "PKG003",
+    "CreatedDate": "2024-11-12T12:00:00",
+    "Products": [
+      {
+        "Id": 6,
+        "Name": "Headphones",
+        "Description": "Noise-canceling over-ear headphones",
+        "Quantity": 4
+      },
+      {
+        "Id": 7,
+        "Name": "Monitor",
+        "Description": "27-inch 4K monitor",
+        "Quantity": 2
+      }
+    ],
+    "Exported": true
   }
 ]
