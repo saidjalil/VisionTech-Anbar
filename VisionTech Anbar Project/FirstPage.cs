@@ -124,11 +124,12 @@ namespace VisionTech_Anbar_Project
             Button exportButton = new Button
             {
                 Text = "Export",
+                Tag = package.PackageId,
                 Width = 60,
                 Height = 30,
                 Margin = new Padding(5)
             };
-
+            exportButton.Click += ExportPackage;
             // Add the buttons to the FlowLayoutPanel
             
             buttonPanel.Controls.Add(deleteButton);
@@ -200,6 +201,12 @@ namespace VisionTech_Anbar_Project
             JsonManager.DeletePackageById(button.Tag.ToString());
             RestardPage();
             InitializeItems();
+        }
+
+        public void ExportPackage(object sender,EventArgs e)
+        {
+            Button button = sender as Button;
+            FileManager.CreateAndWriteExportFile(button.Tag.ToString());
         }
     }
 }
