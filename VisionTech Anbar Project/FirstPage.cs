@@ -52,7 +52,7 @@ namespace VisionTech_Anbar_Project
             
         }
 
-        public void RestardPage()
+        public void RestartPage()
         {
             mainTableLayoutPanel.Controls.Clear();
         }
@@ -199,7 +199,7 @@ namespace VisionTech_Anbar_Project
         {
             Button button = sender as Button;
             JsonManager.DeletePackageById(button.Tag.ToString());
-            RestardPage();
+            RestartPage();
             InitializeItems();
         }
 
