@@ -9,7 +9,6 @@ namespace VisionTech_Anbar_Project.ViewModel
 {
     public class Package
     {
-        public int Id { get; set; }
         public string PackageId { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -24,9 +23,8 @@ namespace VisionTech_Anbar_Project.ViewModel
             Exported = false;
         }
 
-        public Package(int id, string packageId, DateTime createdDate, bool exported)
+        public Package(string packageId, DateTime createdDate, bool exported)
         {
-            Id = id;
             PackageId = packageId;
             CreatedDate = createdDate;
             Exported = exported;

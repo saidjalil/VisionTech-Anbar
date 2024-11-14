@@ -54,29 +54,29 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new ArgumentNullException(nameof(package), "Package cannot be null.");
             }
 
-            Log.Information("Attempting to add a new package with ID {PackageId}.", package.Id);
+            Log.Information("Attempting to add a new package with ID {PackageId}.", package.PackageId);
 
             try
             {
                 var packs = GetAllPackages();
                 packs.Add(package);
                 SaveData(packs);
-                Log.Information("Package with ID {PackageId} successfully added.", package.Id);
+                Log.Information("Package with ID {PackageId} successfully added.", package.PackageId);
             }
             catch (Exception ex)
             {
-                Log.Error(ex, "Failed to add package with ID {PackageId}.", package.Id);
+                Log.Error(ex, "Failed to add package with ID {PackageId}.", package.PackageId);
                 throw;
             }
         }
 
 
-        public static Package GetPackageById(int id)
+        public static Package GetPackageById(string id)
         {
             Log.Information("Attempting to retrieve package with ID {PackageId}.", id);
 
             var packages = GetAllPackages();
-            var package = packages.FirstOrDefault(x => x.Id == id);
+            var package = packages.FirstOrDefault(x => x.PackageId == id);
 
             if (package == null)
             {
@@ -89,12 +89,12 @@ namespace VisionTech_Anbar_Project.Utilts
         }
 
 
-        public static void EditPackageById(int id, Package package)
+        public static void EditPackageById(string id, Package package)
         {
             Log.Information("Attempting to update package with ID {PackageId}.", id);
 
             var packages = GetAllPackages();
-            var existingPackage = packages.FirstOrDefault(x => x.Id == id);
+            var existingPackage = packages.FirstOrDefault(x => x.PackageId == id);
 
             if (existingPackage == null)
             {
@@ -120,12 +120,12 @@ namespace VisionTech_Anbar_Project.Utilts
         }
 
 
-        public static void DeletePackageById(int id)
+        public static void DeletePackageById(string id)
         {
             Log.Information("Attempting to delete package with ID {PackageId}.", id);
 
             var packages = GetAllPackages();
-            var package = packages.FirstOrDefault(x => x.Id == id);
+            var package = packages.FirstOrDefault(x => x.PackageId == id);
 
             if (package == null)
             {
@@ -169,7 +169,7 @@ namespace VisionTech_Anbar_Project.Utilts
         }
 
 
-        public static void AddProductToPackage(Product product, int id)
+        public static void AddProductToPackage(Product product, string id)
         {
             if (product == null)
             {
@@ -202,7 +202,7 @@ namespace VisionTech_Anbar_Project.Utilts
             Log.Information("Changes saved for package ID {PackageId}.", id);
         }
 
-        public static void EditProductOfPackage(Product product, int packageId)
+        public static void EditProductOfPackage(Product product, string packageId)
         {
             if (product == null)
             {
@@ -236,7 +236,7 @@ namespace VisionTech_Anbar_Project.Utilts
         }
 
 
-        public static void DeleteProductOfPackage(int packageId, int productId)
+        public static void DeleteProductOfPackage(string packageId, int productId)
         {
             
             var pack = GetPackageById(packageId);
@@ -301,6 +301,10 @@ namespace VisionTech_Anbar_Project.Utilts
             }
         }
 
+        public static void ExportPackage()
+        {
+
+        }
 
         public static void AddCategories()
         {
