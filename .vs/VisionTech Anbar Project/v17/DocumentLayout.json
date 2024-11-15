@@ -3,36 +3,48 @@
   "WorkspaceRootPath": "D:\\Visual Studio Projects\\VisionTech-Anbar\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\editproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\editproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\editproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\editproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\ophrys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\ophrys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\addcolumnform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\addcolumnform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\viewmodel\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\viewmodel\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\viewmodel\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\viewmodel\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\appdata\\db.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\appdata\\db.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\utilts\\jsonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\utilts\\jsonmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\viewmodel\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\viewmodel\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|D:\\Visual Studio Projects\\VisionTech-Anbar\\visiontech anbar project\\ophrys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\ophrys.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\addcolumnform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\addcolumnform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\appdata\\db.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\appdata\\db.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\appdata\\categories.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\appdata\\categories.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\viewmodel\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\viewmodel\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\utilts\\packageextention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|D:\\Visual Studio Projects\\VisionTech-Anbar\\visiontech anbar project\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|d:\\visual studio projects\\visiontech-anbar\\visiontech anbar project\\appdata\\categories.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|solutionrelative:visiontech anbar project\\appdata\\categories.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6E980C1-A8AE-4473-B054-1634DF62129D}|VisionTech Anbar Project\\VisionTech Anbar Project.csproj|D:\\Visual Studio Projects\\VisionTech-Anbar\\visiontech anbar project\\addcolumnform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -90,98 +98,32 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditProductForm.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\EditProductForm.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\EditProductForm.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\EditProductForm.cs [Design]",
+              "RelativeToolTip": "VisionTech Anbar Project\\EditProductForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T13:13:27.178Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AddColumnForm.cs",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddColumnForm.cs",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
-              "RelativeToolTip": "VisionTech Anbar Project\\AddColumnForm.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAcwFgAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T11:31:46.692Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "db.json",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AppData\\db.json",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AppData\\db.json",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AppData\\db.json",
-              "RelativeToolTip": "VisionTech Anbar Project\\AppData\\db.json",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-13T14:10:57.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "JsonManager.cs",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\JsonManager.cs",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\Utilts\\JsonManager.cs",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\JsonManager.cs",
-              "RelativeToolTip": "VisionTech Anbar Project\\Utilts\\JsonManager.cs",
-              "ViewState": "AgIAAKoAAAAAAAAAAAAawLwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T11:31:46.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Ophrys.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\Ophrys.cs",
               "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs",
               "RelativeToolTip": "VisionTech Anbar Project\\Ophrys.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAowFYAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAANcAAAAAAAAAAAAuwP0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-12T11:31:46.714Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddProductForm.cs",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddProductForm.cs",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs",
-              "RelativeToolTip": "VisionTech Anbar Project\\AddProductForm.cs",
-              "ViewState": "AgIAAHIAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T11:34:58.375Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Package.cs",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Package.cs",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Package.cs",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Package.cs",
-              "RelativeToolTip": "VisionTech Anbar Project\\ViewModel\\Package.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA1wB0AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T20:56:53.794Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Product.cs",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Product.cs",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Product.cs",
-              "RelativeToolTip": "VisionTech Anbar Project\\ViewModel\\Product.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAwwBgAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-12T11:31:48.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "Ophrys.cs [Design]",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Ophrys.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\Ophrys.cs",
@@ -193,32 +135,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "PackageExtention.cs",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
-              "RelativeToolTip": "VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAADgvysAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "EditProductForm.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\EditProductForm.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\EditProductForm.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\EditProductForm.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\EditProductForm.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAcwGQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T12:37:49.262Z",
+              "WhenOpened": "2024-11-15T13:13:31.047Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AddProductForm.cs [Design]",
-              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs",
-              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddProductForm.cs",
-              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs [Design]",
-              "RelativeToolTip": "VisionTech Anbar Project\\AddProductForm.cs [Design]",
+              "DocumentIndex": 3,
+              "Title": "JsonManager.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\JsonManager.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\Utilts\\JsonManager.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\JsonManager.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\Utilts\\JsonManager.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAmwMIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T23:20:04.123Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-12T11:31:46.689Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 4,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Product.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Product.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Product.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\ViewModel\\Product.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T11:31:48.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "db.json",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AppData\\db.json",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AppData\\db.json",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AppData\\db.json",
+              "RelativeToolTip": "VisionTech Anbar Project\\AppData\\db.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-13T14:10:57.298Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddColumnForm.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddColumnForm.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\AddColumnForm.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAmwCgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T11:31:46.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "categories.json",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AppData\\categories.json",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\AppData\\categories.json",
@@ -231,7 +213,58 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddProductForm.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddProductForm.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\AddProductForm.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T11:34:58.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Package.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Package.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Package.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Package.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\ViewModel\\Package.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA1wB0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T20:56:53.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "PackageExtention.cs",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
+              "RelativeToolTip": "VisionTech Anbar Project\\Utilts\\PackageExtention.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAADgvysAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-15T12:37:49.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AddProductForm.cs [Design]",
+              "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs",
+              "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddProductForm.cs",
+              "ToolTip": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddProductForm.cs [Design]",
+              "RelativeToolTip": "VisionTech Anbar Project\\AddProductForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T23:20:04.123Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "AddColumnForm.cs [Design]",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddColumnForm.cs",
@@ -243,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "ImageConverter.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Utilts\\ImageConverter.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\Utilts\\ImageConverter.cs",
@@ -255,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\Program.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\Program.cs",
@@ -267,7 +300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "AddColumnForm.Designer.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\AddColumnForm.Designer.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\AddColumnForm.Designer.cs",
@@ -280,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Categories\\Category.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Categories\\Category.cs",
@@ -292,7 +325,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "MainType.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Categories\\MainType.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Categories\\MainType.cs",
@@ -304,7 +337,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "SubType.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Categories\\SubType.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Categories\\SubType.cs",
@@ -316,7 +349,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "SubCategory.cs",
               "DocumentMoniker": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\ViewModel\\Categories\\SubCategory.cs",
               "RelativeDocumentMoniker": "VisionTech Anbar Project\\ViewModel\\Categories\\SubCategory.cs",

@@ -1,0 +1,40 @@
+2024-11-16 02:01:37.545 +04:00 [INF] Application Starting
+2024-11-16 02:01:40.327 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:01:40.654 +04:00 [INF] JSON file successfully loaded. Total records found: 4
+2024-11-16 02:01:40.675 +04:00 [INF] girdi
+2024-11-16 02:01:40.680 +04:00 [INF] girdi
+2024-11-16 02:01:40.681 +04:00 [INF] girdi
+2024-11-16 02:01:40.682 +04:00 [INF] girdi
+2024-11-16 02:01:52.383 +04:00 [INF] Attempting to add a new package with ID 5576576.
+2024-11-16 02:01:52.383 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:01:52.384 +04:00 [INF] JSON file successfully loaded. Total records found: 4
+2024-11-16 02:01:52.384 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:01:52.414 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-16 02:01:52.414 +04:00 [INF] Package with ID 5576576 successfully added.
+2024-11-16 02:01:52.429 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:01:52.429 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-16 02:01:52.443 +04:00 [INF] girdi
+2024-11-16 02:01:52.496 +04:00 [INF] girdi
+2024-11-16 02:01:52.542 +04:00 [INF] girdi
+2024-11-16 02:01:52.586 +04:00 [INF] girdi
+2024-11-16 02:01:52.646 +04:00 [INF] girdi
+2024-11-16 02:02:01.888 +04:00 [INF] Attempting to retrieve package with ID 5576576.
+2024-11-16 02:02:01.888 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:02:01.888 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-16 02:02:01.888 +04:00 [INF] Package with ID 5576576 successfully retrieved.
+2024-11-16 02:02:01.888 +04:00 [INF] Product with ID f650ea83-d520-46ce-a346-4c1f5bbf4a96 added to package ID 5576576.
+2024-11-16 02:02:01.889 +04:00 [INF] Attempting to update package with ID 5576576.
+2024-11-16 02:02:01.889 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:02:01.889 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-16 02:02:01.889 +04:00 [INF] Package with ID 5576576 has been updated.
+2024-11-16 02:02:01.889 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:02:01.889 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-16 02:02:01.889 +04:00 [INF] Changes successfully saved after updating package with ID 5576576.
+2024-11-16 02:02:01.889 +04:00 [INF] Changes saved for package ID 5576576.
+2024-11-16 02:02:01.921 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-16 02:02:01.921 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-16 02:02:01.936 +04:00 [INF] girdi
+2024-11-16 02:02:01.999 +04:00 [INF] girdi
+2024-11-16 02:02:02.044 +04:00 [INF] girdi
+2024-11-16 02:02:02.092 +04:00 [INF] girdi
+2024-11-16 02:02:02.133 +04:00 [INF] girdi

@@ -18,7 +18,6 @@ namespace VisionTech_Anbar_Project
 {
     public partial class Ophrys : MetroSetForm
     {
-        private List<Package> Packages = new List<Package>();
 
         TableLayoutPanel mainTableLayoutPanel;
         public Ophrys()
@@ -76,7 +75,7 @@ namespace VisionTech_Anbar_Project
                 Panel itemPanel = CreateItemPanel(item);
                 mainTableLayoutPanel.RowCount++;
                 mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
-
+                Log.Information("girdi");
                 Panel subItemsPanel = CreateSubItemsPanel(item.Products);
                 mainTableLayoutPanel.RowCount++;
                 mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
@@ -184,6 +183,7 @@ namespace VisionTech_Anbar_Project
             Panel subItemsPanel = new Panel
             {
                 Height = 100,
+                AutoScroll = true,
                 BorderStyle = BorderStyle.None,
                 Padding = new Padding(5),
                 Dock = DockStyle.Top
