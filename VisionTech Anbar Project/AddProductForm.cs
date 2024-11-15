@@ -97,7 +97,7 @@ namespace VisionTech_Anbar_Project
             string Description;
             string Quantity;
 
-            int id;
+            string id;
 
             Name = textBox1.Text;
             Description = textBox2.Text;
@@ -110,7 +110,7 @@ namespace VisionTech_Anbar_Project
                                          Description, Quantity);
             else
             {
-                id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
+                id = Guid.NewGuid().ToString();
                 NewProduct = new Product(id, Name, Description, Quantity);
             }
 

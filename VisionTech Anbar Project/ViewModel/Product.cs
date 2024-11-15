@@ -9,7 +9,7 @@ namespace VisionTech_Anbar_Project.ViewModel
 {
     public class Product
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string Quantity { get; set; }
@@ -20,7 +20,7 @@ namespace VisionTech_Anbar_Project.ViewModel
             Quantity = string.Empty;
         }
 
-        public Product(int id, string name, string description, string quantity)
+        public Product(string id, string name, string description, string quantity)
         {
             Id = id;
             Name = name;

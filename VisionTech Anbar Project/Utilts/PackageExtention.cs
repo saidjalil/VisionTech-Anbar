@@ -19,7 +19,7 @@ namespace VisionTech_Anbar_Project.Utilts
             return package.Products;
         }
 
-        public static Product GetProduct(this Package package, int productId)
+        public static Product GetProduct(this Package package, string productId)
         {
             var prod = package.Products.FirstOrDefault(x => x.Id == productId);
 
@@ -31,7 +31,7 @@ namespace VisionTech_Anbar_Project.Utilts
             return prod;
         }
 
-        public static void DeleteProduct(this Package package, int productId)
+        public static void DeleteProduct(this Package package, string productId)
         {
             var prod = package.Products.FirstOrDefault(x => x.Id == productId);
             if (prod == null)

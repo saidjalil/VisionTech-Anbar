@@ -83,19 +83,20 @@ namespace VisionTech_Anbar_Project
             string packageId;
             DateTime createdDate;
             bool exported = false;
-            int id;
+            List<Product> products = new List<Product>();
+            //int id;
 
             packageId = textBox1.Text;
             createdDate = DateTime.Parse(dateTimePicker1.Text.ToString());
 
 
             if (IsEdit)
-                EditedPackage = new Package(OriginalPackage.Id, packageId,
-                                         createdDate, exported);
+                EditedPackage = new Package(packageId,
+                                         createdDate, exported, products);
             else
             {
-                id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
-                NewPackage = new Package(id, packageId, createdDate, exported);
+                //id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
+                NewPackage = new Package(packageId, createdDate, exported, products);
             }
 
         }

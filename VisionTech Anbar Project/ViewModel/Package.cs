@@ -9,7 +9,6 @@ namespace VisionTech_Anbar_Project.ViewModel
 {
     public class Package
     {
-        public int Id { get; set; }
         public string PackageId { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -22,14 +21,15 @@ namespace VisionTech_Anbar_Project.ViewModel
             PackageId = string.Empty;
             CreatedDate = DateTime.MinValue;
             Exported = false;
+            Products = new List<Product>();
         }
 
-        public Package(int id, string packageId, DateTime createdDate, bool exported)
+        public Package(string packageId, DateTime createdDate, bool exported, List<Product> products)
         {
-            Id = id;
             PackageId = packageId;
             CreatedDate = createdDate;
             Exported = exported;
+            Products = products;
         }
 
         public void Copy(Package package)
@@ -37,6 +37,7 @@ namespace VisionTech_Anbar_Project.ViewModel
             PackageId = package.PackageId;
             CreatedDate = package.CreatedDate;
             Exported = package.Exported;
+            Products = package.Products;
         }
 
 
