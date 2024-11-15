@@ -1,0 +1,57 @@
+2024-11-14 17:13:31.850 +04:00 [INF] Application Starting
+2024-11-14 17:13:32.263 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:13:32.499 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-14 17:13:37.236 +04:00 [INF] Attempting to add a new package with ID 23425.
+2024-11-14 17:13:37.237 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:13:37.237 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-14 17:13:37.237 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:13:37.269 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-14 17:13:37.269 +04:00 [INF] Package with ID 23425 successfully added.
+2024-11-14 17:13:46.659 +04:00 [INF] Application Starting
+2024-11-14 17:13:47.100 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:13:47.527 +04:00 [INF] JSON file successfully loaded. Total records found: 4
+2024-11-14 17:15:35.650 +04:00 [INF] Application Starting
+2024-11-14 17:15:36.294 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:15:36.514 +04:00 [INF] JSON file successfully loaded. Total records found: 4
+2024-11-14 17:15:56.366 +04:00 [INF] Application Starting
+2024-11-14 17:15:56.594 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:15:57.024 +04:00 [INF] JSON file successfully loaded. Total records found: 4
+2024-11-14 17:16:00.890 +04:00 [INF] Attempting to add a new package with ID 1234124.
+2024-11-14 17:16:00.890 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:16:00.891 +04:00 [INF] JSON file successfully loaded. Total records found: 4
+2024-11-14 17:16:00.891 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:16:00.922 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-14 17:16:00.922 +04:00 [INF] Package with ID 1234124 successfully added.
+2024-11-14 17:18:32.049 +04:00 [INF] Application Starting
+2024-11-14 17:18:32.627 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:18:32.840 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-14 17:18:37.978 +04:00 [INF] Attempting to add a new package with ID 234234.
+2024-11-14 17:18:37.978 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:18:37.978 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-14 17:18:37.978 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:18:38.008 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-14 17:18:38.008 +04:00 [INF] Package with ID 234234 successfully added.
+2024-11-14 17:18:38.021 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:18:38.021 +04:00 [INF] JSON file successfully loaded. Total records found: 6
+2024-11-14 17:19:51.516 +04:00 [INF] Attempting to add a new package with ID 12313.
+2024-11-14 17:19:51.516 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:19:51.516 +04:00 [INF] JSON file successfully loaded. Total records found: 6
+2024-11-14 17:19:51.516 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:19:51.516 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-14 17:19:51.517 +04:00 [INF] Package with ID 12313 successfully added.
+2024-11-14 17:19:51.539 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:19:51.539 +04:00 [INF] JSON file successfully loaded. Total records found: 7
+2024-11-14 17:20:16.375 +04:00 [INF] Attempting to add a new package with ID 12321.
+2024-11-14 17:20:16.375 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:20:16.375 +04:00 [INF] JSON file successfully loaded. Total records found: 7
+2024-11-14 17:20:16.375 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:20:16.375 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-14 17:20:16.375 +04:00 [INF] Package with ID 12321 successfully added.
+2024-11-14 17:20:16.403 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:20:16.404 +04:00 [INF] JSON file successfully loaded. Total records found: 8
+2024-11-14 17:38:10.210 +04:00 [INF] Application Starting
+2024-11-14 17:38:10.605 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:38:10.856 +04:00 [INF] JSON file successfully loaded. Total records found: 8
+2024-11-14 17:39:27.412 +04:00 [INF] Application Starting
+2024-11-14 17:39:27.647 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-14 17:39:27.850 +04:00 [INF] JSON file successfully loaded. Total records found: 8

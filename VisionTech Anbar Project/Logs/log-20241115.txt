@@ -1,0 +1,64 @@
+2024-11-15 02:47:59.773 +04:00 [INF] Application Starting
+2024-11-15 02:48:00.405 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 02:48:00.694 +04:00 [INF] JSON file successfully loaded. Total records found: 8
+2024-11-15 02:54:13.850 +04:00 [INF] Application Starting
+2024-11-15 02:54:14.438 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 02:54:14.735 +04:00 [INF] JSON file successfully loaded. Total records found: 8
+2024-11-15 02:54:41.278 +04:00 [INF] Application Starting
+2024-11-15 02:54:41.518 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 02:54:41.795 +04:00 [INF] JSON file successfully loaded. Total records found: 8
+2024-11-15 02:54:46.872 +04:00 [INF] Attempting to add a new package with ID 241.
+2024-11-15 02:54:46.872 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 02:54:46.873 +04:00 [INF] JSON file successfully loaded. Total records found: 8
+2024-11-15 02:54:46.873 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 02:54:46.922 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-15 02:54:46.922 +04:00 [INF] Package with ID 241 successfully added.
+2024-11-15 02:54:46.952 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 02:54:46.952 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:15:15.136 +04:00 [INF] Application Starting
+2024-11-15 03:15:15.878 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:15:16.122 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:18:30.942 +04:00 [INF] Application Starting
+2024-11-15 03:18:31.512 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:31.717 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:18:38.492 +04:00 [INF] Attempting to retrieve package with ID PKG001.
+2024-11-15 03:18:38.492 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:38.493 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:18:38.493 +04:00 [INF] Package with ID PKG001 successfully retrieved.
+2024-11-15 03:18:38.493 +04:00 [INF] Product with ID 15031838 added to package ID PKG001.
+2024-11-15 03:18:38.493 +04:00 [INF] Attempting to update package with ID PKG001.
+2024-11-15 03:18:38.493 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:38.494 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:18:38.494 +04:00 [INF] Package with ID PKG001 has been updated.
+2024-11-15 03:18:38.494 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:38.525 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-15 03:18:38.525 +04:00 [INF] Changes successfully saved after updating package with ID PKG001.
+2024-11-15 03:18:38.525 +04:00 [INF] Changes saved for package ID PKG001.
+2024-11-15 03:18:38.553 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:38.553 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:18:56.345 +04:00 [INF] Attempting to retrieve package with ID PKG002.
+2024-11-15 03:18:56.345 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:56.345 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:18:56.345 +04:00 [INF] Package with ID PKG002 successfully retrieved.
+2024-11-15 03:18:56.345 +04:00 [INF] Product with ID 15031856 added to package ID PKG002.
+2024-11-15 03:18:56.345 +04:00 [INF] Attempting to update package with ID PKG002.
+2024-11-15 03:18:56.345 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:56.346 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:18:56.346 +04:00 [INF] Package with ID PKG002 has been updated.
+2024-11-15 03:18:56.346 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:56.346 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-15 03:18:56.346 +04:00 [INF] Changes successfully saved after updating package with ID PKG002.
+2024-11-15 03:18:56.346 +04:00 [INF] Changes saved for package ID PKG002.
+2024-11-15 03:18:56.383 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:18:56.383 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:19:05.148 +04:00 [INF] Attempting to add a new package with ID 142.
+2024-11-15 03:19:05.148 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:19:05.148 +04:00 [INF] JSON file successfully loaded. Total records found: 9
+2024-11-15 03:19:05.149 +04:00 [INF] Attempting to save changes to JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:19:05.149 +04:00 [INF] Changes successfully saved to JSON file at D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-15 03:19:05.149 +04:00 [INF] Package with ID 142 successfully added.
+2024-11-15 03:19:05.188 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:19:05.188 +04:00 [INF] JSON file successfully loaded. Total records found: 10
+2024-11-15 03:34:54.679 +04:00 [INF] Application Starting
+2024-11-15 03:34:55.442 +04:00 [INF] Attempting to load data from JSON file at path: D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-15 03:34:55.864 +04:00 [INF] JSON file successfully loaded. Total records found: 10

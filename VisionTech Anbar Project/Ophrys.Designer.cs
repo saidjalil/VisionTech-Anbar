@@ -33,7 +33,6 @@
             pictureBox1 = new PictureBox();
             button1 = new Button();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             contextMenuStrip1 = new ContextMenuStrip(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -41,7 +40,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 46);
+            pictureBox1.Location = new Point(15, 24);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(192, 66);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -86,18 +85,6 @@
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(0, 142);
-            flowLayoutPanel1.Margin = new Padding(0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(644, 235);
-            flowLayoutPanel1.TabIndex = 4;
-            flowLayoutPanel1.WrapContents = false;
-            // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
@@ -106,14 +93,12 @@
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 377);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(metroSetControlBox1);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Ophrys";
             Text = "Ophrys";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -126,7 +111,6 @@
         private PictureBox pictureBox1;
         private Button button1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private ContextMenuStrip contextMenuStrip1;
     }
 }

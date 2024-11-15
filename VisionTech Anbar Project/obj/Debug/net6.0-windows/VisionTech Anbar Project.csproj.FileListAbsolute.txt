@@ -53,3 +53,6 @@ E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\n
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTe.FDD264DC.Up2Date
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\Serilog.dll
 E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\Serilog.Sinks.File.dll
+D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\Serilog.dll
+D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\Serilog.Sinks.File.dll
+D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.AddProductForm.resources

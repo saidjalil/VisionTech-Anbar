@@ -1,5 +1,4 @@
 ﻿using MetroSet_UI.Forms;
-using Microsoft.VisualBasic.Devices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,50 +12,62 @@ using VisionTech_Anbar_Project.ViewModel;
 
 namespace VisionTech_Anbar_Project
 {
-    public partial class AddColumnForm : MetroSetForm
+    public partial class AddProductForm : MetroSetForm
     {
         private bool IsEdit;
-        private Package OriginalPackage;
-        public Package EditedPackage;
-        public Package NewPackage;
+        private Product OriginalProduct;
+        public Product EditedProduct;
+        public Product NewProduct;
         public bool DataSaved;
-        public AddColumnForm()
+        public AddProductForm()
         {
             InitializeComponent();
         }
-        private AddColumnForm(Package package)
+
+        private AddProductForm(Product product)
         {
             InitializeComponent();
             IsEdit = true;
-            OriginalPackage = package;
+            OriginalProduct = product;
         }
+
         private void AddEditMovie_Load(object sender, EventArgs e)
         {
             DataSaved = false;
+
             if (IsEdit)
             {
-                PopulateOriginalPackage();
+                PopulateOriginalProduct();
                 this.Text = "Edit";
             }
+
             else
             {
                 ClearInput();
                 this.Text = "Add";
             }
         }
-        private void PopulateOriginalPackage()
+
+        private void PopulateOriginalProduct()
         {
-            textBox1.Text = OriginalPackage.PackageId.ToString();
-            dateTimePicker1.Text = OriginalPackage.CreatedDate.ToString();
+            textBox1.Text = OriginalProduct.Name.ToString();
+            textBox2.Text = OriginalProduct.Description.ToString();
+            textBox3.Text = OriginalProduct.Quantity.ToString();
+
         }
+
         private void ClearInput()
         {
             textBox1.Clear();
-            dateTimePicker1.Text = DateTime.Now.ToString();
+            textBox2.Clear();
+            textBox3.Clear();
+
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             List<String> errors;
+
             errors = ValidateInput();
 
             if (errors.Count > 0)
@@ -64,10 +75,12 @@ namespace VisionTech_Anbar_Project
                 ShowErrors(errors, 5);
                 return;
             }
+
             StoreInput();
             DataSaved = true;
             this.Close();
         }
+
         private List<string> ValidateInput()
         {
             List<String> errors = new List<string>();
@@ -80,22 +93,25 @@ namespace VisionTech_Anbar_Project
 
         private void StoreInput()
         {
-            string packageId;
-            DateTime createdDate;
-            bool exported = false;
+            string Name;
+            string Description;
+            string Quantity;
+
             int id;
 
-            packageId = textBox1.Text;
-            createdDate = DateTime.Parse(dateTimePicker1.Text.ToString());
+            Name = textBox1.Text;
+            Description = textBox2.Text;
+            Quantity = textBox3.Text;
+
 
 
             if (IsEdit)
-                EditedPackage = new Package(OriginalPackage.Id, packageId,
-                                         createdDate, exported);
+                EditedProduct = new Product(OriginalProduct.Id, Name,
+                                         Description, Quantity);
             else
             {
                 id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
-                NewPackage = new Package(id, packageId, createdDate, exported);
+                NewProduct = new Product(id, Name, Description, Quantity);
             }
 
         }
@@ -120,18 +136,20 @@ namespace VisionTech_Anbar_Project
             MessageBox.Show(text, "", buttons, icon);
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-                // Allow control keys like Backspace, Enter, and Tab
-                if (char.IsControl(e.KeyChar))
-                {
-                    return;
-                }
-                // Check if the key is a number
-                if (!char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true; 
-                }
+            // Allow control keys like Backspace, Enter, and Tab
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+            // Check if the key is a number
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
+
     }
 }
+
