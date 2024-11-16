@@ -307,5 +307,44 @@ namespace VisionTech_Anbar_Project.Utilts
             //bilinmir hele
         }
 
+        public static Category GetCategories()
+        {
+            var path = Path.Combine(FileManager.GetAppDataPath(), "categories.json");
+
+            if (!File.Exists(path))
+            {
+                Log.Error("The JSON file at path {FilePath} does not exist.", path);
+                return new Category(); // Return an empty Category object to avoid null references.
+            }
+
+            try
+            {
+                Log.Information("Attempting to load categories from JSON file at path: {FilePath}.", path);
+
+                string json = File.ReadAllText(path);
+                var categories = JsonConvert.DeserializeObject<Category>(json);
+
+                if (categories == null)
+                {
+                    Log.Warning("No categories found in the JSON file at path {FilePath}. Returning an empty Category object.", path);
+                    return new Category();
+                }
+
+                Log.Information("JSON file successfully loaded. Total subcategories found: {TotalRecords}.", categories.SubCategories?.Count ?? 0);
+                return categories;
+            }
+            catch (JsonException jsonEx)
+            {
+                Log.Error(jsonEx, "Error deserializing JSON file at path {FilePath}. The file might be corrupted or in an invalid format.", path);
+                return new Category(); // Return an empty Category object in case of deserialization issues.
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "An unexpected error occurred while loading categories from the JSON file at path {FilePath}.", path);
+                return new Category(); // Return an empty Category object for any other unexpected errors.
+            }
+        }
+
+
     }
 }

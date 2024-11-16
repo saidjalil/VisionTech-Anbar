@@ -8,6 +8,7 @@ namespace VisionTech_Anbar_Project.ViewModel.Categories
 {
     public class SubCategory
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public List<MainType> mainTypes { get; set; }
     }

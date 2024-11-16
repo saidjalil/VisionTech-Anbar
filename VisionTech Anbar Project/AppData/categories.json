@@ -1,54 +1,72 @@
 {
-  "SubCategories": [
+  "Categories": [
     {
-      "Name": "Electronics",
-      "mainTypes": [
+      "SubCategories": [
         {
-          "Name": "Phones",
-          "SubTypes": [
+          "Id": "4fa4d9e1-f01e-4b67-9f0e-ef7cf6e3b5ad",
+          "Name": "Electronics",
+          "MainTypes": [
             {
-              "Name": "Smartphone"
+              "Id": "dcb7df1b-c3b4-4f91-83e6-4c9015d7782e",
+              "Name": "Smartphones",
+              "SubTypes": [
+                {
+                  "Id": "27ec0e88-df1b-4235-8dbd-b1c6010d8c08",
+                  "Name": "Android"
+                },
+                {
+                  "Id": "f1a7b729-5531-47ab-bcd9-7c25c8e729cd",
+                  "Name": "iOS"
+                }
+              ]
             },
             {
-              "Name": "Feature Phone"
+              "Id": "b2a1c83f-b302-4977-b7f9-1e5b1dc98109",
+              "Name": "Laptops",
+              "SubTypes": [
+                {
+                  "Id": "a3a5a51d-ff44-4894-a7de-0f7d7b28b229",
+                  "Name": "Windows"
+                },
+                {
+                  "Id": "45b77d2d-dc2a-45b8-b702-5a5cd3b61f2f",
+                  "Name": "Mac"
+                }
+              ]
             }
           ]
         },
         {
-          "Name": "Laptops",
-          "SubTypes": [
+          "Id": "c7d6e9f5-06f5-4b49-bf97-184524ae0038",
+          "Name": "Clothing",
+          "MainTypes": [
             {
-              "Name": "Gaming Laptop"
+              "Id": "61732e59-3b38-4e82-905c-1d69c6b76e1a",
+              "Name": "Men",
+              "SubTypes": [
+                {
+                  "Id": "d9b5391c-778d-472b-9c61-84542cd789bc",
+                  "Name": "Shirts"
+                },
+                {
+                  "Id": "f18a39ab-5588-4789-a98c-dc93c9d59b67",
+                  "Name": "Pants"
+                }
+              ]
             },
             {
-              "Name": "Ultrabook"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Name": "Home Appliances",
-      "mainTypes": [
-        {
-          "Name": "Refrigerators",
-          "SubTypes": [
-            {
-              "Name": "Double Door"
-            },
-            {
-              "Name": "Single Door"
-            }
-          ]
-        },
-        {
-          "Name": "Washing Machines",
-          "SubTypes": [
-            {
-              "Name": "Front Load"
-            },
-            {
-              "Name": "Top Load"
+              "Id": "7d5f2b65-930b-4a91-a0a3-9216fbb99bb9",
+              "Name": "Women",
+              "SubTypes": [
+                {
+                  "Id": "4523a6a5-876d-41e6-b929-59a3b6789146",
+                  "Name": "Dresses"
+                },
+                {
+                  "Id": "b54d8d9e-b87e-4e9a-b3b4-95b523ae7d85",
+                  "Name": "Skirts"
+                }
+              ]
             }
           ]
         }
