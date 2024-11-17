@@ -307,5 +307,115 @@ namespace VisionTech_Anbar_Project.Utilts
             //bilinmir hele
         }
 
+        public static Category GetCategories()
+        {
+            var path = Path.Combine(FileManager.GetAppDataPath(), "categories.json");
+
+            if (!File.Exists(path))
+            {
+                Log.Error("The JSON file at path {FilePath} does not exist.", path);
+                return new Category(); // Return an empty Category object to avoid null references.
+            }
+
+            try
+            {
+                Log.Information("Attempting to load categories from JSON file at path: {FilePath}.", path);
+
+                string json = File.ReadAllText(path);
+                var categories = JsonConvert.DeserializeObject<Category>(json);
+
+                if (categories == null)
+                {
+                    Log.Warning("No categories found in the JSON file at path {FilePath}. Returning an empty Category object.", path);
+                    return new Category();
+                }
+
+                Log.Information("JSON file successfully loaded. Total subcategories found: {TotalRecords}.", categories.SubCategories?.Count ?? 0);
+                return categories;
+            }
+            catch (JsonException jsonEx)
+            {
+                Log.Error(jsonEx, "Error deserializing JSON file at path {FilePath}. The file might be corrupted or in an invalid format.", path);
+                return new Category(); // Return an empty Category object in case of deserialization issues.
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "An unexpected error occurred while loading categories from the JSON file at path {FilePath}.", path);
+                return new Category(); // Return an empty Category object for any other unexpected errors.
+            }
+        }
+
+
+        public static List<ProductSample> GetProductSamples()
+        {
+            var path = Path.Combine(FileManager.GetAppDataPath(), "productSample.json");
+
+            Log.Information("Attempting to load data from JSON file at path: {FilePath}", path);
+
+            try
+            {
+                string json = File.ReadAllText(path);
+
+                var samples = JsonConvert.DeserializeObject<List<ProductSample>>(json);
+
+                if (samples == null)
+                {
+                    Log.Warning("No product samples found in the JSON file at path: {FilePath}. Returning an empty list.", path);
+                    return new List<ProductSample>();
+                }
+
+                Log.Information("JSON file successfully loaded. Total records found: {TotalRecords}", samples.Count);
+                return samples;
+            }
+            catch (FileNotFoundException ex)
+            {
+                Log.Error(ex, "The JSON file at path {FilePath} was not found.", path);
+                throw;
+            }
+            catch (JsonException ex)
+            {
+                Log.Error(ex, "Failed to deserialize the JSON file at path {FilePath}.", path);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "An unexpected error occurred while loading packages from the JSON file at path {FilePath}.", path);
+                throw;
+            }
+        }
+
+        public static ProductSample GetProductSampleById(string productId)
+        {
+            if (string.IsNullOrWhiteSpace(productId))
+            {
+                Log.Error("Invalid productId provided. The productId is null, empty, or whitespace.");
+                return null;
+            }
+
+            try
+            {
+                Log.Information("Fetching product sample with ID: {ProductId}.", productId);
+
+                var list = GetProductSamples();
+                var productSample = list.FirstOrDefault(p => p.Id == productId);
+
+                if (productSample == null)
+                {
+                    Log.Warning("No product sample found with ID: {ProductId}.", productId);
+                }
+                else
+                {
+                    Log.Information("Product sample with ID: {ProductId} successfully retrieved.", productId);
+                }
+
+                return productSample;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "An error occurred while fetching product sample with ID: {ProductId}.", productId);
+                return null;
+            }
+        }
+
     }
 }
