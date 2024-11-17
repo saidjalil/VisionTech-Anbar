@@ -346,5 +346,76 @@ namespace VisionTech_Anbar_Project.Utilts
         }
 
 
+        public static List<ProductSample> GetProductSamples()
+        {
+            var path = Path.Combine(FileManager.GetAppDataPath(), "productSample.json");
+
+            Log.Information("Attempting to load data from JSON file at path: {FilePath}", path);
+
+            try
+            {
+                string json = File.ReadAllText(path);
+
+                var samples = JsonConvert.DeserializeObject<List<ProductSample>>(json);
+
+                if (samples == null)
+                {
+                    Log.Warning("No product samples found in the JSON file at path: {FilePath}. Returning an empty list.", path);
+                    return new List<ProductSample>();
+                }
+
+                Log.Information("JSON file successfully loaded. Total records found: {TotalRecords}", samples.Count);
+                return samples;
+            }
+            catch (FileNotFoundException ex)
+            {
+                Log.Error(ex, "The JSON file at path {FilePath} was not found.", path);
+                throw;
+            }
+            catch (JsonException ex)
+            {
+                Log.Error(ex, "Failed to deserialize the JSON file at path {FilePath}.", path);
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "An unexpected error occurred while loading packages from the JSON file at path {FilePath}.", path);
+                throw;
+            }
+        }
+
+        public static ProductSample GetProductSampleById(string productId)
+        {
+            if (string.IsNullOrWhiteSpace(productId))
+            {
+                Log.Error("Invalid productId provided. The productId is null, empty, or whitespace.");
+                return null;
+            }
+
+            try
+            {
+                Log.Information("Fetching product sample with ID: {ProductId}.", productId);
+
+                var list = GetProductSamples();
+                var productSample = list.FirstOrDefault(p => p.Id == productId);
+
+                if (productSample == null)
+                {
+                    Log.Warning("No product sample found with ID: {ProductId}.", productId);
+                }
+                else
+                {
+                    Log.Information("Product sample with ID: {ProductId} successfully retrieved.", productId);
+                }
+
+                return productSample;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "An error occurred while fetching product sample with ID: {ProductId}.", productId);
+                return null;
+            }
+        }
+
     }
 }
