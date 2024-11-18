@@ -12,10 +12,12 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\celil\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\celil\\.nuget\\packages"
+      "C:\\Users\\Tural\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Tural\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
+      "System.Reflection.NullabilityInfoContext.IsSupported": true,
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }
   }

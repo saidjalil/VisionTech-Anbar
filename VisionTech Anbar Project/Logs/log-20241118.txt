@@ -1,0 +1,92 @@
+2024-11-18 01:27:24.141 +04:00 [INF] Application Starting
+2024-11-18 01:27:24.389 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:24.754 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:28.197 +04:00 [INF] Attempting to delete package with ID PKG001.
+2024-11-18 01:27:28.197 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:28.198 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:28.198 +04:00 [INF] Package with ID PKG001 removed from the list.
+2024-11-18 01:27:28.208 +04:00 [INF] Attempting to save changes to JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:28.259 +04:00 [INF] Changes successfully saved to JSON file at E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-18 01:27:28.259 +04:00 [INF] Changes successfully saved after deleting package with ID PKG001.
+2024-11-18 01:27:28.269 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:28.270 +04:00 [INF] JSON file successfully loaded. Total records found: 2
+2024-11-18 01:27:34.326 +04:00 [INF] Attempting to add a new package with ID 7777.
+2024-11-18 01:27:34.326 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:34.326 +04:00 [INF] JSON file successfully loaded. Total records found: 2
+2024-11-18 01:27:34.326 +04:00 [INF] Attempting to save changes to JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:34.327 +04:00 [INF] Changes successfully saved to JSON file at E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-18 01:27:34.327 +04:00 [INF] Package with ID 7777 successfully added.
+2024-11-18 01:27:34.336 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:34.336 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:41.893 +04:00 [INF] Attempting to retrieve package with ID 7777.
+2024-11-18 01:27:41.893 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:41.894 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:41.894 +04:00 [INF] Package with ID 7777 successfully retrieved.
+2024-11-18 01:27:41.894 +04:00 [INF] Product with ID 991bd620-517f-434c-9077-04c6ae815c96 added to package ID 7777.
+2024-11-18 01:27:41.895 +04:00 [INF] Attempting to update package with ID 7777.
+2024-11-18 01:27:41.895 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:41.895 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:41.895 +04:00 [INF] Package with ID 7777 has been updated.
+2024-11-18 01:27:41.895 +04:00 [INF] Attempting to save changes to JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:41.896 +04:00 [INF] Changes successfully saved to JSON file at E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-18 01:27:41.896 +04:00 [INF] Changes successfully saved after updating package with ID 7777.
+2024-11-18 01:27:41.896 +04:00 [INF] Changes saved for package ID 7777.
+2024-11-18 01:27:41.905 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:41.905 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:58.306 +04:00 [INF] Attempting to retrieve package with ID 7777.
+2024-11-18 01:27:58.306 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:58.307 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:58.307 +04:00 [INF] Package with ID 7777 successfully retrieved.
+2024-11-18 01:27:58.307 +04:00 [INF] Product with ID 99d76f72-5985-45c0-84fe-4288cbd18747 added to package ID 7777.
+2024-11-18 01:27:58.307 +04:00 [INF] Attempting to update package with ID 7777.
+2024-11-18 01:27:58.307 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:58.307 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:27:58.307 +04:00 [INF] Package with ID 7777 has been updated.
+2024-11-18 01:27:58.307 +04:00 [INF] Attempting to save changes to JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:58.308 +04:00 [INF] Changes successfully saved to JSON file at E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-18 01:27:58.308 +04:00 [INF] Changes successfully saved after updating package with ID 7777.
+2024-11-18 01:27:58.308 +04:00 [INF] Changes saved for package ID 7777.
+2024-11-18 01:27:58.319 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:27:58.320 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:31:26.594 +04:00 [INF] Application Starting
+2024-11-18 01:31:26.782 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:31:26.982 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:34:28.466 +04:00 [INF] Attempting to delete package with ID 7777.
+2024-11-18 01:34:28.466 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:34:28.467 +04:00 [INF] JSON file successfully loaded. Total records found: 3
+2024-11-18 01:34:28.467 +04:00 [INF] Package with ID 7777 removed from the list.
+2024-11-18 01:34:28.467 +04:00 [INF] Attempting to save changes to JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:34:28.506 +04:00 [INF] Changes successfully saved to JSON file at E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-18 01:34:28.506 +04:00 [INF] Changes successfully saved after deleting package with ID 7777.
+2024-11-18 01:34:28.519 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:34:28.520 +04:00 [INF] JSON file successfully loaded. Total records found: 2
+2024-11-18 01:34:37.293 +04:00 [INF] Attempting to retrieve package with ID PKG002.
+2024-11-18 01:34:37.293 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:34:37.294 +04:00 [INF] JSON file successfully loaded. Total records found: 2
+2024-11-18 01:34:37.294 +04:00 [INF] Package with ID PKG002 successfully retrieved.
+2024-11-18 01:34:37.295 +04:00 [INF] Product with ID f9f47b83-5834-4e32-aa5c-fe57ff4c1a42 added to package ID PKG002.
+2024-11-18 01:34:37.295 +04:00 [INF] Attempting to update package with ID PKG002.
+2024-11-18 01:34:37.295 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:34:37.296 +04:00 [INF] JSON file successfully loaded. Total records found: 2
+2024-11-18 01:34:37.297 +04:00 [INF] Package with ID PKG002 has been updated.
+2024-11-18 01:34:37.297 +04:00 [INF] Attempting to save changes to JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:34:37.297 +04:00 [INF] Changes successfully saved to JSON file at E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json.
+2024-11-18 01:34:37.297 +04:00 [INF] Changes successfully saved after updating package with ID PKG002.
+2024-11-18 01:34:37.297 +04:00 [INF] Changes saved for package ID PKG002.
+2024-11-18 01:34:37.306 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:34:37.306 +04:00 [INF] JSON file successfully loaded. Total records found: 2
+2024-11-18 01:38:55.196 +04:00 [INF] Application Starting
+2024-11-18 01:38:55.406 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:38:55.609 +04:00 [INF] JSON file successfully loaded. Total records found: 2
+2024-11-18 01:40:06.496 +04:00 [INF] Application Starting
+2024-11-18 01:40:06.779 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:40:06.982 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-18 01:44:16.867 +04:00 [INF] Application Starting
+2024-11-18 01:44:17.111 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:44:17.333 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-18 01:46:05.775 +04:00 [INF] Application Starting
+2024-11-18 01:46:06.054 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 01:46:06.284 +04:00 [INF] JSON file successfully loaded. Total records found: 5
+2024-11-18 21:12:42.728 +04:00 [INF] Application Starting
+2024-11-18 21:12:43.076 +04:00 [INF] Attempting to load data from JSON file at path: E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\AppData\db.json
+2024-11-18 21:12:43.603 +04:00 [INF] JSON file successfully loaded. Total records found: 3

@@ -56,3 +56,4 @@ E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\n
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\Serilog.dll
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\Serilog.Sinks.File.dll
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.AddProductForm.resources
+E:\VisionTech\VissionAnbar\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.AddProductForm.resources
