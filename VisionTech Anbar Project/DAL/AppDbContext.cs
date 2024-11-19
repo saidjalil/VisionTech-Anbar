@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisionTech_Anbar_Project.AppDb
+namespace VisionTech_Anbar_Project.DAL
 {
     public class AppDbContext : DbContext
     {
