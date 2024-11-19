@@ -13,7 +13,7 @@ namespace VisionTech_Anbar_Project.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 4. Configure Connection String
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Spotify11;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=VisionTechAnbar;Trusted_Connection=True;");
         }
 
 
