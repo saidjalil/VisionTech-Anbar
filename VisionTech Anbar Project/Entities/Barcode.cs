@@ -9,8 +9,10 @@ namespace VisionTech_Anbar_Project.Entities
 {
     public class Barcode : BaseItem
     {
-        public int BarCode { get; set; }
+        public int BarCode { get; set; } // Unique barcode value
+
+        // Foreign key for Product
         public int ProductId { get; set; }
-        public List<Product> Products { get; set; }
+        public Product Product { get; set; }
     }
 }

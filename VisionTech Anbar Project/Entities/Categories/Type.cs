@@ -7,8 +7,12 @@ using VisionTech_Anbar_Project.Entities.Base;
 
 namespace VisionTech_Anbar_Project.Entities.Categories
 {
-    internal class Type : BaseItem
+    public class Type : BaseItem
     {
         public string Name { get; set; }
+
+        // Foreign key for SubCategory
+        public int SubCategoryId { get; set; }
+        public SubCategory SubCategory { get; set; }
     }
 }

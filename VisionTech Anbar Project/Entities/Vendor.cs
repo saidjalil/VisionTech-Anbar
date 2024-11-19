@@ -10,6 +10,7 @@ namespace VisionTech_Anbar_Project.Entities
     public class Vendor : BaseItem
     {
         public string VendorName { get; set; }
-        public List<Package> Packages { get; set; }
+
+        public ICollection<Package> Packages { get; set; } = new List<Package>();
     }
 }

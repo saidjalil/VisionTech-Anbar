@@ -7,7 +7,7 @@ using VisionTech_Anbar_Project.Entities.Base;
 
 namespace VisionTech_Anbar_Project.Entities
 {
-    internal class Brand : BaseItem
+    public class Brand : BaseItem
     {
         public string BrandName { get; set; }
     }
