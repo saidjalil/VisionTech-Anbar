@@ -4,11 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using VisionTech_Anbar_Project.DAL;
+using VisionTech_Anbar_Project.Entities;
+using VisionTech_Anbar_Project.Repositories;
+using VisionTech_Anbar_Project.Services;
 
 namespace VisionTech_Anbar_Project.Utilts
 {
     internal class FileManager
     {
+        PackageRepository _repository;
+        PackageService _packageService;
+
+        public FileManager()
+        {
+            _repository = new PackageRepository();
+            _packageService = new PackageService(_repository);
+        }
+        
         public static string GetAppDataPath()
         {
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -42,25 +55,15 @@ namespace VisionTech_Anbar_Project.Utilts
             return downloadsPath;
         }
 
-
-        public static void CreateAndWriteExportFile(string id)
+        public static string GetResurceFolder()
         {
-            var date = DateTime.Now;
-            var fileNameWithSpaces = "Export-" + date + ".js";
-            var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
-            string destinationFilePath = Path.Combine(GetDownloadsFolder(), fileName);
-
-            var package = JsonManager.GetPackageById(id);
-
-            var json = JsonConvert.SerializeObject(package);
-
-            using (FileStream fs = File.Create(destinationFilePath))
-            using (StreamWriter writer = new StreamWriter(fs))
-            {
-                writer.Write(json);
-            }
-
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string twoFoldersUp = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(currentDirectory))));
+            string filePath = Path.Combine(twoFoldersUp, "Resources");
+            return filePath;
         }
+
+        
     }
     
     
