@@ -9,6 +9,8 @@ namespace VisionTech_Anbar_Project.Entities
 {
     public class Image : BaseItem
     {
+        public int PackageId { get; set; }
+        public string Base64 { get; set; }
 
     }
 }

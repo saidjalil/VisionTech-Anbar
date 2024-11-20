@@ -13,14 +13,14 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 {
     public class BaseRepository<T> where T : BaseItem
     {
-        AppDbContext _context;
+        protected AppDbContext _context;
         protected DbSet<T> _dbSet;
 
 
-        public BaseRepository(AppDbContext context)
+        public BaseRepository()
         {
-            _context = context;
-            _dbSet = context.Set<T>();
+            _context = new AppDbContext();
+            _dbSet = _context.Set<T>();
         }
 
 
@@ -75,6 +75,13 @@ namespace VisionTech_Anbar_Project.Repositories.Base
             await Save();
         }
 
+        public async Task Update(T item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            _context.Update(item);
+            await Save();
+           
+        }
         public async Task Save()
         {
             await _context.SaveChangesAsync();
