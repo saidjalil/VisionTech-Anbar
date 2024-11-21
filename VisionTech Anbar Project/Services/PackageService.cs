@@ -35,7 +35,7 @@ public class PackageService
         try
         {
             Log.Information("Fetching package with ID: {Id}.", id);
-            var package = await _packageRepository.FindAsyncById(id);
+            var package = await _packageRepository.FindAsyncById(id, x => x.PackageProducts, x => x.Vendor, x => x.Warehouse);
 
             if (package == null)
             {

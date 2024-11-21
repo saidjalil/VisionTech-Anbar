@@ -12,6 +12,8 @@ namespace VisionTech_Anbar_Project.Entities
     {
         public string ProductName { get; set; }
 
+        public bool IsRegular { get; set; }
+
         // Foreign key for Category
         public int CategoryId { get; set; }
         public Category Category { get; set; }

@@ -10,5 +10,8 @@
     <Compile Update="Ophrys.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TestCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

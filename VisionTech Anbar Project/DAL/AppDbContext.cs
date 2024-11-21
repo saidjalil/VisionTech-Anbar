@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Entities.Categories;
+using Image = VisionTech_Anbar_Project.Entities.Image;
 using Type = VisionTech_Anbar_Project.Entities.Categories.Type;
 
 namespace VisionTech_Anbar_Project.DAL
@@ -21,6 +22,7 @@ namespace VisionTech_Anbar_Project.DAL
         public DbSet<Package> Packages { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
+        public DbSet<Image> Images { get; set; }
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -53,6 +55,7 @@ namespace VisionTech_Anbar_Project.DAL
                 .HasOne(c => c.Parent) // A Category has one parent
                 .WithMany(c => c.SubCategories) // A Category has many subcategories
                 .HasForeignKey(c => c.ParentId)
+                .IsRequired(false)
                 .OnDelete(DeleteBehavior.Restrict); // Prevent recursive deletes
 
             // Vendor -> Package
