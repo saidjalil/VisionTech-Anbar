@@ -217,8 +217,6 @@ namespace VisionTech_Anbar_Project.Utilts
                 Log.Error("Package with ID {PackageId} not found.", packageId);
                 throw new InvalidOperationException($"Package with ID {packageId} not found.");
             }
-
-
             var existingProduct = pack.Products.FirstOrDefault(p => p.Id == product.Id);
             if (existingProduct == null)
             {

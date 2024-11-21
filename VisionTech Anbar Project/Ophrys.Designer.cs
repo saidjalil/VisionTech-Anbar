@@ -50,7 +50,7 @@
             // button1
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.Location = new Point(549, 73);
+            button1.Location = new Point(595, 33);
             button1.Name = "button1";
             button1.Size = new Size(46, 30);
             button1.TabIndex = 1;

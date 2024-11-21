@@ -151,13 +151,17 @@ namespace VisionTech_Anbar_Project
             Button editButton = new Button
             {
                 Text = "Edit",
+                Tag = package.PackageId,
                 Width = 60,
                 Height = 30,
                 Margin = new Padding(5)
             };
+            editButton.Click += EditButton_Click;
+
             Button exportButton = new Button
             {
                 Text = "Export",
+                Tag = package.PackageId,
                 Width = 60,
                 Height = 30,
                 Margin = new Padding(5)
@@ -229,6 +233,16 @@ namespace VisionTech_Anbar_Project
                     subItemsPanel.Visible = !subItemsPanel.Visible;
                 }
             }
+        }
+
+        public void EditButton_Click(object sender, EventArgs e)
+        {
+
+            EditProductForm editProductForm = new EditProductForm();
+            editProductForm.Show();
+
+            Button button = sender as Button;
+            editProductForm.GetProducts(JsonManager.GetPackageById(button.Tag.ToString()));
         }
 
         public void DeleteButton_Click(object sender, EventArgs e)

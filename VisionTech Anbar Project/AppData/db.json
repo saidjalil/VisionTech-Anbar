@@ -1,98 +1,21 @@
 [
   {
-    "PackageId": "PKG001",
-    "CreatedDate": "2024-11-10T09:00:00",
-    "Products": [
-      {
-        "Id": "1",
-        "Name": "Laptop",
-        "Description": "Gaming laptop with high performance",
-        "Quantity": "3"
-      },
-      {
-        "Id": "2",
-        "Name": "Mouse",
-        "Description": "Wireless mouse with ergonomic design",
-        "Quantity": "7"
-      },
-      {
-        "Id": "3",
-        "Name": "Keyboard",
-        "Description": "Mechanical keyboard with RGB lights",
-        "Quantity": "5"
-      },
-      {
-        "Id": "15031838",
-        "Name": "sasdad",
-        "Description": "asf",
-        "Quantity": "14"
-      },
-      {
-        "Id": "15163347",
-        "Name": "Tural",
-        "Description": "bir seye yaramir",
-        "Quantity": "1"
-      },
-      {
-        "Id": "15163414",
-        "Name": "Qudret",
-        "Description": "buda yaramir",
-        "Quantity": "1"
-      },
-      {
-        "Id": "613fc6c7-c7d8-4e67-a546-699d1714ec87",
-        "Name": "dsads",
-        "Description": "1adas",
-        "Quantity": "1"
-      },
-      {
-        "Id": "affd37f8-025c-4b7c-89b3-a12efcb29f7f",
-        "Name": "aafs",
-        "Description": "asffas",
-        "Quantity": "123"
-      },
-      {
-        "Id": "ea0a375d-1b17-4fdd-b5d5-7cb2bca82c66",
-        "Name": "sik",
-        "Description": "girdi1",
-        "Quantity": "1"
-      },
-      {
-        "Id": "b1ecbf53-9d2b-496d-9d07-197cd558a85b",
-        "Name": "asdads",
-        "Description": "141234",
-        "Quantity": "314"
-      }
-    ],
-    "Exported": true
-  },
-  {
     "PackageId": "PKG002",
     "CreatedDate": "2024-11-11T15:30:00",
     "Products": [
       {
-        "Id": "4",
-        "Name": "Smartphone",
-        "Description": "Latest model smartphone with high-end camera",
-        "Quantity": "10"
-      },
-      {
-        "Id": "5",
-        "Name": "Charger",
-        "Description": "Fast charger for smartphone",
-        "Quantity": "15"
-      },
-      {
         "Id": "15031856",
+        "CategoryId": null,
         "Name": "ssaa",
         "Description": "14",
         "Quantity": "1214"
       },
       {
-        "Id": "d16a8559-a21b-4b3b-bfbd-53d72c7af0df",
-        "Name": "234235",
-        "Description": "235253",
-        "Quantity": "523532"
+        "Id": "f914ce15-c1c4-4a1d-b3d6-5f47b444d9b0",
+        "CategoryId": null,
+        "Name": "eLNURE DALDAN",
+        "Description": "13",
+        "Quantity": "3"
       }
     ],
     "Exported": false
@@ -103,18 +26,21 @@
     "Products": [
       {
         "Id": "6",
+        "CategoryId": null,
         "Name": "Headphones",
         "Description": "Noise-canceling over-ear headphones",
         "Quantity": "4"
       },
       {
         "Id": "7",
+        "CategoryId": null,
         "Name": "Monitor",
         "Description": "27-inch 4K monitor",
         "Quantity": "2"
       },
       {
         "Id": "ef87cd92-7ea7-454b-9be1-4bca4ab3b14d",
+        "CategoryId": null,
         "Name": "afsfas",
         "Description": "123312",
         "Quantity": "211"
@@ -128,6 +54,7 @@
     "Products": [
       {
         "Id": "2bdf4c5b-a803-42b7-80af-3eb96d161513",
+        "CategoryId": null,
         "Name": "sdffsd",
         "Description": "sfdfsd235",
         "Quantity": "34"
@@ -141,11 +68,30 @@
     "Products": [
       {
         "Id": "f650ea83-d520-46ce-a346-4c1f5bbf4a96",
+        "CategoryId": null,
         "Name": "afsasf",
         "Description": "234234",
         "Quantity": "23421"
       }
     ],
+    "Exported": false
+  },
+  {
+    "PackageId": "21314",
+    "CreatedDate": "2024-11-20T00:00:00",
+    "Products": [],
+    "Exported": false
+  },
+  {
+    "PackageId": "421",
+    "CreatedDate": "2024-11-20T00:00:00",
+    "Products": [],
+    "Exported": false
+  },
+  {
+    "PackageId": "123",
+    "CreatedDate": "2024-11-20T00:00:00",
+    "Products": [],
     "Exported": false
   }
 ]

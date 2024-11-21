@@ -23,18 +23,15 @@ namespace VisionTech_Anbar_Project
         {
             InitializeComponent();
         }
-
-        private AddProductForm(Product product)
+        public AddProductForm(Product product)
         {
             InitializeComponent();
             IsEdit = true;
             OriginalProduct = product;
         }
-
         private void AddEditMovie_Load(object sender, EventArgs e)
         {
             DataSaved = false;
-
             if (IsEdit)
             {
                 PopulateOriginalProduct();
@@ -47,15 +44,12 @@ namespace VisionTech_Anbar_Project
                 this.Text = "Add";
             }
         }
-
         private void PopulateOriginalProduct()
         {
             textBox1.Text = OriginalProduct.Name.ToString();
             textBox2.Text = OriginalProduct.Description.ToString();
             textBox3.Text = OriginalProduct.Quantity.ToString();
-
         }
-
         private void ClearInput()
         {
             textBox1.Clear();
@@ -63,11 +57,9 @@ namespace VisionTech_Anbar_Project
             textBox3.Clear();
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             List<String> errors;
-
             errors = ValidateInput();
 
             if (errors.Count > 0)
@@ -80,7 +72,6 @@ namespace VisionTech_Anbar_Project
             DataSaved = true;
             this.Close();
         }
-
         private List<string> ValidateInput()
         {
             List<String> errors = new List<string>();
@@ -90,7 +81,6 @@ namespace VisionTech_Anbar_Project
 
             return errors;
         }
-
         private void StoreInput()
         {
             string Name;
@@ -102,8 +92,6 @@ namespace VisionTech_Anbar_Project
             Name = textBox1.Text;
             Description = textBox2.Text;
             Quantity = textBox3.Text;
-
-
 
             if (IsEdit)
                 EditedProduct = new Product(OriginalProduct.Id, Name,
@@ -149,7 +137,6 @@ namespace VisionTech_Anbar_Project
                 e.Handled = true;
             }
         }
-
     }
 }
 
