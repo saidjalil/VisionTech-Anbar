@@ -39,6 +39,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(15, 24);
             pictureBox1.Name = "pictureBox1";
@@ -87,20 +88,20 @@
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 377);
             Controls.Add(metroSetControlBox1);
             Controls.Add(button1);
             Controls.Add(pictureBox1);
             Name = "Ophrys";
-            Text = "Ophrys";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

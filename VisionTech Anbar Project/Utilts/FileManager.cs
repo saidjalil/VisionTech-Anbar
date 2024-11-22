@@ -49,18 +49,13 @@ namespace VisionTech_Anbar_Project.Utilts
 
             return filePath;
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> origin/Sql
         public static string GetDownloadsFolder()
         {
             string downloadsPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads");
             return downloadsPath;
         }
 
-<<<<<<< HEAD
 
         public static void CreateAndWriteExportFile(string id)
         {
@@ -80,7 +75,6 @@ namespace VisionTech_Anbar_Project.Utilts
             }
 
         }
-=======
         public static string GetResurceFolder()
         {
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -90,7 +84,6 @@ namespace VisionTech_Anbar_Project.Utilts
         }
 
         
->>>>>>> origin/Sql
     }
     
     

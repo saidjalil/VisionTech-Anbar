@@ -43,7 +43,7 @@
             // 
             textBox1.Location = new Point(118, 124);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(177, 27);
+            textBox1.Size = new Size(177, 32);
             textBox1.TabIndex = 0;
             // 
             // label1
@@ -58,7 +58,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(43, 127);
             label2.Name = "label2";
-            label2.Size = new Size(57, 22);
+            label2.Size = new Size(71, 26);
             label2.TabIndex = 1;
             label2.Text = "Name";
             // 
@@ -67,7 +67,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(12, 173);
             label3.Name = "label3";
-            label3.Size = new Size(100, 22);
+            label3.Size = new Size(121, 26);
             label3.TabIndex = 3;
             label3.Text = "Description";
             // 
@@ -75,7 +75,7 @@
             // 
             textBox2.Location = new Point(118, 170);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(177, 27);
+            textBox2.Size = new Size(177, 32);
             textBox2.TabIndex = 2;
             // 
             // label4
@@ -83,7 +83,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(23, 219);
             label4.Name = "label4";
-            label4.Size = new Size(77, 22);
+            label4.Size = new Size(93, 26);
             label4.TabIndex = 5;
             label4.Text = "Quantity";
             // 
@@ -91,7 +91,7 @@
             // 
             textBox3.Location = new Point(118, 216);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(177, 27);
+            textBox3.Size = new Size(177, 32);
             textBox3.TabIndex = 4;
             textBox3.KeyPress += textBox3_KeyPress;
             // 
@@ -113,7 +113,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(253, 0);
+            metroSetControlBox1.Location = new Point(900, 0);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -134,9 +134,9 @@
             // 
             // AddProductForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(351, 370);
+            ClientSize = new Size(998, 370);
             Controls.Add(metroSetControlBox1);
             Controls.Add(button1);
             Controls.Add(label4);

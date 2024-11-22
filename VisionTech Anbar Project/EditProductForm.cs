@@ -245,7 +245,8 @@ namespace VisionTech_Anbar_Project
         public void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            JsonManager.DeleteProductOfPackage(currentPackageId,button.Tag.ToString());
+          
+            //JsonManager.DeleteProductOfPackage(currentPackageId,button.Tag.ToString());
             products.Clear();
             RestartPage();
             GetProducts(currentPackage);

@@ -13,6 +13,7 @@ using System.Drawing;
 using Image = System.Drawing.Image;
 using MetroSet_UI.Forms;
 using VisionTech_Anbar_Project.Utilts;
+using VisionTech_Anbar_Project.Services;
 
 namespace VisionTech_Anbar_Project
 {
@@ -32,14 +33,14 @@ namespace VisionTech_Anbar_Project
             AddColumnForm addColumnForm = new AddColumnForm();
             addColumnForm.ShowDialog();
             // Example for Section 1
-//            Control[] section1Controls = {
+            //            Control[] section1Controls = {
 
-//            CreatePanelWithContent("Label for Section 1", "Click Me", "path_to_image.png"),
-//            CreatePanelWithContent("Label for Section 2", "Click Me", "path_to_image.png"),
-//            CreatePanelWithContent("Label for Section 3", "Click Me", "path_to_image.png"),
-//            CreatePanelWithContent("Label for Section 4", "Click Me", "path_to_image.png")
+            //            CreatePanelWithContent("Label for Section 1", "Click Me", "path_to_image.png"),
+            //            CreatePanelWithContent("Label for Section 2", "Click Me", "path_to_image.png"),
+            //            CreatePanelWithContent("Label for Section 3", "Click Me", "path_to_image.png"),
+            //            CreatePanelWithContent("Label for Section 4", "Click Me", "path_to_image.png")
 
-//};
+            //};
 
             // Add both sections to the accordion
 
@@ -47,7 +48,8 @@ namespace VisionTech_Anbar_Project
             if (addColumnForm.DataSaved)
             {
                 //CreateItemPanel(addColumnForm.NewPackage);
-                JsonManager.AddPackage(addColumnForm.NewPackage);
+                //JsonManager.AddPackage(addColumnForm.NewPackage);
+                // PackageService.CreatePackageAsync(addColumnForm.NewPackage);
                 RestartPage();
                 InitializeItems();
                 //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
@@ -257,7 +259,7 @@ namespace VisionTech_Anbar_Project
             AddProductForm addProductForm = new AddProductForm();
             addProductForm.ShowDialog();
             Button button = sender as Button;
-            
+
             if (addProductForm.DataSaved)
             {
                 Debug.WriteLine("I WORK");
@@ -265,7 +267,7 @@ namespace VisionTech_Anbar_Project
                 RestartPage();
                 InitializeItems();
             }
-            }
+        }
         //private void AddAccordionSection(string headerText, Control[] contentControls, Package package)
         //{
         //    // Create a panel to hold both header and content

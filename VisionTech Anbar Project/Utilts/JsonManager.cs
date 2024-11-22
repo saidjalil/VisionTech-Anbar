@@ -236,7 +236,7 @@ namespace VisionTech_Anbar_Project.Utilts
         }
 
 
-        public static void DeleteProductOfPackage(string packageId, int productId)
+        public static void DeleteProductOfPackage(string packageId, string productId)
         {
             
             var pack = GetPackageById(packageId);

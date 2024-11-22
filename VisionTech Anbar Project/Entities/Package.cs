@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VisionTech_Anbar_Project.Entities.Base;
 using VisionTech_Anbar_Project.Entities.Categories;
+using VisionTech_Anbar_Project.ViewModel;
 
 namespace VisionTech_Anbar_Project.Entities
 {
@@ -20,5 +21,32 @@ namespace VisionTech_Anbar_Project.Entities
 
         public int WarehouseId { get; set; }
         public Warehouse Warehouse { get; set; }
+
+        public Package()
+        {
+            Warehouse.WarehouseName = string.Empty;
+            Vendor.VendorName = string.Empty;
+            CreatedTime = DateTime.MinValue;
+            // qebul eden 
+    
+        }
+            
+        public Package(string packageName, DateTime createdTime, string vendorName, string warehouseName)
+        {
+            PackageName = packageName;
+            CreatedTime = createdTime;
+            Vendor.VendorName = vendorName;
+            Warehouse.WarehouseName = warehouseName;
+        }
+
+        public void Copy(Package package)
+        {
+            PackageName = package.PackageName;
+            CreatedTime = package.CreatedTime;
+            Vendor.VendorName = package.Vendor.VendorName;
+            Warehouse.WarehouseName = package.Warehouse.WarehouseName;
+        }
+
+
     }
 }

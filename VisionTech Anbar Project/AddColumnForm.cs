@@ -123,16 +123,16 @@ namespace VisionTech_Anbar_Project
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-                // Allow control keys like Backspace, Enter, and Tab
-                if (char.IsControl(e.KeyChar))
-                {
-                    return;
-                }
-                // Check if the key is a number
-                if (!char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true; 
-                }
+            // Allow control keys like Backspace, Enter, and Tab
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+            // Check if the key is a number
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
