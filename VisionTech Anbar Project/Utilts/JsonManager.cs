@@ -301,6 +301,15 @@ namespace VisionTech_Anbar_Project.Utilts
             }
         }
 
+        public static List<User> GetUsers()
+        {
+            var path = Path.Combine(FileManager.GetAppDataPath(), "users.json");
+            var list = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(path));
+
+            return list;
+        }
+        
+
 
         public static void AddCategories()
         {
