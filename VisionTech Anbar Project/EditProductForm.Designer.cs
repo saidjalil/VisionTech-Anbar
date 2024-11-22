@@ -28,30 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditProductForm));
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
+            button3 = new Button();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.Location = new Point(602, 31);
-            button1.Name = "button1";
-            button1.Size = new Size(34, 32);
-            button1.TabIndex = 0;
-            button1.Text = "+";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // metroSetControlBox1
             // 
-            metroSetControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            metroSetControlBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             metroSetControlBox1.CloseHoverBackColor = Color.FromArgb(183, 40, 40);
             metroSetControlBox1.CloseHoverForeColor = Color.White;
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(547, 1);
+            metroSetControlBox1.Location = new Point(594, 4);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -70,21 +62,51 @@
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
             // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button3.BackColor = Color.FromArgb(42, 45, 85);
+            button3.ForeColor = Color.Transparent;
+            button3.Location = new Point(630, 53);
+            button3.Name = "button3";
+            button3.Size = new Size(64, 39);
+            button3.TabIndex = 16;
+            button3.Text = "+";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(15, 26);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(192, 66);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
+            // 
             // EditProductForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(651, 413);
+            BorderColor = Color.DimGray;
+            ClientSize = new Size(709, 409);
+            Controls.Add(pictureBox1);
+            Controls.Add(button3);
             Controls.Add(metroSetControlBox1);
-            Controls.Add(button1);
+            HeaderColor = Color.Transparent;
             Name = "EditProductForm";
-            Text = "EditProduct";
+            SmallLineColor1 = Color.Transparent;
+            SmallLineColor2 = Color.Transparent;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Button button1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
+        private Button button3;
+        private PictureBox pictureBox1;
     }
 }

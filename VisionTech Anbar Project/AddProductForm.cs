@@ -137,6 +137,18 @@ namespace VisionTech_Anbar_Project
                 e.Handled = true;
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddProductForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
 

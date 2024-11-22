@@ -29,6 +29,7 @@ namespace VisionTech_Anbar_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddColumnForm));
             button1 = new Button();
             textBox1 = new TextBox();
             label4 = new Label();
@@ -44,6 +45,7 @@ namespace VisionTech_Anbar_Project
             button2 = new Button();
             pictureBox1 = new PictureBox();
             button3 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -72,6 +74,7 @@ namespace VisionTech_Anbar_Project
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
             label4.Location = new Point(41, 114);
             label4.Name = "label4";
             label4.Size = new Size(70, 26);
@@ -132,6 +135,7 @@ namespace VisionTech_Anbar_Project
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Location = new Point(29, 174);
             label1.Name = "label1";
             label1.Size = new Size(82, 26);
@@ -149,6 +153,7 @@ namespace VisionTech_Anbar_Project
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.Location = new Point(385, 114);
             label2.Name = "label2";
             label2.Size = new Size(124, 26);
@@ -158,6 +163,7 @@ namespace VisionTech_Anbar_Project
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
             label3.Location = new Point(411, 177);
             label3.Name = "label3";
             label3.Size = new Size(77, 26);
@@ -167,6 +173,7 @@ namespace VisionTech_Anbar_Project
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
             label5.Location = new Point(411, 233);
             label5.Name = "label5";
             label5.Size = new Size(59, 26);
@@ -187,10 +194,11 @@ namespace VisionTech_Anbar_Project
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = VisionTech_Anbar_Project._.WhatsApp_Image_2024_11_07_at_19_32_50_removebg_preview;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(15, 29);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(207, 62);
+            pictureBox1.Size = new Size(192, 66);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
             // 
@@ -198,18 +206,28 @@ namespace VisionTech_Anbar_Project
             // 
             button3.BackColor = Color.FromArgb(42, 45, 85);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(29, 389);
+            button3.Location = new Point(15, 503);
             button3.Name = "button3";
             button3.Size = new Size(253, 44);
             button3.TabIndex = 20;
             button3.Text = "+ Məhsul əlavə et";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(15, 305);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(993, 176);
+            flowLayoutPanel1.TabIndex = 21;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // AddColumnForm
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1023, 461);
+            ClientSize = new Size(1023, 562);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(button3);
             Controls.Add(pictureBox1);
             Controls.Add(button2);
@@ -263,5 +281,6 @@ namespace VisionTech_Anbar_Project
         private Button button2;
         private PictureBox pictureBox1;
         private Button button3;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

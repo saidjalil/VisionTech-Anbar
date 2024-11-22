@@ -40,7 +40,7 @@ namespace VisionTech_Anbar_Project
                 mainTableLayoutPanel.Controls.Add(itemPanel);
             }
             return products;
-        }   
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -245,7 +245,7 @@ namespace VisionTech_Anbar_Project
         public void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-          
+
             //JsonManager.DeleteProductOfPackage(currentPackageId,button.Tag.ToString());
             products.Clear();
             RestartPage();
@@ -272,7 +272,7 @@ namespace VisionTech_Anbar_Project
             Product selectedProduct = button.Tag as Product;
             AddProductForm addProductForm = new AddProductForm(selectedProduct);
             addProductForm.ShowDialog();
-            
+
 
             if (addProductForm.DataSaved)
             {
@@ -281,7 +281,7 @@ namespace VisionTech_Anbar_Project
                 products.Remove(selectedProduct);
                 products.Add(addProductForm.EditedProduct);
 
-                RestartPage();  
+                RestartPage();
                 InitializeItems();
             }
         }

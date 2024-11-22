@@ -31,9 +31,9 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ophrys));
             pictureBox1 = new PictureBox();
-            button1 = new Button();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -47,17 +47,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button1.Location = new Point(595, 33);
-            button1.Name = "button1";
-            button1.Size = new Size(46, 30);
-            button1.TabIndex = 1;
-            button1.Text = "+";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // metroSetControlBox1
             // 
@@ -92,16 +82,30 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // button3
+            // 
+            button3.BackColor = Color.FromArgb(42, 45, 85);
+            button3.ForeColor = Color.Transparent;
+            button3.Location = new Point(568, 51);
+            button3.Name = "button3";
+            button3.Size = new Size(64, 39);
+            button3.TabIndex = 17;
+            button3.Text = "+";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button1_Click;
+            // 
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 377);
+            Controls.Add(button3);
             Controls.Add(metroSetControlBox1);
-            Controls.Add(button1);
             Controls.Add(pictureBox1);
             Name = "Ophrys";
+            SmallLineColor1 = Color.Transparent;
+            SmallLineColor2 = Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -110,8 +114,8 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private Button button1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
         private ContextMenuStrip contextMenuStrip1;
+        private Button button3;
     }
 }

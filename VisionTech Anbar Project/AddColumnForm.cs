@@ -134,5 +134,15 @@ namespace VisionTech_Anbar_Project
                 e.Handled = true;
             }
         }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
