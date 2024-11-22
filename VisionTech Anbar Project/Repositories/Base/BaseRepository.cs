@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using VisionTech_Anbar_Project.DAL;
 using VisionTech_Anbar_Project.Entities.Base;
 
@@ -24,10 +25,12 @@ namespace VisionTech_Anbar_Project.Repositories.Base
         }
 
 
-        public async Task Create(T item)
+        public async Task<EntityEntry<T>> Create(T item)
         {
-            _dbSet.Add(item);
+            var newItem =  _dbSet.Add(item);
             await Save();
+            return newItem;
+            
         }
 
         public async Task<T> FindAsyncById(int id)
