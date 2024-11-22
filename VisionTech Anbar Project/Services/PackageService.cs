@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Repositories;
 using Serilog;
@@ -163,5 +164,19 @@ public class PackageService
             Log.Error(ex, "Error occurred while fetching products for package with ID: {PackageId}.", packageId);
             throw;
         }
+    }
+    
+    public async Task<Package> GetPackageWithNavigation(int packageId)
+    {
+        var package = await _packageRepository.FindAsyncByIdWithNavigation(
+            packageId,
+            query => query
+                .Include(x => x.PackageProducts)
+                .ThenInclude(pp => pp.Product)
+                .Include(x => x.Vendor)
+                .Include(x => x.Warehouse)
+        );
+
+        return package;
     }
 }

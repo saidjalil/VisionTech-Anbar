@@ -35,7 +35,7 @@ namespace VisionTech_Anbar_Project.Repositories.Base
             return await _dbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<T> FindAsyncById(int Id, params Expression<Func<T, object>>[] includes)
+        public async Task<T> FindAsyncById(int id, params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = _dbSet.AsNoTracking();
 
@@ -44,7 +44,19 @@ namespace VisionTech_Anbar_Project.Repositories.Base
                 query = query.Include(include);
             }
 
-            return await query.FirstOrDefaultAsync(e => e.Id == Id);
+            return await query.FirstOrDefaultAsync(e => e.Id == id);
+        }
+
+        public async Task<T> FindAsyncByIdWithNavigation(int id, Func<IQueryable<T>, IQueryable<T>> includeFunc)
+        {
+            IQueryable<T> query = _dbSet.AsNoTracking();
+
+            if (includeFunc != null)
+            {
+                query = includeFunc(query);
+            }
+
+            return await query.FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task<IQueryable<T>> GetAll(params Expression<Func<T, object>>[] includes)

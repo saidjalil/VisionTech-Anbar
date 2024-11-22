@@ -29,7 +29,7 @@ public class FileExporter
         var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
         string destinationFilePath = Path.Combine(FileManager.GetDownloadsFolder(), fileName);
 
-        var package = await _packageService.GetPackageByIdAsync(id);
+        var package = await _packageService.GetProductsByPackageIdAsync(id);
 
         var json = JsonConvert.SerializeObject(package, settings);
 
