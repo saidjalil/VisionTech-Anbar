@@ -8,6 +8,8 @@ namespace VisionTech_Anbar_Project.Services;
 public class PackageService
 {
     private readonly PackageRepository _packageRepository;
+    private readonly VendorRepository _vendorRepository;
+    private readonly WarehouseRepository _warehouseRepository;
 
     public PackageService(PackageRepository packageRepository)
     {
@@ -178,5 +180,35 @@ public class PackageService
         );
 
         return package;
+    }
+
+    public async Task CreatePackageWithNewInputs(Package package, Vendor vendor)
+    {
+        var newVendor =  await _vendorRepository.Create(vendor);
+        package.VendorId = newVendor.Entity.Id;
+        package.Vendor = newVendor.Entity;
+        await _packageRepository.Create(package);
+    }
+    
+    public async Task CreatePackageWithNewInputs(Package package, Warehouse warehouse)
+    {
+        var newWarehouse =  await _warehouseRepository.Create(warehouse);
+        package.WarehouseId = newWarehouse.Entity.Id;
+        package.Warehouse = newWarehouse.Entity;
+        
+        await _packageRepository.Create(package);
+    }
+
+    public async Task CreatePackageWithNewInputs(Package package, Vendor vendor, Warehouse warehouse)
+    {
+        var newVendor =  await _vendorRepository.Create(vendor);
+        package.VendorId = newVendor.Entity.Id;
+        package.Vendor = newVendor.Entity;
+        
+        var newWarehouse =  await _warehouseRepository.Create(warehouse);
+        package.WarehouseId = newWarehouse.Entity.Id;
+        package.Warehouse = newWarehouse.Entity;
+        
+        await _packageRepository.Create(package);
     }
 }

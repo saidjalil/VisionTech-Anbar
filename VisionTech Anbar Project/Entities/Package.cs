@@ -11,7 +11,6 @@ namespace VisionTech_Anbar_Project.Entities
 {
     public class Package : BaseItem
     {
-        public string PackageName { get; set; }
 
         // One-to-Many relationship with PackageProduct
         public ICollection<PackageProduct> PackageProducts { get; set; } = new List<PackageProduct>();

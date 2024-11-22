@@ -42,4 +42,10 @@ public class VendorRepository : BaseRepository<Vendor>
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task<Vendor> FindByName(string name)
+    {
+        var vendor = (await GetAllAsync()).FirstOrDefault(x => x.VendorName == name);
+        return vendor;
+    }
 }

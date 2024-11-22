@@ -102,7 +102,7 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new KeyNotFoundException($"Package with ID {id} not found.");
             }
 
-            
+
             existingPackage.Exported = package.Exported;
             existingPackage.Products = package.Products;
             Log.Information("Package with ID {PackageId} has been updated.", id);
@@ -133,7 +133,7 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new KeyNotFoundException($"Package with ID {id} not found.");
             }
 
-          
+
             packages.Remove(package);
             Log.Information("Package with ID {PackageId} removed from the list.", id);
 
@@ -164,7 +164,7 @@ namespace VisionTech_Anbar_Project.Utilts
             catch (Exception ex)
             {
                 Log.Error(ex, "Failed to save changes to JSON file at {FilePath}.", path);
-                throw; 
+                throw;
             }
         }
 
@@ -185,18 +185,18 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new InvalidOperationException($"Package with ID {id} not found.");
             }
 
-           
+
             if (pack.Products.Contains(product))
             {
                 Log.Information($"Product with ID {product.Id} is already in package ID {id}.");
                 return;
             }
 
-           
+
             pack.AddProduct(product);
             Log.Information($"Product with ID {product.Id} added to package ID {id}.");
 
-          
+
             EditPackageById(id, pack);
 
             Log.Information("Changes saved for package ID {PackageId}.", id);
@@ -218,7 +218,7 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new InvalidOperationException($"Package with ID {packageId} not found.");
             }
 
-           
+
             var existingProduct = pack.Products.FirstOrDefault(p => p.Id == product.Id);
             if (existingProduct == null)
             {
@@ -226,11 +226,11 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new InvalidOperationException($"Product with ID {product.Id} not found in package ID {packageId}.");
             }
 
-            
+
             pack.UpdateProduct(product);
             Log.Information("Product with ID {ProductId} updated in package ID {PackageId}.", product.Id, packageId);
 
-          
+
             EditPackageById(packageId, pack);
             Log.Information("Changes saved for package ID {PackageId}.", packageId);
         }
@@ -238,7 +238,7 @@ namespace VisionTech_Anbar_Project.Utilts
 
         public static void DeleteProductOfPackage(string packageId, string productId)
         {
-            
+
             var pack = GetPackageById(packageId);
 
             if (pack == null)
@@ -247,7 +247,7 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new InvalidOperationException($"Package with ID {packageId} not found.");
             }
 
-           
+
             var product = pack.Products.FirstOrDefault(p => p.Id == productId);
             if (product == null)
             {
@@ -255,11 +255,11 @@ namespace VisionTech_Anbar_Project.Utilts
                 throw new InvalidOperationException($"Product with ID {productId} not found in package ID {packageId}.");
             }
 
-           
+
             pack.DeleteProduct(productId);
             Log.Information("Product with ID {ProductId} deleted from package ID {PackageId}.", productId, packageId);
 
-            
+
             EditPackageById(packageId, pack);
             Log.Information("Changes saved for package ID {PackageId}.", packageId);
         }
@@ -301,10 +301,15 @@ namespace VisionTech_Anbar_Project.Utilts
             }
         }
 
-        public static void ExportPackage()
+        public static List<User> GetUsers()
         {
+            var path = Path.Combine(FileManager.GetAppDataPath(), "users.json");
+            var list = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(path));
 
+            return list;
         }
+        
+
 
         public static void AddCategories()
         {
