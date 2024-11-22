@@ -189,6 +189,15 @@ public class PackageService
         package.Vendor = newVendor.Entity;
         await _packageRepository.Create(package);
     }
+    
+    public async Task CreatePackageWithNewInputs(Package package, Warehouse warehouse)
+    {
+        var newWarehouse =  await _warehouseRepository.Create(warehouse);
+        package.WarehouseId = newWarehouse.Entity.Id;
+        package.Warehouse = newWarehouse.Entity;
+        
+        await _packageRepository.Create(package);
+    }
 
     public async Task CreatePackageWithNewInputs(Package package, Vendor vendor, Warehouse warehouse)
     {
