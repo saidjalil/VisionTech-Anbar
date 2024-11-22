@@ -1,21 +1,44 @@
 [
   {
+    "PackageId": "PKG001",
+    "CreatedDate": "2024-11-10T09:00:00",
+    "Products": [
+      {
+        "Id": 1,
+        "Name": "Laptop",
+        "Description": "Gaming laptop with high performance",
+        "Quantity": 3
+      },
+      {
+        "Id": 2,
+        "Name": "Mouse",
+        "Description": "Wireless mouse with ergonomic design",
+        "Quantity": 7
+      },
+      {
+        "Id": 3,
+        "Name": "Keyboard",
+        "Description": "Mechanical keyboard with RGB lights",
+        "Quantity": 5
+      }
+    ],
+    "Exported": true
+  },
+  {
     "PackageId": "PKG002",
     "CreatedDate": "2024-11-11T15:30:00",
     "Products": [
       {
-        "Id": "15031856",
-        "CategoryId": null,
-        "Name": "ssaa",
-        "Description": "14",
-        "Quantity": "1214"
+        "Id": 4,
+        "Name": "Smartphone",
+        "Description": "Latest model smartphone with high-end camera",
+        "Quantity": 10
       },
       {
-        "Id": "f914ce15-c1c4-4a1d-b3d6-5f47b444d9b0",
-        "CategoryId": null,
-        "Name": "eLNURE DALDAN",
-        "Description": "13",
-        "Quantity": "3"
+        "Id": 5,
+        "Name": "Charger",
+        "Description": "Fast charger for smartphone",
+        "Quantity": 15
       }
     ],
     "Exported": false
@@ -25,73 +48,18 @@
     "CreatedDate": "2024-11-12T12:00:00",
     "Products": [
       {
-        "Id": "6",
-        "CategoryId": null,
+        "Id": 6,
         "Name": "Headphones",
         "Description": "Noise-canceling over-ear headphones",
-        "Quantity": "4"
+        "Quantity": 4
       },
       {
-        "Id": "7",
-        "CategoryId": null,
+        "Id": 7,
         "Name": "Monitor",
         "Description": "27-inch 4K monitor",
-        "Quantity": "2"
-      },
-      {
-        "Id": "ef87cd92-7ea7-454b-9be1-4bca4ab3b14d",
-        "CategoryId": null,
-        "Name": "afsfas",
-        "Description": "123312",
-        "Quantity": "211"
+        "Quantity": 2
       }
     ],
     "Exported": true
-  },
-  {
-    "PackageId": "23425",
-    "CreatedDate": "2024-11-15T00:00:00",
-    "Products": [
-      {
-        "Id": "2bdf4c5b-a803-42b7-80af-3eb96d161513",
-        "CategoryId": null,
-        "Name": "sdffsd",
-        "Description": "sfdfsd235",
-        "Quantity": "34"
-      }
-    ],
-    "Exported": false
-  },
-  {
-    "PackageId": "5576576",
-    "CreatedDate": "2024-11-16T00:00:00",
-    "Products": [
-      {
-        "Id": "f650ea83-d520-46ce-a346-4c1f5bbf4a96",
-        "CategoryId": null,
-        "Name": "afsasf",
-        "Description": "234234",
-        "Quantity": "23421"
-      }
-    ],
-    "Exported": false
-  },
-  {
-    "PackageId": "21314",
-    "CreatedDate": "2024-11-20T00:00:00",
-    "Products": [],
-    "Exported": false
-  },
-  {
-    "PackageId": "421",
-    "CreatedDate": "2024-11-20T00:00:00",
-    "Products": [],
-    "Exported": false
-  },
-  {
-    "PackageId": "123",
-    "CreatedDate": "2024-11-20T00:00:00",
-    "Products": [],
-    "Exported": false
   }
 ]

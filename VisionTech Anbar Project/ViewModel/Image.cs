@@ -9,6 +9,6 @@ namespace VisionTech_Anbar_Project.ViewModel
     internal class Image
     {
         public int ImgId { get; set; }
-        public int[] Base64 { get; set; }
+        public string Base64 { get; set; }
     }
 }
