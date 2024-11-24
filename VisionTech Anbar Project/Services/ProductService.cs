@@ -1,3 +1,4 @@
+using System.Collections;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Repositories;
 using Serilog;
@@ -143,5 +144,11 @@ public class ProductService
             Log.Error(ex, "Error occurred while fetching products for category ID: {CategoryId}.", categoryId);
             throw;
         }
+    }
+
+    public async Task<Product> GetProductByBarCode(int barcode)
+    {
+        var res = (await _productRepository.GetAll()).FirstOrDefault(x => x.Barcodes.Any(x => x.BarCode == barcode));
+        return res;
     }
 }

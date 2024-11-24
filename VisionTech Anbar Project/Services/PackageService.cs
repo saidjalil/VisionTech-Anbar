@@ -188,8 +188,9 @@ public class PackageService
         var packages = await _packageRepository.GetAll(
         x => x.PackageProducts,
         x => x.Vendor,
-        x => x.Warehouse
-    );
+        x => x.Warehouse);
+
+        
 
         return await packages
             .Include(x => x.PackageProducts)
