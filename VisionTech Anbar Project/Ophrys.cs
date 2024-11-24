@@ -8,27 +8,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisionTech_Anbar_Project.ViewModel;
 using System.Drawing;
 using Image = System.Drawing.Image;
 using MetroSet_UI.Forms;
 using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Services;
+using VisionTech_Anbar_Project.Entities;
 
 namespace VisionTech_Anbar_Project
 {
     public partial class Ophrys : MetroSetForm
     {
-
+        private readonly PackageService packageService;
         TableLayoutPanel mainTableLayoutPanel;
         public Ophrys()
         {
+            packageService = new PackageService(new ());
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             AddColumnForm addColumnForm = new AddColumnForm();
             addColumnForm.ShowDialog();
@@ -49,7 +50,7 @@ namespace VisionTech_Anbar_Project
             {
                 //CreateItemPanel(addColumnForm.NewPackage);
                 //JsonManager.AddPackage(addColumnForm.NewPackage);
-                // PackageService.CreatePackageAsync(addColumnForm.NewPackage);
+                await packageService.CreatePackageAsync(addColumnForm.NewPackage);
                 RestartPage();
                 InitializeItems();
                 //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
@@ -69,16 +70,16 @@ namespace VisionTech_Anbar_Project
             this.Controls.Add(mainTableLayoutPanel);
         }
 
-        private void InitializeItems()
+        private async void InitializeItems()
         {
-            var data = JsonManager.GetAllPackages();
+            var data = await packageService.GetAllPackagesAsync();
             foreach (var item in data)
             {
                 Panel itemPanel = CreateItemPanel(item);
                 mainTableLayoutPanel.RowCount++;
                 mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
-                Log.Information("girdi");
-                Panel subItemsPanel = CreateSubItemsPanel(item.Products);
+
+                Panel subItemsPanel = CreateSubItemsPanel(item.PackageProducts.Where(x => x.Product));
                 mainTableLayoutPanel.RowCount++;
                 mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
                 subItemsPanel.Visible = false; // Initially hidden
@@ -104,7 +105,7 @@ namespace VisionTech_Anbar_Project
             // Label to display item text
             Label itemLabel = new Label
             {
-                Text = package.PackageId.ToString(),
+                Text = package.Warehouse.WarehouseName.ToString(),
                 AutoSize = true,
                 Location = new System.Drawing.Point(5, 15)
             };
@@ -133,7 +134,7 @@ namespace VisionTech_Anbar_Project
             Button deleteButton = new Button
             {
                 Text = "Delete",
-                Tag = package.PackageId,
+                Tag = package.Id,
                 Width = 60,
                 Height = 30,
                 Margin = new Padding(5)
@@ -143,7 +144,7 @@ namespace VisionTech_Anbar_Project
             Button addButton = new Button
             {
                 Text = "Add",
-                Tag = package.PackageId,
+                Tag = package.Id,
                 Width = 60,
                 Height = 30,
                 Margin = new Padding(5)
@@ -153,7 +154,7 @@ namespace VisionTech_Anbar_Project
             Button editButton = new Button
             {
                 Text = "Edit",
-                Tag = package.PackageId,
+                Tag = package.Id,
                 Width = 60,
                 Height = 30,
                 Margin = new Padding(5)
@@ -163,7 +164,7 @@ namespace VisionTech_Anbar_Project
             Button exportButton = new Button
             {
                 Text = "Export",
-                Tag = package.PackageId,
+                Tag = package.Id,
                 Width = 60,
                 Height = 30,
                 Margin = new Padding(5)
@@ -210,7 +211,7 @@ namespace VisionTech_Anbar_Project
 
                     Label subItemLabel = new Label
                     {
-                        Text = $"Name:{item.Name} Count:{item.Quantity}",
+                        Text = $"Name:{item.ProductName} Count:{item.CategoryId}",
                         AutoSize = true,
                         Location = new System.Drawing.Point(10, 5)
                     };

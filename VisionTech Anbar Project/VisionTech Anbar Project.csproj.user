@@ -10,9 +10,6 @@
     <Compile Update="EditProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FirstPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Ophrys.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -23,6 +23,9 @@ namespace VisionTech_Anbar_Project.Entities
 
         public Package()
         {
+            this.Warehouse = new Warehouse();
+            this.Vendor = new Vendor();
+
             Warehouse.WarehouseName = string.Empty;
             Vendor.VendorName = string.Empty;
             CreatedTime = DateTime.MinValue;
@@ -30,9 +33,11 @@ namespace VisionTech_Anbar_Project.Entities
     
         }
             
-        public Package(string packageName, DateTime createdTime, string vendorName, string warehouseName)
+        public Package(DateTime createdTime, string vendorName, string warehouseName)
         {
-            PackageName = packageName;
+            this.Warehouse = new Warehouse();
+            this.Vendor = new Vendor();
+            // PackageName = packageName;
             CreatedTime = createdTime;
             Vendor.VendorName = vendorName;
             Warehouse.WarehouseName = warehouseName;
@@ -40,7 +45,7 @@ namespace VisionTech_Anbar_Project.Entities
 
         public void Copy(Package package)
         {
-            PackageName = package.PackageName;
+            //PackageName = package.PackageName;
             CreatedTime = package.CreatedTime;
             Vendor.VendorName = package.Vendor.VendorName;
             Warehouse.WarehouseName = package.Warehouse.WarehouseName;

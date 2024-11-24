@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisionTech_Anbar_Project.ViewModel;
+using VisionTech_Anbar_Project.Entities;
 
 namespace VisionTech_Anbar_Project
 {
@@ -46,8 +46,9 @@ namespace VisionTech_Anbar_Project
         }
         private void PopulateOriginalPackage()
         {
-            textBox1.Text = OriginalPackage.PackageId.ToString();
-            dateTimePicker1.Text = OriginalPackage.CreatedDate.ToString();
+            //textBox1.Text = OriginalPackage.Id.ToString();
+            //comboBox1.
+            //dateTimePicker1.Text = DateTime.Now.ToString();
         }
         private void ClearInput()
         {
@@ -72,31 +73,36 @@ namespace VisionTech_Anbar_Project
         {
             List<String> errors = new List<string>();
 
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-                errors.Add("Id required");
+            if (string.IsNullOrWhiteSpace(comboBox1.Text))
+                errors.Add("Anbar bos ola bilmez");
 
             return errors;
         }
 
         private void StoreInput()
         {
-            string packageId;
+            string warehouseName;
             DateTime createdDate;
-            bool exported = false;
-            List<Product> products = new List<Product>();
+            string vendorName;
+
+            warehouseName = comboBox1.Text;
+            vendorName = "Salam";
+
+
+            //List<Product> products = new List<Product>();
             //int id;
 
-            packageId = textBox1.Text;
+            // packageId = textBox1.Text;
             createdDate = DateTime.Parse(dateTimePicker1.Text.ToString());
 
 
             if (IsEdit)
-                EditedPackage = new Package(packageId,
-                                         createdDate, exported, products);
+                EditedPackage = new Package(createdDate,
+                                         vendorName, warehouseName);
             else
             {
                 //id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
-                NewPackage = new Package(packageId, createdDate, exported, products);
+                NewPackage = new Package(createdDate, vendorName, warehouseName);
             }
 
         }
@@ -144,5 +150,21 @@ namespace VisionTech_Anbar_Project
         {
 
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddColumnForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
