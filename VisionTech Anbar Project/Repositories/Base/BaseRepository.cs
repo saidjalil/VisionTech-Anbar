@@ -91,6 +91,19 @@ namespace VisionTech_Anbar_Project.Repositories.Base
             await Save();
            
         }
+        
+        public async Task<List<T>> GetAllAsync(Func<IQueryable<T>, IQueryable<T>> includeProperties = null)
+        {
+            IQueryable<T> query = _context.Set<T>();
+
+            if (includeProperties != null)
+            {
+                query = includeProperties(query);
+            }
+
+            return await query.ToListAsync();
+        }
+        
         public async Task Save()
         {
             await _context.SaveChangesAsync();
