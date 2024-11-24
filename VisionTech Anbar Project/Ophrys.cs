@@ -24,6 +24,7 @@ namespace VisionTech_Anbar_Project
         public Ophrys()
         {
             packageService = new PackageService(new ());
+
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
@@ -64,6 +65,8 @@ namespace VisionTech_Anbar_Project
             mainTableLayoutPanel = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
+                BackColor = Color.Transparent,
+                Padding = new Padding(0, 30, 0, 0), // Add padding from the top
                 AutoScroll = true,
                 ColumnCount = 1, // Single column to arrange items vertically
             };
@@ -72,17 +75,25 @@ namespace VisionTech_Anbar_Project
 
         private async void InitializeItems()
         {
-            var data = await packageService.GetAllPackagesAsync();
+            var data = await packageService.GetAllPackageWithNavigation();
             foreach (var item in data)
             {
                 Panel itemPanel = CreateItemPanel(item);
                 mainTableLayoutPanel.RowCount++;
                 mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
 
-                Panel subItemsPanel = CreateSubItemsPanel(item.PackageProducts.Where(x => x.Product));
-                mainTableLayoutPanel.RowCount++;
-                mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
-                subItemsPanel.Visible = false; // Initially hidden
+                var products = item.PackageProducts.Select(pp => new PackageProduct
+                {
+                    Product = pp.Product,
+                    Quantity = pp.Quantity
+                });
+                foreach (var product in products)
+                {
+                    Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
+                    mainTableLayoutPanel.RowCount++;
+                    mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
+                    subItemsPanel.Visible = false; // Initially hidden
+                }
             }
         }
 
@@ -96,7 +107,7 @@ namespace VisionTech_Anbar_Project
             // Create the main panel for the item
             Panel itemPanel = new Panel
             {
-                Height = 50, // Set explicit height for the main item
+                Height = 60, // Set explicit height for the main item
                 BorderStyle = BorderStyle.None,
                 Dock = DockStyle.Top,
                 Margin = new Padding(5) // Add some margin between items
@@ -123,7 +134,7 @@ namespace VisionTech_Anbar_Project
             // Button to expand/collapse subitems
             Button expandButton = new Button
             {
-                Text = "^",
+                Text = "▽",
                 Width = 30,
                 Height = 30,
                 Margin = new Padding(5)
@@ -133,9 +144,10 @@ namespace VisionTech_Anbar_Project
             // Add Delete, Add, Edit, and Export buttons
             Button deleteButton = new Button
             {
-                Text = "Delete",
+                Text = "🗑",
                 Tag = package.Id,
-                Width = 60,
+                ForeColor = Color.Red,
+                Width = 50,
                 Height = 30,
                 Margin = new Padding(5)
             };
@@ -143,7 +155,10 @@ namespace VisionTech_Anbar_Project
             deleteButton.Click += DeleteButton_Click;
             Button addButton = new Button
             {
-                Text = "Add",
+                Text = "➕",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                BackColor = Color.FromArgb(42, 45, 85),
+                ForeColor = Color.Transparent,
                 Tag = package.Id,
                 Width = 60,
                 Height = 30,
@@ -153,7 +168,10 @@ namespace VisionTech_Anbar_Project
 
             Button editButton = new Button
             {
-                Text = "Edit",
+                Text = "✎",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                BackColor = Color.FromArgb(42, 45, 85),
+                ForeColor = Color.Transparent,
                 Tag = package.Id,
                 Width = 60,
                 Height = 30,
@@ -163,7 +181,10 @@ namespace VisionTech_Anbar_Project
 
             Button exportButton = new Button
             {
-                Text = "Export",
+                Text = "⇪",
+                Font = new Font("Arial", 15, FontStyle.Bold),
+                BackColor = Color.FromArgb(42, 45, 85),
+                ForeColor = Color.Transparent,
                 Tag = package.Id,
                 Width = 60,
                 Height = 30,
@@ -172,10 +193,11 @@ namespace VisionTech_Anbar_Project
 
             // Add the buttons to the FlowLayoutPanel
 
-            buttonPanel.Controls.Add(deleteButton);
+           
             buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
             buttonPanel.Controls.Add(exportButton);
+            buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(expandButton);
 
             // Add the label and button panel to the item panel
@@ -185,7 +207,7 @@ namespace VisionTech_Anbar_Project
             return itemPanel;
         }
 
-        private Panel CreateSubItemsPanel(List<Product> products)
+        private Panel CreateSubItemsPanel(Product products, int quantity)
         {
             Panel subItemsPanel = new Panel
             {
@@ -199,8 +221,7 @@ namespace VisionTech_Anbar_Project
             // Add example subitems with full-width panels
             if (products != null)
             {
-                foreach (var item in products)
-                {
+              
                     Panel subItemPanel = new Panel
                     {
                         Height = 30,
@@ -211,7 +232,7 @@ namespace VisionTech_Anbar_Project
 
                     Label subItemLabel = new Label
                     {
-                        Text = $"Name:{item.ProductName} Count:{item.CategoryId}",
+                        Text = $"Name:{products.ProductName} Count:{quantity}",
                         AutoSize = true,
                         Location = new System.Drawing.Point(10, 5)
                     };
@@ -219,7 +240,7 @@ namespace VisionTech_Anbar_Project
                     subItemPanel.Controls.Add(subItemLabel);
                     subItemsPanel.Controls.Add(subItemPanel);
                 }
-            }
+            
 
             return subItemsPanel;
         }
@@ -255,16 +276,17 @@ namespace VisionTech_Anbar_Project
             RestartPage();
             InitializeItems();
         }
-        public void AddButton_Click(object sender, EventArgs e)
+        public async void AddButton_Click(object sender, EventArgs e)
         {
             AddProductForm addProductForm = new AddProductForm();
             addProductForm.ShowDialog();
             Button button = sender as Button;
+           
 
             if (addProductForm.DataSaved)
             {
-                Debug.WriteLine("I WORK");
-                JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
+                //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
+                await packageService.AddProductToPackageAsync(Convert.ToInt32(button.Tag), addProductForm.NewProduct.Product.Id, addProductForm.NewProduct.Quantity);
                 RestartPage();
                 InitializeItems();
             }

@@ -8,22 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisionTech_Anbar_Project.ViewModel;
+using VisionTech_Anbar_Project.Entities;
 
 namespace VisionTech_Anbar_Project
 {
     public partial class AddProductForm : MetroSetForm
     {
         private bool IsEdit;
-        private Product OriginalProduct;
-        public Product EditedProduct;
-        public Product NewProduct;
+        private PackageProduct OriginalProduct;
+        public PackageProduct EditedProduct;
+        public PackageProduct NewProduct;
         public bool DataSaved;
         public AddProductForm()
         {
             InitializeComponent();
         }
-        public AddProductForm(Product product)
+        public AddProductForm(PackageProduct product)
         {
             InitializeComponent();
             IsEdit = true;
@@ -46,8 +46,8 @@ namespace VisionTech_Anbar_Project
         }
         private void PopulateOriginalProduct()
         {
-            textBox1.Text = OriginalProduct.Name.ToString();
-            textBox2.Text = OriginalProduct.Description.ToString();
+            // comboBox1.Text = Category;
+            textBox2.Text = OriginalProduct.Product.ProductName.ToString();
             textBox3.Text = OriginalProduct.Quantity.ToString();
         }
         private void ClearInput()
@@ -76,32 +76,32 @@ namespace VisionTech_Anbar_Project
         {
             List<String> errors = new List<string>();
 
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-                errors.Add("Id required");
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+                errors.Add("Product Adı vacibdir");
 
             return errors;
         }
         private void StoreInput()
         {
             string Name;
-            string Description;
-            string Quantity;
+           // string Description;
+            int Quantity;
 
             string id;
 
-            Name = textBox1.Text;
-            Description = textBox2.Text;
-            Quantity = textBox3.Text;
+            Name = textBox2.Text;
+            //Description = textBox2.Text;
+            Quantity = int.Parse(textBox3.Text);
 
             if (IsEdit)
-                EditedProduct = new Product(OriginalProduct.Id, Name,
-                                         Description, Quantity);
+                EditedProduct = new PackageProduct(Name,
+                                         Quantity);
             else
             {
                 id = Guid.NewGuid().ToString();
-                NewProduct = new Product(id, Name, Description, Quantity);
+                NewProduct = new PackageProduct(Name,
+                                         Quantity);
             }
-
         }
 
         private void ShowErrors(List<string> errors, int max)
@@ -148,7 +148,15 @@ namespace VisionTech_Anbar_Project
 
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

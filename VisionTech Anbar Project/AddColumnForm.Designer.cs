@@ -31,7 +31,6 @@ namespace VisionTech_Anbar_Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddColumnForm));
             button1 = new Button();
-            textBox1 = new TextBox();
             label4 = new Label();
             dateTimePicker1 = new DateTimePicker();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
@@ -45,8 +44,8 @@ namespace VisionTech_Anbar_Project
             button2 = new Button();
             pictureBox1 = new PictureBox();
             button3 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             textBox2 = new TextBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -61,13 +60,6 @@ namespace VisionTech_Anbar_Project
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(0, 0);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 27);
-            textBox1.TabIndex = 22;
             // 
             // label4
             // 
@@ -215,14 +207,6 @@ namespace VisionTech_Anbar_Project
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Location = new Point(15, 305);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(993, 176);
-            flowLayoutPanel1.TabIndex = 21;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
-            // 
             // textBox2
             // 
             textBox2.Location = new Point(514, 177);
@@ -230,13 +214,26 @@ namespace VisionTech_Anbar_Project
             textBox2.Size = new Size(218, 27);
             textBox2.TabIndex = 23;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.5820732F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.4179268F));
+            tableLayoutPanel1.Location = new Point(15, 305);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.8287277F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 49.1712723F));
+            tableLayoutPanel1.Size = new Size(993, 181);
+            tableLayoutPanel1.TabIndex = 24;
+            // 
             // AddColumnForm
             // 
             AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1023, 562);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(textBox2);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(button3);
             Controls.Add(pictureBox1);
             Controls.Add(button2);
@@ -250,7 +247,6 @@ namespace VisionTech_Anbar_Project
             Controls.Add(metroSetControlBox1);
             Controls.Add(dateTimePicker1);
             Controls.Add(label4);
-            Controls.Add(textBox1);
             Controls.Add(button1);
             Name = "AddColumnForm";
             Load += AddColumnForm_Load;
@@ -272,7 +268,6 @@ namespace VisionTech_Anbar_Project
         #endregion
 
         private Button button1;
-        private TextBox textBox1;
         private Label label4;
         private DateTimePicker dateTimePicker1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
@@ -286,7 +281,7 @@ namespace VisionTech_Anbar_Project
         private Button button2;
         private PictureBox pictureBox1;
         private Button button3;
-        private FlowLayoutPanel flowLayoutPanel1;
         private TextBox textBox2;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

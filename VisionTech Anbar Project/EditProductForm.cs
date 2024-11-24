@@ -62,8 +62,8 @@ namespace VisionTech_Anbar_Project
             if (addProductForm.DataSaved)
             {
                 //CreateItemPanel(addColumnForm.NewPackage);
-                JsonManager.AddProductToPackage(addProductForm.NewProduct, currentPackageId);
-                products.Add(addProductForm.NewProduct);
+                //JsonManager.AddProductToPackage(addProductForm.NewProduct, currentPackageId);
+               // products.Add(addProductForm.NewProduct);
                 RestartPage();
                 InitializeItems();
                 //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
@@ -261,7 +261,7 @@ namespace VisionTech_Anbar_Project
             if (addProductForm.DataSaved)
             {
                 Debug.WriteLine("I WORK");
-                JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
+            //    JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 RestartPage();
                 InitializeItems();
             }
@@ -270,20 +270,20 @@ namespace VisionTech_Anbar_Project
         {
             Button button = sender as Button;
             Product selectedProduct = button.Tag as Product;
-            AddProductForm addProductForm = new AddProductForm(selectedProduct);
-            addProductForm.ShowDialog();
+           // AddProductForm addProductForm = new AddProductForm(selectedProduct);
+            //addProductForm.ShowDialog();
 
 
-            if (addProductForm.DataSaved)
-            {
-                //Debug.WriteLine(selectedProduct.Name);
-                JsonManager.EditProductOfPackage(addProductForm.EditedProduct, currentPackageId);
-                products.Remove(selectedProduct);
-                products.Add(addProductForm.EditedProduct);
+            //if (addProductForm.DataSaved)
+            //{
+            //    //Debug.WriteLine(selectedProduct.Name);
+            //  //  JsonManager.EditProductOfPackage(addProductForm.EditedProduct, currentPackageId);
+            //    products.Remove(selectedProduct);
+            //  //  products.Add(addProductForm.EditedProduct);
 
-                RestartPage();
-                InitializeItems();
-            }
+            //    RestartPage();
+            //    InitializeItems();
+            //}
         }
     }
 }

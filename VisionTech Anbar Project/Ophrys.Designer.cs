@@ -57,7 +57,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(532, 3);
+            metroSetControlBox1.Location = new Point(529, 2);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -84,6 +84,7 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button3.BackColor = Color.FromArgb(42, 45, 85);
             button3.ForeColor = Color.Transparent;
             button3.Location = new Point(568, 51);
@@ -97,7 +98,7 @@
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
-            AutoScaleDimensions = new SizeF(13F, 26F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 377);
             Controls.Add(button3);

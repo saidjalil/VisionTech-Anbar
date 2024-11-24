@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisionTech_Anbar_Project.Entities;
+using VisionTech_Anbar_Project.Services;
 
 namespace VisionTech_Anbar_Project
 {
@@ -20,9 +22,16 @@ namespace VisionTech_Anbar_Project
         public Package EditedPackage;
         public Package NewPackage;
         public bool DataSaved;
+        private readonly PackageService packageService;
+        TableLayoutPanel mainTableLayoutPanel;
+        List<PackageProduct> products = new List<PackageProduct>();
+
+
         public AddColumnForm()
         {
+            packageService = new PackageService(new());
             InitializeComponent();
+            mainTableLayoutPanel = tableLayoutPanel1;
         }
         private AddColumnForm(Package package)
         {
@@ -52,7 +61,7 @@ namespace VisionTech_Anbar_Project
         }
         private void ClearInput()
         {
-            textBox1.Clear();
+            textBox2.Clear();
             dateTimePicker1.Text = DateTime.Now.ToString();
         }
         private void button1_Click(object sender, EventArgs e)
@@ -86,7 +95,7 @@ namespace VisionTech_Anbar_Project
             string vendorName;
 
             warehouseName = comboBox1.Text;
-            vendorName = "Salam";
+            vendorName = comboBox2.Text;
 
 
             //List<Product> products = new List<Product>();
@@ -141,16 +150,110 @@ namespace VisionTech_Anbar_Project
             }
         }
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private async void button3_Click(object sender, EventArgs e)
         {
+            AddProductForm addProductForm = new AddProductForm();
+            addProductForm.ShowDialog();
+   
+            // Add both sections to the accordion
 
+            // Add new Package to list and UI
+            if (addProductForm.DataSaved)
+            {
+                products.Add(addProductForm.NewProduct);
+                //await packageService.CreatePackageAsync(addProductForm.NewProduct);
+                Debug.WriteLine(products);
+                RestartPage();
+                InitializeItems();
+            } 
+        }
+        public void RestartPage()
+        {
+            mainTableLayoutPanel.Controls.Clear();
+        }
+        private async void InitializeItems()
+        {
+            foreach (var item in products)
+            {
+                foreach (var product in products)
+                {
+                Panel itemPanel = CreateItemPanel(item);
+                mainTableLayoutPanel.RowCount++;
+                mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
+                }
+
+                //Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
+                //mainTableLayoutPanel.RowCount++;
+                //mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
+                //subItemsPanel.Visible = false; // Initially hidden
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private Panel CreateItemPanel(PackageProduct product)
         {
+            // Create the main panel for the item
+            Panel itemPanel = new Panel
+            {
+                Dock = DockStyle.Top,
+                //Height = 50, // Set explicit height for the main item
+                BorderStyle = BorderStyle.None,
+                BackColor = Color.Black,
+                Margin = new Padding(5) // Add some margin between items
+            };
 
+            // Label to display item text
+            Label itemLabel = new Label
+            {
+                Text = product.Product.ProductName,
+                AutoSize = true,
+                Location = new System.Drawing.Point(5, 15)
+            };
+
+            // Add the buttons to the FlowLayoutPanel
+
+            // Add the label and button panel to the item panel
+            itemPanel.Controls.Add(itemLabel);
+
+            return itemPanel;
         }
+        //private Panel CreateItemPanel(PackageProduct product)
+        //{
+        //    // Create the main panel for the item
+        //    Panel itemPanel = new Panel
+        //    {
+        //        Height = 60, // Set explicit height for the main item
+        //        BorderStyle = BorderStyle.None,
+        //        Dock = DockStyle.Top,
+        //        Margin = new Padding(5) // Add some margin between items
+        //    };
 
+        //    // Label to display item text
+        //    Label itemLabel = new Label
+        //    {
+        //        Text = product.Product.ProductName.ToString(),
+        //        AutoSize = true,
+        //        Location = new System.Drawing.Point(5, 15)
+        //    };
+
+        //    // Create a FlowLayoutPanel to hold all buttons in a single line
+        //    FlowLayoutPanel buttonPanel = new FlowLayoutPanel
+        //    {
+        //        FlowDirection = FlowDirection.LeftToRight, // Align buttons horizontally
+        //        Dock = DockStyle.Right,
+        //        AutoSize = true,
+        //        WrapContents = false, // Prevent buttons from wrapping to the next line
+        //        Margin = new Padding(5)
+        //    };
+
+        //    // Button to expand/collapse subitems
+
+
+        //    // Add the label and button panel to the item panel
+        //    itemPanel.Controls.Add(itemLabel);
+        //    itemPanel.Controls.Add(buttonPanel);
+
+        //    return itemPanel;
+        //}
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
