@@ -182,6 +182,21 @@ public class PackageService
         return package;
     }
 
+
+    public async Task<List<Package>> GetAllPackageWithNavigation()
+    {
+        var packages = await _packageRepository.GetAll(
+        x => x.PackageProducts,
+        x => x.Vendor,
+        x => x.Warehouse
+    );
+
+        return await packages
+            .Include(x => x.PackageProducts)
+            .ThenInclude(pp => pp.Product)
+            .ToListAsync();
+    }
+
     public async Task CreatePackageWithNewInputs(Package package, Vendor vendor)
     {
         var newVendor =  await _vendorRepository.Create(vendor);
