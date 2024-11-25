@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Repositories;
 using Serilog;
+using VisionTech_Anbar_Project.Entities.Categories;
 
 namespace VisionTech_Anbar_Project.Services;
 
@@ -10,6 +11,7 @@ public class PackageService
     private readonly PackageRepository _packageRepository;
     private readonly VendorRepository _vendorRepository;
     private readonly WarehouseRepository _warehouseRepository;
+    private readonly CategoryRepository _categoryRepository;
 
     public PackageService(PackageRepository packageRepository)
     {
@@ -123,14 +125,15 @@ public class PackageService
         }
     }
 
-    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity)
+    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity, Category category)
     {
         try
         {
+            var categoryId = (await _categoryRepository.Create(category)).Entity.Id;
             Log.Information("Adding product with ID: {ProductId} to package with ID: {PackageId}, quantity: {Quantity}.", 
                 productId, packageId, quantity);
 
-            await _packageRepository.AddProductToPackageAsync(packageId, productId, quantity);
+            await _packageRepository.AddProductToPackageAsync(packageId, productId, quantity,categoryId);
             Log.Information("Product with ID: {ProductId} successfully added to package with ID: {PackageId}.", 
                 productId, packageId);
         }
@@ -141,10 +144,35 @@ public class PackageService
             throw;
         }
     }
-
-    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity)
+    
+    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity, int categoryId)
     {
-        await _packageRepository.AddProductToPackageAsync(product, packageId, quantity);
+        try
+        {
+            Log.Information("Adding product with ID: {ProductId} to package with ID: {PackageId}, quantity: {Quantity}.", 
+                productId, packageId, quantity);
+
+            await _packageRepository.AddProductToPackageAsync(packageId, productId, quantity,categoryId);
+            Log.Information("Product with ID: {ProductId} successfully added to package with ID: {PackageId}.", 
+                productId, packageId);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error occurred while adding product to package. Package ID: {PackageId}, Product ID: {ProductId}.", 
+                packageId, productId);
+            throw;
+        }
+    }
+    
+
+    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity, Category category)
+    {
+        var categoryId = (await _categoryRepository.Create(category)).Entity.Id;
+        await _packageRepository.AddProductToPackageAsync(product, packageId, quantity,categoryId);
+    }
+    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity, int categoryId)
+    {
+        await _packageRepository.AddProductToPackageAsync(product, packageId, quantity, categoryId);
     }
     
 
