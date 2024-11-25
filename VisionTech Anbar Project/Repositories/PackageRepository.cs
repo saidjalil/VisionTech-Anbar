@@ -13,7 +13,7 @@ public class PackageRepository : BaseRepository<Package>
         _productRepository = new ProductRepository();
     }
     
-    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity)
+    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity, int categoryId)
     {
         var packageProduct = new PackageProduct
         {
@@ -26,7 +26,7 @@ public class PackageRepository : BaseRepository<Package>
         await _context.SaveChangesAsync();
     }
 
-    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity)
+    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity, int categoryId)
     {
         if (product == null)
         {
@@ -38,6 +38,7 @@ public class PackageRepository : BaseRepository<Package>
         
         if (existingProduct == null)
         {
+            product.CategoryId = categoryId;    
             // Product does not exist, so add it to the database
             product = (await  _productRepository.Create(product)).Entity;
             await _context.SaveChangesAsync(); // Save to generate the Product ID
