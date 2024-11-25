@@ -142,6 +142,12 @@ public class PackageService
         }
     }
 
+    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity)
+    {
+        await _packageRepository.AddProductToPackageAsync(product, packageId, quantity);
+    }
+    
+
     public async Task<IEnumerable<Product>> GetProductsByPackageIdAsync(int packageId)
     {
         try
