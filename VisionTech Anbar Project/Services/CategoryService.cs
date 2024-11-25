@@ -54,8 +54,9 @@ public class CategoryService
         }
     }
 
-    public async Task CreateCategoryAsync(Category category)
+    public async Task<Category> CreateCategoryAsync(Category category)
     {
+        Category res;
         if (category == null)
         {
             Log.Error("Attempted to create a null category.");
@@ -65,7 +66,7 @@ public class CategoryService
         try
         {
             Log.Information("Creating a new category: {CategoryName}.", category.Name);
-            await _categoryRepository.AddAsync(category);
+            res = (await _categoryRepository.Create(category)).Entity;
             Log.Information("Category {CategoryName} successfully created.", category.Name);
         }
         catch (Exception ex)
@@ -73,6 +74,8 @@ public class CategoryService
             Log.Error(ex, "Error occurred while creating a category.");
             throw;
         }
+
+        return res;
     }
 
     public async Task UpdateCategoryAsync(Category category)
