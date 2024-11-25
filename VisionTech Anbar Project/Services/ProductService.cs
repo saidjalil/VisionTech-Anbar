@@ -8,10 +8,12 @@ namespace VisionTech_Anbar_Project.Services;
 public class ProductService
 {
     private readonly ProductRepository _productRepository;
+    private readonly BarcodeRepository _barcodeRepository;
 
-    public ProductService(ProductRepository productRepository)
+    public ProductService(ProductRepository productRepository, BarcodeRepository barcodeRepository)
     {
         _productRepository = productRepository;
+        _barcodeRepository = barcodeRepository;
     }
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()
@@ -150,5 +152,46 @@ public class ProductService
     {
         var res = (await _productRepository.GetAll()).FirstOrDefault(x => x.Barcodes.Any(x => x.BarCode == barcode));
         return res;
+    }
+
+    public async Task CreateProductWithMultipleBarcode(Product product, List<int> barcodes)
+    {
+        if (product == null) throw new ArgumentNullException(nameof(product));
+        if (barcodes == null || !barcodes.Any()) throw new ArgumentException("Barcode list cannot be null or empty.", nameof(barcodes));
+
+        // Validate the uniqueness of barcodes
+        var existingBarcodes = (await _barcodeRepository.GetAllAsync())
+            .Where(b => barcodes.Contains(b.BarCode))
+            .ToList();
+
+        if (existingBarcodes.Any())
+        {
+            throw new InvalidOperationException($"The following barcodes already exist: {string.Join(", ", existingBarcodes.Select(b => b.BarCode))}");
+        }
+
+        foreach (var barcode in barcodes)
+        {
+            var bar = new Barcode()
+            {
+                BarCode = barcode
+            };
+            product.Barcodes.Add(bar); 
+        }
+        
+        // Add product to the context
+        await _productRepository.Create(product);
+
+        // Create Barcode entities and link to the product
+        // foreach (var barcodeValue in barcodes)
+        // {
+        //     var barcode = new Barcode
+        //     {
+        //         BarCode = barcodeValue,
+        //         Product = product // Set the relationship
+        //     };
+        //     _barcodeRepository.Create(barcode);
+        // }
+
+        
     }
 }
