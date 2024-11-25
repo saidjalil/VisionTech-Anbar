@@ -44,18 +44,22 @@ public class FileExporter
     public async Task CreateAndWriteExportFile(List<int> ids)
     {
 
+        var settings = new JsonSerializerSettings
+        {
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore, // Prevent circular references
+            Formatting = Formatting.Indented // Pretty-print JSON for readability
+        };
+        
         var date = DateTime.Now;
         var fileNameWithSpaces = "Export-" + date + $"_Size-{ids.Count}" + ".js";
         var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
         string destinationFilePath = Path.Combine(FileManager.GetDownloadsFolder(), fileName);
 
-        List<ViewModel.Package> packages = new List<ViewModel.Package>();
-        packages = JsonManager.GetAllPackages();
-        //
-        // foreach (var id in ids) 
-        // {
-        //     packages.Add(await _packageService.GetPackageByIdAsync(id));
-        // }
+        List<Package> packages = new List<Package>();
+        foreach (var id in ids) 
+        {
+            packages.Add(await _packageService.GetPackageWithNavigation(id));
+        }
             
 
         var json = JsonConvert.SerializeObject(packages);
