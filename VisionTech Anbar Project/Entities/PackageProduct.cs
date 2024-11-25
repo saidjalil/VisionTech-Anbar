@@ -23,10 +23,10 @@ public class PackageProduct : BaseItem
         Product = null;
     }
 
-    public PackageProduct(string productName, int quantity, Category category, int categoryId)
+    public PackageProduct(string productName, int quantity,  int categoryId)
     {
         this.Package = null;
-        this.Product = new Product { ProductName = productName, Category = category,CategoryId = categoryId };
+        this.Product = new Product { ProductName = productName, CategoryId = categoryId };
         //Description = description;
         Quantity = quantity;
     }

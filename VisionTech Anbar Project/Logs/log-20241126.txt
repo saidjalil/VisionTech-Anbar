@@ -1,0 +1,51 @@
+2024-11-26 00:42:35.928 +04:00 [INF] Application Starting
+2024-11-26 00:42:39.099 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 00:42:43.281 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 00:56:21.878 +04:00 [INF] Application Starting
+2024-11-26 00:56:23.310 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 00:56:26.430 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 00:56:31.838 +04:00 [INF] test
+2024-11-26 00:56:46.715 +04:00 [INF] Application Starting
+2024-11-26 00:56:48.560 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 00:56:50.064 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 00:56:56.454 +04:00 [INF] test
+2024-11-26 00:58:58.037 +04:00 [INF] Application Starting
+2024-11-26 00:58:59.913 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 00:59:01.439 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 00:59:05.598 +04:00 [INF] test
+2024-11-26 01:00:44.695 +04:00 [INF] Application Starting
+2024-11-26 01:00:46.448 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:00:47.944 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 01:03:10.555 +04:00 [INF] Application Starting
+2024-11-26 01:03:12.357 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:03:13.847 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 01:03:17.898 +04:00 [INF] Adding product with ID: 0 to package with ID: 1, quantity: 4.
+2024-11-26 01:03:18.116 +04:00 [ERR] Error occurred while adding product to package. Package ID: 1, Product ID: 0.
+System.InvalidOperationException: The value of 'PackageProduct.ProductId' is unknown when attempting to save changes. This is because the property is also part of a foreign key for which the principal entity in the relationship is not known.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.PrepareToSave()
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.GetEntriesToSave(Boolean cascadeChanges)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.PackageRepository.AddProductToPackageAsync(Int32 packageId, Int32 productId, Int32 quantity, Int32 categoryId) in D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\Repositories\PackageRepository.cs:line 26
+   at VisionTech_Anbar_Project.Services.PackageService.AddProductToPackageAsync(Int32 packageId, Int32 productId, Int32 quantity, Int32 categoryId) in D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 155
+2024-11-26 01:06:30.924 +04:00 [INF] Application Starting
+2024-11-26 01:06:32.684 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:06:34.191 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 01:07:17.159 +04:00 [INF] Application Starting
+2024-11-26 01:07:18.982 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:07:20.494 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 01:11:53.963 +04:00 [INF] Application Starting
+2024-11-26 01:11:55.768 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:11:57.301 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 01:11:59.440 +04:00 [INF] Creating a new category: Kulek.
+2024-11-26 01:11:59.705 +04:00 [INF] Category Kulek successfully created.
+2024-11-26 01:12:06.032 +04:00 [INF] Application Starting
+2024-11-26 01:12:08.142 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:12:09.667 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 01:12:33.599 +04:00 [INF] Application Starting
+2024-11-26 01:12:35.459 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:12:36.978 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-26 01:12:40.418 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-26 01:12:40.455 +04:00 [INF] Successfully retrieved 3 packages.
