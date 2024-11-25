@@ -39,7 +39,6 @@
             label5 = new Label();
             checkBox1 = new CheckBox();
             label6 = new Label();
-            comboBox1 = new ComboBox();
             label7 = new Label();
             textBox4 = new TextBox();
             button3 = new Button();
@@ -53,7 +52,7 @@
             textBox1.ForeColor = SystemColors.InfoText;
             textBox1.Location = new Point(110, 44);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(177, 27);
+            textBox1.Size = new Size(177, 32);
             textBox1.TabIndex = 0;
             // 
             // label2
@@ -64,7 +63,7 @@
             label2.ForeColor = Color.DimGray;
             label2.Location = new Point(15, 44);
             label2.Name = "label2";
-            label2.Size = new Size(71, 18);
+            label2.Size = new Size(89, 24);
             label2.TabIndex = 1;
             label2.Text = "QR Code";
             label2.Click += label2_Click;
@@ -75,9 +74,9 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(15, 113);
+            label3.Location = new Point(15, 135);
             label3.Name = "label3";
-            label3.Size = new Size(78, 18);
+            label3.Size = new Size(96, 22);
             label3.TabIndex = 3;
             label3.Text = "Kateqoriya";
             // 
@@ -86,7 +85,7 @@
             textBox2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.Location = new Point(228, 148);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(177, 23);
+            textBox2.Size = new Size(177, 26);
             textBox2.TabIndex = 2;
             textBox2.TextChanged += textBox2_TextChanged;
             // 
@@ -98,7 +97,7 @@
             label4.ForeColor = Color.DimGray;
             label4.Location = new Point(434, 113);
             label4.Name = "label4";
-            label4.Size = new Size(33, 18);
+            label4.Size = new Size(41, 22);
             label4.TabIndex = 5;
             label4.Text = "Say";
             // 
@@ -110,7 +109,7 @@
             textBox3.Location = new Point(434, 148);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = " 0";
-            textBox3.Size = new Size(56, 23);
+            textBox3.Size = new Size(56, 27);
             textBox3.TabIndex = 4;
             textBox3.TextChanged += textBox3_TextChanged;
             textBox3.KeyPress += textBox3_KeyPress;
@@ -147,7 +146,7 @@
             label5.ForeColor = Color.DimGray;
             label5.Location = new Point(228, 115);
             label5.Name = "label5";
-            label5.Size = new Size(93, 17);
+            label5.Size = new Size(118, 22);
             label5.TabIndex = 9;
             label5.Text = "Məhsulun Adı";
             // 
@@ -156,7 +155,7 @@
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(584, 153);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
+            checkBox1.Size = new Size(18, 17);
             checkBox1.TabIndex = 10;
             checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -168,17 +167,9 @@
             label6.ForeColor = Color.DimGray;
             label6.Location = new Point(523, 148);
             label6.Name = "label6";
-            label6.Size = new Size(46, 18);
+            label6.Size = new Size(55, 22);
             label6.TabIndex = 11;
             label6.Text = "Daimi";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(15, 143);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(162, 28);
-            comboBox1.TabIndex = 12;
             // 
             // label7
             // 
@@ -188,7 +179,7 @@
             label7.ForeColor = Color.DimGray;
             label7.Location = new Point(228, 208);
             label7.Name = "label7";
-            label7.Size = new Size(132, 17);
+            label7.Size = new Size(166, 22);
             label7.TabIndex = 14;
             label7.Text = "Əlavə barkod üçün:";
             // 
@@ -198,7 +189,7 @@
             textBox4.Location = new Point(286, 239);
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "*****************";
-            textBox4.Size = new Size(177, 23);
+            textBox4.Size = new Size(177, 26);
             textBox4.TabIndex = 13;
             // 
             // button3
@@ -251,7 +242,7 @@
             // 
             // AddProductForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BorderColor = Color.Transparent;
@@ -261,7 +252,6 @@
             Controls.Add(button3);
             Controls.Add(label7);
             Controls.Add(textBox4);
-            Controls.Add(comboBox1);
             Controls.Add(label6);
             Controls.Add(checkBox1);
             Controls.Add(label5);
@@ -296,7 +286,6 @@
         private Label label5;
         private CheckBox checkBox1;
         private Label label6;
-        private ComboBox comboBox1;
         private Label label7;
         private TextBox textBox4;
         private Button button3;

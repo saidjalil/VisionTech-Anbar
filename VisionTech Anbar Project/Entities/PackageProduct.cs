@@ -1,5 +1,6 @@
 using System.Xml.Linq;
 using VisionTech_Anbar_Project.Entities.Base;
+using VisionTech_Anbar_Project.Entities.Categories;
 
 namespace VisionTech_Anbar_Project.Entities;
 
@@ -22,10 +23,10 @@ public class PackageProduct : BaseItem
         Product = null;
     }
 
-    public PackageProduct(string productName, int quantity)
+    public PackageProduct(string productName, int quantity, Category category, int categoryId)
     {
         this.Package = null;
-        this.Product = new Product { ProductName = productName };
+        this.Product = new Product { ProductName = productName, Category = category,CategoryId = categoryId };
         //Description = description;
         Quantity = quantity;
     }
@@ -33,6 +34,8 @@ public class PackageProduct : BaseItem
     public void Copy(PackageProduct packageProduct)
     {
         Product.ProductName = packageProduct.Product.ProductName;
+        Product.Category = packageProduct.Product.Category;
+        Product.CategoryId = packageProduct.Product.CategoryId;
         //Description = product.Description;
         Quantity = packageProduct.Quantity;
     }

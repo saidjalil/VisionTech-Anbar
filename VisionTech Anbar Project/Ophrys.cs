@@ -136,7 +136,7 @@ namespace VisionTech_Anbar_Project
             {
                 Text = "▽",
                 Width = 30,
-                Height = 30,
+                Height = 40,
                 Margin = new Padding(5)
             };
             expandButton.Click += (s, e) => ToggleSubItems(itemPanel);
@@ -148,7 +148,7 @@ namespace VisionTech_Anbar_Project
                 Tag = package.Id,
                 ForeColor = Color.Red,
                 Width = 50,
-                Height = 30,
+                Height = 40,
                 Margin = new Padding(5)
             };
 
@@ -161,7 +161,7 @@ namespace VisionTech_Anbar_Project
                 ForeColor = Color.Transparent,
                 Tag = package.Id,
                 Width = 60,
-                Height = 30,
+                Height = 40,
                 Margin = new Padding(5)
             };
             addButton.Click += AddButton_Click;
@@ -174,7 +174,7 @@ namespace VisionTech_Anbar_Project
                 ForeColor = Color.Transparent,
                 Tag = package.Id,
                 Width = 60,
-                Height = 30,
+                Height = 40,
                 Margin = new Padding(5)
             };
             editButton.Click += EditButton_Click;
@@ -187,7 +187,7 @@ namespace VisionTech_Anbar_Project
                 ForeColor = Color.Transparent,
                 Tag = package.Id,
                 Width = 60,
-                Height = 30,
+                Height = 40,
                 Margin = new Padding(5)
             };
 
@@ -286,7 +286,7 @@ namespace VisionTech_Anbar_Project
             if (addProductForm.DataSaved)
             {
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
-                await packageService.AddProductToPackageAsync(Convert.ToInt32(button.Tag), addProductForm.NewProduct.Product.Id, addProductForm.NewProduct.Quantity);
+                await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
                 RestartPage();
                 InitializeItems();
             }

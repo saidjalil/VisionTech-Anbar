@@ -35,8 +35,8 @@ namespace VisionTech_Anbar_Project.Entities
             
         public Package(DateTime createdTime, string vendorName, string warehouseName)
         {
-            //this.Warehouse = new Warehouse();
-            //this.Vendor = new Vendor();
+            this.Warehouse = new Warehouse();
+            this.Vendor = new Vendor();
             // PackageName = packageName;
             CreatedTime = createdTime;
             Vendor.VendorName = vendorName;

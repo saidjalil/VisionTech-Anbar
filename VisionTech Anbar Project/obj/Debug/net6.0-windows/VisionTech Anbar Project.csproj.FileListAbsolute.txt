@@ -62,7 +62,6 @@ C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\
 C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.AddColumnForm.resources
 C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.AddProductForm.resources
 C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.EditProductForm.resources
-C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.FirstPage.resources
 C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.Ophrys.resources
 C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.csproj.GenerateResource.cache
 C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech Anbar Project.GeneratedMSBuildEditorConfig.editorconfig
