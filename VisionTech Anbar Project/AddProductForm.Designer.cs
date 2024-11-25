@@ -44,6 +44,7 @@
             button3 = new Button();
             button4 = new Button();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
+            button5 = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -240,6 +241,16 @@
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
             // 
+            // button5
+            // 
+            button5.Location = new Point(494, 56);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 29);
+            button5.TabIndex = 18;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // AddProductForm
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
@@ -247,6 +258,7 @@
             BackColor = Color.Transparent;
             BorderColor = Color.Transparent;
             ClientSize = new Size(641, 410);
+            Controls.Add(button5);
             Controls.Add(metroSetControlBox1);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -291,5 +303,6 @@
         private Button button3;
         private Button button4;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
+        private Button button5;
     }
 }

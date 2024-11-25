@@ -23,6 +23,7 @@ namespace VisionTech_Anbar_Project
         public PackageProduct NewProduct;
         public bool DataSaved;
 
+        private int selectedId;
         private readonly CategoryService categoryService;
 
         private List<Category> categories = new List<Category>();
@@ -37,7 +38,7 @@ namespace VisionTech_Anbar_Project
             categoryService = new CategoryService(new());
 
             InitializeComponent();
-            CreateNewComboBox(null);
+            InitializeMainComboBox();
         }
         public AddProductForm(PackageProduct product)
         {
@@ -183,8 +184,141 @@ namespace VisionTech_Anbar_Project
 
         }
 
+        private async void MainComboBox_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ComboBox mainComboBox = sender as ComboBox;
 
-        private void CreateNewComboBox(ComboBox triggeringComboBox)
+                // Get the user's input
+                var inputText = mainComboBox.Text;
+
+                // Check if the input matches an existing category
+                var matchingCategory = categories.FirstOrDefault(x => x.Name.Equals(inputText, StringComparison.OrdinalIgnoreCase));
+
+                if (matchingCategory == null && !string.IsNullOrWhiteSpace(inputText))
+                {
+                    // Input does not match an existing category
+                    var result = MessageBox.Show(
+                        $"The category '{inputText}' does not exist. Would you like to create it?",
+                        "Create New Category",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Create the new category
+                        var newCategory = await CreateCategoryAsync(inputText, null);
+
+                        // Add the new category to the list and update the ComboBox's data source
+                        categories.Add(newCategory);
+                        mainComboBox.DataSource = null; // Reset the data source to refresh it
+                        mainComboBox.DataSource = categories;
+                        mainComboBox.DisplayMember = "Name";
+                        mainComboBox.ValueMember = "Id";
+
+                        // Select the newly created category
+                        mainComboBox.SelectedItem = newCategory;
+                    }
+                }
+            }
+        }
+
+        private async Task<Category> CreateCategoryAsync(string name, int? parentId)
+        {
+            // Create the new category
+            var newCategory = new Category
+            {
+                Name = name,
+                ParentId = parentId,
+                UpdatedTime = DateTime.Now,
+                CreatedTime = DateTime.Now,
+
+            };
+
+            // Save the new category to the database/service
+            await categoryService.CreateCategoryAsync(newCategory);
+
+            Log.Information($"New category created: {newCategory.Name} (ID: {newCategory.Id})");
+
+            return newCategory;
+        }
+        private async void SubComboBox_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ComboBox currentComboBox = sender as ComboBox;
+                var inputText = currentComboBox.Text;
+
+                var matchingCategory = categories.FirstOrDefault(x => x.Name.Equals(inputText, StringComparison.OrdinalIgnoreCase));
+                if (matchingCategory == null && !string.IsNullOrWhiteSpace(inputText))
+                {
+                    var result = MessageBox.Show(
+                        $"The category '{inputText}' does not exist. Would you like to create it?",
+                        "Create New Subcategory",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Get the parent ID from the selected ComboBox
+                        int? parentId = (int?)currentComboBox.SelectedValue;
+
+                        var newCategory = await CreateCategoryAsync(inputText, parentId);
+
+                        categories.Add(newCategory);
+                        currentComboBox.DataSource = null;
+                        currentComboBox.DataSource = categories.Where(x => x.ParentId == parentId).ToList();
+                        currentComboBox.DisplayMember = "Name";
+                        currentComboBox.ValueMember = "Id";
+                        currentComboBox.SelectedItem = newCategory;
+                    }
+                }
+            }
+        }
+
+        private async void InitializeMainComboBox()
+        {
+            ComboBox mainComboBox = new ComboBox
+            {
+                Name = "MainComboBox",
+                Width = 200,
+                Location = new System.Drawing.Point(20, 20), // Position for the main ComboBox
+                DropDownStyle = ComboBoxStyle.DropDown
+            };
+
+            // Fetch root categories (categories with ParentId == null)
+            var rootCategories = (await categoryService.GetAllCategoriesAsync())
+                .Where(x => x.ParentId == null)
+                .ToList();
+
+            mainComboBox.DataSource = rootCategories;
+            mainComboBox.DisplayMember = "Name"; // Display the 'Name' in the ComboBox
+            mainComboBox.ValueMember = "Id";     // Use 'Id' as the selected value
+
+            // Add event handler for selection change
+            mainComboBox.SelectedIndexChanged += MainComboBox_Changed;
+            //mainComboBox.TextChanged += MainComboBox_TextChanged;
+            mainComboBox.KeyDown += new KeyEventHandler(MainComboBox_TextChanged);
+
+
+            // Add the main ComboBox to the Form and to the list
+            this.Controls.Add(mainComboBox);
+            comboBoxes.Add(mainComboBox);
+        }
+
+        private async void MainComboBox_Changed(object sender, EventArgs e)
+        {
+            ComboBox mainComboBox = sender as ComboBox;
+
+            if (mainComboBox.SelectedValue is int selectedId)
+            {
+                // Create a new ComboBox for subcategories based on the selected category
+                CreateSubComboBox(mainComboBox, selectedId);
+            }
+        }
+
+        private async void CreateSubComboBox(ComboBox triggeringComboBox, int parentId)
         {
             comboBoxCount++;
 
@@ -192,35 +326,49 @@ namespace VisionTech_Anbar_Project
             {
                 Name = "ComboBox" + comboBoxCount,
                 Width = 200,
-                Location = triggeringComboBox == null
-                    ? new System.Drawing.Point(20, 20) // Position of the first ComboBox
-                    : new System.Drawing.Point(20, triggeringComboBox.Bottom + 10), // Below the triggering ComboBox
+                Location = new System.Drawing.Point(20, triggeringComboBox.Bottom + 10), // Position below the triggering ComboBox
                 DropDownStyle = ComboBoxStyle.DropDown
             };
 
-            // Add some dummy data for demonstration purposes
-            newComboBox.Items.AddRange(new object[] { "Option 1", "Option 2", "Option 3" });
+            // Fetch subcategories dynamically based on ParentId
+            var subCategories = (await categoryService.GetSubCategoriesAsync(parentId)).ToList();
 
-            // Event handler for when an item is selected or input is entered
-            newComboBox.SelectedIndexChanged += comboBox1_Changed;
-            newComboBox.TextChanged += comboBox1_Changed;
+            if (!subCategories.Any())
+            {
+                Log.Information($"No subcategories found for ParentId: {parentId}");
+                return; // Stop if there are no subcategories
+            }
 
-            mainComboBox = newComboBox;
+            newComboBox.DataSource = subCategories;
+            newComboBox.DisplayMember = "Name"; // Display the 'Name' in the ComboBox
+            newComboBox.ValueMember = "Id";     // Use 'Id' as the selected value
+
+            // Add event handler for the new ComboBox
+            newComboBox.SelectedIndexChanged += SubComboBox_Changed;
+            newComboBox.KeyDown += new KeyEventHandler(SubComboBox_TextChanged);
+
+
             // Add the new ComboBox to the Form and to the list
             this.Controls.Add(newComboBox);
             comboBoxes.Add(newComboBox);
         }
 
-        private void comboBox1_Changed(object sender, EventArgs e)
+        private async void SubComboBox_Changed(object sender, EventArgs e)
         {
             ComboBox currentComboBox = sender as ComboBox;
 
-            // Check if this ComboBox already triggered the creation of a new one
-            if (comboBoxes.Last() == currentComboBox && !string.IsNullOrWhiteSpace(currentComboBox.Text))
+            if (currentComboBox.SelectedValue is int selectedId)
             {
-                // Create a new ComboBox below the current one
-                CreateNewComboBox(currentComboBox);
+                // Create a new ComboBox for subcategories based on the selected category
+                CreateSubComboBox(currentComboBox, selectedId);
             }
+        }
+
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+           // await categoryService.CreateCategoryAsync(new Category { CreatedTime = DateTime.Now, Name = "Kulek", UpdatedTime = DateTime.Now });
+            //await categoryService.CreateCategoryAsync(new Category { CreatedTime = DateTime.Now, Name = "Ermenistan", UpdatedTime = DateTime.Now, ParentId =14});
         }
     }
 }
