@@ -135,4 +135,18 @@ public class CategoryService
             throw;
         }
     }
+    
+    
+    public async Task<List<Category>> GetRootCategoriesAsync()
+    {
+        return await _categoryRepository.GetRootCategoriesAsync();
+    }
+
+    public async Task<Category> FindCategoryByNameAsync(string categoryName)
+    {
+        return await _categoryRepository.FindCategoryByNameAsync(categoryName);
+    }
+    
+    
+    
 }

@@ -32,3 +32,8 @@ System.InvalidOperationException: The value of 'PackageProduct.ProductId' is unk
    at VisionTech_Anbar_Project.Services.PackageService.AddProductToPackageAsync(Int32 packageId, Int32 productId, Int32 quantity) in D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 133
 2024-11-25 00:46:16.253 +04:00 [INF] Application Starting
 2024-11-25 00:46:29.704 +04:00 [INF] Application Starting
+2024-11-25 20:11:32.660 +04:00 [INF] Application Starting
+2024-11-25 20:13:05.386 +04:00 [INF] Application Starting
+2024-11-25 20:13:39.930 +04:00 [INF] Application Starting
+2024-11-25 20:14:04.891 +04:00 [INF] Application Starting
+2024-11-25 21:14:47.537 +04:00 [INF] Application Starting

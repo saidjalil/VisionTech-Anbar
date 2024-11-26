@@ -21,7 +21,7 @@ namespace VisionTech_Anbar_Project
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Ophrys());
+            Application.Run(new CategroyTest());
         }
     }
 }
