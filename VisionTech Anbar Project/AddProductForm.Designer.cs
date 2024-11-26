@@ -45,6 +45,7 @@
             button4 = new Button();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             button5 = new Button();
+            comboBox1 = new ComboBox();
             SuspendLayout();
             // 
             // textBox1
@@ -75,7 +76,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(15, 135);
+            label3.Location = new Point(40, 113);
             label3.Name = "label3";
             label3.Size = new Size(96, 22);
             label3.TabIndex = 3;
@@ -251,6 +252,14 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(15, 148);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(161, 34);
+            comboBox1.TabIndex = 19;
+            // 
             // AddProductForm
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
@@ -258,6 +267,7 @@
             BackColor = Color.Transparent;
             BorderColor = Color.Transparent;
             ClientSize = new Size(641, 410);
+            Controls.Add(comboBox1);
             Controls.Add(button5);
             Controls.Add(metroSetControlBox1);
             Controls.Add(button4);
@@ -304,5 +314,6 @@
         private Button button4;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
         private Button button5;
+        private ComboBox comboBox1;
     }
 }

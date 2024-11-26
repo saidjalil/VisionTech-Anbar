@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {}
+    "C:\\Users\\Said\\source\\repos\\VisionTechProject\\VisionTechProject\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {}
   },
   "projects": {
-    "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {
+    "C:\\Users\\Said\\source\\repos\\VisionTechProject\\VisionTechProject\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
+        "projectUniqueName": "C:\\Users\\Said\\source\\repos\\VisionTechProject\\VisionTechProject\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
         "projectName": "VisionTech Anbar Project",
-        "projectPath": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
-        "packagesPath": "C:\\Users\\celil\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio Projects\\VisionTech-Anbar\\VisionTech Anbar Project\\obj\\",
+        "projectPath": "C:\\Users\\Said\\source\\repos\\VisionTechProject\\VisionTechProject\\VisionTech-Anbar\\VisionTech Anbar Project\\VisionTech Anbar Project.csproj",
+        "packagesPath": "C:\\Users\\Said\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Said\\source\\repos\\VisionTechProject\\VisionTechProject\\VisionTech-Anbar\\VisionTech Anbar Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\celil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Said\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -35,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -96,7 +90,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
