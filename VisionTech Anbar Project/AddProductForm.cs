@@ -25,9 +25,9 @@ namespace VisionTech_Anbar_Project
         public PackageProduct NewProduct;
         public bool DataSaved;
 
+        private readonly ProductService productService;
 
-
-        private int selectedId = 0;
+        private int selectedId = 14;
         private int currentParentId = 0;
         private readonly CategoryService categoryService;
 
@@ -41,13 +41,18 @@ namespace VisionTech_Anbar_Project
         private List<ComboBox> comboBoxes = new List<ComboBox>();
         //private List<Tuple<ComboBox, ComboBox, int?>> comboBoxRelationships = new List<Tuple<ComboBox, ComboBox, int?>>();
 
+        private List<TextBox> textBoxList = new List<TextBox>();
+        private int textBoxCount = 0; // To keep track of TextBox IDs
+
         ComboBox mainComboBox;
         public AddProductForm()
         {
             categoryService = new CategoryService(new());
+            productService = new ProductService(new());
 
             InitializeComponent();
             InitializeCategories();
+            CreateTextBox();
             //InitializeMainComboBox();
         }
         public AddProductForm(PackageProduct product)
@@ -118,6 +123,7 @@ namespace VisionTech_Anbar_Project
             string Name;
             // string Description;
             int Quantity;
+            List<Barcode> barcodes = new List<Barcode>();
             // string id;
             //string categoryName;
 
@@ -130,16 +136,68 @@ namespace VisionTech_Anbar_Project
 
             //Log.Information(selectedCategory.Name);
             //Description = textBox2.Text;
-            Quantity = int.Parse(textBox3.Text);
+            if (string.IsNullOrWhiteSpace(textBox3.Text) || !int.TryParse(textBox3.Text, out int quantity))
+            {
+                MessageBox.Show(
+                    "Məhsulun miqdarı qeyd olunmayıb və ya düzgün formatda deyil.",
+                    "Daxiletmə xətası",
+                    MessageBoxButtons.OK);
+                return;
+            }
+            Quantity = quantity;
+
+            foreach (TextBox txtbox in textBoxList)
+            {
+                if (string.IsNullOrWhiteSpace(txtbox.Text) || !int.TryParse(txtbox.Text, out int barcodeValue))
+                {
+                    MessageBox.Show(
+                        "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
+                        "Daxiletmə xətası",
+                        MessageBoxButtons.OK);
+                    return;
+                }
+
+                var barcode = new Barcode
+                {
+                    BarCode = barcodeValue,
+                };
+                barcodes.Add(barcode);
+            }
+
+            if (!string.IsNullOrWhiteSpace(textBox1.Text) && int.TryParse(textBox1.Text, out int mainBarcode))
+            {
+                foreach (Barcode barcode in barcodes)
+                {
+                    if (barcode.BarCode == mainBarcode)
+                    {
+                        MessageBox.Show(
+                            "Daxil olunan barkod verilən barkod ilə eyni ola bilməz!",
+                            "Daxiletmə xətası",
+                            MessageBoxButtons.OK);
+                        return;
+                    }
+                }
+            }
+            else if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                MessageBox.Show(
+                    "Əsas barkod düzgün formatda deyil.",
+                    "Daxiletmə xətası",
+                    MessageBoxButtons.OK);
+                return;
+            }
+
 
             if (IsEdit)
+            {
                 EditedProduct = new PackageProduct(Name,
-                                         Quantity, selectedId);
+                                         Quantity, selectedId, barcodes);
+            }
             else
             {
                 //id = Guid.NewGuid().ToString();
                 NewProduct = new PackageProduct(Name,
-                                         Quantity, selectedId);
+                                         Quantity, selectedId, barcodes);
             }
         }
 
@@ -182,10 +240,10 @@ namespace VisionTech_Anbar_Project
             comboBoxCount++;
 
             comboBox1.Tag = comboBoxCount;
-             categories = (await categoryService.GetAllCategoriesAsync())
-                .Where(x => x.ParentId == null)
-                .ToList();
-            
+            categories = (await categoryService.GetAllCategoriesAsync())
+               .Where(x => x.ParentId == null)
+               .ToList();
+
             comboBox1.DataSource = categories;
             comboBox1.DisplayMember = "Name"; // Display the 'Name' in the ComboBox
             comboBox1.ValueMember = "Id";
@@ -224,6 +282,7 @@ namespace VisionTech_Anbar_Project
         private async void button5_Click(object sender, EventArgs e)
         {
             await categoryService.CreateCategoryAsync(new Category { CreatedTime = DateTime.Now, Name = "Kulek", UpdatedTime = DateTime.Now });
+
             //await categoryService.CreateCategoryAsync(new Category { CreatedTime = DateTime.Now, Name = "Ermenistan", UpdatedTime = DateTime.Now, ParentId =14});
         }
 
@@ -275,7 +334,7 @@ namespace VisionTech_Anbar_Project
 
             // Track this new ComboBox with its parent ComboBox and associated parentId
 
-           // comboBoxRelationships.Add(new Tuple<ComboBox, ComboBox, int?>(newComboBox, triggeringComboBox, parentId));
+            // comboBoxRelationships.Add(new Tuple<ComboBox, ComboBox, int?>(newComboBox, triggeringComboBox, parentId));
 
             // Add the new ComboBox to the Form and to the list
             this.Controls.Add(newComboBox);
@@ -406,7 +465,7 @@ namespace VisionTech_Anbar_Project
                         // Add the new category to the list and update the ComboBox's data source
                         categories.Add(newCategory);
                         currentComboBox.DataSource = null; // Reset the data source to refresh it
-                        currentComboBox.DataSource = categories.Where(x => x.ParentId == currentParentId).ToList(); 
+                        currentComboBox.DataSource = categories.Where(x => x.ParentId == currentParentId).ToList();
                         currentComboBox.DisplayMember = "Name";
                         currentComboBox.ValueMember = "Id";
 
@@ -439,7 +498,65 @@ namespace VisionTech_Anbar_Project
             }
         }
 
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Equals(""))
+            {
+                return;
+            }
+            Product barcodeProduct = await productService.GetProductByBarCode(int.Parse(textBox1.Text));
+            if (barcodeProduct != null)
+            {
+                textBox2.Text = barcodeProduct.ProductName;
+                textBox2.Enabled = false;
+            }
+            // combobox1 category add
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CreateTextBox();
+        }
+
+        private void CreateTextBox()
+        {
+            // Increment TextBox count to use as an identifier
+            textBoxCount++;
+
+            // Create a new TextBox
+            TextBox newTextBox = new TextBox
+            {
+                Name = "TextBox" + textBoxCount,
+                Width = 200,
+                Location = new System.Drawing.Point(286, 200 + (40 * textBoxCount)), // Adjust location dynamically
+                Tag = textBoxCount, // Store the ID as a tag
+                Size = new System.Drawing.Size(177, 26),
+                PlaceholderText = "**********"
+            };
+
+            newTextBox.KeyPress += NewTextBoxKeyPress;
+
+            // Add the new TextBox to the list
+            textBoxList.Add(newTextBox);
+
+            // Add the new TextBox to the form
+            this.Controls.Add(newTextBox);
+
+        }
+
+        private void NewTextBoxKeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow control keys like Backspace, Enter, and Tab
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+            // Check if the key is a number
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
 

@@ -40,7 +40,6 @@
             checkBox1 = new CheckBox();
             label6 = new Label();
             label7 = new Label();
-            textBox4 = new TextBox();
             button3 = new Button();
             button4 = new Button();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
@@ -63,11 +62,11 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(15, 44);
+            label2.Location = new Point(25, 50);
             label2.Name = "label2";
-            label2.Size = new Size(89, 24);
+            label2.Size = new Size(69, 24);
             label2.TabIndex = 1;
-            label2.Text = "QR Code";
+            label2.Text = "Barkod";
             label2.Click += label2_Click;
             // 
             // label3
@@ -139,6 +138,7 @@
             button2.TabIndex = 8;
             button2.Text = "Yoxla";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label5
             // 
@@ -185,15 +185,6 @@
             label7.TabIndex = 14;
             label7.Text = "Əlavə barkod üçün:";
             // 
-            // textBox4
-            // 
-            textBox4.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(286, 239);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "*****************";
-            textBox4.Size = new Size(177, 26);
-            textBox4.TabIndex = 13;
-            // 
             // button3
             // 
             button3.BackColor = Color.FromArgb(42, 45, 85);
@@ -204,6 +195,7 @@
             button3.TabIndex = 15;
             button3.Text = "+";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -223,7 +215,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(526, -2);
+            metroSetControlBox1.Location = new Point(528, 11);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -266,14 +258,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BorderColor = Color.Transparent;
-            ClientSize = new Size(641, 410);
+            ClientSize = new Size(643, 410);
             Controls.Add(comboBox1);
             Controls.Add(button5);
             Controls.Add(metroSetControlBox1);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(label7);
-            Controls.Add(textBox4);
             Controls.Add(label6);
             Controls.Add(checkBox1);
             Controls.Add(label5);
@@ -309,7 +300,6 @@
         private CheckBox checkBox1;
         private Label label6;
         private Label label7;
-        private TextBox textBox4;
         private Button button3;
         private Button button4;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;

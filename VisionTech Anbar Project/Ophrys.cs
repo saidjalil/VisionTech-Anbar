@@ -281,9 +281,9 @@ namespace VisionTech_Anbar_Project
             AddProductForm addProductForm = new AddProductForm();
             addProductForm.ShowDialog();
             Button button = sender as Button;
-           
+           //if(Convert.ToInt32(button.Tag))
 
-            if (addProductForm.DataSaved)
+            if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 //await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
