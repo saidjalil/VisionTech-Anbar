@@ -13,4 +13,6 @@ public class ProductRepository : BaseRepository<Product>
             .Include(p => p.Category)
             .ToListAsync();
     }
+    
+    
 }

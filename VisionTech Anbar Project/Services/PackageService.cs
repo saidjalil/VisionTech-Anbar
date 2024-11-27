@@ -371,4 +371,21 @@ public class PackageService
             throw;
         }
     }
+
+    public async Task<bool> IsExsistProductInPackage(int packageId, int productId)
+    {
+        var package = await _packageRepository.FindAsyncByIdWithNavigation(packageId,
+            query => query
+                .Include(x => x.PackageProducts));
+        if (package == null)
+        {
+            return false;
+        }
+
+        if (package.PackageProducts.FirstOrDefault(x => x.ProductId == productId) == null)
+        {
+            return false;
+        }
+        return true;
+    }
 }

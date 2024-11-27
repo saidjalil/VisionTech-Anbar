@@ -50,4 +50,14 @@ public class CategoryRepository : BaseRepository<Category>
                 .Include(c => c.SubCategories)
                 .ToListAsync();
         }
+        
+        public async Task<Category> FindCategoryByNameAsync(string name)
+        {
+            return await _dbSet.FirstOrDefaultAsync(c => c.Name == name);
+        }
+        
+        public async Task<List<Category>> GetRootCategoriesAsync()
+        {
+            return await _dbSet.Where(c => c.ParentId == null).ToListAsync();
+        }
 }
