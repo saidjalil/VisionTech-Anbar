@@ -194,4 +194,9 @@ public class ProductService
 
         
     }
+
+    public async Task<IEnumerable<Product>> GetProductsByCategoryId(int id)
+    {
+        return await _productRepository.GetByCategoryIdAsync(id);
+    }
 }
