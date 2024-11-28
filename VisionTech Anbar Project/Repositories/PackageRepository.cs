@@ -19,26 +19,19 @@ public class PackageRepository : BaseRepository<Package>
         var existingPackageProduct = await _context.PackageProducts
             .FirstOrDefaultAsync(pp => pp.PackageId == packageId && pp.ProductId == productId);
 
-        if (existingPackageProduct != null)
-        {
-            // Update the existing entity
-            existingPackageProduct.Quantity = quantity;
 
-            // Update other properties if needed
-            // existingPackageProduct.CategoryId = categoryId; // Uncomment if this property exists
-        }
-        else
-        {
             // Create a new entity if it doesn't exist
             var packageProduct = new PackageProduct
             {
                 PackageId = packageId,
                 ProductId = productId,
-                Quantity = quantity
+                Quantity = quantity,
+                CreatedTime = DateTime.UtcNow,
+                UpdatedTime = DateTime.UtcNow,
             };
 
             await _context.PackageProducts.AddAsync(packageProduct);
-        }
+        
 
         // Save changes to the database
         await _context.SaveChangesAsync();

@@ -26,12 +26,9 @@ namespace VisionTech_Anbar_Project.DAL
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PackageProduct>()
-        .HasKey(pp => new { pp.PackageId, pp.ProductId });
 
             modelBuilder.Entity<PackageProduct>()
-                .Property(pp => pp.Id)
-                .ValueGeneratedOnAdd();
+                .HasKey(pp => pp.Id); // Use Id as the primary key
 
             modelBuilder.Entity<PackageProduct>()
                 .HasOne(pp => pp.Package)
@@ -42,19 +39,6 @@ namespace VisionTech_Anbar_Project.DAL
                 .HasOne(pp => pp.Product)
                 .WithMany(p => p.PackageProducts)
                 .HasForeignKey(pp => pp.ProductId);
-
-            // Configure the many-to-many relationship between Package and Product through PackageProduct
-            modelBuilder.Entity<PackageProduct>()
-                .HasOne(pp => pp.Package)
-                .WithMany(p => p.PackageProducts)
-                .HasForeignKey(pp => pp.PackageId)
-                .OnDelete(DeleteBehavior.Cascade);  // Optional: Specify delete behavior
-
-            modelBuilder.Entity<PackageProduct>()
-                .HasOne(pp => pp.Product)
-                .WithMany(p => p.PackageProducts)
-                .HasForeignKey(pp => pp.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
 
             // Product -> Category
             modelBuilder.Entity<Product>()

@@ -151,7 +151,7 @@ namespace VisionTech_Anbar_Project
 
             foreach (TextBox txtbox in textBoxList)
             {
-                if (!int.TryParse(txtbox.Text, out int barcodeValue))
+                if (!int.TryParse(txtbox.Text, out int barcodeValue) && !string.IsNullOrWhiteSpace(txtbox.Text))
                 {
                     MessageBox.Show(
                         "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
@@ -192,19 +192,19 @@ namespace VisionTech_Anbar_Project
             }
 
 
-           if (currentProduct != null)
-           {
-                  EditedProduct = new PackageProduct(currentProduct.Id, Name,
-                                           Quantity, selectedId, barcodes);
+            if (currentProduct != null)
+            {
+                EditedProduct = new PackageProduct(currentProduct.Id, Name,
+                                         Quantity, selectedId, barcodes);
             }
-            
-            else 
+
+            else
             {
                 //id = Guid.NewGuid().ToString();
                 NewProduct = new PackageProduct(productId, Name,
                                          Quantity, selectedId, barcodes);
             }
-         
+
         }
 
         private void ShowErrors(List<string> errors, int max)
@@ -506,6 +506,7 @@ namespace VisionTech_Anbar_Project
 
         private async void button2_Click(object sender, EventArgs e)
         {
+
             if (textBox1.Text.Equals(""))
             {
                 return;
@@ -553,6 +554,19 @@ namespace VisionTech_Anbar_Project
         private void NewTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow control keys like Backspace, Enter, and Tab
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+            // Check if the key is a number
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
             if (char.IsControl(e.KeyChar))
             {
                 return;

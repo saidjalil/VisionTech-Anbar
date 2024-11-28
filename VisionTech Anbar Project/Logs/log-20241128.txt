@@ -1,0 +1,60 @@
+2024-11-28 12:33:05.239 +04:00 [INF] Application Starting
+2024-11-28 12:33:06.652 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-28 12:33:08.122 +04:00 [INF] Successfully retrieved 1 packages.
+2024-11-28 12:34:21.765 +04:00 [INF] Fetching all categories.
+2024-11-28 12:34:22.511 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:37:59.062 +04:00 [INF] Fetching all categories.
+2024-11-28 12:37:59.783 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:44:45.232 +04:00 [INF] Fetching all categories.
+2024-11-28 12:44:45.959 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:44:49.286 +04:00 [INF] Adding product with ID: 2 to package with ID: 1, quantity: 4.
+2024-11-28 12:44:49.422 +04:00 [INF] Product with ID: 2 successfully added to package with ID: 1.
+2024-11-28 12:45:58.291 +04:00 [INF] Application Starting
+2024-11-28 12:45:59.699 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-28 12:46:01.083 +04:00 [INF] Successfully retrieved 1 packages.
+2024-11-28 12:46:01.787 +04:00 [INF] Fetching all categories.
+2024-11-28 12:46:02.520 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:46:07.771 +04:00 [INF] Adding product with ID: 2 to package with ID: 1, quantity: 6.
+2024-11-28 12:46:07.908 +04:00 [INF] Product with ID: 2 successfully added to package with ID: 1.
+2024-11-28 12:46:18.096 +04:00 [INF] Fetching all categories.
+2024-11-28 12:46:18.818 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:48:59.575 +04:00 [INF] Application Starting
+2024-11-28 12:49:00.866 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-28 12:49:02.245 +04:00 [INF] Successfully retrieved 1 packages.
+2024-11-28 12:49:02.736 +04:00 [INF] Fetching all categories.
+2024-11-28 12:49:03.479 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:49:21.145 +04:00 [INF] Adding product with ID: 2 to package with ID: 1, quantity: 5.
+2024-11-28 12:49:21.216 +04:00 [ERR] Error occurred while adding product to package. Package ID: 1, Product ID: 2.
+System.InvalidOperationException: The instance of entity type 'PackageProduct' cannot be tracked because another instance with the same key value for {'PackageId', 'ProductId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityStateAsync(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintActionAsync(EntityEntryGraphNode`1 node, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraphAsync[TState](EntityEntryGraphNode`1 node, Func`3 handleNode, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraphAsync(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.AddAsync(TEntity entity, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.PackageRepository.AddProductToPackageAsync(Int32 packageId, Int32 productId, Int32 quantity, Int32 categoryId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\PackageRepository.cs:line 33
+   at VisionTech_Anbar_Project.Services.PackageService.AddProductToPackageAsync(Int32 packageId, Int32 productId, Int32 quantity, Int32 categoryId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 155
+2024-11-28 12:56:33.859 +04:00 [INF] Application Starting
+2024-11-28 12:56:35.189 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-28 12:56:36.618 +04:00 [INF] Successfully retrieved 1 packages.
+2024-11-28 12:56:40.614 +04:00 [INF] Fetching all categories.
+2024-11-28 12:56:41.351 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:56:53.668 +04:00 [INF] Application Starting
+2024-11-28 12:56:55.107 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-28 12:56:56.524 +04:00 [INF] Successfully retrieved 1 packages.
+2024-11-28 12:56:57.102 +04:00 [INF] Fetching all categories.
+2024-11-28 12:56:57.844 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:59:20.401 +04:00 [INF] Application Starting
+2024-11-28 12:59:21.798 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-28 12:59:23.215 +04:00 [INF] Successfully retrieved 1 packages.
+2024-11-28 12:59:24.048 +04:00 [INF] Fetching all categories.
+2024-11-28 12:59:24.798 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 12:59:42.491 +04:00 [INF] Adding product with ID: 2 to package with ID: 1, quantity: 5.
+2024-11-28 12:59:42.673 +04:00 [INF] Product with ID: 2 successfully added to package with ID: 1.
+2024-11-28 13:00:02.910 +04:00 [INF] Fetching all categories.
+2024-11-28 13:00:03.630 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-28 13:00:14.616 +04:00 [INF] Adding product with ID: 2 to package with ID: 1, quantity: 5.
+2024-11-28 13:00:14.622 +04:00 [INF] Product with ID: 2 successfully added to package with ID: 1.
