@@ -15,20 +15,22 @@ public class PackageProduct : BaseItem
     public int Quantity { get; set; }
     public PackageProduct()
     {
-        PackageId = 0; 
-        ProductId = 0;
-        Quantity = 0;
+       // PackageId = 0; 
+       // ProductId = 0;
+       //Quantity = 0;
 
-        Package = null;
-        Product = null;
+        //Package = null;
+       // Product = null;
     }
 
-    public PackageProduct(string productName, int quantity,  int categoryId, List<Barcode> barcodes)
+    public PackageProduct(int productId, string productName, int quantity,  int categoryId, List<Barcode> barcodes)
     {
         this.Package = null;
-        this.Product = new Product { ProductName = productName, CategoryId = categoryId, Barcodes = barcodes };
+        this.Product = new Product { ProductName = productName, CategoryId = categoryId, Barcodes = barcodes, Id = productId };
         //Description = description;
         Quantity = quantity;
+        ProductId = productId;
+        
     }
 
     public void Copy(PackageProduct packageProduct)

@@ -12,8 +12,8 @@ using VisionTech_Anbar_Project.DAL;
 namespace VisionTech_Anbar_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241122113037_FixPackage")]
-    partial class FixPackage
+    [Migration("20241127115508_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -172,7 +172,10 @@ namespace VisionTech_Anbar_Project.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");

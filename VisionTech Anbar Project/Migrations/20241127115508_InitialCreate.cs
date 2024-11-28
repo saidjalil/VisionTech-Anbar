@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VisionTech_Anbar_Project.Migrations
 {
-    public partial class AddTables : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,7 +31,7 @@ namespace VisionTech_Anbar_Project.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ParentId = table.Column<int>(type: "int", nullable: false),
+                    ParentId = table.Column<int>(type: "int", nullable: true),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -44,6 +44,22 @@ namespace VisionTech_Anbar_Project.Migrations
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PackageId = table.Column<int>(type: "int", nullable: false),
+                    Base64 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,6 +99,7 @@ namespace VisionTech_Anbar_Project.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsRegular = table.Column<bool>(type: "bit", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -104,7 +121,6 @@ namespace VisionTech_Anbar_Project.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PackageName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VendorId = table.Column<int>(type: "int", nullable: false),
                     WarehouseId = table.Column<int>(type: "int", nullable: false),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -156,7 +172,8 @@ namespace VisionTech_Anbar_Project.Migrations
                     PackageId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -221,6 +238,9 @@ namespace VisionTech_Anbar_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "Brands");
+
+            migrationBuilder.DropTable(
+                name: "Images");
 
             migrationBuilder.DropTable(
                 name: "PackageProducts");

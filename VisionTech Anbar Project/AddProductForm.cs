@@ -25,9 +25,11 @@ namespace VisionTech_Anbar_Project
         public PackageProduct NewProduct;
         public bool DataSaved;
 
+        public Product currentProduct;
+
         private readonly ProductService productService;
 
-        private int selectedId = 14;
+        private int selectedId = 1;
         private int currentParentId = 0;
         private readonly CategoryService categoryService;
 
@@ -48,7 +50,7 @@ namespace VisionTech_Anbar_Project
         public AddProductForm()
         {
             categoryService = new CategoryService(new());
-            productService = new ProductService(new());
+            productService = new ProductService(new(), new());
 
             InitializeComponent();
             InitializeCategories();
@@ -123,6 +125,7 @@ namespace VisionTech_Anbar_Project
             string Name;
             // string Description;
             int Quantity;
+            int productId = 0;
             List<Barcode> barcodes = new List<Barcode>();
             // string id;
             //string categoryName;
@@ -148,7 +151,7 @@ namespace VisionTech_Anbar_Project
 
             foreach (TextBox txtbox in textBoxList)
             {
-                if (string.IsNullOrWhiteSpace(txtbox.Text) || !int.TryParse(txtbox.Text, out int barcodeValue))
+                if (!int.TryParse(txtbox.Text, out int barcodeValue))
                 {
                     MessageBox.Show(
                         "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
@@ -176,6 +179,7 @@ namespace VisionTech_Anbar_Project
                             MessageBoxButtons.OK);
                         return;
                     }
+                    //productId = barcode.ProductId;
                 }
             }
             else if (!string.IsNullOrWhiteSpace(textBox1.Text))
@@ -188,17 +192,19 @@ namespace VisionTech_Anbar_Project
             }
 
 
-            if (IsEdit)
-            {
-                EditedProduct = new PackageProduct(Name,
-                                         Quantity, selectedId, barcodes);
+           if (currentProduct != null)
+           {
+                  EditedProduct = new PackageProduct(currentProduct.Id, Name,
+                                           Quantity, selectedId, barcodes);
             }
-            else
+            
+            else 
             {
                 //id = Guid.NewGuid().ToString();
-                NewProduct = new PackageProduct(Name,
+                NewProduct = new PackageProduct(productId, Name,
                                          Quantity, selectedId, barcodes);
             }
+         
         }
 
         private void ShowErrors(List<string> errors, int max)
@@ -504,10 +510,10 @@ namespace VisionTech_Anbar_Project
             {
                 return;
             }
-            Product barcodeProduct = await productService.GetProductByBarCode(int.Parse(textBox1.Text));
-            if (barcodeProduct != null)
+            currentProduct = await productService.GetProductByBarCode(int.Parse(textBox1.Text));
+            if (currentProduct != null)
             {
-                textBox2.Text = barcodeProduct.ProductName;
+                textBox2.Text = currentProduct.ProductName;
                 textBox2.Enabled = false;
             }
             // combobox1 category add

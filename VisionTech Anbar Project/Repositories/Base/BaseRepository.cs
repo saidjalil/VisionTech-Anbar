@@ -100,7 +100,7 @@ namespace VisionTech_Anbar_Project.Repositories.Base
             {
                 query = includeProperties(query);
             }
-
+             
             return await query.ToListAsync();
         }
         

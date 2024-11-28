@@ -170,7 +170,10 @@ namespace VisionTech_Anbar_Project.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");

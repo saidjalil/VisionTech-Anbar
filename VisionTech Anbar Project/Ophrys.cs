@@ -20,10 +20,13 @@ namespace VisionTech_Anbar_Project
     public partial class Ophrys : MetroSetForm
     {
         private readonly PackageService packageService;
+        private readonly ProductService productService;
+
         TableLayoutPanel mainTableLayoutPanel;
         public Ophrys()
         {
             packageService = new PackageService(new ());
+            productService = new ProductService(new (), new ());
 
             InitializeComponent();
             SetupMainTableLayoutPanel();
@@ -281,14 +284,22 @@ namespace VisionTech_Anbar_Project
             AddProductForm addProductForm = new AddProductForm();
             addProductForm.ShowDialog();
             Button button = sender as Button;
-           //if(Convert.ToInt32(button.Tag))
+            //if(Convert.ToInt32(button.Tag))
+            //   if(addProductForm.DataSaved && await packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.ProductId))
+            //  {
+            //      await productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
+            //   }
+             if(addProductForm.DataSaved && addProductForm.EditedProduct != null && await packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
+             {
+                 await packageService.AddProductToPackageAsync( Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
+             }
 
             if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 //await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
                 await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
-
+               
                 RestartPage();
                 InitializeItems();
             }
