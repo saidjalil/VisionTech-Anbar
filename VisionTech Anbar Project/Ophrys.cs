@@ -262,14 +262,15 @@ namespace VisionTech_Anbar_Project
             }
         }
 
-        public void EditButton_Click(object sender, EventArgs e)
+        public async void EditButton_Click(object sender, EventArgs e)
         {
 
             EditProductForm editProductForm = new EditProductForm();
             editProductForm.Show();
 
             Button button = sender as Button;
-            editProductForm.GetProducts(packageService.GetPackageByIdAsync(int.Parse(button.Tag.ToString());
+            ;
+            editProductForm.GetProducts(await packageService.GetPackageWithNavigation(int.Parse(button.Tag.ToString())));
         }
 
         public void DeleteButton_Click(object sender, EventArgs e)
@@ -292,6 +293,9 @@ namespace VisionTech_Anbar_Project
              if(addProductForm.DataSaved && addProductForm.EditedProduct != null && await packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
              {
                  await packageService.AddProductToPackageAsync( Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
+                // TURAL METHOD YAZMALIDIKI, HAZIRKI BARCODELAR VAR OLAN PRODUCTDA ELAVE EDILSEN 
+                //await productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
+
              }
 
             if (addProductForm.DataSaved && addProductForm.NewProduct != null)

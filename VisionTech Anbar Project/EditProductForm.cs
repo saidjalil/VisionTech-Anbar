@@ -10,7 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisionTech_Anbar_Project.Utilts;
-using VisionTech_Anbar_Project.ViewModel;
+using VisionTech_Anbar_Project.Entities;
+
 
 namespace VisionTech_Anbar_Project
 {
@@ -18,9 +19,11 @@ namespace VisionTech_Anbar_Project
     public partial class EditProductForm : MetroSetForm
     {
         TableLayoutPanel mainTableLayoutPanel;
-        List<Product> products = new List<Product>();
+        //List<Product> products = new List<Product>();
+        List<PackageProduct> packProducts = new List<PackageProduct>();
 
-        string currentPackageId;
+
+        int currentPackageId;
         Package currentPackage;
 
         public EditProductForm()
@@ -29,17 +32,18 @@ namespace VisionTech_Anbar_Project
             SetupMainTableLayoutPanel();
             InitializeItems();
         }
-        public List<Product> GetProducts(Package package)
+        public List<PackageProduct> GetProducts(Package package)
         {
-            currentPackageId = package.PackageId;
+            currentPackageId = package.Id;
             currentPackage = package;
-            foreach (Product product in package.Products)
+            foreach (PackageProduct packProduct in package.PackageProducts)
             {
-                products.Add(product);
-                Panel itemPanel = CreateItemPanel(product);
+                packProducts.Add(packProduct);
+                //products.Add(packProduct.Product);
+                Panel itemPanel = CreateItemPanel(packProduct.Product);
                 mainTableLayoutPanel.Controls.Add(itemPanel);
             }
-            return products;
+            return packProducts;
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -84,11 +88,11 @@ namespace VisionTech_Anbar_Project
         }
         private void InitializeItems()
         {
-            var data = JsonManager.GetAllPackages();
-            foreach (Product item in products)
+            //var data = JsonManager.GetAllPackages();
+            foreach (PackageProduct item in packProducts)
             {
 
-                Panel itemPanel = CreateItemPanel(item);
+                Panel itemPanel = CreateItemPanel(item.Product);
                 mainTableLayoutPanel.RowCount++;
                 mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
                 //Panel subItemsPanel = CreateSubItemsPanel(item.Products);
@@ -115,7 +119,7 @@ namespace VisionTech_Anbar_Project
             // Label to display item text
             Label itemLabel = new Label
             {
-                Text = product.Name.ToString(),
+                Text = product.ProductName.ToString(),
                 AutoSize = true,
                 Location = new System.Drawing.Point(5, 15)
             };
@@ -190,64 +194,64 @@ namespace VisionTech_Anbar_Project
 
             return itemPanel;
         }
-        private Panel CreateSubItemsPanel(List<Product> products)
-        {
-            Panel subItemsPanel = new Panel
-            {
-                Height = 100,
-                AutoScroll = true,
-                BorderStyle = BorderStyle.None,
-                Padding = new Padding(5),
-                Dock = DockStyle.Top
-            };
+        //private Panel CreateSubItemsPanel(List<Product> products)
+        //{
+        //    Panel subItemsPanel = new Panel
+        //    {
+        //        Height = 100,
+        //        AutoScroll = true,
+        //        BorderStyle = BorderStyle.None,
+        //        Padding = new Padding(5),
+        //        Dock = DockStyle.Top
+        //    };
 
-            // Add example subitems with full-width panels
-            if (products != null)
-            {
-                foreach (var item in products)
-                {
-                    Panel subItemPanel = new Panel
-                    {
-                        Height = 30,
-                        Dock = DockStyle.Top,
-                        BorderStyle = BorderStyle.None,
-                        Padding = new Padding(5)
-                    };
+        //    // Add example subitems with full-width panels
+        //    if (products != null)
+        //    {
+        //        foreach (var item in products)
+        //        {
+        //            Panel subItemPanel = new Panel
+        //            {
+        //                Height = 30,
+        //                Dock = DockStyle.Top,
+        //                BorderStyle = BorderStyle.None,
+        //                Padding = new Padding(5)
+        //            };
 
-                    Label subItemLabel = new Label
-                    {
-                        Text = $"Name:{item.Name} Count:{item.Quantity}",
-                        AutoSize = true,
-                        Location = new System.Drawing.Point(10, 5)
-                    };
+        //            Label subItemLabel = new Label
+        //            {
+        //                Text = $"Name:{item.Name} Count:{item.Quantity}",
+        //                AutoSize = true,
+        //                Location = new System.Drawing.Point(10, 5)
+        //            };
 
-                    subItemPanel.Controls.Add(subItemLabel);
-                    subItemsPanel.Controls.Add(subItemPanel);
-                }
-            }
+        //            subItemPanel.Controls.Add(subItemLabel);
+        //            subItemsPanel.Controls.Add(subItemPanel);
+        //        }
+        //    }
 
-            return subItemsPanel;
-        }
-        private void ToggleSubItems(Panel itemPanel)
-        {
-            // Find the associated subItemsPanel below itemPanel in the mainTableLayoutPanel
-            int itemIndex = mainTableLayoutPanel.Controls.GetChildIndex(itemPanel);
-            if (itemIndex >= 0 && itemIndex < mainTableLayoutPanel.Controls.Count - 1)
-            {
-                Panel subItemsPanel = mainTableLayoutPanel.Controls[itemIndex + 1] as Panel;
-                if (subItemsPanel != null)
-                {
-                    subItemsPanel.Visible = !subItemsPanel.Visible;
-                }
-            }
-        }
+        //    return subItemsPanel;
+        //}
+        //private void ToggleSubItems(Panel itemPanel)
+        //{
+        //    // Find the associated subItemsPanel below itemPanel in the mainTableLayoutPanel
+        //    int itemIndex = mainTableLayoutPanel.Controls.GetChildIndex(itemPanel);
+        //    if (itemIndex >= 0 && itemIndex < mainTableLayoutPanel.Controls.Count - 1)
+        //    {
+        //        Panel subItemsPanel = mainTableLayoutPanel.Controls[itemIndex + 1] as Panel;
+        //        if (subItemsPanel != null)
+        //        {
+        //            subItemsPanel.Visible = !subItemsPanel.Visible;
+        //        }
+        //    }
+        //}
 
         public void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
 
             //JsonManager.DeleteProductOfPackage(currentPackageId,button.Tag.ToString());
-            products.Clear();
+            packProducts.Clear();
             RestartPage();
             GetProducts(currentPackage);
 

@@ -27,6 +27,8 @@ namespace VisionTech_Anbar_Project
 
         public Product currentProduct;
 
+        bool currentlyHaveBarcode;
+
         private readonly ProductService productService;
 
         private int selectedId = 1;
@@ -139,6 +141,11 @@ namespace VisionTech_Anbar_Project
 
             //Log.Information(selectedCategory.Name);
             //Description = textBox2.Text;
+
+            //if(!int.TryParse(textBox1.Text, out int currentbarcodeValue) && !string.IsNullOrWhiteSpace(textBox1.Text))
+            //{
+            //    barcodes.Add(createNewBarcode(currentbarcodeValue));
+            //}
             if (string.IsNullOrWhiteSpace(textBox3.Text) || !int.TryParse(textBox3.Text, out int quantity))
             {
                 MessageBox.Show(
@@ -151,7 +158,7 @@ namespace VisionTech_Anbar_Project
 
             foreach (TextBox txtbox in textBoxList)
             {
-                if (!int.TryParse(txtbox.Text, out int barcodeValue) && !string.IsNullOrWhiteSpace(txtbox.Text))
+                if (!int.TryParse(txtbox.Text, out int barcodeValue) && string.IsNullOrWhiteSpace(txtbox.Text) && !currentlyHaveBarcode)
                 {
                     MessageBox.Show(
                         "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
@@ -160,11 +167,12 @@ namespace VisionTech_Anbar_Project
                     return;
                 }
 
-                var barcode = new Barcode
-                {
-                    BarCode = barcodeValue,
-                };
-                barcodes.Add(barcode);
+                //var barcode = new Barcode
+                //{
+                //    BarCode = barcodeValue,
+                //};
+                //barcodes.Add(barcode);
+                barcodes.Add(createNewBarcode(barcodeValue));
             }
 
             if (!string.IsNullOrWhiteSpace(textBox1.Text) && int.TryParse(textBox1.Text, out int mainBarcode))
@@ -204,7 +212,16 @@ namespace VisionTech_Anbar_Project
                 NewProduct = new PackageProduct(productId, Name,
                                          Quantity, selectedId, barcodes);
             }
+            currentlyHaveBarcode = false;
+        }
 
+        private Barcode createNewBarcode(int barcodeValue)
+        {
+            var barcode = new Barcode
+            {
+                BarCode = barcodeValue,
+            };
+            return barcode;
         }
 
         private void ShowErrors(List<string> errors, int max)
@@ -433,7 +450,7 @@ namespace VisionTech_Anbar_Project
                 // Get the user's input
                 var inputText = currentComboBox.Text;
 
-                Log.Information(selectedId.ToString() + "NESSSSSLIVI ");
+                //Log.Information(selectedId.ToString() + "NESSSSSLIVI ");
                 // Find the parent ID of the current ComboBox
                 //int? parentId = currentComboBox.SelectedValue as int?;
                 int? parentId = currentParentId;
@@ -513,6 +530,7 @@ namespace VisionTech_Anbar_Project
             {
                 textBox2.Text = currentProduct.ProductName;
                 textBox2.Enabled = false;
+                currentlyHaveBarcode = true;
             }
             // combobox1 category add
         }
@@ -577,6 +595,14 @@ namespace VisionTech_Anbar_Project
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (textBoxCount > 0)
+            {
+                
+                Controls.Remove(textBoxList[textBoxCount-1]);
+                textBoxList.RemoveAt(textBoxCount-1);
+                textBoxCount--;
+
+            }
 
         }
     }

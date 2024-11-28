@@ -109,11 +109,11 @@ public class PackageService
             Log.Information("Deleting package with ID: {Id}.", id);
             var package = await _packageRepository.FindAsyncById(id);
 
-            if (package == null)
-            {
-                Log.Warning("Package with ID: {Id} not found. Cannot delete.", id);
-                return;
-            }
+                if (package == null)
+                {
+                    Log.Warning("Package with ID: {Id} not found. Cannot delete.", id);
+                    return;
+                }
 
             await _packageRepository.Remove(package);
             Log.Information("Package with ID: {Id} successfully deleted.", id);
