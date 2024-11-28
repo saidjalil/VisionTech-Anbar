@@ -207,6 +207,7 @@
             button4.TabIndex = 16;
             button4.Text = "🗑 ";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // metroSetControlBox1
             // 

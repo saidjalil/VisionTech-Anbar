@@ -329,7 +329,6 @@ namespace VisionTech_Anbar_Project
                     Name = "No Subcategories"
                 });
             }
-
             newComboBox.DataSource = subCategories;
             newComboBox.DisplayMember = "Name"; // Display the 'Name' in the ComboBox
             newComboBox.ValueMember = "Id";     // Use 'Id' as the selected value
@@ -355,7 +354,6 @@ namespace VisionTech_Anbar_Project
             }
 
         }
-
         private async void SubComboBox_Changed(object sender, EventArgs e)
         {
             ComboBox currentComboBox = sender as ComboBox;
@@ -503,7 +501,6 @@ namespace VisionTech_Anbar_Project
                 }
             }
         }
-
         private async void button2_Click(object sender, EventArgs e)
         {
 
@@ -576,6 +573,11 @@ namespace VisionTech_Anbar_Project
             {
                 e.Handled = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

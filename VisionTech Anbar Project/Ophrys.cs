@@ -269,13 +269,13 @@ namespace VisionTech_Anbar_Project
             editProductForm.Show();
 
             Button button = sender as Button;
-            editProductForm.GetProducts(JsonManager.GetPackageById(button.Tag.ToString()));
+            editProductForm.GetProducts(packageService.GetPackageByIdAsync(int.Parse(button.Tag.ToString());
         }
 
         public void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            JsonManager.DeletePackageById(button.Tag.ToString());
+            packageService.DeletePackageAsync(int.Parse(button.Tag.ToString()));
             RestartPage();
             InitializeItems();
         }
