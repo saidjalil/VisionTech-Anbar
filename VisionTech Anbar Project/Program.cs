@@ -18,7 +18,12 @@ namespace VisionTech_Anbar_Project
         static void Main()
         {
             var services = new ServiceCollection();
+
+            // Configure services
             ConfigureServices(services);
+
+            // Build the ServiceProvider
+            ServiceProvider = services.BuildServiceProvider();
 
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
@@ -39,7 +44,7 @@ namespace VisionTech_Anbar_Project
         {
             // Register DbContext
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = VisionTechAnbar; Trusted_Connection = True; MultipleActiveResultSets = True; "));
+                options.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = VisionTechAnbar; Trusted_Connection = True; MultipleActiveResultSets = True; ").EnableSensitiveDataLogging());
 
 
             services.AddTransient<PackageRepository>();

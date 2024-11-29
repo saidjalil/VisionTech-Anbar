@@ -50,6 +50,17 @@ namespace VisionTech_Anbar_Project
             }
             return packProducts;
         }
+        
+        public void FetchProducts()
+        {
+            foreach (PackageProduct packProduct in packProducts)
+            {
+                packProducts.Add(packProduct);
+                //products.Add(packProduct.Product);
+                Panel itemPanel = CreateItemPanel(packProduct.Product);
+                mainTableLayoutPanel.Controls.Add(itemPanel);
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -251,12 +262,13 @@ namespace VisionTech_Anbar_Project
         //    }
         //}
 
-        public void DeleteButton_Click(object sender, EventArgs e)
+        public async void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
 
             //JsonManager.DeleteProductOfPackage(currentPackageId,button.Tag.ToString());
             packProducts.Clear();
+            await _productService.DeleteProductAsync(int.Parse(button.Tag.ToString()));
             RestartPage();
             GetProducts(currentPackage);
 

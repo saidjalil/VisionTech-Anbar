@@ -58,7 +58,7 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 
         public async Task<IQueryable<T>> GetAll(params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = _dbSet;
+            IQueryable<T> query = _dbSet.AsNoTracking();
 
             foreach (var include in includes)
             {
@@ -80,8 +80,15 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 
         public async Task Remove(T item)
         {
-            _dbSet.Remove(item);
-            await Save();
+            _context.Entry(item).State = EntityState.Detached;
+
+            var existingEntity = await _dbSet.FirstOrDefaultAsync(p => p.Id == item.Id);
+    
+            if (existingEntity != null)
+            {
+                _dbSet.Remove(existingEntity);
+                await Save(); // Make sure this is awaited
+            }
         }
 
         public async Task Update(T item)
