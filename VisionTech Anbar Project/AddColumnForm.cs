@@ -22,14 +22,17 @@ namespace VisionTech_Anbar_Project
         public Package EditedPackage;
         public Package NewPackage;
         public bool DataSaved;
-        private readonly PackageService packageService;
+        private readonly PackageService _packageService;
+        private readonly ProductService _productService;
+        private readonly CategoryService _categoryService;
+
         TableLayoutPanel mainTableLayoutPanel;
         List<PackageProduct> products = new List<PackageProduct>();
 
 
         public AddColumnForm()
         {
-            packageService = new PackageService(new());
+          //  _packageService = packageService;
             InitializeComponent();
             mainTableLayoutPanel = tableLayoutPanel1;
         }

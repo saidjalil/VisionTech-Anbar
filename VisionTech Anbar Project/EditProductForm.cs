@@ -67,7 +67,7 @@ namespace VisionTech_Anbar_Project
             {
                 //CreateItemPanel(addColumnForm.NewPackage);
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, currentPackageId);
-               // products.Add(addProductForm.NewProduct);
+                // products.Add(addProductForm.NewProduct);
                 RestartPage();
                 InitializeItems();
                 //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
@@ -81,6 +81,8 @@ namespace VisionTech_Anbar_Project
             mainTableLayoutPanel = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
+                BackColor = Color.Transparent,
+                Padding = new Padding(0, 30, 0, 0), // Add padding from the top
                 AutoScroll = true,
                 ColumnCount = 1, // Single column to arrange items vertically
             };
@@ -110,7 +112,7 @@ namespace VisionTech_Anbar_Project
             // Create the main panel for the item
             Panel itemPanel = new Panel
             {
-                Height = 50, // Set explicit height for the main item
+                Height = 60, // Set explicit height for the main item
                 BorderStyle = BorderStyle.None,
                 Dock = DockStyle.Top,
                 Margin = new Padding(5) // Add some margin between items
@@ -145,10 +147,11 @@ namespace VisionTech_Anbar_Project
             // Add Delete, Add, Edit, and Export buttons
             Button deleteButton = new Button
             {
-                Text = "Delete",
+                Text = "🗑",
                 Tag = product.Id,
-                Width = 60,
-                Height = 30,
+                ForeColor = Color.Red,
+                Width = 50,
+                Height = 40,
                 Margin = new Padding(5)
             };
             deleteButton.Click += DeleteButton_Click;
@@ -164,10 +167,13 @@ namespace VisionTech_Anbar_Project
 
             Button editButton = new Button
             {
-                Text = "Edit",
+                Text = "✎",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                BackColor = Color.FromArgb(42, 45, 85),
+                ForeColor = Color.Transparent,
                 Tag = product,
                 Width = 60,
-                Height = 30,
+                Height = 40,
                 Margin = new Padding(5)
             };
             editButton.Click += EditButton_Click;
@@ -182,9 +188,10 @@ namespace VisionTech_Anbar_Project
 
             // Add the buttons to the FlowLayoutPanel
 
-            buttonPanel.Controls.Add(deleteButton);
             //buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
+            buttonPanel.Controls.Add(deleteButton);
+
             //buttonPanel.Controls.Add(exportButton);
             //buttonPanel.Controls.Add(expandButton);
 
@@ -265,7 +272,7 @@ namespace VisionTech_Anbar_Project
             if (addProductForm.DataSaved)
             {
                 Debug.WriteLine("I WORK");
-            //    JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
+                //    JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 RestartPage();
                 InitializeItems();
             }
@@ -274,7 +281,7 @@ namespace VisionTech_Anbar_Project
         {
             Button button = sender as Button;
             Product selectedProduct = button.Tag as Product;
-           // AddProductForm addProductForm = new AddProductForm(selectedProduct);
+            // AddProductForm addProductForm = new AddProductForm(selectedProduct);
             //addProductForm.ShowDialog();
 
 

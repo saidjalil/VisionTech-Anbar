@@ -37,7 +37,7 @@
             // 
             // metroSetControlBox1
             // 
-            metroSetControlBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            metroSetControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             metroSetControlBox1.CloseHoverBackColor = Color.FromArgb(183, 40, 40);
             metroSetControlBox1.CloseHoverForeColor = Color.White;
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
@@ -64,7 +64,7 @@
             // 
             // button3
             // 
-            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button3.BackColor = Color.FromArgb(42, 45, 85);
             button3.ForeColor = Color.Transparent;
             button3.Location = new Point(630, 53);

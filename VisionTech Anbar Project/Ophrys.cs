@@ -92,6 +92,7 @@ namespace VisionTech_Anbar_Project
                 });
                 foreach (var product in products)
                 {
+                    //Log.Information("hOW many TIMESSSSSSSSSSSSSSSS");
                     Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
                     mainTableLayoutPanel.RowCount++;
                     mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
