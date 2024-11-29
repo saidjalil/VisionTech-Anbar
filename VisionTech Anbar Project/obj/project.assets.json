@@ -2185,6 +2185,7 @@
       "Microsoft.EntityFrameworkCore >= 6.0.36",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.36",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.36",
+      "Microsoft.Extensions.DependencyInjection >= 6.0.2",
       "Newtonsoft.Json >= 13.0.3",
       "Serilog >= 4.1.0",
       "Serilog.Sinks.File >= 6.0.0"
@@ -2246,6 +2247,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[6.0.36, )"
+          },
+          "Microsoft.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[6.0.2, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

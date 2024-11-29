@@ -1,16 +1,30 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using VisionTech_Anbar_Project.DAL;
+using VisionTech_Anbar_Project.Repositories;
+using VisionTech_Anbar_Project.Services;
 using VisionTech_Anbar_Project.Utilts;
 
 namespace VisionTech_Anbar_Project
 {
     internal static class Program
     {
+        public static ServiceProvider ServiceProvider { get; private set; }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            var services = new ServiceCollection();
+
+            // Configure services
+            ConfigureServices(services);
+
+            // Build the ServiceProvider
+            ServiceProvider = services.BuildServiceProvider();
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Information()
                 .WriteTo.File(Path.Combine(FileManager.GetLogPath(), "log-.txt"), rollingInterval: RollingInterval.Day)
@@ -20,8 +34,43 @@ namespace VisionTech_Anbar_Project
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Ophrys());
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(ServiceProvider.GetRequiredService<Ophrys>());
+
+        }
+        private static void ConfigureServices(ServiceCollection services)
+        {
+            // Register DbContext
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = VisionTechAnbar; Trusted_Connection = True; MultipleActiveResultSets = True; ").EnableSensitiveDataLogging());
+
+
+            services.AddTransient<PackageRepository>();
+            services.AddTransient<ProductRepository>();
+            services.AddTransient<CategoryRepository>();
+            services.AddTransient<VendorRepository>();
+            services.AddTransient<WarehouseRepository>();
+            services.AddTransient<BarcodeRepository>();
+
+
+
+            // Register other services like PackageService, etc.
+            services.AddTransient<PackageService>();
+            services.AddTransient<ProductService>();
+            services.AddTransient<BarcodeService>();
+            services.AddTransient<VendorService>();
+            services.AddTransient<WarehouseService>();
+            services.AddTransient<CategoryService>();
+
+
+            // Register the main form
+            services.AddTransient<Ophrys>();
+            services.AddTransient<AddColumnForm>();
+            services.AddTransient<AddProductForm>();
+            services.AddTransient<EditProductForm>();
+
         }
     }
 }

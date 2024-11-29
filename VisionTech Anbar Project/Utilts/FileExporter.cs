@@ -10,12 +10,12 @@ public class FileExporter
     PackageRepository _repository;
     PackageService _packageService;
 
-    public FileExporter()
+    public FileExporter(PackageRepository repository, PackageService packageService)
     {
-        _repository = new PackageRepository();
-        _packageService = new PackageService(_repository);
+        _repository = repository;
+        _packageService = packageService;
     }
-    
+
     public async Task CreateAndWriteExportFile(int id)
     {
         var settings = new JsonSerializerSettings

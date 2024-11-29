@@ -11,13 +11,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Entities;
-
+using VisionTech_Anbar_Project.Services;
 
 namespace VisionTech_Anbar_Project
 {
-
+   
     public partial class EditProductForm : MetroSetForm
     {
+        private readonly ProductService _productService;
+        private readonly CategoryService _categoryService;
         TableLayoutPanel mainTableLayoutPanel;
         //List<Product> products = new List<Product>();
         List<PackageProduct> packProducts = new List<PackageProduct>();
@@ -26,8 +28,11 @@ namespace VisionTech_Anbar_Project
         int currentPackageId;
         Package currentPackage;
 
-        public EditProductForm()
+        public EditProductForm(CategoryService categoryService, ProductService productService)
         {
+            _categoryService = categoryService;
+            _productService = productService;
+
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
@@ -45,10 +50,21 @@ namespace VisionTech_Anbar_Project
             }
             return packProducts;
         }
+        
+        public void FetchProducts()
+        {
+            foreach (PackageProduct packProduct in packProducts)
+            {
+                packProducts.Add(packProduct);
+                //products.Add(packProduct.Product);
+                Panel itemPanel = CreateItemPanel(packProduct.Product);
+                mainTableLayoutPanel.Controls.Add(itemPanel);
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
-            AddProductForm addProductForm = new AddProductForm();
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
             // Example for Section 1
             //            Control[] section1Controls = {
@@ -253,19 +269,20 @@ namespace VisionTech_Anbar_Project
         //    }
         //}
 
-        public void DeleteButton_Click(object sender, EventArgs e)
+        public async void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
 
             //JsonManager.DeleteProductOfPackage(currentPackageId,button.Tag.ToString());
             packProducts.Clear();
+            await _productService.DeleteProductAsync(int.Parse(button.Tag.ToString()));
             RestartPage();
             GetProducts(currentPackage);
 
         }
         public void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm();
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
 

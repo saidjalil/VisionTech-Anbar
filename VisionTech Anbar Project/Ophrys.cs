@@ -19,23 +19,25 @@ namespace VisionTech_Anbar_Project
 {
     public partial class Ophrys : MetroSetForm
     {
-        private readonly PackageService packageService;
-        private readonly ProductService productService;
-
+        private readonly PackageService _packageService;
+        private readonly ProductService _productService;
+        private readonly CategoryService _categoryService;
         TableLayoutPanel mainTableLayoutPanel;
-        public Ophrys()
+        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService)
         {
-            packageService = new PackageService(new ());
-            productService = new ProductService(new (), new ());
+            this._packageService = packageService;
+            this._productService = productService;
+            this._categoryService = categoryService;
 
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
+            
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            AddColumnForm addColumnForm = new AddColumnForm();
+            AddColumnForm addColumnForm = new AddColumnForm(_packageService);
             addColumnForm.ShowDialog();
             // Example for Section 1
             //            Control[] section1Controls = {
@@ -54,7 +56,7 @@ namespace VisionTech_Anbar_Project
             {
                 //CreateItemPanel(addColumnForm.NewPackage);
                 //JsonManager.AddPackage(addColumnForm.NewPackage);
-                await packageService.CreatePackageAsync(addColumnForm.NewPackage);
+                await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
                 RestartPage();
                 InitializeItems();
                 //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
@@ -78,7 +80,7 @@ namespace VisionTech_Anbar_Project
 
         private async void InitializeItems()
         {
-            var data = await packageService.GetAllPackageWithNavigation();
+            var data = await _packageService.GetAllPackageWithNavigation();
             foreach (var item in data)
             {
                 Panel itemPanel = CreateItemPanel(item);
@@ -266,24 +268,24 @@ namespace VisionTech_Anbar_Project
         public async void EditButton_Click(object sender, EventArgs e)
         {
 
-            EditProductForm editProductForm = new EditProductForm();
+            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService);
             editProductForm.Show();
 
             Button button = sender as Button;
             ;
-            editProductForm.GetProducts(await packageService.GetPackageWithNavigation(int.Parse(button.Tag.ToString())));
+            editProductForm.GetProducts(await _packageService.GetPackageWithNavigation(int.Parse(button.Tag.ToString())));
         }
 
         public void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            packageService.DeletePackageAsync(int.Parse(button.Tag.ToString()));
+            _packageService.DeletePackageAsync(int.Parse(button.Tag.ToString()));
             RestartPage();
             InitializeItems();
         }
         public async void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm();
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
             //if(Convert.ToInt32(button.Tag))
@@ -291,9 +293,9 @@ namespace VisionTech_Anbar_Project
             //  {
             //      await productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
             //   }
-             if(addProductForm.DataSaved && addProductForm.EditedProduct != null && await packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
+             if(addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
              {
-                 await packageService.AddProductToPackageAsync( Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
+                 await _packageService.AddProductToPackageAsync( Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
                 // TURAL METHOD YAZMALIDIKI, HAZIRKI BARCODELAR VAR OLAN PRODUCTDA ELAVE EDILSEN 
                 //await productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
 
@@ -303,7 +305,7 @@ namespace VisionTech_Anbar_Project
             {
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 //await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
-                await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
+                await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
                
                 RestartPage();
                 InitializeItems();

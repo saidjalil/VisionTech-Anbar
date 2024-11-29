@@ -30,9 +30,13 @@ namespace VisionTech_Anbar_Project
         List<PackageProduct> products = new List<PackageProduct>();
 
 
-        public AddColumnForm()
+        public AddColumnForm(PackageService packageService)
         {
+<<<<<<< HEAD
           //  _packageService = packageService;
+=======
+            _packageService = packageService;
+>>>>>>> DependencyInjection
             InitializeComponent();
             mainTableLayoutPanel = tableLayoutPanel1;
         }
@@ -155,7 +159,7 @@ namespace VisionTech_Anbar_Project
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm();
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
    
             // Add both sections to the accordion
