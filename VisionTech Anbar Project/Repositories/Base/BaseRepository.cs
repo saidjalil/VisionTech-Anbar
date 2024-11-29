@@ -12,9 +12,9 @@ namespace VisionTech_Anbar_Project.Repositories.Base
         protected DbSet<T> _dbSet;
 
 
-        public BaseRepository()
+        public BaseRepository(AppDbContext context)
         {
-            _context = new AppDbContext();
+            _context = context;
             _dbSet = _context.Set<T>();
         }
 

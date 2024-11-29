@@ -11,13 +11,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Entities;
-
+using VisionTech_Anbar_Project.Services;
 
 namespace VisionTech_Anbar_Project
 {
-
+   
     public partial class EditProductForm : MetroSetForm
     {
+        private readonly ProductService _productService;
+        private readonly CategoryService _categoryService;
         TableLayoutPanel mainTableLayoutPanel;
         //List<Product> products = new List<Product>();
         List<PackageProduct> packProducts = new List<PackageProduct>();
@@ -26,8 +28,11 @@ namespace VisionTech_Anbar_Project
         int currentPackageId;
         Package currentPackage;
 
-        public EditProductForm()
+        public EditProductForm(CategoryService categoryService, ProductService productService)
         {
+            _categoryService = categoryService;
+            _productService = productService;
+
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
@@ -48,7 +53,7 @@ namespace VisionTech_Anbar_Project
         private void button1_Click(object sender, EventArgs e)
         {
 
-            AddProductForm addProductForm = new AddProductForm();
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
             // Example for Section 1
             //            Control[] section1Controls = {
@@ -258,7 +263,7 @@ namespace VisionTech_Anbar_Project
         }
         public void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm();
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
 

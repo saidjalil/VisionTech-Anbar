@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using VisionTech_Anbar_Project.DAL;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Repositories.Base;
 
@@ -6,6 +7,9 @@ namespace VisionTech_Anbar_Project.Repositories;
 
 public class VendorRepository : BaseRepository<Vendor>
 {
+    public VendorRepository(AppDbContext context) : base(context)
+    {
+    }
 
     public async Task<IEnumerable<Vendor>> GetAllAsync()
     {

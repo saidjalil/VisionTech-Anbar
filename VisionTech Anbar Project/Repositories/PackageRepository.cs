@@ -8,9 +8,10 @@ namespace VisionTech_Anbar_Project.Repositories;
 public class PackageRepository : BaseRepository<Package>
 {
     private ProductRepository _productRepository;
-    public PackageRepository()
+
+    public PackageRepository(AppDbContext context, ProductRepository productRepository) : base(context)
     {
-        _productRepository = new ProductRepository();
+        _productRepository = productRepository;
     }
 
     public async Task AddProductToPackageAsync(int packageId, int productId, int quantity, int categoryId)

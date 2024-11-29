@@ -13,9 +13,14 @@ public class PackageService
     private readonly WarehouseRepository _warehouseRepository;
     private readonly CategoryRepository _categoryRepository;
 
-    public PackageService(PackageRepository packageRepository)
+    
+
+    public PackageService(PackageRepository packageRepository, VendorRepository vendorRepository, WarehouseRepository warehouseRepository, CategoryRepository categoryRepository)
     {
         _packageRepository = packageRepository;
+        _vendorRepository = vendorRepository;
+        _warehouseRepository = warehouseRepository;
+        _categoryRepository = categoryRepository;
     }
 
     public async Task<IEnumerable<Package>> GetAllPackagesAsync()

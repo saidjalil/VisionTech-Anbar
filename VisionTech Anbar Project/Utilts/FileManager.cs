@@ -17,12 +17,13 @@ namespace VisionTech_Anbar_Project.Utilts
         PackageRepository _repository;
         PackageService _packageService;
 
-        public FileManager()
+
+        public FileManager(PackageRepository repository, PackageService packageService)
         {
-            _repository = new PackageRepository();
-            _packageService = new PackageService(_repository);
+            _repository = repository;
+            _packageService = packageService;
         }
-        
+
         public static string GetAppDataPath()
         {
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;

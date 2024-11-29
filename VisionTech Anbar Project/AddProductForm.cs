@@ -49,10 +49,10 @@ namespace VisionTech_Anbar_Project
         private int textBoxCount = 0; // To keep track of TextBox IDs
 
         ComboBox mainComboBox;
-        public AddProductForm()
+        public AddProductForm(CategoryService categoryService, ProductService productService)
         {
-            categoryService = new CategoryService(new());
-            productService = new ProductService(new(), new());
+            this.categoryService = categoryService;
+            this.productService = productService;
 
             InitializeComponent();
             InitializeCategories();

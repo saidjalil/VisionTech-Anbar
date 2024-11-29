@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using VisionTech_Anbar_Project.DAL;
 using VisionTech_Anbar_Project.Entities.Categories;
 using VisionTech_Anbar_Project.Repositories.Base;
 
@@ -6,8 +7,11 @@ namespace VisionTech_Anbar_Project.Repositories;
 
 public class CategoryRepository : BaseRepository<Category>
 {
-    
-        public async Task<IEnumerable<Category>> GetAllAsync()
+    public CategoryRepository(AppDbContext context) : base(context)
+    {
+    }
+
+    public async Task<IEnumerable<Category>> GetAllAsync()
         {
             return await _dbSet
                 .Include(c => c.SubCategories)
