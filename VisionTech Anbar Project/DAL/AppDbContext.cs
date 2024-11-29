@@ -8,6 +8,9 @@ namespace VisionTech_Anbar_Project.DAL
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        {
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 4. Configure Connection String
