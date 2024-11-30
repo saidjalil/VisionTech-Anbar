@@ -1,0 +1,131 @@
+2024-11-30 14:11:20.998 +04:00 [INF] Application Starting
+2024-11-30 14:11:22.955 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:11:24.459 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:15:27.413 +04:00 [INF] Application Starting
+2024-11-30 14:15:29.006 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:15:30.382 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:15:31.475 +04:00 [INF] Fetching all categories.
+2024-11-30 14:15:32.244 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:15:36.749 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:15:36.828 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:15:40.614 +04:00 [INF] Fetching all categories.
+2024-11-30 14:15:41.331 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:21:19.240 +04:00 [INF] Fetching all categories.
+2024-11-30 14:21:19.976 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:21:40.385 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:21:40.395 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:26:15.351 +04:00 [INF] Application Starting
+2024-11-30 14:26:16.664 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:26:18.087 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:26:22.227 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:26:22.304 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:26:23.341 +04:00 [INF] Fetching all categories.
+2024-11-30 14:26:24.085 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:26:59.440 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 14:27:03.197 +04:00 [ERR] Error occurred while updating product with ID: 17.
+System.InvalidOperationException: The instance of entity type 'Package' cannot be tracked because another instance with the key value '{Id: 1}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Update(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 101
+   at VisionTech_Anbar_Project.Services.ProductService.UpdateProductAsync(Product product) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\ProductService.cs:line 92
+2024-11-30 14:32:25.659 +04:00 [INF] Application Starting
+2024-11-30 14:32:27.325 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:32:28.692 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:32:33.440 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:32:33.511 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:32:34.935 +04:00 [INF] Fetching all categories.
+2024-11-30 14:32:35.676 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:42:23.756 +04:00 [INF] Application Starting
+2024-11-30 14:42:25.348 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:42:26.732 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:42:29.634 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:42:29.724 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:42:30.952 +04:00 [INF] Fetching all categories.
+2024-11-30 14:42:31.701 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:42:55.592 +04:00 [INF] Application Starting
+2024-11-30 14:42:57.299 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:42:58.737 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:43:04.743 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:43:04.814 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:43:05.638 +04:00 [INF] Fetching all categories.
+2024-11-30 14:43:06.382 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:43:42.647 +04:00 [INF] Application Starting
+2024-11-30 14:43:44.048 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:43:45.500 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:43:47.257 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:43:47.327 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:43:48.058 +04:00 [INF] Fetching all categories.
+2024-11-30 14:43:48.786 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:45:26.022 +04:00 [INF] Application Starting
+2024-11-30 14:45:27.545 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:45:28.922 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:45:30.663 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:45:30.749 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:45:31.565 +04:00 [INF] Fetching all categories.
+2024-11-30 14:45:32.311 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:45:56.461 +04:00 [INF] Application Starting
+2024-11-30 14:45:57.755 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 14:45:59.207 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 14:46:01.150 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:46:01.223 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 14:46:01.920 +04:00 [INF] Fetching all categories.
+2024-11-30 14:46:16.491 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 14:46:34.589 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 14:46:34.832 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-11-30 14:46:42.788 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 14:46:42.795 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 15:01:47.332 +04:00 [INF] Application Starting
+2024-11-30 15:01:48.774 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 15:01:50.212 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 15:01:51.643 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 15:01:51.723 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 15:01:52.409 +04:00 [INF] Fetching all categories.
+2024-11-30 15:01:53.142 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 15:01:57.605 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 15:01:57.830 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-11-30 15:02:36.507 +04:00 [INF] Fetching all categories.
+2024-11-30 15:02:37.238 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 15:02:43.852 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 15:02:43.858 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-11-30 15:03:39.603 +04:00 [INF] Fetching all categories.
+2024-11-30 15:03:40.338 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 15:03:45.362 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 15:03:45.368 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-11-30 15:05:49.037 +04:00 [INF] Application Starting
+2024-11-30 15:05:50.580 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 15:05:51.981 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 15:05:53.857 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 15:05:53.932 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 15:05:54.875 +04:00 [INF] Fetching all categories.
+2024-11-30 15:05:55.612 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 15:06:36.028 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 15:06:46.986 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-11-30 15:08:27.499 +04:00 [INF] Application Starting
+2024-11-30 15:08:29.152 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 15:08:30.583 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 15:08:32.875 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 15:08:32.956 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-30 15:08:34.549 +04:00 [INF] Fetching all categories.
+2024-11-30 15:08:35.295 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 15:09:57.751 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 15:10:12.386 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-11-30 15:12:40.738 +04:00 [INF] Application Starting
+2024-11-30 15:12:42.329 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-30 15:12:43.770 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-30 15:12:45.637 +04:00 [INF] Fetching all categories.
+2024-11-30 15:12:46.389 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-30 15:13:07.696 +04:00 [INF] Adding product with ID: 17 to package with ID: 1, quantity: 5.
+2024-11-30 15:13:07.913 +04:00 [INF] Product with ID: 17 successfully added to package with ID: 1.
+2024-11-30 15:13:07.914 +04:00 [INF] Updating product with ID: 17.
+2024-11-30 15:13:07.964 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-11-30 15:13:12.242 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-30 15:13:12.257 +04:00 [INF] Successfully retrieved package with ID: 1.

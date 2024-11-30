@@ -321,24 +321,41 @@ namespace VisionTech_Anbar_Project
                 InitializeItems();
             }
         }
-        public void EditButton_Click(object sender, EventArgs e)
+        public async void EditButton_Click(object sender, EventArgs e)
         {
+            // Retrieve the button and the associated product
             Button button = sender as Button;
-            Product selectedProduct = button.Tag as Product;
-            // AddProductForm addProductForm = new AddProductForm(selectedProduct);
-            //addProductForm.ShowDialog();
+            if (button?.Tag is Product selectedProduct)
+            {
+                // Show the AddProductForm with the selected product for editing
+                AddProductForm addProductForm = new AddProductForm(_categoryService, _productService)
+                {
+                    currentProduct = selectedProduct
+                };
+                addProductForm.ShowDialog();
 
+                // If changes were made, update the product and refresh the UI
+                if (addProductForm.DataSaved)
+                {
+                    // Update the product in the data source
+                    await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
 
-            //if (addProductForm.DataSaved)
-            //{
-            //    //Debug.WriteLine(selectedProduct.Name);
-            //  //  JsonManager.EditProductOfPackage(addProductForm.EditedProduct, currentPackageId);
-            //    products.Remove(selectedProduct);
-            //  //  products.Add(addProductForm.EditedProduct);
+                    // Update the product in the packProducts list
+                    var existingProduct = packProducts.FirstOrDefault(p => p.Product.Id == selectedProduct.Id);
+                    if (existingProduct != null)
+                    {
+                        existingProduct.Product = addProductForm.EditedProduct.Product;
+                    }
 
-            //    RestartPage();
-            //    InitializeItems();
-            //}
+                    // Refresh the UI
+                    RefreshProductList();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to identify the product to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }
