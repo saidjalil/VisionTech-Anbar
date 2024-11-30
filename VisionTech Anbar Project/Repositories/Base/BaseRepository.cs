@@ -93,10 +93,14 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 
         public async Task Update(T item)
         {
-            _context.Entry(item).State = EntityState.Modified;
+            var existingEntity = _context.Products.FirstOrDefault(p => p.Id == item.Id);
+            if (existingEntity != null)
+            {
+                _context.Entry(existingEntity).State = EntityState.Detached;
+            }
             _context.Update(item);
             await Save();
-           
+
         }
         
         public async Task<List<T>> GetAllAsync(Func<IQueryable<T>, IQueryable<T>> includeProperties = null)

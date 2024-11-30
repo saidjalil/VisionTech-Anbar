@@ -32,11 +32,8 @@ namespace VisionTech_Anbar_Project
 
         public AddColumnForm(PackageService packageService)
         {
-<<<<<<< HEAD
           //  _packageService = packageService;
-=======
             _packageService = packageService;
->>>>>>> DependencyInjection
             InitializeComponent();
             mainTableLayoutPanel = tableLayoutPanel1;
         }

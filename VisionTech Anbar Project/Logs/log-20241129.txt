@@ -56,3 +56,358 @@
 2024-11-29 14:30:55.846 +04:00 [INF] Application Starting
 2024-11-29 14:30:57.426 +04:00 [INF] Fetching all packages with related navigation properties.
 2024-11-29 14:30:58.797 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:15:05.976 +04:00 [INF] Application Starting
+2024-11-29 15:15:07.238 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:15:08.626 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:15:18.227 +04:00 [INF] Application Starting
+2024-11-29 15:15:19.786 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:15:21.219 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:15:23.656 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:15:23.730 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:15:27.118 +04:00 [INF] Deleting product with ID: 2.
+2024-11-29 15:15:27.315 +04:00 [INF] Product with ID: 2 successfully deleted.
+2024-11-29 15:15:29.350 +04:00 [INF] Deleting product with ID: 6.
+2024-11-29 15:15:29.363 +04:00 [INF] Product with ID: 6 successfully deleted.
+2024-11-29 15:15:31.862 +04:00 [INF] Deleting product with ID: 3.
+2024-11-29 15:15:31.865 +04:00 [INF] Product with ID: 3 successfully deleted.
+2024-11-29 15:15:34.028 +04:00 [INF] Deleting product with ID: 4.
+2024-11-29 15:15:34.041 +04:00 [INF] Product with ID: 4 successfully deleted.
+2024-11-29 15:17:54.587 +04:00 [INF] Application Starting
+2024-11-29 15:17:56.024 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:17:57.417 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:17:58.985 +04:00 [INF] Fetching all categories.
+2024-11-29 15:17:59.728 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:18:17.659 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:18:17.662 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:18:21.486 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:18:21.509 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:18:26.950 +04:00 [INF] Deleting product with ID: 7.
+2024-11-29 15:18:26.996 +04:00 [INF] Product with ID: 7 successfully deleted.
+2024-11-29 15:18:29.878 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:18:29.882 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:18:32.599 +04:00 [INF] Fetching all categories.
+2024-11-29 15:18:33.322 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:18:35.140 +04:00 [INF] Fetching package with ID: 2 along with related navigation properties.
+2024-11-29 15:18:35.143 +04:00 [INF] Successfully retrieved package with ID: 2.
+2024-11-29 15:18:36.789 +04:00 [INF] Fetching all categories.
+2024-11-29 15:18:37.502 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:18:48.772 +04:00 [INF] Fetching package with ID: 2 along with related navigation properties.
+2024-11-29 15:18:48.775 +04:00 [INF] Successfully retrieved package with ID: 2.
+2024-11-29 15:18:50.486 +04:00 [INF] Fetching all categories.
+2024-11-29 15:18:51.204 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:19:59.870 +04:00 [INF] Fetching all categories.
+2024-11-29 15:20:00.596 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:20:02.789 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:20:02.795 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:20:07.403 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:20:07.409 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:20:09.645 +04:00 [INF] Fetching all categories.
+2024-11-29 15:20:10.373 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:23:41.364 +04:00 [INF] Application Starting
+2024-11-29 15:23:42.606 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:23:44.008 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:23:45.066 +04:00 [INF] Fetching all categories.
+2024-11-29 15:23:45.801 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:24:28.970 +04:00 [INF] Adding product with ID: 5 to package with ID: 1, quantity: 4.
+2024-11-29 15:24:32.916 +04:00 [INF] Product with ID: 5 successfully added to package with ID: 1.
+2024-11-29 15:24:38.565 +04:00 [INF] Updating product with ID: 5.
+2024-11-29 15:25:19.976 +04:00 [INF] Application Starting
+2024-11-29 15:25:21.274 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:25:22.677 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:25:24.297 +04:00 [INF] Fetching all categories.
+2024-11-29 15:25:25.041 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:25:36.588 +04:00 [INF] Updating product with ID: 5.
+2024-11-29 15:25:36.648 +04:00 [ERR] Error occurred while updating product with ID: 5.
+System.InvalidOperationException: The instance of entity type 'Product' cannot be tracked because another instance with the key value '{Id: 5}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry.set_State(EntityState value)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Update(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 96
+   at VisionTech_Anbar_Project.Services.ProductService.UpdateProductAsync(Product product) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\ProductService.cs:line 92
+2024-11-29 15:26:42.894 +04:00 [INF] Application Starting
+2024-11-29 15:26:44.165 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:26:45.588 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:26:46.945 +04:00 [INF] Fetching all categories.
+2024-11-29 15:26:47.686 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:26:57.154 +04:00 [INF] Updating product with ID: 5.
+2024-11-29 15:26:57.219 +04:00 [ERR] Error occurred while updating product with ID: 5.
+System.InvalidOperationException: The instance of entity type 'Product' cannot be tracked because another instance with the key value '{Id: 5}' is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Update(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 96
+   at VisionTech_Anbar_Project.Services.ProductService.UpdateProductAsync(Product product) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\ProductService.cs:line 92
+2024-11-29 15:27:36.774 +04:00 [INF] Application Starting
+2024-11-29 15:27:38.165 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:27:39.552 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:27:41.409 +04:00 [INF] Fetching all categories.
+2024-11-29 15:27:42.144 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:29:01.577 +04:00 [INF] Updating product with ID: 5.
+2024-11-29 15:31:31.347 +04:00 [INF] Application Starting
+2024-11-29 15:31:32.695 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:31:34.170 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:31:35.233 +04:00 [INF] Fetching all categories.
+2024-11-29 15:31:35.965 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:31:45.039 +04:00 [INF] Updating product with ID: 5.
+2024-11-29 15:31:45.260 +04:00 [INF] Product with ID: 5 successfully updated.
+2024-11-29 15:32:49.746 +04:00 [INF] Application Starting
+2024-11-29 15:32:51.249 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:32:52.619 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:32:53.273 +04:00 [INF] Fetching all categories.
+2024-11-29 15:32:54.015 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:33:06.245 +04:00 [INF] Fetching all categories.
+2024-11-29 15:33:06.970 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:33:30.107 +04:00 [INF] Updating product with ID: 5.
+2024-11-29 15:33:30.321 +04:00 [INF] Product with ID: 5 successfully updated.
+2024-11-29 15:34:18.510 +04:00 [INF] Fetching all categories.
+2024-11-29 15:34:19.239 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:35:22.651 +04:00 [INF] Application Starting
+2024-11-29 15:35:23.955 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:35:25.371 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:35:38.779 +04:00 [INF] Application Starting
+2024-11-29 15:35:40.178 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:35:41.570 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:35:42.066 +04:00 [INF] Fetching all categories.
+2024-11-29 15:35:42.811 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:35:54.625 +04:00 [INF] Adding product with ID: 5 to package with ID: 1, quantity: 4.
+2024-11-29 15:35:54.864 +04:00 [INF] Product with ID: 5 successfully added to package with ID: 1.
+2024-11-29 15:35:54.865 +04:00 [INF] Updating product with ID: 5.
+2024-11-29 15:35:54.919 +04:00 [INF] Product with ID: 5 successfully updated.
+2024-11-29 15:51:14.039 +04:00 [INF] Application Starting
+2024-11-29 15:51:15.967 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:51:17.404 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:51:19.600 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:51:19.685 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:51:22.841 +04:00 [INF] Fetching all categories.
+2024-11-29 15:51:23.582 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:52:06.897 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:52:06.911 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:52:08.477 +04:00 [INF] Fetching all categories.
+2024-11-29 15:52:09.209 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 15:53:25.914 +04:00 [INF] Application Starting
+2024-11-29 15:53:27.598 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 15:53:28.966 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 15:53:41.079 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 15:53:41.147 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 15:53:44.780 +04:00 [INF] Fetching all categories.
+2024-11-29 15:53:45.509 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:00:12.581 +04:00 [INF] Application Starting
+2024-11-29 16:00:13.990 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:00:15.356 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 16:00:20.314 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:00:20.389 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:00:27.497 +04:00 [INF] Fetching all categories.
+2024-11-29 16:00:28.241 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:00:58.481 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:00:58.491 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:01:01.094 +04:00 [INF] Fetching all categories.
+2024-11-29 16:01:01.818 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:50:29.357 +04:00 [INF] Application Starting
+2024-11-29 16:50:30.641 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:50:32.051 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 16:50:35.368 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:50:35.442 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:50:40.365 +04:00 [INF] Fetching all categories.
+2024-11-29 16:50:41.099 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:50:50.941 +04:00 [INF] Deleting product with ID: 10.
+2024-11-29 16:50:50.988 +04:00 [INF] Product with ID: 10 successfully deleted.
+2024-11-29 16:50:54.169 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:50:54.175 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:50:58.788 +04:00 [INF] Deleting product with ID: 5.
+2024-11-29 16:50:58.793 +04:00 [INF] Product with ID: 5 successfully deleted.
+2024-11-29 16:51:01.763 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:51:01.766 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:51:08.669 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:51:08.671 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:51:20.821 +04:00 [INF] Fetching all categories.
+2024-11-29 16:51:21.547 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:51:28.109 +04:00 [INF] Fetching all categories.
+2024-11-29 16:51:28.829 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:51:41.691 +04:00 [INF] Deleting product with ID: 8.
+2024-11-29 16:51:41.710 +04:00 [INF] Product with ID: 8 successfully deleted.
+2024-11-29 16:51:52.569 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:51:52.574 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:51:54.172 +04:00 [INF] Deleting product with ID: 11.
+2024-11-29 16:51:54.181 +04:00 [INF] Product with ID: 11 successfully deleted.
+2024-11-29 16:51:55.732 +04:00 [INF] Deleting product with ID: 9.
+2024-11-29 16:51:55.737 +04:00 [INF] Product with ID: 9 successfully deleted.
+2024-11-29 16:51:58.434 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:51:58.437 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:51:59.655 +04:00 [INF] Fetching all categories.
+2024-11-29 16:52:00.385 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:52:05.380 +04:00 [INF] Fetching all categories.
+2024-11-29 16:52:06.111 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:52:10.581 +04:00 [INF] Deleting product with ID: 13.
+2024-11-29 16:52:10.590 +04:00 [INF] Product with ID: 13 successfully deleted.
+2024-11-29 16:52:14.351 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:52:14.353 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:52:17.335 +04:00 [INF] Fetching all categories.
+2024-11-29 16:52:18.063 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 16:52:21.022 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:52:21.027 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 16:52:22.282 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 16:52:22.285 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 16:52:30.186 +04:00 [INF] Deleting package with ID: 3.
+2024-11-29 16:52:30.195 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:52:30.251 +04:00 [ERR] Error occurred while fetching all packages.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.GetAllAsync(Func`2 includeProperties) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 115
+   at VisionTech_Anbar_Project.Services.PackageService.GetAllPackageWithNavigation() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 250
+2024-11-29 16:52:56.324 +04:00 [INF] Application Starting
+2024-11-29 16:52:57.776 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:52:59.153 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 16:53:02.450 +04:00 [INF] Deleting package with ID: 3.
+2024-11-29 16:53:02.515 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:53:02.575 +04:00 [ERR] Error occurred while fetching all packages.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.GetAllAsync(Func`2 includeProperties) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 115
+   at VisionTech_Anbar_Project.Services.PackageService.GetAllPackageWithNavigation() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 250
+2024-11-29 16:58:31.454 +04:00 [INF] Application Starting
+2024-11-29 16:58:32.751 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:58:34.190 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 16:58:41.133 +04:00 [INF] Deleting package with ID: 3.
+2024-11-29 16:58:41.964 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:58:44.057 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 16:58:50.601 +04:00 [INF] Package with ID: 3 successfully deleted.
+2024-11-29 16:59:03.946 +04:00 [INF] Application Starting
+2024-11-29 16:59:05.395 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:59:06.788 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-29 16:59:45.567 +04:00 [INF] Application Starting
+2024-11-29 16:59:46.957 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:59:48.337 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-29 16:59:51.041 +04:00 [INF] Deleting package with ID: 2.
+2024-11-29 16:59:51.105 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:59:51.161 +04:00 [ERR] Error occurred while fetching all packages.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.GetAllAsync(Func`2 includeProperties) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 115
+   at VisionTech_Anbar_Project.Services.PackageService.GetAllPackageWithNavigation() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 250
+2024-11-29 16:59:56.723 +04:00 [INF] Application Starting
+2024-11-29 16:59:58.126 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 16:59:59.525 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-29 17:00:06.650 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-11-29 17:00:06.876 +04:00 [INF] Package successfully created.
+2024-11-29 17:00:06.882 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:00:06.886 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 17:00:10.748 +04:00 [INF] Deleting package with ID: 4.
+2024-11-29 17:00:10.788 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:00:10.858 +04:00 [ERR] Error occurred while fetching all packages.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.GetAllAsync(Func`2 includeProperties) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 115
+   at VisionTech_Anbar_Project.Services.PackageService.GetAllPackageWithNavigation() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 250
+2024-11-29 17:00:49.043 +04:00 [INF] Application Starting
+2024-11-29 17:00:50.421 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:00:51.785 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 17:00:53.466 +04:00 [INF] Fetching all categories.
+2024-11-29 17:00:54.223 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 17:00:58.617 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:00:58.620 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 17:01:00.089 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 17:01:00.111 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 17:01:03.621 +04:00 [INF] Deleting product with ID: 16.
+2024-11-29 17:01:03.661 +04:00 [INF] Product with ID: 16 successfully deleted.
+2024-11-29 17:01:05.468 +04:00 [INF] Deleting product with ID: 12.
+2024-11-29 17:01:05.478 +04:00 [INF] Product with ID: 12 successfully deleted.
+2024-11-29 17:01:08.399 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 17:01:08.402 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 17:01:11.172 +04:00 [INF] Fetching all categories.
+2024-11-29 17:01:11.890 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 17:01:19.331 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 17:01:19.336 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 17:01:21.579 +04:00 [INF] Deleting product with ID: 14.
+2024-11-29 17:01:21.584 +04:00 [INF] Product with ID: 14 successfully deleted.
+2024-11-29 17:01:24.028 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 17:01:24.032 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 17:01:28.786 +04:00 [INF] Deleting package with ID: 2.
+2024-11-29 17:01:28.806 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:01:28.852 +04:00 [ERR] Error occurred while deleting package with ID: 2.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Remove(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 85
+   at VisionTech_Anbar_Project.Services.PackageService.DeletePackageAsync(Int32 id) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 123
+2024-11-29 17:01:28.896 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 17:01:40.000 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-11-29 17:01:40.015 +04:00 [INF] Package successfully created.
+2024-11-29 17:01:40.022 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:01:40.027 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 17:01:44.328 +04:00 [INF] Application Starting
+2024-11-29 17:01:45.695 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:01:47.072 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 17:01:51.282 +04:00 [INF] Deleting package with ID: 2.
+2024-11-29 17:01:51.348 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:01:51.405 +04:00 [ERR] Error occurred while fetching all packages.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.GetAllAsync(Func`2 includeProperties) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 115
+   at VisionTech_Anbar_Project.Services.PackageService.GetAllPackageWithNavigation() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 250
+2024-11-29 17:01:59.553 +04:00 [INF] Application Starting
+2024-11-29 17:02:00.908 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:02:02.365 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 17:02:09.465 +04:00 [INF] Fetching all categories.
+2024-11-29 17:02:10.199 +04:00 [INF] Successfully retrieved 2 categories.
+2024-11-29 17:04:19.847 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 17:04:19.936 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 17:04:46.455 +04:00 [INF] Application Starting
+2024-11-29 17:04:47.853 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:04:49.245 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 17:10:38.226 +04:00 [INF] Application Starting
+2024-11-29 17:10:39.604 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:10:41.059 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 17:11:11.031 +04:00 [INF] Application Starting
+2024-11-29 17:11:12.327 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:11:13.736 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 17:11:20.214 +04:00 [INF] Application Starting
+2024-11-29 17:11:21.786 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 17:11:23.506 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 18:58:42.659 +04:00 [INF] Application Starting
+2024-11-29 18:58:45.121 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 18:58:47.013 +04:00 [INF] Successfully retrieved 4 packages.
+2024-11-29 18:58:48.439 +04:00 [INF] Deleting package with ID: 5.
+2024-11-29 18:58:48.766 +04:00 [INF] Package with ID: 5 successfully deleted.
+2024-11-29 18:58:48.796 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 18:58:48.802 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 18:58:51.042 +04:00 [INF] Deleting package with ID: 2.
+2024-11-29 18:58:51.074 +04:00 [INF] Package with ID: 2 successfully deleted.
+2024-11-29 18:58:51.093 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 18:58:51.098 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-29 18:59:05.171 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-11-29 18:59:05.328 +04:00 [INF] Package successfully created.
+2024-11-29 18:59:05.401 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 18:59:05.432 +04:00 [INF] Successfully retrieved 3 packages.
+2024-11-29 18:59:09.569 +04:00 [INF] Deleting package with ID: 4.
+2024-11-29 18:59:09.598 +04:00 [INF] Package with ID: 4 successfully deleted.
+2024-11-29 18:59:09.713 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-11-29 18:59:09.716 +04:00 [INF] Successfully retrieved 2 packages.
+2024-11-29 18:59:13.237 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-11-29 18:59:13.306 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-11-29 18:59:15.664 +04:00 [INF] Deleting product with ID: 15.
+2024-11-29 18:59:15.762 +04:00 [INF] Product with ID: 15 successfully deleted.

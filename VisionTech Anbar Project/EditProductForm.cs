@@ -20,6 +20,8 @@ namespace VisionTech_Anbar_Project
     {
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
+        private readonly PackageService _packageService;
+
         TableLayoutPanel mainTableLayoutPanel;
         //List<Product> products = new List<Product>();
         List<PackageProduct> packProducts = new List<PackageProduct>();
@@ -28,10 +30,11 @@ namespace VisionTech_Anbar_Project
         int currentPackageId;
         Package currentPackage;
 
-        public EditProductForm(CategoryService categoryService, ProductService productService)
+        public EditProductForm(CategoryService categoryService, ProductService productService, PackageService packageService)
         {
             _categoryService = categoryService;
             _productService = productService;
+            _packageService = packageService;
 
             InitializeComponent();
             SetupMainTableLayoutPanel();
@@ -41,27 +44,25 @@ namespace VisionTech_Anbar_Project
         {
             currentPackageId = package.Id;
             currentPackage = package;
-            foreach (PackageProduct packProduct in package.PackageProducts)
-            {
-                packProducts.Add(packProduct);
-                //products.Add(packProduct.Product);
-                Panel itemPanel = CreateItemPanel(packProduct.Product);
-                mainTableLayoutPanel.Controls.Add(itemPanel);
-            }
+
+            packProducts.Clear();
+            packProducts.AddRange(package.PackageProducts);
+
+            RefreshProductList();
             return packProducts;
         }
-        
-        public void FetchProducts()
-        {
-            foreach (PackageProduct packProduct in packProducts)
-            {
-                packProducts.Add(packProduct);
-                //products.Add(packProduct.Product);
-                Panel itemPanel = CreateItemPanel(packProduct.Product);
-                mainTableLayoutPanel.Controls.Add(itemPanel);
-            }
-        }
-        private void button1_Click(object sender, EventArgs e)
+
+        //public void FetchProducts()
+        //{
+        //    foreach (PackageProduct packProduct in packProducts)
+        //    {
+        //        packProducts.Add(packProduct);
+        //        //products.Add(packProduct.Product);
+        //        Panel itemPanel = CreateItemPanel(packProduct.Product);
+        //        mainTableLayoutPanel.Controls.Add(itemPanel);
+        //    }
+        //}
+        private async void button1_Click(object sender, EventArgs e)
         {
 
             AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
@@ -79,17 +80,20 @@ namespace VisionTech_Anbar_Project
             // Add both sections to the accordion
 
             // Add new Package to list and UI
-            if (addProductForm.DataSaved)
+            if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
-                //CreateItemPanel(addColumnForm.NewPackage);
-                //JsonManager.AddProductToPackage(addProductForm.NewProduct, currentPackageId);
-                // products.Add(addProductForm.NewProduct);
-                RestartPage();
-                InitializeItems();
-                //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
-                //InitializeItems(addColumnForm.NewPackage);
-                //Packages.Add(addColumnForm.NewPackage);
-                //AddPackageToUI(addColumnForm.NewPackage);
+                //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
+                //await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
+                await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, currentPackageId, addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
+                var newPackageProduct = new PackageProduct
+                {
+                    Product = addProductForm.NewProduct.Product,
+                    Quantity = addProductForm.NewProduct.Quantity
+                };
+                packProducts.Add(newPackageProduct);
+
+                // Refresh the UI
+                RefreshProductList();
             }
         }
         private void SetupMainTableLayoutPanel()
@@ -268,16 +272,39 @@ namespace VisionTech_Anbar_Project
         //        }
         //    }
         //}
+        private void RefreshProductList()
+        {
+            // Clear the panel first
+            mainTableLayoutPanel.Controls.Clear();
 
+            // Repopulate the panel with updated products
+            foreach (PackageProduct packProduct in packProducts)
+            {
+                Panel itemPanel = CreateItemPanel(packProduct.Product);
+                mainTableLayoutPanel.Controls.Add(itemPanel);
+            }
+        }
         public async void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
 
-            //JsonManager.DeleteProductOfPackage(currentPackageId,button.Tag.ToString());
-            packProducts.Clear();
-            await _productService.DeleteProductAsync(int.Parse(button.Tag.ToString()));
-            RestartPage();
-            GetProducts(currentPackage);
+            if (button?.Tag == null)
+                return;
+
+            int productId = int.Parse(button.Tag.ToString());
+
+            // Delete the product from the backend
+            await _productService.DeleteProductAsync(productId);
+
+            // Remove the product from the local list
+            var productToRemove = packProducts.FirstOrDefault(p => p.Product.Id == productId);
+            if (productToRemove != null)
+            {
+                packProducts.Remove(productToRemove);
+            }
+
+            // Refresh the UI
+            RefreshProductList();
 
         }
         public void AddButton_Click(object sender, EventArgs e)
