@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Services;
+using VisionTech_Anbar_Project.Utilts;
 
 namespace VisionTech_Anbar_Project
 {
@@ -26,16 +27,26 @@ namespace VisionTech_Anbar_Project
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
 
+        private readonly WarehouseService _warehouseService;
+        private readonly VendorService _vendorService;
+
+
         TableLayoutPanel mainTableLayoutPanel;
         List<PackageProduct> products = new List<PackageProduct>();
+        List<Warehouse> warehouseList = new List<Warehouse>();
+        List<Vendor> vendorList = new List<Vendor>();
+        List<ViewModel.User> users = new List<ViewModel.User>();
+        
 
 
-        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService)
+        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService)
         {
             //  _packageService = packageService;
             _categoryService = categoryService;
             _productService = productService;
             _packageService = packageService;
+            _warehouseService = warehouseService;
+            _vendorService = vendorService;
             InitializeComponent();
             mainTableLayoutPanel = tableLayoutPanel1;
         }
@@ -96,30 +107,99 @@ namespace VisionTech_Anbar_Project
 
         private void StoreInput()
         {
-            string warehouseName;
             DateTime createdDate;
-            string vendorName;
+            List<PackageProduct> packageProducts = new List<PackageProduct>();
 
-            warehouseName = comboBox1.Text;
-            vendorName = comboBox2.Text;
-
-
-            //List<Product> products = new List<Product>();
-            //int id;
-
-            // packageId = textBox1.Text;
-            createdDate = DateTime.Parse(dateTimePicker1.Text.ToString());
-
-
-            if (IsEdit)
-                EditedPackage = new Package(createdDate,
-                                         vendorName, warehouseName);
+            // Retrieve or create the selected warehouse
+            Warehouse selectedWarehouse;
+            if (comboBox1.Text != ((Warehouse)comboBox1.SelectedItem)?.WarehouseName)
+            {
+                // Create a new warehouse with the manually entered name
+                selectedWarehouse = new Warehouse
+                {
+                    WarehouseName = comboBox1.Text
+                    // Add other default properties if needed
+                };
+                // Optionally, save this new warehouse to the database
+                // await _warehouseService.CreateWarehouseAsync(selectedWarehouse);
+            }
             else
             {
-                //id = Convert.ToInt32(DateTime.Now.ToString("ddHHmmss"));
-                NewPackage = new Package(createdDate, vendorName, warehouseName);
+                selectedWarehouse = (Warehouse)comboBox1.SelectedItem;
             }
 
+            // Retrieve or create the selected vendor
+            Vendor selectedVendor;
+            if (comboBox2.Text != ((Vendor)comboBox2.SelectedItem)?.VendorName)
+            {
+                // Create a new vendor with the manually entered name
+                selectedVendor = new Vendor
+                {
+                    VendorName = comboBox2.Text
+                    // Add other default properties if needed
+                };
+                // Optionally, save this new vendor to the database
+                // await _vendorService.CreateVendorAsync(selectedVendor);
+            }
+            else
+            {
+                selectedVendor = (Vendor)comboBox2.SelectedItem;
+            }
+
+            // Add products to the package
+            if (products != null)
+            {
+                foreach (PackageProduct product in products)
+                {
+                    packageProducts.Add(product);
+                }
+            }
+
+            // Parse the created date from the DateTimePicker
+            createdDate = DateTime.Parse(dateTimePicker1.Text);
+
+            // Create or edit a package
+            if (IsEdit)
+            {
+                EditedPackage = new Package(
+                    createdDate,
+                    selectedVendor,
+                    selectedWarehouse,
+                    packageProducts
+                );
+            }
+            else
+            {
+                NewPackage = new Package(
+                    createdDate,
+                    selectedVendor,
+                    selectedWarehouse,
+                    packageProducts
+                );
+            }
+        }
+
+
+
+        public async void SetAllData()
+        {
+             warehouseList =(await _warehouseService.GetAllWarehousesAsync())
+               .ToList();
+            vendorList = (await _vendorService.GetAllVendorsAsync()).ToList();
+            users = JsonManager.GetUsers();
+            comboBox1.DataSource = warehouseList;
+            comboBox1.DisplayMember = "WarehouseName"; // Display the 'Name' in the ComboBox
+            comboBox1.ValueMember = "Id";
+
+            comboBox2.DataSource = vendorList;
+            comboBox2.DisplayMember = "VendorName"; // Display the 'Name' in the ComboBox
+            comboBox2.ValueMember = "Id";
+
+            comboBox3.DataSource = users;
+            comboBox3.DisplayMember = "UserName"; // Display the 'Name' in the ComboBox
+            comboBox3.ValueMember = "UserName";
+
+            // QEBUL EDEN SIDE YAZILMALIDI
         }
 
         private void ShowErrors(List<string> errors, int max)

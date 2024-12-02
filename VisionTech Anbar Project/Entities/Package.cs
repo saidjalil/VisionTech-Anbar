@@ -25,22 +25,25 @@ namespace VisionTech_Anbar_Project.Entities
         {
             this.Warehouse = new Warehouse();
             this.Vendor = new Vendor();
+            this.PackageProducts = new List<PackageProduct>();
 
-            Warehouse.WarehouseName = string.Empty;
-            Vendor.VendorName = string.Empty;
+            Warehouse = null;
+            Vendor = null;
             CreatedTime = DateTime.MinValue;
             // qebul eden 
     
         }
             
-        public Package(DateTime createdTime, string vendorName, string warehouseName)
+        public Package(DateTime createdTime, Vendor vendor, Warehouse warehouse, List<PackageProduct> packageProducts)
         {
             this.Warehouse = new Warehouse();
             this.Vendor = new Vendor();
+            this.PackageProducts = new List<PackageProduct>();
             // PackageName = packageName;
             CreatedTime = createdTime;
-            Vendor.VendorName = vendorName;
-            Warehouse.WarehouseName = warehouseName;
+            Vendor = vendor;
+            Warehouse = warehouse;
+            PackageProducts = packageProducts;
         }
 
         public void Copy(Package package)

@@ -22,15 +22,18 @@ namespace VisionTech_Anbar_Project
         private readonly PackageService _packageService;
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
+        private readonly WarehouseService _warehouseService;
+        private readonly VendorService _vendorService;
         TableLayoutPanel mainTableLayoutPanel;
 
-        private List<Product> selectedProducts = new List<Product>();
-        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService)
+        private List<Package> selectedProducts = new List<Package>();
+        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService)
         {
             this._packageService = packageService;
             this._productService = productService;
             this._categoryService = categoryService;
-
+            _warehouseService = warehouseService;
+            _vendorService = vendorService;
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
@@ -39,7 +42,8 @@ namespace VisionTech_Anbar_Project
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService);
+            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService);
+            addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
             // Example for Section 1
             //            Control[] section1Controls = {
@@ -126,7 +130,8 @@ namespace VisionTech_Anbar_Project
             {
                 Text = package.Warehouse.WarehouseName.ToString(),
                 AutoSize = true,
-                Location = new System.Drawing.Point(5, 15)
+                Location = new System.Drawing.Point(5, 15),
+                BackColor = Color.Transparent
             };
 
             // Create a FlowLayoutPanel to hold all buttons in a single line
@@ -210,6 +215,26 @@ namespace VisionTech_Anbar_Project
                     MessageBox.Show("No products selected for export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             };
+            CheckBox subItemCheckBox = new CheckBox
+            {
+                Location = new System.Drawing.Point(5, 5), // Position the checkbox
+                Tag = package.Id,// Store product in the Tag for reference
+               
+            };
+
+            subItemCheckBox.CheckedChanged += (s, e) =>
+            {
+                if (subItemCheckBox.Checked)
+                {
+                    selectedProducts.Add(package); // Add product to selected list
+                }
+                else
+                {
+                    selectedProducts.Remove(package); // Remove product from selected list
+                }
+            };
+
+            
             // Add the buttons to the FlowLayoutPanel
 
 
@@ -221,11 +246,12 @@ namespace VisionTech_Anbar_Project
 
             // Add the label and button panel to the item panel
             itemPanel.Controls.Add(itemLabel);
+            itemPanel.Controls.Add(subItemCheckBox);
             itemPanel.Controls.Add(buttonPanel);
 
             return itemPanel;
         }
-        private void ExportSelectedProducts(List<Product> products)
+        private void ExportSelectedProducts(List<Package> products)
         {
             // export 
         }
@@ -257,31 +283,14 @@ namespace VisionTech_Anbar_Project
                     {
                         Text = $"Name:{products.ProductName} Count:{quantity}",
                         AutoSize = true,
-                        Location = new System.Drawing.Point(30, 5)
+                        Location = new System.Drawing.Point(50, 5)
                     }; 
-                    CheckBox subItemCheckBox = new CheckBox
-                    {
-                        Location = new System.Drawing.Point(5, 5), // Position the checkbox
-                        Tag = products // Store product in the Tag for reference
-                    };
-
-                    subItemCheckBox.CheckedChanged += (s, e) =>
-                    {
-                    if (subItemCheckBox.Checked)
-                    {
-                        selectedProducts.Add(products); // Add product to selected list
-                    }
-                    else
-                    {
-                        selectedProducts.Remove(products); // Remove product from selected list
-                    }
-                    };
-
-                    subItemPanel.Controls.Add(subItemCheckBox);
+                    
                     subItemPanel.Controls.Add(subItemLabel);
                     subItemsPanel.Controls.Add(subItemPanel);
                 }
             
+
             return subItemsPanel;
         }
 
