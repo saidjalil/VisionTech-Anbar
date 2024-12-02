@@ -218,6 +218,7 @@ public class PackageService
                 query => query
                     .Include(x => x.PackageProducts)
                     .ThenInclude(pp => pp.Product)
+                    .ThenInclude(pp => pp.Barcodes)
                     .Include(x => x.Vendor)
                     .Include(x => x.Warehouse)
             );

@@ -80,6 +80,14 @@ namespace VisionTech_Anbar_Project
             // Add both sections to the accordion
 
             // Add new Package to list and UI
+
+            if (addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(currentPackageId, addProductForm.EditedProduct.Product.Id))
+            {
+                await _packageService.AddProductToPackageAsync(currentPackageId, addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
+                // TURAL METHOD YAZMALIDIKI, HAZIRKI BARCODELAR VAR OLAN PRODUCTDA ELAVE EDILSEN 
+                await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
+
+            }
             if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
@@ -332,6 +340,7 @@ namespace VisionTech_Anbar_Project
                 {
                     currentProduct = selectedProduct
                 };
+                addProductForm.setCurrentProduct();
                 addProductForm.ShowDialog();
 
                 // If changes were made, update the product and refresh the UI

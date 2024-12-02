@@ -37,8 +37,6 @@ namespace VisionTech_Anbar_Project
 
         private List<Category> categories = new List<Category>();
 
-
-
         private int comboBoxCount = 0; // Counter for dynamically created ComboBoxes
         private Dictionary<int, ComboBox> comboBoxDictionary = new Dictionary<int, ComboBox>();
 
@@ -56,7 +54,8 @@ namespace VisionTech_Anbar_Project
 
             InitializeComponent();
             InitializeCategories();
-            CreateTextBox();
+            //if(textBoxCount == 0)
+            //CreateTextBox();
             //InitializeMainComboBox();
         }
         public AddProductForm(PackageProduct product)
@@ -205,7 +204,6 @@ namespace VisionTech_Anbar_Project
                 EditedProduct = new PackageProduct(currentProduct.Id, Name,
                                          Quantity, selectedId, barcodes);
             }
-
             else
             {
                 //id = Guid.NewGuid().ToString();
@@ -213,8 +211,8 @@ namespace VisionTech_Anbar_Project
                                          Quantity, selectedId, barcodes);
             }
             currentlyHaveBarcode = false;
+          //  barcodes.Clear();
         }
-
         private Barcode createNewBarcode(int barcodeValue)
         {
             var barcode = new Barcode
@@ -263,7 +261,7 @@ namespace VisionTech_Anbar_Project
             comboBoxCount++;
 
             comboBox1.Tag = comboBoxCount;
-            categories = (await categoryService.GetAllCategoriesAsync())
+                categories = (await categoryService.GetAllCategoriesAsync())
                .Where(x => x.ParentId == null)
                .ToList();
 
@@ -277,8 +275,6 @@ namespace VisionTech_Anbar_Project
 
             comboBoxes.Add(comboBox1);
             comboBoxDictionary.Add(comboBoxCount, comboBox1);
-
-
 
         }
 
@@ -384,7 +380,6 @@ namespace VisionTech_Anbar_Project
                 CreateSubComboBox(currentComboBox, selectedId);
             }
         }
-
         private async void MainComboBox_TextChanged(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -485,15 +480,15 @@ namespace VisionTech_Anbar_Project
 
                         // Add the new category to the list and update the ComboBox's data source
                         categories.Add(newCategory);
-                        currentComboBox.DataSource = null; // Reset the data source to refresh it
-                        currentComboBox.DataSource = categories.Where(x => x.ParentId == currentParentId).ToList();
-                        currentComboBox.DisplayMember = "Name";
-                        currentComboBox.ValueMember = "Id";
+                       currentComboBox.DisplayMember = "Name";
+                       currentComboBox.ValueMember = "Id";
 
                         // Select the newly created category
                         currentComboBox.SelectedItem = newCategory;
                     }
-                }
+                        currentComboBox.DataSource = null; // Reset the data source to refresh it
+                        currentComboBox.DataSource = categories.Where(x => x.ParentId == currentParentId).ToList();
+                 }
             }
         }
         private void DeleteChildComboBoxes(ComboBox parentComboBox)
@@ -518,6 +513,59 @@ namespace VisionTech_Anbar_Project
                 }
             }
         }
+
+        public async void setCurrentProduct()
+        {
+            // write the products current data
+            if (currentProduct != null)
+            {
+                textBox2.Text = currentProduct.ProductName;
+                setCurrentBarcodes();
+                //textBox2.Enabled = false;
+
+            }
+        }
+        private void setCurrentBarcodes()
+        {
+            // Clear existing TextBoxes if any
+
+            // Get the current product barcodes
+            List<Barcode> barcodes = currentProduct.Barcodes.ToList();
+
+            if (barcodes == null || !barcodes.Any())
+                return;
+
+            // Iterate through the barcodes and create textboxes
+            for (int i = 0; i < barcodes.Count; i++)
+            {
+                // Increment TextBox count
+                textBoxCount++;
+
+                // Create a new TextBox
+                TextBox newTextBox = new TextBox
+                {
+                    Name = "TextBox" + textBoxCount,
+                    Width = 200,
+                    Location = new System.Drawing.Point(286, 200 + (40 * textBoxCount)), // Adjust location dynamically
+                    Tag = textBoxCount,
+                    Size = new System.Drawing.Size(177, 26),
+                    PlaceholderText = "**********",
+                    Text = barcodes[i].BarCode.ToString() // Populate the TextBox with the current barcode
+                };
+
+                newTextBox.KeyPress += NewTextBoxKeyPress;
+
+                // Add the new TextBox to the list
+                textBoxList.Add(newTextBox);
+
+                // Add the new TextBox to the form
+                this.Controls.Add(newTextBox);
+            }
+        }
+
+        // Helper method to clear existing TextBoxes
+
+
         private async void button2_Click(object sender, EventArgs e)
         {
 
@@ -531,6 +579,7 @@ namespace VisionTech_Anbar_Project
                 textBox2.Text = currentProduct.ProductName;
                 textBox2.Enabled = false;
                 currentlyHaveBarcode = true;
+                //setCurrentBarcodes();
             }
             // combobox1 category add
         }

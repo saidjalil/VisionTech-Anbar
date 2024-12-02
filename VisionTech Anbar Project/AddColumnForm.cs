@@ -30,19 +30,21 @@ namespace VisionTech_Anbar_Project
         List<PackageProduct> products = new List<PackageProduct>();
 
 
-        public AddColumnForm(PackageService packageService)
+        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService)
         {
-          //  _packageService = packageService;
+            //  _packageService = packageService;
+            _categoryService = categoryService;
+            _productService = productService;
             _packageService = packageService;
             InitializeComponent();
             mainTableLayoutPanel = tableLayoutPanel1;
         }
-        private AddColumnForm(Package package)
-        {
-            InitializeComponent();
-            IsEdit = true;
-            OriginalPackage = package;
-        }
+        //private AddColumnForm(Package package)
+        //{
+        //    InitializeComponent();
+        //    IsEdit = true;
+        //    OriginalPackage = package;
+        //}
         private void AddEditMovie_Load(object sender, EventArgs e)
         {
             DataSaved = false;
@@ -160,7 +162,6 @@ namespace VisionTech_Anbar_Project
             addProductForm.ShowDialog();
    
             // Add both sections to the accordion
-
             // Add new Package to list and UI
             if (addProductForm.DataSaved)
             {

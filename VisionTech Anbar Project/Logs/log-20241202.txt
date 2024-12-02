@@ -1,0 +1,62 @@
+2024-12-02 12:12:19.545 +04:00 [INF] Application Starting
+2024-12-02 12:12:21.103 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-02 12:12:22.560 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-02 12:15:32.865 +04:00 [INF] Application Starting
+2024-12-02 12:15:34.409 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-02 12:15:35.790 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-02 12:15:41.845 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-02 12:15:41.942 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-02 12:15:43.722 +04:00 [INF] Fetching all categories.
+2024-12-02 12:15:44.456 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:16:48.063 +04:00 [INF] Application Starting
+2024-12-02 12:16:49.453 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-02 12:16:50.925 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-02 12:16:53.079 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-02 12:16:53.169 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-02 12:16:53.884 +04:00 [INF] Fetching all categories.
+2024-12-02 12:16:54.631 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:16:57.359 +04:00 [INF] Fetching all categories.
+2024-12-02 12:16:58.085 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:17:48.204 +04:00 [INF] Application Starting
+2024-12-02 12:17:49.665 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-02 12:17:51.094 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-02 12:17:56.018 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-02 12:17:56.100 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-02 12:17:57.130 +04:00 [INF] Fetching all categories.
+2024-12-02 12:17:57.870 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:17:59.438 +04:00 [INF] Fetching all categories.
+2024-12-02 12:18:00.159 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:19:32.323 +04:00 [INF] Application Starting
+2024-12-02 12:19:33.775 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-02 12:19:35.152 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-02 12:19:43.539 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-02 12:19:43.615 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-02 12:20:11.042 +04:00 [INF] Fetching all categories.
+2024-12-02 12:20:11.774 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:24:13.046 +04:00 [INF] Application Starting
+2024-12-02 12:24:14.368 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-02 12:24:15.788 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-02 12:24:19.916 +04:00 [INF] Fetching all categories.
+2024-12-02 12:24:20.650 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:24:58.094 +04:00 [INF] Fetching all categories.
+2024-12-02 12:24:58.825 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:25:06.709 +04:00 [INF] Fetching all categories.
+2024-12-02 12:25:07.431 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:25:14.813 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-02 12:25:14.818 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-02 12:25:24.593 +04:00 [INF] Fetching all categories.
+2024-12-02 12:25:25.307 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:26:18.417 +04:00 [INF] Adding product with ID: 20 to package with ID: 1, quantity: 4.
+2024-12-02 12:26:24.213 +04:00 [INF] Product with ID: 20 successfully added to package with ID: 1.
+2024-12-02 12:26:29.483 +04:00 [INF] Updating product with ID: 20.
+2024-12-02 12:26:35.440 +04:00 [INF] Product with ID: 20 successfully updated.
+2024-12-02 12:26:51.707 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-02 12:26:51.732 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-02 12:26:58.539 +04:00 [INF] Fetching all categories.
+2024-12-02 12:26:59.259 +04:00 [INF] Successfully retrieved 2 categories.
+2024-12-02 12:27:53.461 +04:00 [INF] Adding product with ID: 20 to package with ID: 1, quantity: 12.
+2024-12-02 12:28:00.871 +04:00 [INF] Product with ID: 20 successfully added to package with ID: 1.
+2024-12-02 12:28:04.253 +04:00 [INF] Updating product with ID: 20.
+2024-12-02 12:28:09.126 +04:00 [INF] Product with ID: 20 successfully updated.
+2024-12-02 12:28:33.574 +04:00 [INF] Fetching all categories.
+2024-12-02 12:28:34.313 +04:00 [INF] Successfully retrieved 2 categories.
