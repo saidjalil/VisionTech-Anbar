@@ -98,10 +98,11 @@ namespace VisionTech_Anbar_Project.Repositories.Base
             {
                 _context.Entry(existingEntity).State = EntityState.Detached;
             }
-            _context.Update(item);
+            _dbSet.Update(item);
             await Save();
 
         }
+        
         
         public async Task<List<T>> GetAllAsync(Func<IQueryable<T>, IQueryable<T>> includeProperties = null)
         {

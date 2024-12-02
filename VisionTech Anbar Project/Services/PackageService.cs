@@ -394,4 +394,105 @@ public class PackageService
         }
         return true;
     }
+    
+    public async Task CreatePackageWithExistingVendorAndWarehouse(Package package, int vendorId, int warehouseId)
+    {
+        if (package == null) throw new ArgumentNullException(nameof(package), "Package cannot be null.");
+
+        try
+        {
+            Log.Information("Fetching existing vendor with ID: {VendorId}.", vendorId);
+
+            var existingVendor = await _vendorRepository.FindAsyncById(vendorId);
+            if (existingVendor == null)
+            {
+                Log.Warning("Vendor with ID {VendorId} does not exist.", vendorId);
+                throw new InvalidOperationException($"Vendor with ID {vendorId} does not exist.");
+            }
+
+            Log.Information("Fetching existing warehouse with ID: {WarehouseId}.", warehouseId);
+
+            var existingWarehouse = await _warehouseRepository.FindAsyncById(warehouseId);
+            if (existingWarehouse == null)
+            {
+                Log.Warning("Warehouse with ID {WarehouseId} does not exist.", warehouseId);
+                throw new InvalidOperationException($"Warehouse with ID {warehouseId} does not exist.");
+            }
+
+            package.VendorId = existingVendor.Id;
+            package.Vendor = existingVendor;
+
+            package.WarehouseId = existingWarehouse.Id;
+            package.Warehouse = existingWarehouse;
+
+            Log.Information("Creating a new package: {Package}.", package);
+            await _packageRepository.Create(package);
+            Log.Information("Successfully created package with ID: {PackageId}.", package.Id);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error occurred while creating package with existing vendor and warehouse.");
+            throw;
+        }
+    }
+
+    public async Task CreatePackageWithExistingVendor(Package package, int vendorId)
+    {
+        if (package == null) throw new ArgumentNullException(nameof(package), "Package cannot be null.");
+
+        try
+        {
+            Log.Information("Fetching existing vendor with ID: {VendorId}.", vendorId);
+
+            var existingVendor = await _vendorRepository.FindAsyncById(vendorId);
+            if (existingVendor == null)
+            {
+                Log.Warning("Vendor with ID {VendorId} does not exist.", vendorId);
+                throw new InvalidOperationException($"Vendor with ID {vendorId} does not exist.");
+            }
+
+            package.VendorId = existingVendor.Id;
+            package.Vendor = existingVendor;
+
+            Log.Information("Creating a new package: {Package}.", package);
+            await _packageRepository.Create(package);
+            Log.Information("Successfully created package with ID: {PackageId}.", package.Id);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error occurred while creating package with existing vendor.");
+            throw;
+        }
+    }
+
+    public async Task CreatePackageWithExistingWarehouse(Package package, int warehouseId)
+    {
+        if (package == null) throw new ArgumentNullException(nameof(package), "Package cannot be null.");
+
+        try
+        {
+            Log.Information("Fetching existing warehouse with ID: {WarehouseId}.", warehouseId);
+
+            var existingWarehouse = await _warehouseRepository.FindAsyncById(warehouseId);
+            if (existingWarehouse == null)
+            {
+                Log.Warning("Warehouse with ID {WarehouseId} does not exist.", warehouseId);
+                throw new InvalidOperationException($"Warehouse with ID {warehouseId} does not exist.");
+            }
+
+            package.WarehouseId = existingWarehouse.Id;
+            package.Warehouse = existingWarehouse;
+
+            Log.Information("Creating a new package: {Package}.", package);
+            await _packageRepository.Create(package);
+            Log.Information("Successfully created package with ID: {PackageId}.", package.Id);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error occurred while creating package with existing warehouse.");
+            throw;
+        }
+    }
+
+    
 }
