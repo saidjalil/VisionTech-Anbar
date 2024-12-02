@@ -78,7 +78,7 @@ public class ProductService
         }
     }
 
-    public async Task UpdateProductAsync(Product product)
+    public async Task UpdateProductWithBarcodes(Product product)
     {
         if (product == null)
         {
@@ -88,8 +88,15 @@ public class ProductService
 
         try
         {
+            var existedProduct = await _productRepository.FindAsyncById(product.Id);
+            if (existedProduct == null)
+            {
+                throw new ArgumentNullException(nameof(product), "That product doesn't exist.");
+            }
+            
+            existedProduct.Barcodes = product.Barcodes;
             Log.Information("Updating product with ID: {Id}.", product.Id);
-            await _productRepository.Update(product);
+            await _productRepository.UpdateProductBarcodes(existedProduct);
             Log.Information("Product with ID: {Id} successfully updated.", product.Id);
         }
         catch (Exception ex)
@@ -97,6 +104,42 @@ public class ProductService
             Log.Error(ex, "Error occurred while updating product with ID: {Id}.", product.Id);
             throw;
         }
+    }
+    public async Task UpdateProductAsync(Product product)
+    {
+        
+        if (product == null)
+        {
+            Log.Error("Attempted to update a null product.");
+            throw new ArgumentNullException(nameof(product), "Product cannot be null.");
+        }
+
+        try
+        {
+            var existedProduct = await _productRepository.FindAsyncById(product.Id);
+            if (existedProduct == null)
+            {
+                throw new ArgumentNullException(nameof(product), "That product doesn't exist.");
+            }
+            existedProduct.Barcodes.Clear();
+            foreach (var barcode in product.Barcodes)
+            {
+                existedProduct.Barcodes.Add(barcode);
+            }
+            Log.Information("Updating product with ID: {Id}.", product.Id);
+            await _productRepository.Update(existedProduct);
+            Log.Information("Product with ID: {Id} successfully updated.", product.Id);
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error occurred while updating product with ID: {Id}.", product.Id);
+            throw;
+        }
+    }
+
+    public async Task AddBarcodeToProductAsync(int productId,Barcode barcode)
+    {
+        
     }
 
     public async Task DeleteProductAsync(int id)
@@ -150,7 +193,7 @@ public class ProductService
 
     public async Task<Product> GetProductByBarCode(int barcode)
     {
-        var res = (await _productRepository.GetAll()).FirstOrDefault(x => x.Barcodes.Any(x => x.BarCode == barcode));
+        var res = (await _productRepository.GetAll(x => x.Barcodes)).FirstOrDefault(x => x.Barcodes.Any(x => x.BarCode == barcode));
         return res;
     }
 
