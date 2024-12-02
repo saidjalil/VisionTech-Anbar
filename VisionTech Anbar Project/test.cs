@@ -88,21 +88,31 @@ public partial class test : Form
         var selectedCategory = comboBox.SelectedItem as Category;
         if (selectedCategory == null) return;
 
-        // Remove ComboBoxes below this one
+        // Find the index of the current ComboBox
         var index = _comboBoxes.IndexOf(comboBox);
+
+        // Remove all ComboBoxes and buttons that are below the current one
         for (int i = _comboBoxes.Count - 1; i > index; i--)
         {
+            // Remove associated button
+            var buttonToRemove = panelDynamic.Controls.OfType<Button>()
+                .FirstOrDefault(b => b.Tag == _comboBoxes[i]);
+        
+            if (buttonToRemove != null)
+            {
+                panelDynamic.Controls.Remove(buttonToRemove);
+            }
+
+            // Remove ComboBox
             panelDynamic.Controls.Remove(_comboBoxes[i]);
-            panelDynamic.Controls.Remove(panelDynamic.Controls.OfType<Button>().First(b => b.Tag == _comboBoxes[i]));
             _comboBoxes.RemoveAt(i);
         }
 
         // Load subcategories of the selected category
         var subCategories = _categoryRepository.GetSubCategories(selectedCategory.Id);
-        if (subCategories.Any())
-        {
-            AddComboBox(selectedCategory, subCategories);
-        }
+
+        // Always add a new ComboBox, even if no subcategories exist
+        AddComboBox(selectedCategory, subCategories);
     }
 
     private async void AddButton_Click(object sender, EventArgs e)
