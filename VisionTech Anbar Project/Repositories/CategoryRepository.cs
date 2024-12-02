@@ -64,4 +64,27 @@ public class CategoryRepository : BaseRepository<Category>
         {
             return await _dbSet.Where(c => c.ParentId == null).ToListAsync();
         }
+        
+        public List<Category> GetTopLevelCategories()
+        {
+            return _context.Categories.Where(c => c.ParentId == null).ToList();
+        }
+
+        public List<Category> GetSubCategories(int parentId)
+        {
+            return _context.Categories.Where(c => c.ParentId == parentId).ToList();
+        }
+        
+        public Category AddCategory(string name, int? parentId = null)
+        {
+            var category = new Category { Name = name, ParentId = parentId };
+            _context.Categories.Add(category);
+            _context.SaveChanges();
+            return category;
+        }
+        
+        public bool IsDuplicateName(string name, int? parentId)
+        {
+            return _context.Categories.Any(c => c.Name == name && c.ParentId == parentId);
+        }
 }
