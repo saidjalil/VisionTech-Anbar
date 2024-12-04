@@ -1,19 +1,20 @@
 using Newtonsoft.Json;
-using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Repositories;
 using VisionTech_Anbar_Project.Services;
+using VisionTech_Anbar_Project.ViewModel;
+using Package = VisionTech_Anbar_Project.Entities.Package;
 
 namespace VisionTech_Anbar_Project.Utilts;
 
 public class FileExporter
 {
-    PackageRepository _repository;
     PackageService _packageService;
+    ImageService _imageService;
 
-    public FileExporter(PackageRepository repository, PackageService packageService)
+    public FileExporter(PackageService packageService, ImageService imageService)
     {
-        _repository = repository;
         _packageService = packageService;
+        _imageService = imageService;
     }
 
     public async Task CreateAndWriteExportFile(int id)
@@ -24,12 +25,21 @@ public class FileExporter
             Formatting = Formatting.Indented // Pretty-print JSON for readability
         };
 
+        
+
         var date = DateTime.Now;
         var fileNameWithSpaces = "Export-" + date + ".js";
         var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
         string destinationFilePath = Path.Combine(FileManager.GetDownloadsFolder(), fileName);
 
         var package = await _packageService.GetPackageWithNavigation(id);
+        var image = await _imageService.GetImagesByPackageIdAsync(package.Id);
+
+        ExportViewModel export = new ExportViewModel()
+        {
+            Package = package,
+            Image = image.First(),
+        };
 
         var json = JsonConvert.SerializeObject(package, settings);
 
@@ -55,14 +65,21 @@ public class FileExporter
         var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
         string destinationFilePath = Path.Combine(FileManager.GetDownloadsFolder(), fileName);
 
-        List<Package> packages = new List<Package>();
+        List<ExportViewModel> exportViewModels = new List<ExportViewModel>();
         foreach (var id in ids) 
         {
-            packages.Add(await _packageService.GetPackageWithNavigation(id));
+            var package = await _packageService.GetPackageWithNavigation(id);
+            var image = await _imageService.GetImagesByPackageIdAsync(package.Id);
+
+            ExportViewModel export = new ExportViewModel()
+            {
+                Package = package,
+                Image = image.First(),
+            };
         }
             
 
-        var json = JsonConvert.SerializeObject(packages);
+        var json = JsonConvert.SerializeObject(exportViewModels ,settings);
 
         using (FileStream fs = File.Create(destinationFilePath))
         using (StreamWriter writer = new StreamWriter(fs))
