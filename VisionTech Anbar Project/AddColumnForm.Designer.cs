@@ -91,7 +91,7 @@ namespace VisionTech_Anbar_Project
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(951, 2);
+            metroSetControlBox1.Location = new Point(959, 2);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -201,7 +201,7 @@ namespace VisionTech_Anbar_Project
             // 
             button3.BackColor = Color.FromArgb(42, 45, 85);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(15, 503);
+            button3.Location = new Point(15, 631);
             button3.Name = "button3";
             button3.Size = new Size(253, 44);
             button3.TabIndex = 20;
@@ -221,12 +221,12 @@ namespace VisionTech_Anbar_Project
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.5820732F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.4179268F));
-            tableLayoutPanel1.Location = new Point(15, 305);
+            tableLayoutPanel1.Location = new Point(15, 338);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.8287277F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 49.1712723F));
-            tableLayoutPanel1.Size = new Size(993, 181);
+            tableLayoutPanel1.Size = new Size(1033, 278);
             tableLayoutPanel1.TabIndex = 24;
             // 
             // button4
@@ -252,7 +252,7 @@ namespace VisionTech_Anbar_Project
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1055, 587);
+            ClientSize = new Size(1063, 679);
             Controls.Add(pictureBox2);
             Controls.Add(button4);
             Controls.Add(tableLayoutPanel1);

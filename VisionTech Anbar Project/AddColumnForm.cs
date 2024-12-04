@@ -54,6 +54,12 @@ namespace VisionTech_Anbar_Project
             InitializeComponent();
 
             mainTableLayoutPanel = tableLayoutPanel1;
+            mainTableLayoutPanel.ColumnCount = 1;
+            mainTableLayoutPanel.AutoScroll = true; // Enable scrolling if needed
+            //mainTableLayoutPanel.Dock = DockStyle.Fill;
+            mainTableLayoutPanel.RowStyles.Clear();
+
+
         }
         //private AddColumnForm(Package package)
         //{
@@ -272,59 +278,94 @@ namespace VisionTech_Anbar_Project
                 products.Add(addProductForm.NewProduct);
                 //await packageService.CreatePackageAsync(addProductForm.NewProduct);
                 Debug.WriteLine(products);
-                RestartPage();
+                //RestartPage();
                 InitializeItems();
             }
         }
-        public void RestartPage()
+        //public void RestartPage()
+        //{
+        //    mainTableLayoutPanel.Controls.Clear();
+        //}
+        private void InitializeItems()
         {
+            // Clear any existing controls in the TableLayoutPanel
             mainTableLayoutPanel.Controls.Clear();
-        }
-        private async void InitializeItems()
-        {
-            foreach (var item in products)
-            {
-                foreach (var product in products)
-                {
-                    Panel itemPanel = CreateItemPanel(item);
-                    mainTableLayoutPanel.RowCount++;
-                    mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
-                }
+            mainTableLayoutPanel.RowCount = 0;
 
-                //Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
-                //mainTableLayoutPanel.RowCount++;
-                //mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
-                //subItemsPanel.Visible = false; // Initially hidden
+            foreach (var product in products)
+            {
+                // Create a new item panel for each product
+                Panel itemPanel = CreateItemPanel(product);
+
+                // Add the panel to a new row in the TableLayoutPanel
+                mainTableLayoutPanel.RowCount++;
+                mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+                mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1);
             }
         }
 
         private Panel CreateItemPanel(PackageProduct product)
         {
-            // Create the main panel for the item
+            // Create the panel that represents a product
             Panel itemPanel = new Panel
             {
                 Dock = DockStyle.Top,
-                //Height = 50, // Set explicit height for the main item
-                BorderStyle = BorderStyle.None,
-                BackColor = Color.Black,
-                Margin = new Padding(5) // Add some margin between items
+                Height = 60, // Explicit height for uniformity
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = Color.White,
+                Margin = new Padding(5) // Margin for spacing between rows
             };
 
-            // Label to display item text
+            // Create a label to show the product name
             Label itemLabel = new Label
             {
-                Text = product.Product.ProductName,
+                Text = $"Product Name: {product.Product.ProductName} | Quantity: {product.Quantity}",
                 AutoSize = true,
-                Location = new System.Drawing.Point(5, 15)
+                Location = new Point(10, 15), // Position inside the panel
+                Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                ForeColor = Color.Black
             };
 
-            // Add the buttons to the FlowLayoutPanel
+            // Create the delete button
+            Button deleteButton = new Button
+            {
+                Text = "🗑", // Trash icon
+                Tag = product, // Attach the product object to the button for easy access
+                ForeColor = Color.Red,
+                Width = 50,
+                Height = 40,
+                Anchor = AnchorStyles.Right, // Align it to the right side
+                Margin = new Padding(5)
+            };
+            deleteButton.Click += DeleteButton_Click;
 
-            // Add the label and button panel to the item panel
+            // Position the delete button inside the panel
+            deleteButton.Location = new Point(itemPanel.Width - deleteButton.Width - 10, 10);
+            deleteButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            // Add the label and delete button to the item panel
             itemPanel.Controls.Add(itemLabel);
+            itemPanel.Controls.Add(deleteButton);
 
             return itemPanel;
         }
+
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            // Get the product object from the button's Tag property
+            var button = sender as Button;
+            if (button?.Tag is PackageProduct productToRemove)
+            {
+                // Remove the product from the list
+                products.Remove(productToRemove);
+
+                // Refresh the UI
+                InitializeItems();
+            }
+        }
+
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -342,5 +383,6 @@ namespace VisionTech_Anbar_Project
         {
 
         }
+
     }
 }
