@@ -37,13 +37,13 @@
             // 
             // metroSetControlBox1
             // 
-            metroSetControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            metroSetControlBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             metroSetControlBox1.CloseHoverBackColor = Color.FromArgb(183, 40, 40);
             metroSetControlBox1.CloseHoverForeColor = Color.White;
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(594, 4);
+            metroSetControlBox1.Location = new Point(594, 5);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);

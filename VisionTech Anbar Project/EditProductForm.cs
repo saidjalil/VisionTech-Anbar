@@ -15,7 +15,7 @@ using VisionTech_Anbar_Project.Services;
 
 namespace VisionTech_Anbar_Project
 {
-   
+
     public partial class EditProductForm : MetroSetForm
     {
         private readonly ProductService _productService;
@@ -36,9 +36,13 @@ namespace VisionTech_Anbar_Project
             _productService = productService;
             _packageService = packageService;
 
+
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
+
+            button3.BringToFront();
+
         }
         public List<PackageProduct> GetProducts(Package package)
         {

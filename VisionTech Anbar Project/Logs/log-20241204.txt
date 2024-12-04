@@ -1,0 +1,62 @@
+2024-12-04 00:07:23.137 +04:00 [INF] Application Starting
+2024-12-04 00:08:02.468 +04:00 [INF] Application Starting
+2024-12-04 00:08:05.389 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 00:08:07.438 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-04 00:08:14.576 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-04 00:08:14.791 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-04 00:08:38.108 +04:00 [INF] Fetching all warehouses.
+2024-12-04 00:08:39.517 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 00:08:39.532 +04:00 [INF] Fetching all vendors.
+2024-12-04 00:08:39.576 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 00:10:00.287 +04:00 [INF] Application Starting
+2024-12-04 00:10:02.310 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 00:10:04.077 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-04 00:10:48.649 +04:00 [INF] Application Starting
+2024-12-04 00:10:50.903 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 00:10:52.625 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-04 00:11:49.820 +04:00 [INF] Application Starting
+2024-12-04 00:11:52.261 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 00:11:54.494 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-04 00:13:47.350 +04:00 [INF] Application Starting
+2024-12-04 00:13:50.076 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 00:13:52.018 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-04 00:13:55.296 +04:00 [INF] Fetching all warehouses.
+2024-12-04 00:13:56.173 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 00:13:56.175 +04:00 [INF] Fetching all vendors.
+2024-12-04 00:13:56.214 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 12:26:21.404 +04:00 [INF] Application Starting
+2024-12-04 12:26:23.249 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 12:26:24.805 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-04 12:38:44.018 +04:00 [INF] Application Starting
+2024-12-04 12:38:45.457 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 12:38:47.060 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-04 12:38:50.389 +04:00 [INF] Fetching all warehouses.
+2024-12-04 12:38:51.170 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 12:38:51.171 +04:00 [INF] Fetching all vendors.
+2024-12-04 12:38:51.206 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 12:39:12.727 +04:00 [INF] Images folder created at path: C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Images\Documents
+2024-12-04 12:39:12.730 +04:00 [INF] Image saved successfully from C:\Users\Said\Downloads\delusioANAL nerds.png to C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Images\Documents\delusioANAL nerds.png
+2024-12-04 12:39:14.181 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-04 12:39:14.454 +04:00 [INF] Package successfully created.
+2024-12-04 12:39:14.505 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 12:39:14.513 +04:00 [INF] Successfully retrieved 10 packages.
+2024-12-04 12:45:52.899 +04:00 [INF] Application Starting
+2024-12-04 12:45:54.471 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 12:45:56.074 +04:00 [INF] Successfully retrieved 10 packages.
+2024-12-04 12:46:12.946 +04:00 [INF] Fetching all warehouses.
+2024-12-04 12:46:13.728 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 12:46:13.728 +04:00 [INF] Fetching all vendors.
+2024-12-04 12:46:13.747 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 12:46:18.996 +04:00 [INF] Image saved successfully from C:\Users\Said\Downloads\WhatsApp_Image_2024-11-07_at_19.32.50-removebg-preview.png to C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Images\Documents\WhatsApp_Image_2024-11-07_at_19.32.50-removebg-preview.png
+2024-12-04 12:46:19.029 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-04 12:46:19.274 +04:00 [INF] Package successfully created.
+2024-12-04 12:46:19.335 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 12:46:19.345 +04:00 [INF] Successfully retrieved 11 packages.
+2024-12-04 12:46:26.895 +04:00 [INF] Fetching all warehouses.
+2024-12-04 12:46:27.649 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 12:46:27.649 +04:00 [INF] Fetching all vendors.
+2024-12-04 12:46:27.661 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 12:46:33.612 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-04 12:46:33.620 +04:00 [INF] Package successfully created.
+2024-12-04 12:46:33.642 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 12:46:33.648 +04:00 [INF] Successfully retrieved 12 packages.

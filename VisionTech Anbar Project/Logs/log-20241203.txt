@@ -1,0 +1,88 @@
+2024-12-03 11:56:01.881 +04:00 [INF] Application Starting
+2024-12-03 11:56:04.210 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 11:56:06.172 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 11:56:31.636 +04:00 [INF] Application Starting
+2024-12-03 11:59:05.239 +04:00 [INF] Application Starting
+2024-12-03 12:01:04.717 +04:00 [INF] Application Starting
+2024-12-03 12:09:53.035 +04:00 [INF] Application Starting
+2024-12-03 12:10:31.432 +04:00 [INF] Application Starting
+2024-12-03 12:17:14.984 +04:00 [INF] Application Starting
+2024-12-03 12:23:14.782 +04:00 [INF] Application Starting
+2024-12-03 12:24:20.929 +04:00 [INF] Application Starting
+2024-12-03 12:29:26.268 +04:00 [INF] Application Starting
+2024-12-03 12:51:48.402 +04:00 [INF] Application Starting
+2024-12-03 12:52:27.146 +04:00 [INF] Application Starting
+2024-12-03 12:52:28.539 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 12:52:30.053 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 12:52:56.737 +04:00 [INF] Application Starting
+2024-12-03 12:52:58.212 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 12:52:59.763 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 12:53:01.715 +04:00 [INF] Fetching all warehouses.
+2024-12-03 12:53:02.535 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-03 12:53:02.536 +04:00 [INF] Fetching all vendors.
+2024-12-03 12:53:02.568 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-03 12:53:33.109 +04:00 [INF] Application Starting
+2024-12-03 12:53:34.551 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 12:53:36.039 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 12:53:45.546 +04:00 [INF] Creating a new category: kekwe.
+2024-12-03 12:53:45.731 +04:00 [INF] Category kekwe successfully created.
+2024-12-03 12:53:51.993 +04:00 [INF] Creating a new category: salam.
+2024-12-03 12:53:52.005 +04:00 [INF] Category salam successfully created.
+2024-12-03 12:53:58.408 +04:00 [INF] Creating a new category: kekde.
+2024-12-03 12:53:58.421 +04:00 [INF] Category kekde successfully created.
+2024-12-03 12:54:07.426 +04:00 [INF] Creating a new category: sds.
+2024-12-03 12:54:07.437 +04:00 [INF] Category sds successfully created.
+2024-12-03 16:53:58.127 +04:00 [INF] Application Starting
+2024-12-03 16:53:59.566 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 16:54:01.072 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 16:55:07.667 +04:00 [INF] Application Starting
+2024-12-03 16:55:09.201 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 16:55:10.633 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 16:55:22.959 +04:00 [INF] Creating a new category: sese.
+2024-12-03 16:55:23.153 +04:00 [INF] Category sese successfully created.
+2024-12-03 16:55:57.969 +04:00 [INF] Application Starting
+2024-12-03 16:55:59.426 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 16:56:01.018 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 16:56:02.171 +04:00 [INF] Fetching all warehouses.
+2024-12-03 16:56:02.917 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-03 16:56:02.918 +04:00 [INF] Fetching all vendors.
+2024-12-03 16:56:02.937 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-03 16:57:15.987 +04:00 [INF] Application Starting
+2024-12-03 16:57:17.351 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 16:57:18.791 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 16:57:22.440 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-03 16:57:22.530 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-03 17:10:42.814 +04:00 [INF] Application Starting
+2024-12-03 17:10:44.221 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 17:10:45.723 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 17:12:24.231 +04:00 [INF] Application Starting
+2024-12-03 17:12:25.639 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 17:12:27.108 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 17:12:35.051 +04:00 [INF] Application Starting
+2024-12-03 17:12:36.460 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 17:12:37.905 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 17:13:01.634 +04:00 [INF] Application Starting
+2024-12-03 17:13:03.085 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 17:13:04.555 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 18:31:40.024 +04:00 [INF] Application Starting
+2024-12-03 18:31:42.853 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 18:31:44.923 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 18:33:01.247 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 18:33:01.337 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 18:33:57.892 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 18:33:57.925 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 18:35:32.900 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 18:35:32.923 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 18:39:19.809 +04:00 [INF] Application Starting
+2024-12-03 18:39:22.700 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 18:39:25.608 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 18:39:51.816 +04:00 [INF] Creating a new category: tetrad.
+2024-12-03 18:39:52.139 +04:00 [INF] Category tetrad successfully created.
+2024-12-03 18:40:15.215 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 18:40:15.232 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 23:53:10.079 +04:00 [INF] Application Starting
+2024-12-03 23:53:13.039 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 23:53:15.131 +04:00 [INF] Successfully retrieved 9 packages.
+2024-12-03 23:58:06.783 +04:00 [INF] Application Starting
+2024-12-03 23:58:09.546 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-03 23:58:11.784 +04:00 [INF] Successfully retrieved 9 packages.

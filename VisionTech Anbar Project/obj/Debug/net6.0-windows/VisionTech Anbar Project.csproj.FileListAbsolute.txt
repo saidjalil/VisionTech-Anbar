@@ -151,3 +151,4 @@ D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\ne
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Visual Studio Projects\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\obj\Debug\net6.0-windows\VisionTech_Anbar_Project.test.resources

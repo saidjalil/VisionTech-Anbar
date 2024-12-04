@@ -46,7 +46,10 @@ namespace VisionTech_Anbar_Project
             button3 = new Button();
             textBox2 = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
+            button4 = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -57,7 +60,7 @@ namespace VisionTech_Anbar_Project
             button1.Name = "button1";
             button1.Size = new Size(164, 44);
             button1.TabIndex = 0;
-            button1.Text = "Save";
+            button1.Text = "Yadda saxla";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
@@ -67,16 +70,17 @@ namespace VisionTech_Anbar_Project
             label4.BackColor = Color.Transparent;
             label4.Location = new Point(41, 114);
             label4.Name = "label4";
-            label4.Size = new Size(58, 22);
+            label4.Size = new Size(70, 26);
             label4.TabIndex = 8;
             label4.Text = "Anbar";
             label4.Click += label4_Click;
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Enabled = false;
             dateTimePicker1.Location = new Point(514, 233);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(218, 27);
+            dateTimePicker1.Size = new Size(218, 32);
             dateTimePicker1.TabIndex = 9;
             // 
             // metroSetControlBox1
@@ -87,7 +91,7 @@ namespace VisionTech_Anbar_Project
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(924, 0);
+            metroSetControlBox1.Location = new Point(951, 2);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -111,7 +115,7 @@ namespace VisionTech_Anbar_Project
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(136, 111);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(218, 28);
+            comboBox1.Size = new Size(218, 34);
             comboBox1.TabIndex = 11;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -120,9 +124,8 @@ namespace VisionTech_Anbar_Project
             comboBox2.FormattingEnabled = true;
             comboBox2.Location = new Point(136, 171);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(218, 28);
+            comboBox2.Size = new Size(218, 34);
             comboBox2.TabIndex = 13;
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -130,7 +133,7 @@ namespace VisionTech_Anbar_Project
             label1.BackColor = Color.Transparent;
             label1.Location = new Point(29, 174);
             label1.Name = "label1";
-            label1.Size = new Size(68, 22);
+            label1.Size = new Size(82, 26);
             label1.TabIndex = 12;
             label1.Text = "Vendor";
             // 
@@ -139,9 +142,8 @@ namespace VisionTech_Anbar_Project
             comboBox3.FormattingEnabled = true;
             comboBox3.Location = new Point(514, 111);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(218, 28);
+            comboBox3.Size = new Size(218, 34);
             comboBox3.TabIndex = 15;
-            comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -149,7 +151,7 @@ namespace VisionTech_Anbar_Project
             label2.BackColor = Color.Transparent;
             label2.Location = new Point(385, 114);
             label2.Name = "label2";
-            label2.Size = new Size(103, 22);
+            label2.Size = new Size(124, 26);
             label2.TabIndex = 14;
             label2.Text = "Qəbul edən";
             // 
@@ -159,7 +161,7 @@ namespace VisionTech_Anbar_Project
             label3.BackColor = Color.Transparent;
             label3.Location = new Point(411, 177);
             label3.Name = "label3";
-            label3.Size = new Size(63, 22);
+            label3.Size = new Size(77, 26);
             label3.TabIndex = 16;
             label3.Text = "Məkan";
             // 
@@ -169,7 +171,7 @@ namespace VisionTech_Anbar_Project
             label5.BackColor = Color.Transparent;
             label5.Location = new Point(411, 233);
             label5.Name = "label5";
-            label5.Size = new Size(51, 22);
+            label5.Size = new Size(59, 26);
             label5.TabIndex = 17;
             label5.Text = "Tarix";
             // 
@@ -211,7 +213,7 @@ namespace VisionTech_Anbar_Project
             // 
             textBox2.Location = new Point(514, 177);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(218, 27);
+            textBox2.Size = new Size(218, 32);
             textBox2.TabIndex = 23;
             // 
             // tableLayoutPanel1
@@ -227,11 +229,32 @@ namespace VisionTech_Anbar_Project
             tableLayoutPanel1.Size = new Size(993, 181);
             tableLayoutPanel1.TabIndex = 24;
             // 
+            // button4
+            // 
+            button4.Location = new Point(200, 233);
+            button4.Name = "button4";
+            button4.Size = new Size(154, 38);
+            button4.TabIndex = 25;
+            button4.Text = "şəkil əlavə et";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(29, 224);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(153, 66);
+            pictureBox2.TabIndex = 26;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // AddColumnForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1023, 562);
+            ClientSize = new Size(1055, 587);
+            Controls.Add(pictureBox2);
+            Controls.Add(button4);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(textBox2);
             Controls.Add(button3);
@@ -249,8 +272,8 @@ namespace VisionTech_Anbar_Project
             Controls.Add(label4);
             Controls.Add(button1);
             Name = "AddColumnForm";
-            Load += AddColumnForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,5 +306,7 @@ namespace VisionTech_Anbar_Project
         private Button button3;
         private TextBox textBox2;
         private TableLayoutPanel tableLayoutPanel1;
+        private Button button4;
+        private PictureBox pictureBox2;
     }
 }

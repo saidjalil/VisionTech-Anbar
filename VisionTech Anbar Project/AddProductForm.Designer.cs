@@ -43,8 +43,7 @@
             button3 = new Button();
             button4 = new Button();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
-            button5 = new Button();
-            comboBox1 = new ComboBox();
+            panelDynamic = new Panel();
             SuspendLayout();
             // 
             // textBox1
@@ -68,7 +67,6 @@
             label2.Size = new Size(69, 24);
             label2.TabIndex = 1;
             label2.Text = "Barkod";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -89,7 +87,6 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(177, 26);
             textBox2.TabIndex = 2;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label4
             // 
@@ -113,7 +110,6 @@
             textBox3.PlaceholderText = " 0";
             textBox3.Size = new Size(56, 27);
             textBox3.TabIndex = 4;
-            textBox3.TextChanged += textBox3_TextChanged;
             textBox3.KeyPress += textBox3_KeyPress;
             // 
             // button1
@@ -236,23 +232,12 @@
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
             // 
-            // button5
+            // panelDynamic
             // 
-            button5.Location = new Point(494, 56);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 18;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(15, 148);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(161, 34);
-            comboBox1.TabIndex = 19;
+            panelDynamic.Location = new Point(8, 138);
+            panelDynamic.Name = "panelDynamic";
+            panelDynamic.Size = new Size(214, 265);
+            panelDynamic.TabIndex = 19;
             // 
             // AddProductForm
             // 
@@ -261,8 +246,7 @@
             BackColor = Color.Transparent;
             BorderColor = Color.Transparent;
             ClientSize = new Size(643, 410);
-            Controls.Add(comboBox1);
-            Controls.Add(button5);
+            Controls.Add(panelDynamic);
             Controls.Add(metroSetControlBox1);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -283,7 +267,6 @@
             SmallLineColor1 = Color.Transparent;
             SmallLineColor2 = Color.Transparent;
             TextColor = Color.Black;
-            Load += AddProductForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -305,7 +288,6 @@
         private Button button3;
         private Button button4;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
-        private Button button5;
-        private ComboBox comboBox1;
+        private Panel panelDynamic;
     }
 }

@@ -27,6 +27,10 @@ namespace VisionTech_Anbar_Project
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
 
+        private OpenFileDialog openFileDialog = new OpenFileDialog();
+
+
+
         private readonly WarehouseService _warehouseService;
         private readonly VendorService _vendorService;
 
@@ -36,7 +40,7 @@ namespace VisionTech_Anbar_Project
         List<Warehouse> warehouseList = new List<Warehouse>();
         List<Vendor> vendorList = new List<Vendor>();
         List<ViewModel.User> users = new List<ViewModel.User>();
-        
+
 
 
         public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService)
@@ -48,6 +52,7 @@ namespace VisionTech_Anbar_Project
             _warehouseService = warehouseService;
             _vendorService = vendorService;
             InitializeComponent();
+
             mainTableLayoutPanel = tableLayoutPanel1;
         }
         //private AddColumnForm(Package package)
@@ -94,6 +99,26 @@ namespace VisionTech_Anbar_Project
             StoreInput();
             DataSaved = true;
             this.Close();
+
+            //try
+            //{
+            //    ImageManager.SaveImage(openFileDialog); // Use your existing SaveImage method
+            //   // MessageBox.Show("Şəkil əlavə edildi!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Failed to save image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
+            if (!string.IsNullOrEmpty(openFileDialog.FileName) && pictureBox2.Image != null)
+            {
+                ImageManager.SaveImage(openFileDialog); // Call the provided SaveImage method
+                //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Şəkil seçilməyib.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         private List<string> ValidateInput()
         {
@@ -156,7 +181,9 @@ namespace VisionTech_Anbar_Project
             }
 
             // Parse the created date from the DateTimePicker
-            createdDate = DateTime.Parse(dateTimePicker1.Text);
+            // createdDate = DateTime.Parse(dateTimePicker1.Text);
+            createdDate = DateTime.Now;
+
 
             // Create or edit a package
             if (IsEdit)
@@ -178,13 +205,10 @@ namespace VisionTech_Anbar_Project
                 );
             }
         }
-
-
-
         public async void SetAllData()
         {
-             warehouseList =(await _warehouseService.GetAllWarehousesAsync())
-               .ToList();
+            warehouseList = (await _warehouseService.GetAllWarehousesAsync())
+              .ToList();
             vendorList = (await _vendorService.GetAllVendorsAsync()).ToList();
             users = JsonManager.GetUsers();
             comboBox1.DataSource = warehouseList;
@@ -240,7 +264,7 @@ namespace VisionTech_Anbar_Project
         {
             AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
-   
+
             // Add both sections to the accordion
             // Add new Package to list and UI
             if (addProductForm.DataSaved)
@@ -250,7 +274,7 @@ namespace VisionTech_Anbar_Project
                 Debug.WriteLine(products);
                 RestartPage();
                 InitializeItems();
-            } 
+            }
         }
         public void RestartPage()
         {
@@ -262,9 +286,9 @@ namespace VisionTech_Anbar_Project
             {
                 foreach (var product in products)
                 {
-                Panel itemPanel = CreateItemPanel(item);
-                mainTableLayoutPanel.RowCount++;
-                mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
+                    Panel itemPanel = CreateItemPanel(item);
+                    mainTableLayoutPanel.RowCount++;
+                    mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
                 }
 
                 //Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
@@ -301,58 +325,22 @@ namespace VisionTech_Anbar_Project
 
             return itemPanel;
         }
-        //private Panel CreateItemPanel(PackageProduct product)
-        //{
-        //    // Create the main panel for the item
-        //    Panel itemPanel = new Panel
-        //    {
-        //        Height = 60, // Set explicit height for the main item
-        //        BorderStyle = BorderStyle.None,
-        //        Dock = DockStyle.Top,
-        //        Margin = new Padding(5) // Add some margin between items
-        //    };
 
-        //    // Label to display item text
-        //    Label itemLabel = new Label
-        //    {
-        //        Text = product.Product.ProductName.ToString(),
-        //        AutoSize = true,
-        //        Location = new System.Drawing.Point(5, 15)
-        //    };
+        private void button4_Click(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog.Title = "Select an Image";
 
-        //    // Create a FlowLayoutPanel to hold all buttons in a single line
-        //    FlowLayoutPanel buttonPanel = new FlowLayoutPanel
-        //    {
-        //        FlowDirection = FlowDirection.LeftToRight, // Align buttons horizontally
-        //        Dock = DockStyle.Right,
-        //        AutoSize = true,
-        //        WrapContents = false, // Prevent buttons from wrapping to the next line
-        //        Margin = new Padding(5)
-        //    };
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox2.Image = System.Drawing.Image.FromFile(openFileDialog.FileName);
+                pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
 
-        //    // Button to expand/collapse subitems
-
-
-        //    // Add the label and button panel to the item panel
-        //    itemPanel.Controls.Add(itemLabel);
-        //    itemPanel.Controls.Add(buttonPanel);
-
-        //    return itemPanel;
-        //}
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AddColumnForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

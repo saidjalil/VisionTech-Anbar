@@ -13,6 +13,18 @@ public class CategoryService
         _categoryRepository = categoryRepository;
     }
 
+    public IEnumerable<Category> GetTopLevelCategories()
+    {
+        return _categoryRepository.GetTopLevelCategories();
+        
+    }
+
+    public IEnumerable<Category> GetSubCategories(int parentId)
+    {
+        return _categoryRepository.GetSubCategories(parentId);
+
+    }
+
     public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
     {
         try

@@ -98,7 +98,7 @@
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 377);
             Controls.Add(button3);

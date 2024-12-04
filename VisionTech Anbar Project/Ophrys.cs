@@ -34,10 +34,15 @@ namespace VisionTech_Anbar_Project
             this._categoryService = categoryService;
             _warehouseService = warehouseService;
             _vendorService = vendorService;
+
+
             InitializeComponent();
             SetupMainTableLayoutPanel();
             InitializeItems();
-            
+
+            button3.BringToFront();
+
+
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -219,7 +224,7 @@ namespace VisionTech_Anbar_Project
             {
                 Location = new System.Drawing.Point(5, 5), // Position the checkbox
                 Tag = package.Id,// Store product in the Tag for reference
-               
+
             };
 
             subItemCheckBox.CheckedChanged += (s, e) =>
@@ -234,7 +239,7 @@ namespace VisionTech_Anbar_Project
                 }
             };
 
-            
+
             // Add the buttons to the FlowLayoutPanel
 
 
@@ -270,26 +275,26 @@ namespace VisionTech_Anbar_Project
             // Add example subitems with full-width panels
             if (products != null)
             {
-              
-                    Panel subItemPanel = new Panel
-                    {
-                        Height = 30,
-                        Dock = DockStyle.Top,
-                        BorderStyle = BorderStyle.None,
-                        Padding = new Padding(5)
-                    };
 
-                    Label subItemLabel = new Label
-                    {
-                        Text = $"Name:{products.ProductName} Count:{quantity}",
-                        AutoSize = true,
-                        Location = new System.Drawing.Point(50, 5)
-                    }; 
-                    
-                    subItemPanel.Controls.Add(subItemLabel);
-                    subItemsPanel.Controls.Add(subItemPanel);
-                }
-            
+                Panel subItemPanel = new Panel
+                {
+                    Height = 30,
+                    Dock = DockStyle.Top,
+                    BorderStyle = BorderStyle.None,
+                    Padding = new Padding(5)
+                };
+
+                Label subItemLabel = new Label
+                {
+                    Text = $"Name:{products.ProductName} Count:{quantity}",
+                    AutoSize = true,
+                    Location = new System.Drawing.Point(50, 5)
+                };
+
+                subItemPanel.Controls.Add(subItemLabel);
+                subItemsPanel.Controls.Add(subItemPanel);
+            }
+
 
             return subItemsPanel;
         }
@@ -336,20 +341,20 @@ namespace VisionTech_Anbar_Project
             //  {
             //      await productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
             //   }
-             if(addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
-             {
-                 await _packageService.AddProductToPackageAsync( Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
+            if (addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
+            {
+                await _packageService.AddProductToPackageAsync(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
                 // TURAL METHOD YAZMALIDIKI, HAZIRKI BARCODELAR VAR OLAN PRODUCTDA ELAVE EDILSEN 
                 await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
 
-             }
+            }
 
             if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 //await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
                 await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
-               
+
                 RestartPage();
                 InitializeItems();
             }

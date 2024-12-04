@@ -43,6 +43,17 @@ public partial class test : Form
 
     private void AddComboBox(Category parentCategory, List<Category> categories)
     {
+        // Ensure the initial margin is added only once
+        if (_comboBoxes.Count == 0)
+        {
+            _nextControlY = 10; // Start with a 10px margin from the top
+        }
+        else
+        {
+            // Add spacing between controls before adding a new ComboBox
+            _nextControlY += 10;
+        }
+
         // Create a new ComboBox
         var comboBox = new ComboBox
         {
@@ -51,34 +62,26 @@ public partial class test : Form
             ValueMember = "Id",
             Location = new Point(10, _nextControlY),
             Width = 250,
+            DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
             Tag = parentCategory // Store the parent category
         };
 
         // ComboBox SelectionChanged Event
         comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
 
-        // Create the '+' button
-        var addButton = new Button
-        {
-            Text = "+",
-            Location = new Point(270, _nextControlY),
-            Width = 30,
-            Tag = comboBox // Link the button to its ComboBox
-        };
+        // ComboBox KeyDown Event for custom input
+        comboBox.KeyDown += ComboBox_KeyDown;
 
-        // Button Click Event
-        addButton.Click += AddButton_Click;
-
-        // Add controls to the panel
+        // Add ComboBox to the panel
         panelDynamic.Controls.Add(comboBox);
-        panelDynamic.Controls.Add(addButton);
 
-        // Track new Y position for subsequent controls
-        _nextControlY += 40;
+        // Update Y position for the next control
+        _nextControlY += comboBox.Height;
 
         // Keep track of ComboBoxes
         _comboBoxes.Add(comboBox);
     }
+
 
     private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -91,22 +94,15 @@ public partial class test : Form
         // Find the index of the current ComboBox
         var index = _comboBoxes.IndexOf(comboBox);
 
-        // Remove all ComboBoxes and buttons that are below the current one
+        // Remove all ComboBoxes that are below the current one
         for (int i = _comboBoxes.Count - 1; i > index; i--)
         {
-            // Remove associated button
-            var buttonToRemove = panelDynamic.Controls.OfType<Button>()
-                .FirstOrDefault(b => b.Tag == _comboBoxes[i]);
-        
-            if (buttonToRemove != null)
-            {
-                panelDynamic.Controls.Remove(buttonToRemove);
-            }
-
-            // Remove ComboBox
             panelDynamic.Controls.Remove(_comboBoxes[i]);
             _comboBoxes.RemoveAt(i);
         }
+
+        // Dynamically recalculate the Y position for the next control
+        _nextControlY = (index + 1) * (comboBox.Height + 5);
 
         // Load subcategories of the selected category
         var subCategories = _categoryRepository.GetSubCategories(selectedCategory.Id);
@@ -115,40 +111,89 @@ public partial class test : Form
         AddComboBox(selectedCategory, subCategories);
     }
 
-    private async void AddButton_Click(object sender, EventArgs e)
+    private async void ComboBox_KeyDown(object sender, KeyEventArgs e)
     {
-        var button = sender as Button;
-        if (button == null) return;
+        var comboBox = sender as ComboBox;
+        if (comboBox == null) return;
 
-        var parentComboBox = button.Tag as ComboBox;
-        var parentCategory = parentComboBox?.SelectedItem as Category;
-
-        // Show input dialog for new category name
-        var categoryName = Prompt.ShowDialog("Enter Category Name:", "Add Category");
-
-        if (string.IsNullOrWhiteSpace(categoryName)) return;
-
-        // Validate category name
-        if (_categoryRepository.IsDuplicateName(categoryName, parentCategory.Id))
+        // Check if the Enter key was pressed
+        if (e.KeyCode == Keys.Enter)
         {
-            MessageBox.Show("Category name already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
+            var inputText = comboBox.Text.Trim();
+            if (string.IsNullOrWhiteSpace(inputText)) return;
+
+            // Get the parent category from the ComboBox tag
+            var parentCategory = comboBox.Tag as Category;
+
+            // Check if the input already exists in the ComboBox
+            if (comboBox.Items.Cast<Category>().Any(c => c.Name.Equals(inputText, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show("This category already exists!", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Add new category to the database
+            var newCategory = new Category
+            {
+                Name = inputText,
+                ParentId = parentCategory?.Id
+            };
+            await _categoryRepository.AddAsync(newCategory);
+
+            // Refresh ComboBox data
+            var categories = parentCategory == null
+                ? _categoryRepository.GetTopLevelCategories()
+                : _categoryRepository.GetSubCategories(parentCategory.Id);
+
+            comboBox.DataSource = null;
+            comboBox.DataSource = categories;
+            comboBox.DisplayMember = "Name";
+            comboBox.ValueMember = "Id";
+
+            // Select the newly added item
+            comboBox.SelectedItem = categories.First(c => c.Id == newCategory.Id);
+
+            // Suppress the ding sound
+            e.Handled = true;
+            e.SuppressKeyPress = true;
         }
-
-        // Add new category to the database
-        var newCategory = new Category
-        {
-            Name = categoryName,
-            ParentId = parentCategory?.Id
-        };
-        await _categoryRepository.AddAsync(newCategory);
-
-        // Refresh ComboBox data
-        var categories = parentCategory == null
-            ? _categoryRepository.GetTopLevelCategories()
-            : _categoryRepository.GetSubCategories(parentCategory.Id);
-
-        parentComboBox.DataSource = categories;
-        parentComboBox.SelectedItem = categories.First(c => c.Id == newCategory.Id);
     }
+
+
+    //private async void AddButton_Click(object sender, EventArgs e)
+    //{
+    //    var button = sender as Button;
+    //    if (button == null) return;
+
+    //    var parentComboBox = button.Tag as ComboBox;
+    //    var parentCategory = parentComboBox?.SelectedItem as Category;
+
+    //    // Show input dialog for new category name
+    //    var categoryName = Prompt.ShowDialog("Enter Category Name:", "Add Category");
+
+    //    if (string.IsNullOrWhiteSpace(categoryName)) return;
+
+    //    // Validate category name
+    //    if (_categoryRepository.IsDuplicateName(categoryName, parentCategory.Id))
+    //    {
+    //        MessageBox.Show("Category name already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+    //        return;
+    //    }
+
+    //    // Add new category to the database
+    //    var newCategory = new Category
+    //    {
+    //        Name = categoryName,
+    //        ParentId = parentCategory?.Id
+    //    };
+    //    await _categoryRepository.AddAsync(newCategory);
+
+    //    // Refresh ComboBox data
+    //    var categories = parentCategory == null
+    //        ? _categoryRepository.GetTopLevelCategories()
+    //        : _categoryRepository.GetSubCategories(parentCategory.Id);
+
+    //    parentComboBox.DataSource = categories;
+    //    parentComboBox.SelectedItem = categories.First(c => c.Id == newCategory.Id);
+    //}
 }

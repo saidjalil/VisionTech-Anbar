@@ -115,7 +115,7 @@ namespace VisionTech_Anbar_Project.Repositories.Base
              
             return await query.ToListAsync();
         }
-        
+         
         public async Task Save()
         {
             await _context.SaveChangesAsync();
