@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using VisionTech_Anbar_Project.DAL;
@@ -17,10 +18,15 @@ namespace VisionTech_Anbar_Project
         [STAThread]
         static void Main()
         {
+            var baseDirectory = AppContext.BaseDirectory;
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\..")))
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
             var services = new ServiceCollection();
 
             // Configure services
-            ConfigureServices(services);
+            ConfigureServices(services, configuration);
 
             // Build the ServiceProvider
             ServiceProvider = services.BuildServiceProvider();
@@ -40,12 +46,12 @@ namespace VisionTech_Anbar_Project
             Application.Run(ServiceProvider.GetRequiredService<Ophrys>());
 
         }
-        private static void ConfigureServices(ServiceCollection services)
+        private static void ConfigureServices(ServiceCollection services, IConfiguration configuration)
         {
-            // Register DbContext
+            // Register DbContext using connection string from configuration
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database = VisionTechAnbar; Trusted_Connection = True; MultipleActiveResultSets = True; ").EnableSensitiveDataLogging());
-
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
+                    .EnableSensitiveDataLogging());
 
             services.AddTransient<PackageRepository>();
             services.AddTransient<ProductRepository>();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VisionTech_Anbar_Project.ViewModel
 {
-    internal class Image
+    public class Image
     {
         public int ImgId { get; set; }
         public string Base64 { get; set; }
