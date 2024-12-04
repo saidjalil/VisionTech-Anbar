@@ -8,13 +8,23 @@ namespace VisionTech_Anbar_Project.DAL
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public AppDbContext()
         {
         }
+
+        // Constructor with options for runtime
+        public AppDbContext(DbContextOptions<AppDbContext> options) 
+            : base(options)
+        {
+        }
+
+        // Optional: Add a method to configure options if not provided
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // 4. Configure Connection String
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=VisionTechAnbar;Trusted_Connection=True;MultipleActiveResultSets=True;");
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=VisionTechAnbar;Trusted_Connection=True;MultipleActiveResultSets=True;");
+            }
         }
 
         public DbSet<Category> Categories { get; set; }

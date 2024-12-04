@@ -10,7 +10,7 @@ namespace VisionTech_Anbar_Project.Utilts
 {
     internal class ImageManager
     {
-        public static void SaveImage(OpenFileDialog openFileDialog)
+        public static void SaveImage(OpenFileDialog openFileDialog, int packageId)
         {
             if (openFileDialog == null || string.IsNullOrEmpty(openFileDialog.FileName))
             {
@@ -18,7 +18,7 @@ namespace VisionTech_Anbar_Project.Utilts
                 return;
             }
 
-            string sourceImagePath = openFileDialog.FileName;
+            string sourceImagePath = packageId.ToString();
             string imagesFolder = FileManager.GetImagesPath();
 
             try
