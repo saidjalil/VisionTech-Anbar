@@ -56,7 +56,7 @@ namespace VisionTech_Anbar_Project
         private async void button1_Click(object sender, EventArgs e)
         {
             ImageManager imageManager = new(_imageService);
-            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService,_imageService, _barcodeService);
+            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService, _imageService, _barcodeService);
             addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
             // Example for Section 1
@@ -83,7 +83,7 @@ namespace VisionTech_Anbar_Project
                 if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
                 {
                     await imageManager.SaveImage(addColumnForm.openFileDialog, addColumnForm.NewPackage.Id); // Call the provided SaveImage method
-                                                                                 //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                                                                             //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -265,6 +265,12 @@ namespace VisionTech_Anbar_Project
         {
             // Example: Print the selected package IDs
             string packageIdsString = string.Join(", ", packageIds);
+
+            FileExporter fileExporter = new FileExporter(_packageService,_imageService);
+
+            fileExporter.CreateAndWriteExportFile(packageIds);
+
+
             MessageBox.Show($"Exporting packages with IDs: {packageIdsString}", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             // Add actual export functionality here (e.g., generate CSV, send to API, etc.)
@@ -408,6 +414,7 @@ namespace VisionTech_Anbar_Project
         private void pictureBox1_Click(object sender, EventArgs e)
         {
         }
+
     }
 
     // Extension method for rounded corners

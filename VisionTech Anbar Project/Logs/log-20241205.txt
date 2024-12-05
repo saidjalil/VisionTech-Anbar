@@ -71,3 +71,23 @@ System.InvalidCastException: Unable to cast object of type 'System.Int32' to typ
 2024-12-05 17:29:08.300 +04:00 [INF] Application Starting
 2024-12-05 17:29:10.014 +04:00 [INF] Fetching all packages with related navigation properties.
 2024-12-05 17:29:11.568 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 17:36:41.581 +04:00 [INF] Application Starting
+2024-12-05 17:36:42.844 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 17:36:44.326 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 17:38:27.698 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-05 17:38:27.805 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-05 17:39:58.817 +04:00 [INF] Application Starting
+2024-12-05 17:40:00.342 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 17:40:01.826 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 17:40:34.928 +04:00 [INF] Fetching package with ID: 15 along with related navigation properties.
+2024-12-05 17:40:35.015 +04:00 [INF] Successfully retrieved package with ID: 15.
+2024-12-05 17:42:23.369 +04:00 [INF] Application Starting
+2024-12-05 17:42:24.611 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 17:42:26.046 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 17:42:30.978 +04:00 [INF] Fetching package with ID: 10 along with related navigation properties.
+2024-12-05 17:42:31.070 +04:00 [INF] Successfully retrieved package with ID: 10.
+2024-12-05 17:43:04.207 +04:00 [INF] Application Starting
+2024-12-05 17:43:05.551 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 17:43:06.938 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 17:45:00.938 +04:00 [INF] Fetching package with ID: 10 along with related navigation properties.
+2024-12-05 17:45:18.550 +04:00 [INF] Successfully retrieved package with ID: 10.

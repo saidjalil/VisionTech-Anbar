@@ -34,6 +34,7 @@
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             button3 = new Button();
+            ExportAll = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -95,12 +96,23 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button1_Click;
             // 
+            // ExportAll
+            // 
+            ExportAll.Location = new Point(468, 56);
+            ExportAll.Name = "ExportAll";
+            ExportAll.Size = new Size(94, 29);
+            ExportAll.TabIndex = 18;
+            ExportAll.Text = "Export";
+            ExportAll.UseVisualStyleBackColor = true;
+            ExportAll.Click += ExportAllButton_Click;
+            // 
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 377);
+            Controls.Add(ExportAll);
             Controls.Add(button3);
             Controls.Add(metroSetControlBox1);
             Controls.Add(pictureBox1);
@@ -118,5 +130,6 @@
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
         private ContextMenuStrip contextMenuStrip1;
         private Button button3;
+        private Button ExportAll;
     }
 }
