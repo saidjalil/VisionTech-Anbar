@@ -86,5 +86,12 @@ public class FileExporter
         {
             writer.Write(json);
         }
+
+        foreach (var id in ids)
+        {
+            var package = await _packageService.GetPackageWithNavigation(id);
+            package.IsExported = true;
+            await _packageService.UpdatePackageAsync(package);
+        }
     }
 }

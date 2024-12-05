@@ -16,6 +16,7 @@ namespace VisionTech_Anbar_Project.Entities
         public ICollection<PackageProduct> PackageProducts { get; set; } = new List<PackageProduct>();
 
 
+        public bool IsExported { get; set; }
         public string Reciver { get; set; }
         public string Adress { get; set; }
         public int VendorId { get; set; }
