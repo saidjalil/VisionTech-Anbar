@@ -494,5 +494,21 @@ public class PackageService
         }
     }
 
+    public async Task<bool> IsExported(int packageId)
+    {
+        var package = await _packageRepository.FindAsyncById(packageId);
+        return package.IsExported;
+    }
+
+    public async Task<IEnumerable<bool>> CheckIfPackagesIsExported(List<Package> packages)
+    {
+        List<bool> IsExportedList = new List<bool>();
+        foreach (var package in packages)
+        {
+            IsExportedList.Add(await IsExported(package.Id));
+        }
+
+        return IsExportedList;
+    }
     
 }
