@@ -277,10 +277,18 @@ namespace VisionTech_Anbar_Project
         {
             Panel subItemsPanel = new Panel
             {
+<<<<<<< HEAD
                 Height = 100,
                 AutoScroll = true,
                 BorderStyle = BorderStyle.None,
                 Padding = new Padding(5),
+=======
+                Height = 50,
+                BackColor = Color.FromArgb(247, 249, 251),
+                AutoScroll = true,
+                BorderStyle = BorderStyle.None,
+                Padding = new Padding(5, 5, 5, 5),
+>>>>>>> FixUpdate
                 Dock = DockStyle.Top
             };
 
@@ -313,14 +321,33 @@ namespace VisionTech_Anbar_Project
 
         private void ToggleSubItems(Panel itemPanel)
         {
+<<<<<<< HEAD
             // Find the associated subItemsPanel below itemPanel in the mainTableLayoutPanel
             int itemIndex = mainTableLayoutPanel.Controls.GetChildIndex(itemPanel);
             if (itemIndex >= 0 && itemIndex < mainTableLayoutPanel.Controls.Count - 1)
+=======
+            bool isNextControlSubItem = false;
+
+            // Iterate over the controls starting from the itemPanel
+            foreach (Control control in mainTableLayoutPanel.Controls)
+>>>>>>> FixUpdate
             {
-                Panel subItemsPanel = mainTableLayoutPanel.Controls[itemIndex + 1] as Panel;
-                if (subItemsPanel != null)
+                if (control == itemPanel)
                 {
-                    subItemsPanel.Visible = !subItemsPanel.Visible;
+                    isNextControlSubItem = true;
+                    continue;
+                }
+
+                if (isNextControlSubItem)
+                {
+                    if (control is Panel subItemPanel && subItemPanel.BackColor == Color.FromArgb(247, 249, 251))
+                    {
+                        subItemPanel.Visible = !subItemPanel.Visible;
+                    }
+                    else
+                    {
+                        break; // Stop toggling when reaching a new item panel
+                    }
                 }
             }
         }
