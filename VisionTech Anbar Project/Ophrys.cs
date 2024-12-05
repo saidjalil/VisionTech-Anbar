@@ -28,6 +28,9 @@ namespace VisionTech_Anbar_Project
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
 
+        // Buttons
+        Button expandButton;
+
 
         TableLayoutPanel mainTableLayoutPanel;
 
@@ -184,8 +187,15 @@ namespace VisionTech_Anbar_Project
                 return button;
             }
 
-            Button expandButton = CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
-            expandButton.Click += (s, e) => ToggleSubItems(itemPanel);
+            if (package.PackageProducts.Count == 0)
+            {
+                 expandButton = CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.Red);
+            }
+            else
+            {
+                expandButton = CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
+            }
+            expandButton.Click += (s, e) => ToggleSubItems(itemPanel, (Button)s);
 
             Button deleteButton = CreateStyledButton("🗑", Color.FromArgb(255, 223, 223), Color.Red);
             deleteButton.Click += DeleteButton_Click;
@@ -250,9 +260,10 @@ namespace VisionTech_Anbar_Project
             return subItemsPanel;
         }
 
-        private void ToggleSubItems(Panel itemPanel)
+        private void ToggleSubItems(Panel itemPanel, Button expandButton)
         {
             bool isNextControlSubItem = false;
+            bool areSubItemsVisible = false;
 
             // Iterate over the controls starting from the itemPanel
             foreach (Control control in mainTableLayoutPanel.Controls)
@@ -267,7 +278,14 @@ namespace VisionTech_Anbar_Project
                 {
                     if (control is Panel subItemPanel && subItemPanel.BackColor == Color.FromArgb(247, 249, 251))
                     {
+                        // Toggle visibility of the sub-item panels
                         subItemPanel.Visible = !subItemPanel.Visible;
+
+                        // Update the state to determine if any sub-item is visible
+                        if (subItemPanel.Visible)
+                        {
+                            areSubItemsVisible = true;
+                        }
                     }
                     else
                     {
@@ -275,7 +293,18 @@ namespace VisionTech_Anbar_Project
                     }
                 }
             }
+
+            // Update the expand button text based on visibility
+            if (areSubItemsVisible)
+            {
+                expandButton.Text = "△"; // Up arrow
+            }
+            else
+            {
+                expandButton.Text = "▽"; // Down arrow
+            }
         }
+
 
         public async void EditButton_Click(object sender, EventArgs e)
         {

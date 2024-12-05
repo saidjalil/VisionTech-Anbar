@@ -53,3 +53,18 @@ System.InvalidCastException: Unable to cast object of type 'System.Int32' to typ
 2024-12-05 15:15:57.541 +04:00 [INF] Successfully retrieved 14 packages.
 2024-12-05 15:16:18.715 +04:00 [INF] Fetching all packages with related navigation properties.
 2024-12-05 15:16:18.718 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:23:51.879 +04:00 [INF] Application Starting
+2024-12-05 15:23:53.081 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:23:54.435 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:24:12.404 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:24:12.409 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:28:11.869 +04:00 [INF] Application Starting
+2024-12-05 15:28:13.121 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:28:14.547 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:34:28.862 +04:00 [INF] Application Starting
+2024-12-05 15:34:30.060 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:34:31.451 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:35:42.940 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:35:42.948 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:36:18.195 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:36:18.203 +04:00 [INF] Successfully retrieved 14 packages.
