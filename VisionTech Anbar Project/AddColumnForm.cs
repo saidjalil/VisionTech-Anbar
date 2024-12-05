@@ -27,6 +27,8 @@ namespace VisionTech_Anbar_Project
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
         private readonly ImageService _imageService;
+        private readonly BarcodeService _barcodeService;
+
 
 
         public OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -45,7 +47,7 @@ namespace VisionTech_Anbar_Project
 
 
 
-        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService)
+        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService)
         {
             //  _packageService = packageService;
             _categoryService = categoryService;
@@ -54,6 +56,8 @@ namespace VisionTech_Anbar_Project
             _warehouseService = warehouseService;
             _vendorService = vendorService;
             _imageService = imageService;
+            _barcodeService = barcodeService;
+
 
             InitializeComponent();
 
@@ -277,7 +281,7 @@ namespace VisionTech_Anbar_Project
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService,_barcodeService);
             addProductForm.ShowDialog();
 
             // Add both sections to the accordion

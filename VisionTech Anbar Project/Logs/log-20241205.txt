@@ -28,3 +28,28 @@ System.InvalidCastException: Unable to cast object of type 'System.Int32' to typ
 2024-12-05 13:03:05.164 +04:00 [INF] Successfully retrieved 14 packages.
 2024-12-05 13:03:47.792 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
 2024-12-05 13:03:47.802 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-05 14:33:45.732 +04:00 [INF] Application Starting
+2024-12-05 14:33:47.305 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 14:33:48.815 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 14:33:59.834 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-05 14:33:59.920 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-05 14:34:31.202 +04:00 [INF] Fetching all warehouses.
+2024-12-05 14:34:31.974 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-05 14:34:31.975 +04:00 [INF] Fetching all vendors.
+2024-12-05 14:34:31.986 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-05 14:35:13.972 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-05 14:35:13.984 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-05 15:06:09.170 +04:00 [INF] Application Starting
+2024-12-05 15:06:10.473 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:06:11.873 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:07:00.376 +04:00 [INF] Application Starting
+2024-12-05 15:07:01.642 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:07:03.230 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:11:24.362 +04:00 [INF] Application Starting
+2024-12-05 15:11:25.544 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:11:26.953 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:15:54.963 +04:00 [INF] Application Starting
+2024-12-05 15:15:56.185 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:15:57.541 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 15:16:18.715 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 15:16:18.718 +04:00 [INF] Successfully retrieved 14 packages.

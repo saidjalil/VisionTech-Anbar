@@ -26,11 +26,13 @@ namespace VisionTech_Anbar_Project
         private readonly WarehouseService _warehouseService;
         private readonly VendorService _vendorService;
         private readonly ImageService _imageService;
+        private readonly BarcodeService _barcodeService;
+
 
         TableLayoutPanel mainTableLayoutPanel;
 
         private List<Package> selectedProducts = new List<Package>();
-        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService)
+        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService)
         {
             this._packageService = packageService;
             this._productService = productService;
@@ -38,6 +40,7 @@ namespace VisionTech_Anbar_Project
             _warehouseService = warehouseService;
             _vendorService = vendorService;
             _imageService = imageService;
+            _barcodeService = barcodeService;
 
 
             InitializeComponent();
@@ -50,7 +53,7 @@ namespace VisionTech_Anbar_Project
         private async void button1_Click(object sender, EventArgs e)
         {
             ImageManager imageManager = new(_imageService);
-            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService,_imageService);
+            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService,_imageService, _barcodeService);
             addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
             // Example for Section 1
@@ -276,7 +279,7 @@ namespace VisionTech_Anbar_Project
 
         public async void EditButton_Click(object sender, EventArgs e)
         {
-            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService);
+            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService);
             editProductForm.Show();
 
             Button button = sender as Button;
@@ -294,7 +297,7 @@ namespace VisionTech_Anbar_Project
 
         public async void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
 

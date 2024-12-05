@@ -21,6 +21,8 @@ namespace VisionTech_Anbar_Project
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
         private readonly PackageService _packageService;
+        private readonly BarcodeService _barcodeService;
+
 
         TableLayoutPanel mainTableLayoutPanel;
         //List<Product> products = new List<Product>();
@@ -30,11 +32,12 @@ namespace VisionTech_Anbar_Project
         int currentPackageId;
         Package currentPackage;
 
-        public EditProductForm(CategoryService categoryService, ProductService productService, PackageService packageService)
+        public EditProductForm(CategoryService categoryService, ProductService productService, PackageService packageService, BarcodeService barcodeService)
         {
             _categoryService = categoryService;
             _productService = productService;
             _packageService = packageService;
+            _barcodeService = barcodeService;
 
 
             InitializeComponent();
@@ -42,7 +45,6 @@ namespace VisionTech_Anbar_Project
             InitializeItems();
 
             button3.BringToFront();
-
         }
         public List<PackageProduct> GetProducts(Package package)
         {
@@ -69,7 +71,7 @@ namespace VisionTech_Anbar_Project
         private async void button1_Click(object sender, EventArgs e)
         {
 
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
             addProductForm.ShowDialog();
             // Example for Section 1
             //            Control[] section1Controls = {
@@ -321,7 +323,7 @@ namespace VisionTech_Anbar_Project
         }
         public void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
 
@@ -340,7 +342,7 @@ namespace VisionTech_Anbar_Project
             if (button?.Tag is Product selectedProduct)
             {
                 // Show the AddProductForm with the selected product for editing
-                AddProductForm addProductForm = new AddProductForm(_categoryService, _productService)
+                AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService)
                 {
                     currentProduct = selectedProduct
                 };

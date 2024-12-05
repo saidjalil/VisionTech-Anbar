@@ -34,10 +34,12 @@ namespace VisionTech_Anbar_Project
         bool currentlyHaveBarcode;
 
         private readonly ProductService productService;
+        private readonly CategoryService categoryService;
+        private readonly BarcodeService barcodeService;
+
 
         private int selectedId = 1;
         private int currentParentId = 0;
-        private readonly CategoryService categoryService;
 
 
 
@@ -53,10 +55,11 @@ namespace VisionTech_Anbar_Project
         private int textBoxCount = 0; // To keep track of TextBox IDs
 
         ComboBox mainComboBox;
-        public AddProductForm(CategoryService categoryService, ProductService productService)
+        public AddProductForm(CategoryService categoryService, ProductService productService, BarcodeService barcodeService)
         {
             this.categoryService = categoryService;
             this.productService = productService;
+            this.barcodeService = barcodeService;
 
             InitializeComponent();
             InitializeDynamicPanel();
@@ -105,7 +108,7 @@ namespace VisionTech_Anbar_Project
             textBox3.Clear();
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             List<String> errors;
             errors = ValidateInput();
@@ -116,9 +119,12 @@ namespace VisionTech_Anbar_Project
                 return;
             }
 
-            StoreInput();
+            
             DataSaved = true;
-            this.Close();
+            if (await StoreInput())
+            {
+                this.Close();
+            }
         }
         private List<string> ValidateInput()
         {
@@ -129,7 +135,7 @@ namespace VisionTech_Anbar_Project
 
             return errors;
         }
-        private void StoreInput()
+        private async Task<bool> StoreInput()
         {
             string Name;
             // string Description;
@@ -161,7 +167,7 @@ namespace VisionTech_Anbar_Project
                     "Məhsulun miqdarı qeyd olunmayıb və ya düzgün formatda deyil.",
                     "Daxiletmə xətası",
                     MessageBoxButtons.OK);
-                return;
+                return false;
             }
             Quantity = quantity;
 
@@ -173,7 +179,7 @@ namespace VisionTech_Anbar_Project
                         "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
                         "Daxiletmə xətası",
                         MessageBoxButtons.OK);
-                    return;
+                    return false;
                 }
 
                 //var barcode = new Barcode
@@ -194,7 +200,7 @@ namespace VisionTech_Anbar_Project
                             "Daxil olunan barkod verilən barkod ilə eyni ola bilməz!",
                             "Daxiletmə xətası",
                             MessageBoxButtons.OK);
-                        return;
+                        return false;
                     }
                     //productId = barcode.ProductId;
                 }
@@ -205,9 +211,26 @@ namespace VisionTech_Anbar_Project
                     "Əsas barkod düzgün formatda deyil.",
                     "Daxiletmə xətası",
                     MessageBoxButtons.OK);
-                return;
+                return false;
             }
 
+            List<Barcode> currentList = new List<Barcode>();
+            currentList = (await barcodeService.CheckBarcodes(barcodes)).ToList();
+            if (currentList.Count > 0)
+            {
+                string mes = string.Empty;
+                
+                foreach (Barcode barcode in currentList)
+                {
+                    mes += $"{barcode.BarCode}," ;
+                }
+
+                MessageBox.Show(
+                           $"Bu barkodlar artıq əlavə edilib:{mes} ",
+                           "Daxiletmə xətası",
+                           MessageBoxButtons.OK);
+                return false;
+            }
 
             if (currentProduct != null)
             {
@@ -221,6 +244,7 @@ namespace VisionTech_Anbar_Project
                                          Quantity, selectedId, barcodes, isRegular);
             }
             currentlyHaveBarcode = false;
+            return true;
             //  barcodes.Clear();
         }
         private Barcode createNewBarcode(string barcodeValue)
