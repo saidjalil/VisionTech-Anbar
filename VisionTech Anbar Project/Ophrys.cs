@@ -151,13 +151,21 @@ namespace VisionTech_Anbar_Project
             };
             itemPanel.SetBorderRadius(10);
 
+            // Checkbox
+            CheckBox packageCheckBox = new CheckBox
+            {
+                AutoSize = true,
+                Location = new Point(10, (itemPanel.Height - 20) / 2),
+                Tag = package.Id // Store the package ID in the Tag
+            };
+
             Label itemLabel = new Label
             {
                 Text = package.Warehouse.WarehouseName.ToString(),
                 Font = new Font("Segoe UI", 12, FontStyle.Bold),
                 ForeColor = Color.FromArgb(42, 45, 85),
                 AutoSize = true,
-                Location = new Point(15, 20)
+                Location = new Point(50, 20)
             };
 
             FlowLayoutPanel buttonPanel = new FlowLayoutPanel
@@ -187,14 +195,9 @@ namespace VisionTech_Anbar_Project
                 return button;
             }
 
-            if (package.PackageProducts.Count == 0)
-            {
-                 expandButton = CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.Red);
-            }
-            else
-            {
-                expandButton = CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
-            }
+            Button expandButton = package.PackageProducts.Count == 0
+                ? CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.Red)
+                : CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
             expandButton.Click += (s, e) => ToggleSubItems(itemPanel, (Button)s);
 
             Button deleteButton = CreateStyledButton("🗑", Color.FromArgb(255, 223, 223), Color.Red);
@@ -207,18 +210,67 @@ namespace VisionTech_Anbar_Project
             editButton.Click += EditButton_Click;
 
             Button exportButton = CreateStyledButton("⇪", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
+            exportButton.Click += ExportButton_Click;
 
+            buttonPanel.Controls.Add(exportButton);
             buttonPanel.Controls.Add(expandButton);
             buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
-            buttonPanel.Controls.Add(exportButton);
 
+            itemPanel.Controls.Add(packageCheckBox);
             itemPanel.Controls.Add(itemLabel);
             itemPanel.Controls.Add(buttonPanel);
 
             return itemPanel;
         }
+
+        private void ExportButton_Click(object sender, EventArgs e)
+        {
+            // Only Export current 
+        }
+
+        private void ExportAllButton_Click(object sender, EventArgs e)
+        {
+            // Collect selected package IDs
+            List<int> selectedPackageIds = new List<int>();
+
+            foreach (Control control in mainTableLayoutPanel.Controls)
+            {
+                if (control is Panel itemPanel)
+                {
+                    // Find the CheckBox within the panel
+                    CheckBox packageCheckBox = itemPanel.Controls.OfType<CheckBox>().FirstOrDefault();
+
+                    if (packageCheckBox != null && packageCheckBox.Checked)
+                    {
+                        selectedPackageIds.Add((int)packageCheckBox.Tag); // Get package ID from Tag
+                    }
+                }
+            }
+
+            if (selectedPackageIds.Count > 0)
+            {
+                // Call your export logic here with the selected IDs
+                ExportSelectedPackages(selectedPackageIds);
+            }
+            else
+            {
+                MessageBox.Show("No packages selected for export.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // Your export logic
+        private void ExportSelectedPackages(List<int> packageIds)
+        {
+            // Example: Print the selected package IDs
+            string packageIdsString = string.Join(", ", packageIds);
+            MessageBox.Show($"Exporting packages with IDs: {packageIdsString}", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Add actual export functionality here (e.g., generate CSV, send to API, etc.)
+        }
+
+
 
         private Panel CreateSubItemsPanel(Product products, int quantity)
         {
