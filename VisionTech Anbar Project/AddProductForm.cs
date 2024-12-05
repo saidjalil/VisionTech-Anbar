@@ -158,7 +158,7 @@ namespace VisionTech_Anbar_Project
 
             foreach (TextBox txtbox in textBoxList)
             {
-                if (!int.TryParse(txtbox.Text, out int barcodeValue) && string.IsNullOrWhiteSpace(txtbox.Text) && !currentlyHaveBarcode)
+                if (string.IsNullOrWhiteSpace(txtbox.Text) && !currentlyHaveBarcode)
                 {
                     MessageBox.Show(
                         "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
@@ -172,14 +172,14 @@ namespace VisionTech_Anbar_Project
                 //    BarCode = barcodeValue,
                 //};
                 //barcodes.Add(barcode);
-                barcodes.Add(createNewBarcode(barcodeValue));
+                barcodes.Add(createNewBarcode(txtbox.Text));
             }
 
-            if (!string.IsNullOrWhiteSpace(textBox1.Text) && int.TryParse(textBox1.Text, out int mainBarcode))
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 foreach (Barcode barcode in barcodes)
                 {
-                    if (barcode.BarCode == mainBarcode)
+                    if (barcode.BarCode == textBox1.Text)
                     {
                         MessageBox.Show(
                             "Daxil olunan barkod verilən barkod ilə eyni ola bilməz!",
@@ -215,7 +215,7 @@ namespace VisionTech_Anbar_Project
             currentlyHaveBarcode = false;
         }
 
-        private Barcode createNewBarcode(int barcodeValue)
+        private Barcode createNewBarcode(string barcodeValue)
         {
             var barcode = new Barcode
             {
@@ -525,7 +525,7 @@ namespace VisionTech_Anbar_Project
             {
                 return;
             }
-            currentProduct = await productService.GetProductByBarCode(int.Parse(textBox1.Text));
+            currentProduct = await productService.GetProductByBarCode(textBox1.Text);
             if (currentProduct != null)
             {
                 textBox2.Text = currentProduct.ProductName;

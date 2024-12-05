@@ -191,13 +191,13 @@ public class ProductService
         }
     }
 
-    public async Task<Product> GetProductByBarCode(int barcode)
+    public async Task<Product> GetProductByBarCode(string barcode)
     {
         var res = (await _productRepository.GetAll(x => x.Barcodes)).FirstOrDefault(x => x.Barcodes.Any(x => x.BarCode == barcode));
         return res;
     }
 
-    public async Task CreateProductWithMultipleBarcode(Product product, List<int> barcodes)
+    public async Task CreateProductWithMultipleBarcode(Product product, List<string> barcodes)
     {
         if (product == null) throw new ArgumentNullException(nameof(product));
         if (barcodes == null || !barcodes.Any()) throw new ArgumentException("Barcode list cannot be null or empty.", nameof(barcodes));
