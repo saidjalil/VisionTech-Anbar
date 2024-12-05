@@ -129,4 +129,18 @@ public class BarcodeService
         var barcodes = await _barcodeRepository.GetAllAsync();
         return barcodes.Any(b => b.BarCode == Barcode);
     }
+
+    public async Task<IEnumerable<Barcode>> CheckBarcodes(List<Barcode> barcodes)
+    {
+        List<Barcode> ExistedBarcodes = new List<Barcode>();
+        foreach (var barcode in barcodes)
+        {
+            if (await IsExist(barcode.BarCode))
+            {
+                ExistedBarcodes.Add(barcode);
+            }
+
+        }
+        return ExistedBarcodes;
+    }
 }
