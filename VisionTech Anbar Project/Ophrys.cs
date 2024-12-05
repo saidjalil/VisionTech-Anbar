@@ -14,6 +14,7 @@ using MetroSet_UI.Forms;
 using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Services;
 using VisionTech_Anbar_Project.Entities;
+using System.Runtime.InteropServices;
 
 namespace VisionTech_Anbar_Project
 {
@@ -93,10 +94,11 @@ namespace VisionTech_Anbar_Project
             mainTableLayoutPanel = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                BackColor = Color.Transparent,
-                Padding = new Padding(0, 30, 0, 0), // Add padding from the top
+                BackColor = Color.FromArgb(243, 246, 249), // Soft light gray background
+                Padding = new Padding(10, 20, 10, 10),
                 AutoScroll = true,
-                ColumnCount = 1, // Single column to arrange items vertically
+                ColumnCount = 1,
+                CellBorderStyle = TableLayoutPanelCellBorderStyle.None
             };
             this.Controls.Add(mainTableLayoutPanel);
         }
@@ -108,7 +110,7 @@ namespace VisionTech_Anbar_Project
             {
                 Panel itemPanel = CreateItemPanel(item);
                 mainTableLayoutPanel.RowCount++;
-                mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add item to new row
+                mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1);
 
                 var products = item.PackageProducts.Select(pp => new PackageProduct
                 {
@@ -117,11 +119,10 @@ namespace VisionTech_Anbar_Project
                 });
                 foreach (var product in products)
                 {
-                    //Log.Information("hOW many TIMESSSSSSSSSSSSSSSS");
                     Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
                     mainTableLayoutPanel.RowCount++;
-                    mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1); // Add subitems below item
-                    subItemsPanel.Visible = false; // Initially hidden
+                    mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1);
+                    subItemsPanel.Visible = false;
                 }
             }
         }
@@ -133,205 +134,152 @@ namespace VisionTech_Anbar_Project
 
         private Panel CreateItemPanel(Package package)
         {
-            // Create the main panel for the item
             Panel itemPanel = new Panel
             {
-                Height = 60, // Set explicit height for the main item
+                Height = 70,
                 BorderStyle = BorderStyle.None,
+                BackColor = Color.White,
                 Dock = DockStyle.Top,
-                Margin = new Padding(5) // Add some margin between items
+                Margin = new Padding(0, 0, 0, 10),
+                Padding = new Padding(10)
             };
+            itemPanel.SetBorderRadius(10);
 
-            // Label to display item text
             Label itemLabel = new Label
             {
                 Text = package.Warehouse.WarehouseName.ToString(),
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.FromArgb(42, 45, 85),
                 AutoSize = true,
-                Location = new System.Drawing.Point(5, 15),
-                BackColor = Color.Transparent
+                Location = new Point(15, 20)
             };
 
-            // Create a FlowLayoutPanel to hold all buttons in a single line
             FlowLayoutPanel buttonPanel = new FlowLayoutPanel
             {
-                FlowDirection = FlowDirection.LeftToRight, // Align buttons horizontally
+                FlowDirection = FlowDirection.RightToLeft,
                 Dock = DockStyle.Right,
                 AutoSize = true,
-                WrapContents = false, // Prevent buttons from wrapping to the next line
-                Margin = new Padding(5)
+                WrapContents = false,
+                Margin = new Padding(0)
             };
 
-            // Button to expand/collapse subitems
-            Button expandButton = new Button
+            Button CreateStyledButton(string text, Color backColor, Color foreColor)
             {
-                Text = "▽",
-                Width = 30,
-                Height = 40,
-                Margin = new Padding(5)
-            };
+                var button = new Button
+                {
+                    Text = text,
+                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                    BackColor = backColor,
+                    ForeColor = foreColor,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = package.Id,
+                    Size = new Size(40, 40),
+                    Margin = new Padding(5),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                button.FlatAppearance.BorderSize = 0;
+                return button;
+            }
+
+            Button expandButton = CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
             expandButton.Click += (s, e) => ToggleSubItems(itemPanel);
 
-            // Add Delete, Add, Edit, and Export buttons
-            Button deleteButton = new Button
-            {
-                Text = "🗑",
-                Tag = package.Id,
-                ForeColor = Color.Red,
-                Width = 50,
-                Height = 40,
-                Margin = new Padding(5)
-            };
-
+            Button deleteButton = CreateStyledButton("🗑", Color.FromArgb(255, 223, 223), Color.Red);
             deleteButton.Click += DeleteButton_Click;
-            Button addButton = new Button
-            {
-                Text = "➕",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                BackColor = Color.FromArgb(42, 45, 85),
-                ForeColor = Color.Transparent,
-                Tag = package.Id,
-                Width = 60,
-                Height = 40,
-                Margin = new Padding(5)
-            };
+
+            Button addButton = CreateStyledButton("➕", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             addButton.Click += AddButton_Click;
 
-            Button editButton = new Button
-            {
-                Text = "✎",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                BackColor = Color.FromArgb(42, 45, 85),
-                ForeColor = Color.Transparent,
-                Tag = package.Id,
-                Width = 60,
-                Height = 40,
-                Margin = new Padding(5)
-            };
+            Button editButton = CreateStyledButton("✎", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             editButton.Click += EditButton_Click;
 
-            Button exportButton = new Button
-            {
-                Text = "⇪",
-                Font = new Font("Arial", 15, FontStyle.Bold),
-                BackColor = Color.FromArgb(42, 45, 85),
-                ForeColor = Color.Transparent,
-                Tag = package.Id,
-                Width = 60,
-                Height = 40,
-                Margin = new Padding(5)
-            };
+            Button exportButton = CreateStyledButton("⇪", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
 
-            exportButton.Click += (s, e) =>
-            {
-                if (selectedProducts.Any())
-                {
-                    ExportSelectedProducts(selectedProducts);
-                }
-                else
-                {
-                    MessageBox.Show("No products selected for export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            };
-            CheckBox subItemCheckBox = new CheckBox
-            {
-                Location = new System.Drawing.Point(5, 5), // Position the checkbox
-                Tag = package.Id,// Store product in the Tag for reference
-
-            };
-
-            subItemCheckBox.CheckedChanged += (s, e) =>
-            {
-                if (subItemCheckBox.Checked)
-                {
-                    selectedProducts.Add(package); // Add product to selected list
-                }
-                else
-                {
-                    selectedProducts.Remove(package); // Remove product from selected list
-                }
-            };
-
-
-            // Add the buttons to the FlowLayoutPanel
-
-
+            buttonPanel.Controls.Add(expandButton);
+            buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
             buttonPanel.Controls.Add(exportButton);
-            buttonPanel.Controls.Add(deleteButton);
-            buttonPanel.Controls.Add(expandButton);
 
-            // Add the label and button panel to the item panel
             itemPanel.Controls.Add(itemLabel);
-            itemPanel.Controls.Add(subItemCheckBox);
             itemPanel.Controls.Add(buttonPanel);
 
             return itemPanel;
-        }
-        private void ExportSelectedProducts(List<Package> products)
-        {
-            // export 
         }
 
         private Panel CreateSubItemsPanel(Product products, int quantity)
         {
             Panel subItemsPanel = new Panel
             {
-                Height = 100,
+                Height = 50,
+                BackColor = Color.FromArgb(247, 249, 251),
                 AutoScroll = true,
                 BorderStyle = BorderStyle.None,
-                Padding = new Padding(5),
+                Padding = new Padding(5, 5, 5, 5),
                 Dock = DockStyle.Top
             };
+            subItemsPanel.SetBorderRadius(8);
 
-            // Add example subitems with full-width panels
             if (products != null)
             {
-
                 Panel subItemPanel = new Panel
                 {
-                    Height = 30,
+                    Height = 40,
                     Dock = DockStyle.Top,
-                    BorderStyle = BorderStyle.None,
-                    Padding = new Padding(5)
+                    BackColor = Color.White,
+                    Margin = new Padding(0, 0, 0, 5)
                 };
+                subItemPanel.SetBorderRadius(6);
 
                 Label subItemLabel = new Label
                 {
-                    Text = $"Name:{products.ProductName} Count:{quantity}",
+                    Text = $"Name: {products.ProductName} | Count: {quantity}",
+                    Font = new Font("Segoe UI", 10),
+                    ForeColor = Color.FromArgb(70, 70, 70),
                     AutoSize = true,
-                    Location = new System.Drawing.Point(50, 5)
+                    Location = new Point(15, 10)
                 };
 
                 subItemPanel.Controls.Add(subItemLabel);
                 subItemsPanel.Controls.Add(subItemPanel);
             }
 
-
             return subItemsPanel;
         }
 
         private void ToggleSubItems(Panel itemPanel)
         {
-            // Find the associated subItemsPanel below itemPanel in the mainTableLayoutPanel
-            int itemIndex = mainTableLayoutPanel.Controls.GetChildIndex(itemPanel);
-            if (itemIndex >= 0 && itemIndex < mainTableLayoutPanel.Controls.Count - 1)
+            bool isNextControlSubItem = false;
+
+            // Iterate over the controls starting from the itemPanel
+            foreach (Control control in mainTableLayoutPanel.Controls)
             {
-                Panel subItemsPanel = mainTableLayoutPanel.Controls[itemIndex + 1] as Panel;
-                if (subItemsPanel != null)
+                if (control == itemPanel)
                 {
-                    subItemsPanel.Visible = !subItemsPanel.Visible;
+                    isNextControlSubItem = true;
+                    continue;
+                }
+
+                if (isNextControlSubItem)
+                {
+                    if (control is Panel subItemPanel && subItemPanel.BackColor == Color.FromArgb(247, 249, 251))
+                    {
+                        subItemPanel.Visible = !subItemPanel.Visible;
+                    }
+                    else
+                    {
+                        break; // Stop toggling when reaching a new item panel
+                    }
                 }
             }
         }
+
         public async void EditButton_Click(object sender, EventArgs e)
         {
-
             EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService);
             editProductForm.Show();
 
             Button button = sender as Button;
-            ;
             editProductForm.GetProducts(await _packageService.GetPackageWithNavigation(int.Parse(button.Tag.ToString())));
         }
 
@@ -343,49 +291,53 @@ namespace VisionTech_Anbar_Project
             RestartPage();
             InitializeItems();
         }
+
         public async void AddButton_Click(object sender, EventArgs e)
         {
             AddProductForm addProductForm = new AddProductForm(_categoryService, _productService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
-            //if(Convert.ToInt32(button.Tag))
-            //   if(addProductForm.DataSaved && await packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.ProductId))
-            //  {
-            //      await productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
-            //   }
+
             if (addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
             {
                 await _packageService.AddProductToPackageAsync(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
-                // TURAL METHOD YAZMALIDIKI, HAZIRKI BARCODELAR VAR OLAN PRODUCTDA ELAVE EDILSEN 
                 await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
-
             }
 
             if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
-                //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
-                //await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
                 await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
 
                 RestartPage();
                 InitializeItems();
             }
         }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void metroSetBadge1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+        }
+    }
 
+    // Extension method for rounded corners
+    public static class ControlExtensions
+    {
+        public static void SetBorderRadius(this Control control, int radius)
+        {
+            control.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, control.Width, control.Height, radius, radius));
+            control.SizeChanged += (s, e) =>
+                control.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, control.Width, control.Height, radius, radius));
         }
 
-
+        [DllImport("Gdi32.dll")]
+        private static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
     }
 }
+

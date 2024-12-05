@@ -118,4 +118,15 @@ public class BarcodeService
             throw;
         }
     }
+
+    public async Task<bool> IsExist(int BarcodeId)
+    {
+        return await _barcodeRepository.IsExist(BarcodeId);
+    }
+
+    public async Task<bool> IsExist(string Barcode)
+    {
+        var barcodes = await _barcodeRepository.GetAllAsync();
+        return barcodes.Any(b => b.BarCode == Barcode);
+    }
 }

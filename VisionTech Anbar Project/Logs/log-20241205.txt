@@ -1,0 +1,30 @@
+2024-12-05 13:00:21.573 +04:00 [INF] Application Starting
+2024-12-05 13:00:22.883 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 13:00:24.238 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 13:00:31.948 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-05 13:00:32.085 +04:00 [ERR] Error occurred while fetching package with ID: 1.
+System.InvalidCastException: Unable to cast object of type 'System.Int32' to type 'System.String'.
+   at Microsoft.Data.SqlClient.SqlBuffer.get_String()
+   at lambda_method215(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateIncludeCollection>g__ProcessCurrentElementRow|60_0[TIncludingEntity,TIncludedEntity](<>c__DisplayClass60_0`2& )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateIncludeCollection[TIncludingEntity,TIncludedEntity](Int32 collectionId, QueryContext queryContext, DbDataReader dbDataReader, SingleQueryResultCoordinator resultCoordinator, Func`3 parentIdentifier, Func`3 outerIdentifier, Func`3 selfIdentifier, IReadOnlyList`1 parentIdentifierValueComparers, IReadOnlyList`1 outerIdentifierValueComparers, IReadOnlyList`1 selfIdentifierValueComparers, Func`5 innerShaper, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at lambda_method223(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateIncludeCollection>g__ProcessCurrentElementRow|60_0[TIncludingEntity,TIncludedEntity](<>c__DisplayClass60_0`2& )
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateIncludeCollection[TIncludingEntity,TIncludedEntity](Int32 collectionId, QueryContext queryContext, DbDataReader dbDataReader, SingleQueryResultCoordinator resultCoordinator, Func`3 parentIdentifier, Func`3 outerIdentifier, Func`3 selfIdentifier, IReadOnlyList`1 parentIdentifierValueComparers, IReadOnlyList`1 outerIdentifierValueComparers, IReadOnlyList`1 selfIdentifierValueComparers, Func`5 innerShaper, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at lambda_method227(Closure , QueryContext , DbDataReader , ResultContext , SingleQueryResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.FindAsyncByIdWithNavigation(Int32 id, Func`2 includeFunc) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 56
+   at VisionTech_Anbar_Project.Services.PackageService.GetPackageWithNavigation(Int32 packageId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 216
+2024-12-05 13:01:46.598 +04:00 [INF] Application Starting
+2024-12-05 13:01:47.865 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 13:01:49.306 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 13:01:51.129 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-05 13:01:51.223 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-05 13:02:16.377 +04:00 [INF] Creating a new category: Alo.
+2024-12-05 13:02:16.582 +04:00 [INF] Category Alo successfully created.
+2024-12-05 13:03:05.158 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-05 13:03:05.164 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-05 13:03:47.792 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-05 13:03:47.802 +04:00 [INF] Successfully retrieved package with ID: 1.

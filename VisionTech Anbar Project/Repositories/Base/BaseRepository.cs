@@ -115,7 +115,10 @@ namespace VisionTech_Anbar_Project.Repositories.Base
              
             return await query.ToListAsync();
         }
-         
+        public async Task<bool> IsExist(int id)
+        {
+            return await _dbSet.AnyAsync(e => e.Id == id);
+        }
         public async Task Save()
         {
             await _context.SaveChangesAsync();
