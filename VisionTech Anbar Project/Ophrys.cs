@@ -24,16 +24,19 @@ namespace VisionTech_Anbar_Project
         private readonly CategoryService _categoryService;
         private readonly WarehouseService _warehouseService;
         private readonly VendorService _vendorService;
+        private readonly ImageService _imageService;
+
         TableLayoutPanel mainTableLayoutPanel;
 
         private List<Package> selectedProducts = new List<Package>();
-        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService)
+        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService)
         {
             this._packageService = packageService;
             this._productService = productService;
             this._categoryService = categoryService;
             _warehouseService = warehouseService;
             _vendorService = vendorService;
+            _imageService = imageService;
 
 
             InitializeComponent();
@@ -41,13 +44,12 @@ namespace VisionTech_Anbar_Project
             InitializeItems();
 
             button3.BringToFront();
-
-
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService);
+            ImageManager imageManager = new(_imageService);
+            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService,_imageService);
             addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
             // Example for Section 1
@@ -70,6 +72,16 @@ namespace VisionTech_Anbar_Project
                 await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
                 RestartPage();
                 InitializeItems();
+
+                if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
+                {
+                    await imageManager.SaveImage(addColumnForm.openFileDialog, addColumnForm.NewPackage.Id); // Call the provided SaveImage method
+                                                                                 //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Şəkil seçilməyib.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
                 //InitializeItems(addColumnForm.NewPackage);
                 //Packages.Add(addColumnForm.NewPackage);

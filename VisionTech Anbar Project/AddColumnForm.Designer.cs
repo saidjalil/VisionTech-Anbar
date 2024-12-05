@@ -246,7 +246,6 @@ namespace VisionTech_Anbar_Project
             pictureBox2.Size = new Size(153, 66);
             pictureBox2.TabIndex = 26;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
             // 
             // AddColumnForm
             // 

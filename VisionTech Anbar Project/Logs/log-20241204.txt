@@ -126,3 +126,224 @@
 2024-12-04 14:17:47.904 +04:00 [INF] Successfully retrieved 12 warehouses.
 2024-12-04 14:17:47.905 +04:00 [INF] Fetching all vendors.
 2024-12-04 14:17:47.927 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 14:32:21.712 +04:00 [INF] Application Starting
+2024-12-04 14:33:25.775 +04:00 [INF] Application Starting
+2024-12-04 14:33:27.212 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 14:33:28.777 +04:00 [INF] Successfully retrieved 12 packages.
+2024-12-04 14:33:30.208 +04:00 [INF] Fetching all warehouses.
+2024-12-04 14:33:31.072 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 14:33:31.073 +04:00 [INF] Fetching all vendors.
+2024-12-04 14:33:31.087 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 14:35:04.724 +04:00 [ERR] An I/O error occurred while saving the image from 0 to C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Images\Documents.
+System.IO.FileNotFoundException: Could not find file 'C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\0'.
+File name: 'C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\0'
+   at System.IO.FileSystem.CopyFile(String sourceFullPath, String destFullPath, Boolean overwrite)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at VisionTech_Anbar_Project.Utilts.ImageManager.SaveImage(OpenFileDialog openFileDialog, Int32 packageId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Utilts\ImageManager.cs:line 45
+2024-12-04 14:35:07.201 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-04 14:35:07.684 +04:00 [ERR] Error occurred while creating a package.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Adress', table 'VisionTechAnbar.dbo.Packages'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__189_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:d63a0c8a-b7d5-4ea5-8a84-06b7de7d58e7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Save() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 121
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Create(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 25
+   at VisionTech_Anbar_Project.Services.PackageService.CreatePackageAsync(Package package) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 79
+2024-12-04 14:35:24.155 +04:00 [INF] Application Starting
+2024-12-04 14:35:25.630 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 14:35:27.171 +04:00 [INF] Successfully retrieved 12 packages.
+2024-12-04 14:35:29.253 +04:00 [INF] Fetching all warehouses.
+2024-12-04 14:35:30.043 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 14:35:30.044 +04:00 [INF] Fetching all vendors.
+2024-12-04 14:35:30.058 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 14:47:12.487 +04:00 [INF] Application Starting
+2024-12-04 14:47:13.887 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 14:47:15.400 +04:00 [INF] Successfully retrieved 12 packages.
+2024-12-04 14:47:16.423 +04:00 [INF] Fetching all warehouses.
+2024-12-04 14:47:17.208 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 14:47:17.209 +04:00 [INF] Fetching all vendors.
+2024-12-04 14:47:17.229 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 14:47:35.432 +04:00 [INF] Application Starting
+2024-12-04 14:47:37.006 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 14:47:38.656 +04:00 [INF] Successfully retrieved 12 packages.
+2024-12-04 14:47:40.861 +04:00 [INF] Fetching all warehouses.
+2024-12-04 14:47:41.659 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 14:47:41.660 +04:00 [INF] Fetching all vendors.
+2024-12-04 14:47:41.682 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 14:47:52.322 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-04 14:47:52.649 +04:00 [ERR] Error occurred while creating a package.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Adress', table 'VisionTechAnbar.dbo.Packages'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__189_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:4b0ca751-3e32-4010-a2ef-b98762b961a7
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Save() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 121
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Create(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 25
+   at VisionTech_Anbar_Project.Services.PackageService.CreatePackageAsync(Package package) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 79
+2024-12-04 14:59:35.303 +04:00 [INF] Application Starting
+2024-12-04 14:59:36.667 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 14:59:38.213 +04:00 [INF] Successfully retrieved 12 packages.
+2024-12-04 15:03:12.229 +04:00 [INF] Application Starting
+2024-12-04 15:03:13.619 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:03:15.127 +04:00 [INF] Successfully retrieved 12 packages.
+2024-12-04 15:03:16.886 +04:00 [INF] Fetching all warehouses.
+2024-12-04 15:03:17.683 +04:00 [INF] Successfully retrieved 12 warehouses.
+2024-12-04 15:03:17.684 +04:00 [INF] Fetching all vendors.
+2024-12-04 15:03:17.711 +04:00 [INF] Successfully retrieved 12 vendors.
+2024-12-04 15:04:35.821 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-04 15:04:36.077 +04:00 [INF] Package successfully created.
+2024-12-04 15:04:36.119 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:06:30.757 +04:00 [INF] Application Starting
+2024-12-04 15:06:32.309 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:06:33.850 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-04 15:06:35.290 +04:00 [INF] Fetching all warehouses.
+2024-12-04 15:06:36.098 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-04 15:06:36.098 +04:00 [INF] Fetching all vendors.
+2024-12-04 15:06:36.113 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-04 15:07:04.894 +04:00 [INF] Application Starting
+2024-12-04 15:07:06.354 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:07:07.885 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-04 15:07:09.719 +04:00 [INF] Fetching all warehouses.
+2024-12-04 15:07:10.525 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-04 15:07:10.525 +04:00 [INF] Fetching all vendors.
+2024-12-04 15:07:10.538 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-04 15:08:08.122 +04:00 [INF] Application Starting
+2024-12-04 15:08:09.511 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:08:11.068 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-04 15:08:11.972 +04:00 [INF] Fetching all warehouses.
+2024-12-04 15:08:12.764 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-04 15:08:12.766 +04:00 [INF] Fetching all vendors.
+2024-12-04 15:08:12.787 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-04 15:08:43.099 +04:00 [INF] Application Starting
+2024-12-04 15:08:44.528 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:08:46.065 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-04 15:08:48.558 +04:00 [INF] Fetching all warehouses.
+2024-12-04 15:08:49.373 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-04 15:08:49.374 +04:00 [INF] Fetching all vendors.
+2024-12-04 15:08:49.387 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-04 15:09:16.146 +04:00 [INF] Application Starting
+2024-12-04 15:09:17.546 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:09:19.115 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-04 15:09:20.074 +04:00 [INF] Fetching all warehouses.
+2024-12-04 15:09:20.876 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-04 15:09:20.877 +04:00 [INF] Fetching all vendors.
+2024-12-04 15:09:20.901 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-04 15:22:59.435 +04:00 [INF] Application Starting
+2024-12-04 15:23:00.883 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:23:02.439 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-04 15:23:04.823 +04:00 [INF] Fetching all warehouses.
+2024-12-04 15:23:05.606 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-04 15:23:05.606 +04:00 [INF] Fetching all vendors.
+2024-12-04 15:23:05.630 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-04 15:23:23.411 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-04 15:23:23.644 +04:00 [INF] Package successfully created.
+2024-12-04 15:23:23.695 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:23:55.454 +04:00 [ERR] An I/O error occurred while saving the image from 20 to C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Images\Documents.
+System.IO.FileNotFoundException: Could not find file 'C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\20'.
+File name: 'C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\bin\Debug\net6.0-windows\20'
+   at System.IO.FileSystem.CopyFile(String sourceFullPath, String destFullPath, Boolean overwrite)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at VisionTech_Anbar_Project.Utilts.ImageManager.SaveImage(OpenFileDialog openFileDialog, Int32 packageId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Utilts\ImageManager.cs:line 45
+2024-12-04 15:23:55.504 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:25:18.184 +04:00 [INF] Application Starting
+2024-12-04 15:25:19.715 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:25:21.254 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:25:39.604 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:25:39.608 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:27:14.545 +04:00 [INF] Application Starting
+2024-12-04 15:27:15.955 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:27:17.503 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:27:23.012 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:27:23.016 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:37:48.311 +04:00 [INF] Application Starting
+2024-12-04 15:37:49.846 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:37:51.227 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:45:17.085 +04:00 [INF] Application Starting
+2024-12-04 15:45:18.325 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:45:19.747 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:45:37.437 +04:00 [INF] Adding product with ID: 17 to package with ID: 1, quantity: 5.
+2024-12-04 15:45:37.619 +04:00 [INF] Product with ID: 17 successfully added to package with ID: 1.
+2024-12-04 15:45:37.624 +04:00 [INF] Updating product with ID: 17.
+2024-12-04 15:45:37.680 +04:00 [INF] Product with ID: 17 successfully updated.
+2024-12-04 15:46:20.495 +04:00 [INF] Application Starting
+2024-12-04 15:46:21.719 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 15:46:23.095 +04:00 [INF] Successfully retrieved 14 packages.
+2024-12-04 15:46:57.002 +04:00 [INF] Adding product with ID: 36 to package with ID: 1, quantity: 4.
+2024-12-04 15:46:57.188 +04:00 [INF] Product with ID: 36 successfully added to package with ID: 1.
+2024-12-04 15:46:57.194 +04:00 [INF] Updating product with ID: 36.
+2024-12-04 15:46:57.295 +04:00 [ERR] Error occurred while updating product with ID: 36.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Barcodes' with unique index 'IX_Barcodes_BarCode'. The duplicate key value is (0).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__189_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:9dbb5aee-8d3a-4445-b2c9-fd861680f888
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Save() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 121
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Update(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 102
+   at VisionTech_Anbar_Project.Services.ProductService.UpdateProductAsync(Product product) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\ProductService.cs:line 130
+2024-12-04 16:01:19.325 +04:00 [INF] Application Starting
+2024-12-04 16:01:20.713 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-04 16:01:22.089 +04:00 [INF] Successfully retrieved 14 packages.

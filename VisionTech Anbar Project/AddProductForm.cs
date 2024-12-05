@@ -136,8 +136,13 @@ namespace VisionTech_Anbar_Project
             int Quantity;
             int productId = 0;
             List<Barcode> barcodes = new List<Barcode>();
+
+            bool isRegular;
+
             // string id;
             //string categoryName;
+
+            isRegular = checkBox1.Checked;
 
             Name = textBox2.Text;
             //var selectedCategory = mainComboBox.SelectedItem as Category;
@@ -207,13 +212,13 @@ namespace VisionTech_Anbar_Project
             if (currentProduct != null)
             {
                 EditedProduct = new PackageProduct(currentProduct.Id, Name,
-                                         Quantity, selectedId, barcodes);
+                                         Quantity, selectedId, barcodes, isRegular);
             }
             else
             {
                 //id = Guid.NewGuid().ToString();
                 NewProduct = new PackageProduct(productId, Name,
-                                         Quantity, selectedId, barcodes);
+                                         Quantity, selectedId, barcodes, isRegular);
             }
             currentlyHaveBarcode = false;
             //  barcodes.Clear();
@@ -555,6 +560,10 @@ namespace VisionTech_Anbar_Project
             }
         }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

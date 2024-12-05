@@ -29,6 +29,8 @@ namespace VisionTech_Anbar_Project.Entities
             this.Warehouse = new Warehouse();
             this.Vendor = new Vendor();
             this.PackageProducts = new List<PackageProduct>();
+            this.Reciver = string.Empty;
+            this.Adress = string.Empty;
 
             Warehouse = null;
             Vendor = null;
@@ -37,7 +39,7 @@ namespace VisionTech_Anbar_Project.Entities
     
         }
             
-        public Package(DateTime createdTime, Vendor vendor, Warehouse warehouse, List<PackageProduct> packageProducts)
+        public Package(DateTime createdTime, Vendor vendor, Warehouse warehouse, List<PackageProduct> packageProducts, string reciever, string adress)
         {
             this.Warehouse = new Warehouse();
             this.Vendor = new Vendor();
@@ -47,6 +49,8 @@ namespace VisionTech_Anbar_Project.Entities
             Vendor = vendor;
             Warehouse = warehouse;
             PackageProducts = packageProducts;
+            Reciver = reciever;
+            Adress = adress;
         }
 
         public void Copy(Package package)

@@ -59,6 +59,8 @@ namespace VisionTech_Anbar_Project
             services.AddTransient<VendorRepository>();
             services.AddTransient<WarehouseRepository>();
             services.AddTransient<BarcodeRepository>();
+            services.AddTransient<ImageRepository>();
+
 
 
 
@@ -69,6 +71,8 @@ namespace VisionTech_Anbar_Project
             services.AddTransient<VendorService>();
             services.AddTransient<WarehouseService>();
             services.AddTransient<CategoryService>();
+            services.AddTransient<ImageService>();
+
 
 
             // Register the main form

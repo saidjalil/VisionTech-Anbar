@@ -26,8 +26,10 @@ namespace VisionTech_Anbar_Project
         private readonly PackageService _packageService;
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
+        private readonly ImageService _imageService;
 
-        private OpenFileDialog openFileDialog = new OpenFileDialog();
+
+        public OpenFileDialog openFileDialog = new OpenFileDialog();
 
 
 
@@ -43,7 +45,7 @@ namespace VisionTech_Anbar_Project
 
 
 
-        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService)
+        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService)
         {
             //  _packageService = packageService;
             _categoryService = categoryService;
@@ -51,6 +53,8 @@ namespace VisionTech_Anbar_Project
             _packageService = packageService;
             _warehouseService = warehouseService;
             _vendorService = vendorService;
+            _imageService = imageService;
+
             InitializeComponent();
 
             mainTableLayoutPanel = tableLayoutPanel1;
@@ -58,8 +62,6 @@ namespace VisionTech_Anbar_Project
             mainTableLayoutPanel.AutoScroll = true; // Enable scrolling if needed
             //mainTableLayoutPanel.Dock = DockStyle.Fill;
             mainTableLayoutPanel.RowStyles.Clear();
-
-
         }
         //private AddColumnForm(Package package)
         //{
@@ -92,8 +94,9 @@ namespace VisionTech_Anbar_Project
             textBox2.Clear();
             dateTimePicker1.Text = DateTime.Now.ToString();
         }
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
+            //ImageManager imageManager = new(_imageService);
             List<String> errors;
             errors = ValidateInput();
 
@@ -116,15 +119,15 @@ namespace VisionTech_Anbar_Project
             //    MessageBox.Show($"Failed to save image: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
 
-            if (!string.IsNullOrEmpty(openFileDialog.FileName) && pictureBox2.Image != null)
-            {
-                ImageManager.SaveImage(openFileDialog); // Call the provided SaveImage method
-                //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Şəkil seçilməyib.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if (!string.IsNullOrEmpty(openFileDialog.FileName) && pictureBox2.Image != null)
+            //{
+            //    await imageManager.SaveImage(openFileDialog, NewPackage.Id); // Call the provided SaveImage method
+            //    //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Şəkil seçilməyib.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
         private List<string> ValidateInput()
         {
@@ -138,79 +141,85 @@ namespace VisionTech_Anbar_Project
 
         private void StoreInput()
         {
-            DateTime createdDate;
-            List<PackageProduct> packageProducts = new List<PackageProduct>();
+            // Retrieve user inputs
+            string retriever = RetrieveComboBoxInput(comboBox3, "Retriever");
+            string address = RetrieveTextBoxInput(textBox2, "Address");
 
-            // Retrieve or create the selected warehouse
-            Warehouse selectedWarehouse;
-            if (comboBox1.Text != ((Warehouse)comboBox1.SelectedItem)?.WarehouseName)
-            {
-                // Create a new warehouse with the manually entered name
-                selectedWarehouse = new Warehouse
-                {
-                    WarehouseName = comboBox1.Text
-                    // Add other default properties if needed
-                };
-                // Optionally, save this new warehouse to the database
-                // await _warehouseService.CreateWarehouseAsync(selectedWarehouse);
-            }
-            else
-            {
-                selectedWarehouse = (Warehouse)comboBox1.SelectedItem;
-            }
-
-            // Retrieve or create the selected vendor
-            Vendor selectedVendor;
-            if (comboBox2.Text != ((Vendor)comboBox2.SelectedItem)?.VendorName)
-            {
-                // Create a new vendor with the manually entered name
-                selectedVendor = new Vendor
-                {
-                    VendorName = comboBox2.Text
-                    // Add other default properties if needed
-                };
-                // Optionally, save this new vendor to the database
-                // await _vendorService.CreateVendorAsync(selectedVendor);
-            }
-            else
-            {
-                selectedVendor = (Vendor)comboBox2.SelectedItem;
-            }
+            // Retrieve or create warehouse and vendor
+            Warehouse selectedWarehouse = GetOrCreateWarehouse(comboBox1);
+            Vendor selectedVendor = GetOrCreateVendor(comboBox2);
 
             // Add products to the package
-            if (products != null)
-            {
-                foreach (PackageProduct product in products)
-                {
-                    packageProducts.Add(product);
-                }
-            }
+            List<PackageProduct> packageProducts = products?.ToList() ?? new List<PackageProduct>();
 
-            // Parse the created date from the DateTimePicker
-            // createdDate = DateTime.Parse(dateTimePicker1.Text);
-            createdDate = DateTime.Now;
-
+            // Parse the created date
+            DateTime createdDate = DateTime.Now;
 
             // Create or edit a package
             if (IsEdit)
             {
-                EditedPackage = new Package(
-                    createdDate,
-                    selectedVendor,
-                    selectedWarehouse,
-                    packageProducts
-                );
+                EditedPackage = CreatePackage(createdDate, selectedVendor, selectedWarehouse, packageProducts, retriever, address);
             }
             else
             {
-                NewPackage = new Package(
-                    createdDate,
-                    selectedVendor,
-                    selectedWarehouse,
-                    packageProducts
-                );
+                NewPackage = CreatePackage(createdDate, selectedVendor, selectedWarehouse, packageProducts, retriever, address);
             }
         }
+
+        private string RetrieveTextBoxInput(TextBox textBox, string fieldName)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                throw new ArgumentException($"{fieldName} cannot be empty.");
+            }
+            return textBox.Text.Trim();
+        }
+
+        private string RetrieveComboBoxInput(ComboBox comboBox, string fieldName)
+        {
+            if (comboBox.SelectedItem == null)
+            {
+                throw new ArgumentException($"Please select a valid {fieldName}.");
+            }
+            return comboBox.Text;
+        }
+
+        private Warehouse GetOrCreateWarehouse(ComboBox comboBox)
+        {
+            if (comboBox.Text != ((Warehouse)comboBox.SelectedItem)?.WarehouseName)
+            {
+                return new Warehouse
+                {
+                    WarehouseName = comboBox.Text.Trim()
+                };
+            }
+            return (Warehouse)comboBox.SelectedItem;
+        }
+
+        private Vendor GetOrCreateVendor(ComboBox comboBox)
+        {
+            if (comboBox.Text != ((Vendor)comboBox.SelectedItem)?.VendorName)
+            {
+                return new Vendor
+                {
+                    VendorName = comboBox.Text.Trim()
+                };
+            }
+            return (Vendor)comboBox.SelectedItem;
+        }
+
+        private Package CreatePackage(DateTime createdDate, Vendor vendor, Warehouse warehouse, List<PackageProduct> products, string retriever, string address)
+        {
+            return new Package(
+                createdDate,
+                vendor,
+                warehouse,
+                products,
+                retriever,
+                address
+            );
+        }
+
         public async void SetAllData()
         {
             warehouseList = (await _warehouseService.GetAllWarehousesAsync())
@@ -377,11 +386,6 @@ namespace VisionTech_Anbar_Project
                 pictureBox2.Image = System.Drawing.Image.FromFile(openFileDialog.FileName);
                 pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
         }
 
     }
