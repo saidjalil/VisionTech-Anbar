@@ -8,7 +8,7 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 {
     public class BaseRepository<T> where T : BaseItem
     {
-        protected AppDbContext _context;
+        public AppDbContext _context;
         protected DbSet<T> _dbSet;
 
 

@@ -49,10 +49,12 @@ namespace VisionTech_Anbar_Project
         private static void ConfigureServices(ServiceCollection services, IConfiguration configuration)
         {
             // Register DbContext using connection string from configuration
+
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
                     .EnableSensitiveDataLogging());
-
+            services.AddScoped<AppDbContext>();
+            
             services.AddTransient<PackageRepository>();
             services.AddTransient<ProductRepository>();
             services.AddTransient<CategoryRepository>();

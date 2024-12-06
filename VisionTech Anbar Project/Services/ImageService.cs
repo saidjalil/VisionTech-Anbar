@@ -1,3 +1,4 @@
+using System.Transactions;
 using VisionTech_Anbar_Project.Repositories;
 
 namespace VisionTech_Anbar_Project.Services;
@@ -21,9 +22,18 @@ public class ImageService
         return await _imageRepository.FindAsyncById(id);
     }
 
+    // public async Task CreateImageAsync(Entities.Image image)
+    // {
+    //     await _imageRepository.Create(image);
+    // }
+    
     public async Task CreateImageAsync(Entities.Image image)
     {
-        await _imageRepository.Create(image);
+        using (var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+        {
+            await _imageRepository.Create(image);
+            transaction.Complete();
+        }
     }
 
     public async Task UpdateImageAsync(Entities.Image image)

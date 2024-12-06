@@ -77,13 +77,12 @@ namespace VisionTech_Anbar_Project
                 //CreateItemPanel(addColumnForm.NewPackage);
                 //JsonManager.AddPackage(addColumnForm.NewPackage);
                 await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
-                RestartPage();
-                InitializeItems();
+                
 
                 if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
                 {
-                    await imageManager.SaveImage(addColumnForm.openFileDialog, addColumnForm.NewPackage.Id); // Call the provided SaveImage method
-                                                                                                             //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var image = imageManager.SaveImage(addColumnForm.openFileDialog, addColumnForm.NewPackage.Id); // Call the provided SaveImage method
+                    await _imageService.CreateImageAsync(image);                                                                                         //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -93,6 +92,9 @@ namespace VisionTech_Anbar_Project
                 //InitializeItems(addColumnForm.NewPackage);
                 //Packages.Add(addColumnForm.NewPackage);
                 //AddPackageToUI(addColumnForm.NewPackage);
+                
+                RestartPage();
+                InitializeItems();
             }
         }
         private void SetupMainTableLayoutPanel()

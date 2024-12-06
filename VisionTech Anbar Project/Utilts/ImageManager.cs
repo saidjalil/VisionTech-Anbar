@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
 using Serilog;
 using VisionTech_Anbar_Project.Services;
+using Image = VisionTech_Anbar_Project.Entities.Image;
 
 namespace VisionTech_Anbar_Project.Utilts
 {
@@ -18,15 +14,15 @@ namespace VisionTech_Anbar_Project.Utilts
             _imageService = imageService;
         }
 
-        public async Task SaveImage(OpenFileDialog openFileDialog, int packageId)
+        public  Image SaveImage(OpenFileDialog openFileDialog, int packageId)
         {
             if (openFileDialog == null || string.IsNullOrEmpty(openFileDialog.FileName))
             {
                 Log.Error("No file selected for saving. The OpenFileDialog is null or contains an empty file path.");
-                return;
+                return null;
             }
 
-            string sourceImagePath = packageId.ToString();
+            string sourceImagePath = openFileDialog.FileName;
             string imagesFolder = FileManager.GetImagesPath();
 
             try
@@ -44,7 +40,11 @@ namespace VisionTech_Anbar_Project.Utilts
                 
                 File.Copy(sourceImagePath, destinationImagePath, true);
                 Log.Information("Image saved successfully from {SourceImagePath} to {DestinationImagePath}", sourceImagePath, destinationImagePath);
-                await _imageService.CreateImageAsync(new (){PackageId = packageId, Base64 = Convert.ToBase64String(File.ReadAllBytes(destinationImagePath))});
+                var image = new Image();
+                image.PackageId = packageId;
+                image.Base64 = ImageConverter.ConvertImageToBase64(destinationImagePath);
+
+                return image;
             }
             
             catch (IOException ioEx)
@@ -59,6 +59,8 @@ namespace VisionTech_Anbar_Project.Utilts
             {
                 Log.Error(ex, "An unexpected error occurred while saving the image from {SourceImagePath} to {DestinationImagePath}.", sourceImagePath, Path.Combine(imagesFolder, Path.GetFileName(sourceImagePath)));
             }
+
+            return null;
         }
         
         
