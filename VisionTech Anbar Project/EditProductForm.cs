@@ -329,7 +329,7 @@ namespace VisionTech_Anbar_Project
 
             if (addProductForm.DataSaved)
             {
-                Debug.WriteLine("I WORK");
+               // Debug.WriteLine("I WORK");
                 //    JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 RestartPage();
                 InitializeItems();

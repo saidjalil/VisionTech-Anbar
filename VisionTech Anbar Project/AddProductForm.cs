@@ -37,6 +37,8 @@ namespace VisionTech_Anbar_Project
         private readonly CategoryService categoryService;
         private readonly BarcodeService barcodeService;
 
+        public TextBox barcodeTextBox;
+
 
         private int selectedId = 1;
         private int currentParentId = 0;
@@ -61,6 +63,8 @@ namespace VisionTech_Anbar_Project
             this.productService = productService;
             this.barcodeService = barcodeService;
 
+
+            barcodeTextBox = textBox1;
             InitializeComponent();
             InitializeDynamicPanel();
             LoadTopCategories();
@@ -93,7 +97,7 @@ namespace VisionTech_Anbar_Project
         private async void PopulateOriginalProduct()
         {
             // comboBox1.Text = Category;
-            textBox2.Text = OriginalProduct.Product.ProductName.ToString();
+            comboBox1.Text = OriginalProduct.Product.ProductName.ToString();
             textBox3.Text = OriginalProduct.Quantity.ToString();
 
             categories = (await categoryService.GetAllCategoriesAsync()).ToList();
@@ -104,7 +108,7 @@ namespace VisionTech_Anbar_Project
         private void ClearInput()
         {
             textBox1.Clear();
-            textBox2.Clear();
+            comboBox1.ResetText();
             textBox3.Clear();
 
         }
@@ -119,7 +123,7 @@ namespace VisionTech_Anbar_Project
                 return;
             }
 
-            
+
             DataSaved = true;
             if (await StoreInput())
             {
@@ -130,7 +134,7 @@ namespace VisionTech_Anbar_Project
         {
             List<String> errors = new List<string>();
 
-            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            if (string.IsNullOrWhiteSpace(comboBox1.Text))
                 errors.Add("Product Adı vacibdir");
 
             return errors;
@@ -150,12 +154,12 @@ namespace VisionTech_Anbar_Project
 
             isRegular = checkBox1.Checked;
 
-            Name = textBox2.Text;
+            Name = comboBox1.Text;
             //var selectedCategory = mainComboBox.SelectedItem as Category;
 
 
             //Log.Information(selectedCategory.Name);
-            //Description = textBox2.Text;
+            //Description = comboBox1.Text;
 
             //if(!int.TryParse(textBox1.Text, out int currentbarcodeValue) && !string.IsNullOrWhiteSpace(textBox1.Text))
             //{
@@ -173,8 +177,8 @@ namespace VisionTech_Anbar_Project
 
             foreach (TextBox txtbox in textBoxList)
             {
-                if(string.IsNullOrWhiteSpace(txtbox.Text) && !currentlyHaveBarcode)
-                    {
+                if (string.IsNullOrWhiteSpace(txtbox.Text) && !currentlyHaveBarcode)
+                {
                     MessageBox.Show(
                         "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
                         "Daxiletmə xətası",
@@ -219,10 +223,10 @@ namespace VisionTech_Anbar_Project
             if (currentList.Count > 0)
             {
                 string mes = string.Empty;
-                
+
                 foreach (Barcode barcode in currentList)
                 {
-                    mes += $"{barcode.BarCode}," ;
+                    mes += $"{barcode.BarCode},";
                 }
 
                 MessageBox.Show(
@@ -300,15 +304,99 @@ namespace VisionTech_Anbar_Project
             // write the products current data
             if (currentProduct != null)
             {
-                textBox2.Text = currentProduct.ProductName;
+                comboBox1.Text = currentProduct.ProductName;
                 setCurrentBarcodes();
-                //textBox2.Enabled = false;
+                //comboBox1.Enabled = false;
+                textBox1.Enabled = false;
+                button2.Enabled = false;
+                //SetCurrentCategories();
 
             }
         }
+        //private async void SetCurrentCategories()
+        //{
+        //    if (currentProduct == null) return;
+
+        //    // Get the category hierarchy for the current product
+        //    var categoryHierarchy = await GetCategoryHierarchyAsync(currentProduct.CategoryId);
+
+        //    // Clear existing ComboBoxes
+        //    foreach (var comboBox in _comboBoxes)
+        //    {
+        //        panelDynamic.Controls.Remove(comboBox);
+        //    }
+        //    _comboBoxes.Clear();
+        //    _nextControlY = 10; // Reset the Y position for new ComboBoxes
+
+        //    Category parentCategory = null;
+
+        //    // Add ComboBoxes for each category in the hierarchy
+        //    foreach (var category in categoryHierarchy)
+        //    {
+        //        // Load subcategories for the current category
+        //        var subCategories = categoryService.GetSubCategories(parentCategory?.Id ?? 0).ToList();
+
+        //        // Add a ComboBox and select the current category in the hierarchy
+        //        var comboBox = new ComboBox
+        //        {
+        //            DataSource = subCategories,
+        //            DisplayMember = "Name",
+        //            ValueMember = "Id",
+        //            Location = new Point(10, _nextControlY),
+        //            Width = 200,
+        //            DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
+        //            Tag = parentCategory // Store the parent category
+        //        };
+
+        //        if (subCategories.Any(c => c.Id == category.Id))
+        //        {
+        //            comboBox.SelectedItem = subCategories.First(c => c.Id == category.Id);
+        //        }
+
+        //        // Attach events to the ComboBox
+        //        comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+        //        comboBox.KeyDown += ComboBox_KeyDown;
+
+        //        // Add the ComboBox to the panel
+        //        panelDynamic.Controls.Add(comboBox);
+
+        //        // Update Y position for the next control
+        //        _nextControlY += comboBox.Height + 5;
+
+        //        // Keep track of the ComboBox
+        //        _comboBoxes.Add(comboBox);
+
+        //        // Set parentCategory for the next iteration
+        //        parentCategory = category;
+        //    }
+        //}
+
+        ///// <summary>
+        ///// Retrieves the category hierarchy for a given category ID.
+        ///// </summary>
+        //private async Task<List<Category>> GetCategoryHierarchyAsync(int categoryId)
+        //{
+        //    var hierarchy = new List<Category>();
+        //    while (categoryId != 0)
+        //    {
+        //        // Await the result of the asynchronous call
+        //        var category = await categoryService.GetCategoryByIdAsync(categoryId);
+        //        if (category == null) break;
+
+        //        hierarchy.Insert(0, category); // Add to the beginning to maintain the hierarchy order
+        //        categoryId = category.ParentId ?? 0; // Move to the parent category
+        //    }
+        //    return hierarchy;
+        //}
+
         private void setCurrentBarcodes()
         {
-            // Clear existing TextBoxes if any
+            // Clear existing TextBoxes related to barcodes from the form and the list
+            foreach (var textBox in textBoxList)
+            {
+                this.Controls.Remove(textBox);
+            }
+            textBoxList.Clear();
 
             // Get the current product barcodes
             List<Barcode> barcodes = currentProduct.Barcodes.ToList();
@@ -316,22 +404,34 @@ namespace VisionTech_Anbar_Project
             if (barcodes == null || !barcodes.Any())
                 return;
 
-            // Iterate through the barcodes and create textboxes
+            // Reset the count and position logic
+            textBoxCount = 0;
+
             for (int i = 0; i < barcodes.Count; i++)
             {
                 // Increment TextBox count
                 textBoxCount++;
+
+                // Calculate position relative to the button (same logic as CreateTextBox)
+                var buttonPosition = button3.Location;
+                var buttonSize = button3.Size;
+
+                // Calculate the X position (to the right of the button)
+                int xOffset = buttonPosition.X + buttonSize.Width + 10; // 10 pixels padding to the right of the button
+
+                // Calculate the Y position based on the count of existing TextBoxes
+                int yOffset = buttonPosition.Y + (textBoxCount - 1) * (30 + 10); // 30 is TextBox height, 5 is vertical padding
 
                 // Create a new TextBox
                 TextBox newTextBox = new TextBox
                 {
                     Name = "TextBox" + textBoxCount,
                     Width = 200,
-                    Location = new System.Drawing.Point(286, 200 + (40 * textBoxCount)), // Adjust location dynamically
+                    Location = new System.Drawing.Point(xOffset, yOffset), // Adjusted position
                     Tag = textBoxCount,
                     Size = new System.Drawing.Size(177, 26),
                     PlaceholderText = "**********",
-                    Text = barcodes[i].BarCode.ToString() // Populate the TextBox with the current barcode
+                    Text = barcodes[i].BarCode.ToString() // Populate with the barcode
                 };
 
                 newTextBox.KeyPress += NewTextBoxKeyPress;
@@ -343,6 +443,7 @@ namespace VisionTech_Anbar_Project
                 this.Controls.Add(newTextBox);
             }
         }
+
 
         // Helper method to clear existing TextBoxes
 
@@ -357,8 +458,8 @@ namespace VisionTech_Anbar_Project
             currentProduct = await productService.GetProductByBarCode(textBox1.Text);
             if (currentProduct != null)
             {
-                textBox2.Text = currentProduct.ProductName;
-                textBox2.Enabled = false;
+                comboBox1.Text = currentProduct.ProductName;
+                comboBox1.Enabled = false;
                 currentlyHaveBarcode = true;
                 //setCurrentBarcodes();
             }
@@ -377,17 +478,31 @@ namespace VisionTech_Anbar_Project
             // Increment TextBox count to use as an identifier
             textBoxCount++;
 
+            // Get the position and size of the button
+            var buttonPosition = button3.Location;
+            var buttonSize = button3.Size;
+
+            // Calculate the X position (to the right of the button)
+            int xOffset = buttonPosition.X + buttonSize.Width + 10; // 10 pixels padding to the right of the button
+
+            // Calculate the Y position based on the count of existing TextBoxes
+            int yOffset = buttonPosition.Y + (textBoxCount - 1) * (30 + 10); // 30 is TextBox height, 5 is vertical padding
+
             // Create a new TextBox
             TextBox newTextBox = new TextBox
             {
                 Name = "TextBox" + textBoxCount,
                 Width = 200,
-                Location = new System.Drawing.Point(286, 200 + (40 * textBoxCount)), // Adjust location dynamically
-                Tag = textBoxCount, // Store the ID as a tag
-                Size = new System.Drawing.Size(177, 26),
-                PlaceholderText = "**********"
+                Location = new System.Drawing.Point(
+                    xOffset, // Position it to the right of the button
+                    yOffset  // Stack vertically with padding
+                ),
+                Size = new System.Drawing.Size(177, 30), // Height is 30, adjust if needed
+                PlaceholderText = "**********",
+                Tag = textBoxCount // Store the ID as a tag
             };
 
+            // Attach an event handler for KeyPress
             newTextBox.KeyPress += NewTextBoxKeyPress;
 
             // Add the new TextBox to the list
@@ -395,8 +510,10 @@ namespace VisionTech_Anbar_Project
 
             // Add the new TextBox to the form
             this.Controls.Add(newTextBox);
-
         }
+
+
+
 
         private void NewTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
@@ -442,9 +559,10 @@ namespace VisionTech_Anbar_Project
             panelDynamic.AutoScroll = true;
         }
 
-        private void LoadTopCategories()
+        private async void LoadTopCategories()
         {
             var topCategories = categoryService.GetTopLevelCategories().ToList();
+            var products = (await productService.GetProductsByCategoryAsync(topCategories[0].Id)).ToList();
 
             if (topCategories.Any())
             {
@@ -452,6 +570,7 @@ namespace VisionTech_Anbar_Project
             }
 
             AddComboBox(null, topCategories);
+            SetProducts(products);
         }
 
         private void AddComboBox(Category parentCategory, List<Category> categories)
@@ -474,7 +593,7 @@ namespace VisionTech_Anbar_Project
                 DisplayMember = "Name",
                 ValueMember = "Id",
                 Location = new Point(10, _nextControlY),
-                Width = 150,
+                Width = 200,
                 DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
                 Tag = parentCategory // Store the parent category
             };
@@ -505,7 +624,7 @@ namespace VisionTech_Anbar_Project
         }
 
 
-        private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var comboBox = sender as ComboBox;
             if (comboBox == null) return;
@@ -531,9 +650,11 @@ namespace VisionTech_Anbar_Project
 
             // Load subcategories of the selected category
             var subCategories = categoryService.GetSubCategories(selectedCategory.Id).ToList();
+            var products = (await productService.GetProductsByCategoryAsync(selectedCategory.Id)).ToList();
 
             // Always add a new ComboBox, even if no subcategories exist
             AddComboBox(selectedCategory, subCategories);
+            SetProducts(products);
         }
 
         private async void ComboBox_KeyDown(object sender, KeyEventArgs e)
@@ -584,7 +705,38 @@ namespace VisionTech_Anbar_Project
             }
         }
 
+        private void SetProducts(List<Product> products)
+        {
+            if (products.Count != 0)
+            {
+                comboBox1.DataSource = products;
+                comboBox1.DisplayMember = "ProductName"; // Display the 'Name' in the ComboBox
+                comboBox1.ValueMember = "ProductName";
+            }
+            else
+            {
+                comboBox1.ResetText();
+                comboBox1.DataSource = null;
+
+            }
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelDynamic_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

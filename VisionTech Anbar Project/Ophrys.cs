@@ -212,11 +212,12 @@ namespace VisionTech_Anbar_Project
             Button exportButton = CreateStyledButton("⇪", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             exportButton.Click += ExportButton_Click;
 
-            buttonPanel.Controls.Add(exportButton);
             buttonPanel.Controls.Add(expandButton);
             buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
+            buttonPanel.Controls.Add(exportButton);
+
 
             itemPanel.Controls.Add(packageCheckBox);
             itemPanel.Controls.Add(itemLabel);
