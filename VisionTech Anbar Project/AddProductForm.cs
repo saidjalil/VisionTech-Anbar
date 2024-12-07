@@ -259,7 +259,6 @@ namespace VisionTech_Anbar_Project
             };
             return barcode;
         }
-
         private void ShowErrors(List<string> errors, int max)
         {
             MessageBoxIcon icon;
@@ -304,90 +303,89 @@ namespace VisionTech_Anbar_Project
             // write the products current data
             if (currentProduct != null)
             {
+                SetCurrentCategories();
                 comboBox1.Text = currentProduct.ProductName;
                 setCurrentBarcodes();
                 //comboBox1.Enabled = false;
                 textBox1.Enabled = false;
                 button2.Enabled = false;
-                //SetCurrentCategories();
-
             }
         }
-        //private async void SetCurrentCategories()
-        //{
-        //    if (currentProduct == null) return;
+        private async void SetCurrentCategories()
+        {
+            if (currentProduct == null) return;
 
-        //    // Get the category hierarchy for the current product
-        //    var categoryHierarchy = await GetCategoryHierarchyAsync(currentProduct.CategoryId);
+            // Get the category hierarchy for the current product
+            var categoryHierarchy = await GetCategoryHierarchyAsync(currentProduct.CategoryId);
 
-        //    // Clear existing ComboBoxes
-        //    foreach (var comboBox in _comboBoxes)
-        //    {
-        //        panelDynamic.Controls.Remove(comboBox);
-        //    }
-        //    _comboBoxes.Clear();
-        //    _nextControlY = 10; // Reset the Y position for new ComboBoxes
+            // Clear existing ComboBoxes
+            foreach (var comboBox in _comboBoxes)
+            {
+                panelDynamic.Controls.Remove(comboBox);
+            }
+            _comboBoxes.Clear();
+            _nextControlY = 10; // Reset the Y position for new ComboBoxes
 
-        //    Category parentCategory = null;
+            Category parentCategory = null;
 
-        //    // Add ComboBoxes for each category in the hierarchy
-        //    foreach (var category in categoryHierarchy)
-        //    {
-        //        // Load subcategories for the current category
-        //        var subCategories = categoryService.GetSubCategories(parentCategory?.Id ?? 0).ToList();
+            // Add ComboBoxes for each category in the hierarchy
+            foreach (var category in categoryHierarchy)
+            {
+                // Load subcategories for the current category
+                var subCategories = categoryService.GetSubCategories(parentCategory?.Id ?? 0).ToList();
 
-        //        // Add a ComboBox and select the current category in the hierarchy
-        //        var comboBox = new ComboBox
-        //        {
-        //            DataSource = subCategories,
-        //            DisplayMember = "Name",
-        //            ValueMember = "Id",
-        //            Location = new Point(10, _nextControlY),
-        //            Width = 200,
-        //            DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
-        //            Tag = parentCategory // Store the parent category
-        //        };
+                // Add a ComboBox and select the current category in the hierarchy
+                var comboBox = new ComboBox
+                {
+                    DataSource = subCategories,
+                    DisplayMember = "Name",
+                    ValueMember = "Id",
+                    Location = new Point(10, _nextControlY),
+                    Width = 200,
+                    DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
+                    Tag = parentCategory // Store the parent category
+                };
 
-        //        if (subCategories.Any(c => c.Id == category.Id))
-        //        {
-        //            comboBox.SelectedItem = subCategories.First(c => c.Id == category.Id);
-        //        }
+                if (subCategories.Any(c => c.Id == category.Id))
+                {
+                    comboBox.SelectedItem = subCategories.First(c => c.Id == category.Id);
+                }
 
-        //        // Attach events to the ComboBox
-        //        comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
-        //        comboBox.KeyDown += ComboBox_KeyDown;
+                // Attach events to the ComboBox
+                comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+                comboBox.KeyDown += ComboBox_KeyDown;
 
-        //        // Add the ComboBox to the panel
-        //        panelDynamic.Controls.Add(comboBox);
+                // Add the ComboBox to the panel
+                panelDynamic.Controls.Add(comboBox);
 
-        //        // Update Y position for the next control
-        //        _nextControlY += comboBox.Height + 5;
+                // Update Y position for the next control
+                _nextControlY += comboBox.Height + 5;
 
-        //        // Keep track of the ComboBox
-        //        _comboBoxes.Add(comboBox);
+                // Keep track of the ComboBox
+                _comboBoxes.Add(comboBox);
 
-        //        // Set parentCategory for the next iteration
-        //        parentCategory = category;
-        //    }
-        //}
+                // Set parentCategory for the next iteration
+                parentCategory = category;
+            }
+        }
 
-        ///// <summary>
-        ///// Retrieves the category hierarchy for a given category ID.
-        ///// </summary>
-        //private async Task<List<Category>> GetCategoryHierarchyAsync(int categoryId)
-        //{
-        //    var hierarchy = new List<Category>();
-        //    while (categoryId != 0)
-        //    {
-        //        // Await the result of the asynchronous call
-        //        var category = await categoryService.GetCategoryByIdAsync(categoryId);
-        //        if (category == null) break;
+        /// <summary>
+        /// Retrieves the category hierarchy for a given category ID.
+        /// </summary>
+        private async Task<List<Category>> GetCategoryHierarchyAsync(int categoryId)
+        {
+            var hierarchy = new List<Category>();
+            while (categoryId != 0)
+            {
+                // Await the result of the asynchronous call
+                var category = await categoryService.GetCategoryByIdAsync(categoryId);
+                if (category == null) break;
 
-        //        hierarchy.Insert(0, category); // Add to the beginning to maintain the hierarchy order
-        //        categoryId = category.ParentId ?? 0; // Move to the parent category
-        //    }
-        //    return hierarchy;
-        //}
+                hierarchy.Insert(0, category); // Add to the beginning to maintain the hierarchy order
+                categoryId = category.ParentId ?? 0; // Move to the parent category
+            }
+            return hierarchy;
+        }
 
         private void setCurrentBarcodes()
         {
@@ -719,6 +717,10 @@ namespace VisionTech_Anbar_Project
                 comboBox1.DataSource = null;
 
             }
+            //if(currentProduct != null)
+            //{
+            //    comboBox1.Text = currentProduct.ProductName;
+            //}
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

@@ -98,6 +98,7 @@
             // 
             // ExportAll
             // 
+            ExportAll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ExportAll.Location = new Point(468, 56);
             ExportAll.Name = "ExportAll";
             ExportAll.Size = new Size(94, 29);
@@ -109,7 +110,7 @@
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
-            AutoScaleDimensions = new SizeF(13F, 26F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(644, 377);
             Controls.Add(ExportAll);

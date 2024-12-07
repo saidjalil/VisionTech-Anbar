@@ -77,7 +77,7 @@ namespace VisionTech_Anbar_Project
                 //CreateItemPanel(addColumnForm.NewPackage);
                 //JsonManager.AddPackage(addColumnForm.NewPackage);
                 await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
-                
+
 
                 if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
                 {
@@ -92,7 +92,7 @@ namespace VisionTech_Anbar_Project
                 //InitializeItems(addColumnForm.NewPackage);
                 //Packages.Add(addColumnForm.NewPackage);
                 //AddPackageToUI(addColumnForm.NewPackage);
-                
+
                 RestartPage();
                 InitializeItems();
             }
@@ -269,7 +269,7 @@ namespace VisionTech_Anbar_Project
             // Example: Print the selected package IDs
             string packageIdsString = string.Join(", ", packageIds);
 
-            FileExporter fileExporter = new FileExporter(_packageService,_imageService);
+            FileExporter fileExporter = new FileExporter(_packageService, _imageService);
 
             fileExporter.CreateAndWriteExportFile(packageIds);
 
