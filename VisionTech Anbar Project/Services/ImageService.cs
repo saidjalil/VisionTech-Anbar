@@ -49,6 +49,6 @@ public class ImageService
 
     public async Task<IEnumerable<Entities.Image>> GetImagesByPackageIdAsync(int packageId)
     {
-        return await _imageRepository.GetImagesByPackageIdAsync(packageId);
+        return (await _imageRepository.GetImagesByPackageIdAsync(packageId)).ToList();
     }
 }

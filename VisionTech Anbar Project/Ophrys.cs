@@ -77,7 +77,7 @@ namespace VisionTech_Anbar_Project
                 //CreateItemPanel(addColumnForm.NewPackage);
                 //JsonManager.AddPackage(addColumnForm.NewPackage);
                 await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
-
+                
 
                 if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
                 {
@@ -92,7 +92,7 @@ namespace VisionTech_Anbar_Project
                 //InitializeItems(addColumnForm.NewPackage);
                 //Packages.Add(addColumnForm.NewPackage);
                 //AddPackageToUI(addColumnForm.NewPackage);
-
+                
                 RestartPage();
                 InitializeItems();
             }
@@ -113,7 +113,13 @@ namespace VisionTech_Anbar_Project
 
         private async void InitializeItems()
         {
-            var data = await _packageService.GetAllPackageWithNavigation();
+            // Clear the UI while loading
+            mainTableLayoutPanel.Controls.Clear();
+    
+            // Load the data asynchronously (this prevents UI freezing)
+            var data = await Task.Run(() => _packageService.GetAllPackageWithNavigation());
+
+            // Add items to the UI (this runs on the UI thread)
             foreach (var item in data)
             {
                 Panel itemPanel = CreateItemPanel(item);
@@ -125,15 +131,17 @@ namespace VisionTech_Anbar_Project
                     Product = pp.Product,
                     Quantity = pp.Quantity
                 });
+
                 foreach (var product in products)
                 {
                     Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
                     mainTableLayoutPanel.RowCount++;
                     mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1);
-                    subItemsPanel.Visible = false;
+                    subItemsPanel.Visible = false; // Hide by default
                 }
             }
         }
+
 
         public void RestartPage()
         {
@@ -266,18 +274,19 @@ namespace VisionTech_Anbar_Project
         // Your export logic
         private void ExportSelectedPackages(List<int> packageIds)
         {
-            // Example: Print the selected package IDs
-            string packageIdsString = string.Join(", ", packageIds);
-
-            FileExporter fileExporter = new FileExporter(_packageService, _imageService);
-
-            fileExporter.CreateAndWriteExportFile(packageIds);
-
-
-            MessageBox.Show($"Exporting packages with IDs: {packageIdsString}", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Add actual export functionality here (e.g., generate CSV, send to API, etc.)
+            Task.Run(() =>
+            {
+                FileExporter fileExporter = new FileExporter(_packageService, _imageService);
+                fileExporter.CreateAndWriteExportFile(packageIds);
+        
+                // Back on the UI thread to show the message
+                this.Invoke(() => 
+                {
+                    MessageBox.Show("Packages exported successfully!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                });
+            });
         }
+
 
 
 

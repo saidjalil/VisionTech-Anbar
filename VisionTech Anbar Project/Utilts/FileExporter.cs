@@ -1,6 +1,5 @@
-using Microsoft.VisualBasic.Logging;
 using Newtonsoft.Json;
-using VisionTech_Anbar_Project.Repositories;
+using Serilog;
 using VisionTech_Anbar_Project.Services;
 using VisionTech_Anbar_Project.ViewModel;
 using Package = VisionTech_Anbar_Project.Entities.Package;
@@ -69,14 +68,27 @@ public class FileExporter
         List<ExportViewModel> exportViewModels = new List<ExportViewModel>();
         foreach (var id in ids) 
         {
-            var package = await _packageService.GetPackageWithNavigation(id);
-            var image = await _imageService.GetImagesByPackageIdAsync(package.Id);
-
-            ExportViewModel export = new ExportViewModel()
+            try
             {
-                Package = package,
-                Image = image.First(),
-            };
+                var package = await _packageService.GetPackageWithNavigation(id);
+                var image = await _imageService.GetImagesByPackageIdAsync(package.Id);
+                ExportViewModel export = new ExportViewModel();
+                export.Package = package;
+                if (image.ToList().Count > 0)
+                {
+                    export.Image = image.First();
+                }
+                
+                exportViewModels.Add(export);
+            }
+            catch (Exception e)
+            {
+                Log.Information(e.Message);
+                throw;
+            }
+            
+
+            
         }
             
        
