@@ -33,12 +33,12 @@ namespace VisionTech_Anbar_Project.Utilts
                     Log.Information("Images folder created at path: {ImagesFolderPath}", imagesFolder);
                 }
 
-                
-                string fileName = Path.GetFileName(sourceImagePath);
+                var fileExtention = Path.GetExtension(sourceImagePath);
+                string fileName = packageId.ToString() + fileExtention;
                 string destinationImagePath = Path.Combine(imagesFolder, fileName);
 
                 
-                File.Copy(sourceImagePath, destinationImagePath, true);
+                // File.Copy(sourceImagePath, destinationImagePath, true);
                 Log.Information("Image saved successfully from {SourceImagePath} to {DestinationImagePath}", sourceImagePath, destinationImagePath);
                 var image = new Image();
                 image.PackageId = packageId;
