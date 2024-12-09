@@ -328,13 +328,44 @@ namespace VisionTech_Anbar_Project
 
             Category parentCategory = null;
 
-            // Add ComboBoxes for each category in the hierarchy
-            foreach (var category in categoryHierarchy)
+            // Populate the first ComboBox with top-level categories (ParentId = null)
+            var firstComboBoxCategories = categoryService.GetTopLevelCategories().ToList(); // Root categories
+            if (firstComboBoxCategories.Any())
             {
-                // Load subcategories for the current category
+                var firstComboBox = new ComboBox
+                {
+                    DataSource = firstComboBoxCategories,
+                    DisplayMember = "Name",
+                    ValueMember = "Id",
+                    Location = new Point(10, _nextControlY),
+                    Width = 200,
+                    DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
+                    Tag = null // Top-level categories don't have a parent
+                };
+
+                // Select the category that matches the hierarchy if applicable
+                if (categoryHierarchy.Any())
+                {
+                    var rootCategory = categoryHierarchy.First();
+                    firstComboBox.SelectedItem = firstComboBoxCategories.FirstOrDefault(c => c.Id == rootCategory.Id);
+                }
+
+                firstComboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
+                firstComboBox.KeyDown += ComboBox_KeyDown;
+
+                panelDynamic.Controls.Add(firstComboBox);
+                _comboBoxes.Add(firstComboBox);
+
+                _nextControlY += firstComboBox.Height + 5;
+
+                parentCategory = firstComboBox.SelectedItem as Category;
+            }
+
+            // Add ComboBoxes for each subsequent category in the hierarchy
+            foreach (var category in categoryHierarchy.Skip(1))
+            {
                 var subCategories = categoryService.GetSubCategories(parentCategory?.Id ?? 0).ToList();
 
-                // Add a ComboBox and select the current category in the hierarchy
                 var comboBox = new ComboBox
                 {
                     DataSource = subCategories,
@@ -351,23 +382,34 @@ namespace VisionTech_Anbar_Project
                     comboBox.SelectedItem = subCategories.First(c => c.Id == category.Id);
                 }
 
-                // Attach events to the ComboBox
                 comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
                 comboBox.KeyDown += ComboBox_KeyDown;
 
-                // Add the ComboBox to the panel
                 panelDynamic.Controls.Add(comboBox);
-
-                // Update Y position for the next control
-                _nextControlY += comboBox.Height + 5;
-
-                // Keep track of the ComboBox
                 _comboBoxes.Add(comboBox);
 
-                // Set parentCategory for the next iteration
+                _nextControlY += comboBox.Height + 5;
+
                 parentCategory = category;
             }
+
+            // Ensure the last ComboBox selects the correct subcategory
+            var lastComboBox = _comboBoxes.LastOrDefault();
+            if (lastComboBox != null && lastComboBox.DataSource is List<Category> lastCategories)
+            {
+                var lastCategory = categoryHierarchy.LastOrDefault();
+                if (lastCategory != null)
+                {
+                    // Select the correct subcategory in the last ComboBox
+                    lastComboBox.SelectedItem = lastCategories.FirstOrDefault(c => c.Id == lastCategory.Id);
+
+                    // Trigger the event programmatically to simulate user interaction
+                    ComboBox_SelectedIndexChanged(lastComboBox, EventArgs.Empty);
+                }
+            }
         }
+
+
 
         /// <summary>
         /// Retrieves the category hierarchy for a given category ID.

@@ -35,6 +35,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             button3 = new Button();
             ExportAll = new Button();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -42,7 +43,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(15, 24);
+            pictureBox1.Location = new Point(15, 27);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(192, 66);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -58,7 +59,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(529, 2);
+            metroSetControlBox1.Location = new Point(575, 2);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -88,7 +89,7 @@
             button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button3.BackColor = Color.FromArgb(42, 45, 85);
             button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(568, 51);
+            button3.Location = new Point(561, 51);
             button3.Name = "button3";
             button3.Size = new Size(64, 39);
             button3.TabIndex = 17;
@@ -99,25 +100,47 @@
             // ExportAll
             // 
             ExportAll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ExportAll.Location = new Point(468, 56);
+            ExportAll.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ExportAll.ForeColor = Color.FromArgb(42, 45, 85);
+            ExportAll.Location = new Point(631, 50);
             ExportAll.Name = "ExportAll";
-            ExportAll.Size = new Size(94, 29);
+            ExportAll.Size = new Size(44, 39);
             ExportAll.TabIndex = 18;
-            ExportAll.Text = "Export";
+            ExportAll.Text = "📤 ";
+            ExportAll.TextAlign = ContentAlignment.MiddleRight;
             ExportAll.UseVisualStyleBackColor = true;
             ExportAll.Click += ExportAllButton_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Location = new Point(15, 96);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(660, 289);
+            tableLayoutPanel1.TabIndex = 19;
             // 
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
             AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 377);
+            BorderColor = Color.FromArgb(42, 45, 85);
+            BorderThickness = 5F;
+            ClientSize = new Size(690, 400);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(ExportAll);
             Controls.Add(button3);
             Controls.Add(metroSetControlBox1);
             Controls.Add(pictureBox1);
             Name = "Ophrys";
+            ShowBorder = true;
             SmallLineColor1 = Color.Transparent;
             SmallLineColor2 = Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -132,5 +155,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private Button button3;
         private Button ExportAll;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

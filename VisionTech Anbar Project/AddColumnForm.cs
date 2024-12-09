@@ -281,7 +281,7 @@ namespace VisionTech_Anbar_Project
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService,_barcodeService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
             addProductForm.ShowDialog();
 
             // Add both sections to the accordion

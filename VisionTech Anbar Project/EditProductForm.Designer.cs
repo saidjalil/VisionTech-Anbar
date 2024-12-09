@@ -32,6 +32,7 @@
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             button3 = new Button();
             pictureBox1 = new PictureBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(594, 5);
+            metroSetControlBox1.Location = new Point(603, 5);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -61,6 +62,7 @@
             metroSetControlBox1.Text = "metroSetControlBox1";
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
+            metroSetControlBox1.Click += metroSetControlBox1_Click;
             // 
             // button3
             // 
@@ -86,17 +88,34 @@
             pictureBox1.TabIndex = 17;
             pictureBox1.TabStop = false;
             // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Location = new Point(15, 98);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(679, 296);
+            tableLayoutPanel1.TabIndex = 18;
+            // 
             // EditProductForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 26F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BorderColor = Color.DimGray;
+            BorderColor = Color.FromArgb(42, 45, 85);
+            BorderThickness = 5F;
             ClientSize = new Size(709, 409);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(pictureBox1);
             Controls.Add(button3);
             Controls.Add(metroSetControlBox1);
             HeaderColor = Color.Transparent;
             Name = "EditProductForm";
+            ShowBorder = true;
             SmallLineColor1 = Color.Transparent;
             SmallLineColor2 = Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -108,5 +127,6 @@
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
         private Button button3;
         private PictureBox pictureBox1;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

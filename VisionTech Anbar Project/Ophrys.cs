@@ -99,17 +99,18 @@ namespace VisionTech_Anbar_Project
         }
         private void SetupMainTableLayoutPanel()
         {
-            mainTableLayoutPanel = new TableLayoutPanel
-            {
-                Dock = DockStyle.Fill,
-                BackColor = Color.FromArgb(243, 246, 249), // Soft light gray background
-                Padding = new Padding(10, 20, 10, 10),
-                AutoScroll = true,
-                ColumnCount = 1,
-                CellBorderStyle = TableLayoutPanelCellBorderStyle.None
-            };
-            this.Controls.Add(mainTableLayoutPanel);
+            // Use the existing tableLayoutPanel1
+            mainTableLayoutPanel = tableLayoutPanel1;
+
+            // Set properties for the existing TableLayoutPanel
+            mainTableLayoutPanel.BackColor = Color.FromArgb(243, 246, 249); // Soft light gray background
+            //mainTableLayoutPanel.Padding = new Padding(10, -1200, 10, 10); // Add padding for internal spacing
+            //mainTableLayoutPanel.Margin = 0;
+            mainTableLayoutPanel.AutoScroll = true;
+            mainTableLayoutPanel.ColumnCount = 1; // Set column count to 1
+            mainTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.None; // No borders for cells
         }
+
 
         private async void InitializeItems()
         {
@@ -427,6 +428,10 @@ namespace VisionTech_Anbar_Project
         {
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
     // Extension method for rounded corners

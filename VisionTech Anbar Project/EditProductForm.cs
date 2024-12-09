@@ -112,15 +112,16 @@ namespace VisionTech_Anbar_Project
         }
         private void SetupMainTableLayoutPanel()
         {
-            mainTableLayoutPanel = new TableLayoutPanel
-            {
-                Dock = DockStyle.Fill,
-                BackColor = Color.Transparent,
-                Padding = new Padding(0, 30, 0, 0), // Add padding from the top
-                AutoScroll = true,
-                ColumnCount = 1, // Single column to arrange items vertically
-            };
-            this.Controls.Add(mainTableLayoutPanel);
+            // Use the existing tableLayoutPanel1
+            mainTableLayoutPanel = tableLayoutPanel1;
+
+            // Set properties for the existing TableLayoutPanel
+            mainTableLayoutPanel.BackColor = Color.FromArgb(243, 246, 249); // Soft light gray background
+            //mainTableLayoutPanel.Padding = new Padding(10, -1200, 10, 10); // Add padding for internal spacing
+            //mainTableLayoutPanel.Margin = 0;
+            mainTableLayoutPanel.AutoScroll = true;
+            mainTableLayoutPanel.ColumnCount = 1; // Set column count to 1
+            mainTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.None; // No borders for cells
         }
         private void InitializeItems()
         {
@@ -329,7 +330,7 @@ namespace VisionTech_Anbar_Project
 
             if (addProductForm.DataSaved)
             {
-               // Debug.WriteLine("I WORK");
+                // Debug.WriteLine("I WORK");
                 //    JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 RestartPage();
                 InitializeItems();
@@ -372,5 +373,9 @@ namespace VisionTech_Anbar_Project
             }
         }
 
+        private void metroSetControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
