@@ -41,6 +41,15 @@ namespace VisionTech_Anbar_Project.Utilts
 
             return filePath;
         }
+        
+        public static string GetGIFPath()
+        {
+            string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string twoFoldersUp = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(currentDirectory))));
+            string filePath = Path.Combine(twoFoldersUp, "Images", "GIF", "circle-9360_128.gif");
+
+            return filePath;
+        }
 
         public static string GetLogPath()
         {

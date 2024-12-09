@@ -27,7 +27,8 @@ namespace VisionTech_Anbar_Project
         private readonly VendorService _vendorService;
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
-
+        
+        private PictureBox loadingSpinner;
         // Buttons
         Button expandButton;
 
@@ -48,6 +49,7 @@ namespace VisionTech_Anbar_Project
 
             InitializeComponent();
             SetupMainTableLayoutPanel();
+            SetupLoadingSpinner();
             InitializeItems();
 
             button3.BringToFront();
@@ -92,6 +94,34 @@ namespace VisionTech_Anbar_Project
                 subItemsPanel.Visible = false; // Keep sub-items hidden initially
             }
         }
+        
+        private void SetupLoadingSpinner()
+        {
+            loadingSpinner = new PictureBox
+            {
+                Image = Image.FromFile(FileManager.GetGIFPath()), // Add a GIF spinner in project resources
+                SizeMode = PictureBoxSizeMode.AutoSize,
+                BackColor = Color.FromArgb(243,246,249),
+                Visible = false, // Hidden initially
+                
+            };
+            
+            loadingSpinner.Location = new Point((this.Width - loadingSpinner.Width) / 2, (this.Height - loadingSpinner.Height) / 2);
+            this.Controls.Add(loadingSpinner);
+            loadingSpinner.BringToFront();
+        }
+        
+        private void ShowLoadingSpinner()
+        {
+            loadingSpinner.Visible = true;
+            loadingSpinner.BringToFront();
+        }
+
+        private void HideLoadingSpinner()
+        {
+            loadingSpinner.Visible = false;
+        }
+        
         private void SetupMainTableLayoutPanel()
         {
             mainTableLayoutPanel = new TableLayoutPanel
@@ -108,32 +138,37 @@ namespace VisionTech_Anbar_Project
 
         private async void InitializeItems()
         {
-            // Clear the UI while loading
-            mainTableLayoutPanel.Controls.Clear();
-    
-            // Load the data asynchronously (this prevents UI freezing)
-            var data = await Task.Run(() => _packageService.GetAllPackageWithNavigation());
-
-            // Add items to the UI (this runs on the UI thread)
-            foreach (var item in data)
+            try
             {
-                Panel itemPanel = CreateItemPanel(item);
-                mainTableLayoutPanel.RowCount++;
-                mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1);
+                ShowLoadingSpinner(); // Show spinner when loading starts
+                mainTableLayoutPanel.Controls.Clear();
 
-                var products = item.PackageProducts.Select(pp => new PackageProduct
-                {
-                    Product = pp.Product,
-                    Quantity = pp.Quantity
-                });
+                var data = await Task.Run(() => _packageService.GetAllPackageWithNavigation());
 
-                foreach (var product in products)
+                foreach (var item in data)
                 {
-                    Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
+                    Panel itemPanel = CreateItemPanel(item);
                     mainTableLayoutPanel.RowCount++;
-                    mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1);
-                    subItemsPanel.Visible = false; // Hide by default
+                    mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1);
+
+                    var products = item.PackageProducts.Select(pp => new PackageProduct
+                    {
+                        Product = pp.Product,
+                        Quantity = pp.Quantity
+                    });
+
+                    foreach (var product in products)
+                    {
+                        Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
+                        mainTableLayoutPanel.RowCount++;
+                        mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1);
+                        subItemsPanel.Visible = false;
+                    }
                 }
+            }
+            finally
+            {
+                HideLoadingSpinner(); // Hide spinner once data is loaded
             }
         }
 
