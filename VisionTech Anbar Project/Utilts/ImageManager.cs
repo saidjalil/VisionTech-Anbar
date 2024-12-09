@@ -38,7 +38,7 @@ namespace VisionTech_Anbar_Project.Utilts
                 string destinationImagePath = Path.Combine(imagesFolder, fileName);
 
                 
-                // File.Copy(sourceImagePath, destinationImagePath, true);
+                File.Copy(sourceImagePath, destinationImagePath, true);
                 Log.Information("Image saved successfully from {SourceImagePath} to {DestinationImagePath}", sourceImagePath, destinationImagePath);
                 var image = new Image();
                 image.PackageId = packageId;

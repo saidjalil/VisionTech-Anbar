@@ -59,42 +59,37 @@ namespace VisionTech_Anbar_Project
             AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService, _imageService, _barcodeService);
             addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
-            // Example for Section 1
-            //            Control[] section1Controls = {
+            
+            await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
 
-            //            CreatePanelWithContent("Label for Section 1", "Click Me", "path_to_image.png"),
-            //            CreatePanelWithContent("Label for Section 2", "Click Me", "path_to_image.png"),
-            //            CreatePanelWithContent("Label for Section 3", "Click Me", "path_to_image.png"),
-            //            CreatePanelWithContent("Label for Section 4", "Click Me", "path_to_image.png")
-
-            //};
-
-            // Add both sections to the accordion
-
-            // Add new Package to list and UI
-            if (addColumnForm.DataSaved)
+            if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
             {
-                //CreateItemPanel(addColumnForm.NewPackage);
-                //JsonManager.AddPackage(addColumnForm.NewPackage);
-                await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
-                
+                var image = imageManager.SaveImage(addColumnForm.openFileDialog, addColumnForm.NewPackage.Id);
+                await _imageService.CreateImageAsync(image);
+            }
+            else
+            {
+                MessageBox.Show("Şəkil seçilməyib.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-                if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
-                {
-                    var image = imageManager.SaveImage(addColumnForm.openFileDialog, addColumnForm.NewPackage.Id); // Call the provided SaveImage method
-                    await _imageService.CreateImageAsync(image);                                                                                         //MessageBox.Show("Image saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Şəkil seçilməyib.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                //AddAccordionSection("^", section1Controls, addColumnForm.NewPackage);
-                //InitializeItems(addColumnForm.NewPackage);
-                //Packages.Add(addColumnForm.NewPackage);
-                //AddPackageToUI(addColumnForm.NewPackage);
-                
-                RestartPage();
-                InitializeItems();
+            // Dynamically add the new package to the mainTableLayoutPanel
+            Panel newItemPanel = CreateItemPanel(addColumnForm.NewPackage);
+            mainTableLayoutPanel.RowCount++;
+            mainTableLayoutPanel.Controls.Add(newItemPanel, 0, mainTableLayoutPanel.RowCount - 1);
+
+            // Add sub-items for the new package
+            var products = addColumnForm.NewPackage.PackageProducts.Select(pp => new PackageProduct
+            {
+                Product = pp.Product,
+                Quantity = pp.Quantity
+            });
+
+            foreach (var product in products)
+            {
+                Panel subItemsPanel = CreateSubItemsPanel(product.Product, product.Quantity);
+                mainTableLayoutPanel.RowCount++;
+                mainTableLayoutPanel.Controls.Add(subItemsPanel, 0, mainTableLayoutPanel.RowCount - 1);
+                subItemsPanel.Visible = false; // Keep sub-items hidden initially
             }
         }
         private void SetupMainTableLayoutPanel()
@@ -388,10 +383,26 @@ namespace VisionTech_Anbar_Project
         public async void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this package?", 
+                "Confirm Deletion", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Warning);
+            
             await _packageService.DeletePackageAsync(int.Parse(button.Tag.ToString()));
 
-            RestartPage();
-            InitializeItems();
+            if (result == DialogResult.Yes)
+            {
+                // Find the parent item panel for this button
+                Panel itemPanel = button.Parent.Parent as Panel;
+                if (itemPanel != null)
+                {
+                    itemPanel.Visible = false; // Hide the panel
+                }
+
+                await _packageService.DeletePackageAsync(int.Parse(button.Tag.ToString()));
+            }
+            // RestartPage();
+            // InitializeItems();
         }
 
         public async void AddButton_Click(object sender, EventArgs e)
