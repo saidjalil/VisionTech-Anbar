@@ -46,7 +46,7 @@ namespace VisionTech_Anbar_Project.Utilts
         {
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string twoFoldersUp = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(currentDirectory))));
-            string filePath = Path.Combine(twoFoldersUp, "Images", "GIF", "circle-9360_128.gif");
+            string filePath = Path.Combine(twoFoldersUp, "Images", "GIF", "Animation - 1733737092199.gif");
 
             return filePath;
         }
