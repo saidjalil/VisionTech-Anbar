@@ -61,7 +61,7 @@ public class FileExporter
         };
         
         var date = DateTime.Now;
-        var fileNameWithSpaces = "Export-" + date + $"_Size-{ids.Count}" + ".js";
+        var fileNameWithSpaces = "Export-" + date + $"_Size-{ids.Count}" + ".json";
         var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
         string destinationFilePath = Path.Combine(FileManager.GetDownloadsFolder(), fileName);
 
