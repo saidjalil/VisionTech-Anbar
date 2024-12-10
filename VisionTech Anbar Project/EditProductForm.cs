@@ -117,12 +117,19 @@ namespace VisionTech_Anbar_Project
 
             // Set properties for the existing TableLayoutPanel
             mainTableLayoutPanel.BackColor = Color.FromArgb(243, 246, 249); // Soft light gray background
-            //mainTableLayoutPanel.Padding = new Padding(10, -1200, 10, 10); // Add padding for internal spacing
-            //mainTableLayoutPanel.Margin = 0;
-            mainTableLayoutPanel.AutoScroll = true;
-            mainTableLayoutPanel.ColumnCount = 1; // Set column count to 1
+            mainTableLayoutPanel.AutoScroll = true; // Enable scrolling if needed
+            mainTableLayoutPanel.ColumnCount = 1; // Single-column layout
             mainTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.None; // No borders for cells
+
+            // Remove extra padding and margin
+            mainTableLayoutPanel.Padding = new Padding(0);
+            mainTableLayoutPanel.Margin = new Padding(0);
+
+            // Set all rows to auto-adjust height
+            mainTableLayoutPanel.RowStyles.Clear();
+            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
         }
+
         private void InitializeItems()
         {
             //var data = JsonManager.GetAllPackages();
@@ -147,10 +154,11 @@ namespace VisionTech_Anbar_Project
             // Create the main panel for the item
             Panel itemPanel = new Panel
             {
-                Height = 60, // Set explicit height for the main item
+                Height = 60, // Explicit height for the main item
                 BorderStyle = BorderStyle.None,
-                Dock = DockStyle.Top,
-                Margin = new Padding(5) // Add some margin between items
+                Dock = DockStyle.Top, // Align at the top
+                Margin = new Padding(0), // No extra margin outside the panel
+                Padding = new Padding(0) // No extra padding inside the panel
             };
 
             // Label to display item text
@@ -158,8 +166,11 @@ namespace VisionTech_Anbar_Project
             {
                 Text = product.ProductName.ToString(),
                 AutoSize = true,
-                Location = new System.Drawing.Point(5, 15)
+                Location = new Point(10, 15), // Adjusted to ensure consistent positioning
+                Font = new Font("Arial", 10, FontStyle.Regular),
+                ForeColor = Color.Black
             };
+
             // Create a FlowLayoutPanel to hold all buttons in a single line
             FlowLayoutPanel buttonPanel = new FlowLayoutPanel
             {
@@ -167,19 +178,11 @@ namespace VisionTech_Anbar_Project
                 Dock = DockStyle.Right,
                 AutoSize = true,
                 WrapContents = false, // Prevent buttons from wrapping to the next line
-                Margin = new Padding(5)
+                Margin = new Padding(0), // No extra margin
+                Padding = new Padding(0) // No extra padding
             };
-            // Button to expand/collapse subitems
-            //Button expandButton = new Button
-            //{
-            //    Text = "^",
-            //    Width = 30,
-            //    Height = 30,
-            //    Margin = new Padding(5)
-            //};
-            //expandButton.Click += (s, e) => ToggleSubItems(itemPanel);
 
-            // Add Delete, Add, Edit, and Export buttons
+            // Button: Delete
             Button deleteButton = new Button
             {
                 Text = "🗑",
@@ -190,45 +193,24 @@ namespace VisionTech_Anbar_Project
                 Margin = new Padding(5)
             };
             deleteButton.Click += DeleteButton_Click;
-            //Button addButton = new Button
-            //{
-            //    Text = "Add",
-            //    Tag = product.Id,
-            //    Width = 60,
-            //    Height = 30,
-            //    Margin = new Padding(5)
-            //};
-            //addButton.Click += AddButton_Click;
 
+            // Button: Edit
             Button editButton = new Button
             {
                 Text = "✎",
                 Font = new Font("Arial", 10, FontStyle.Bold),
                 BackColor = Color.FromArgb(42, 45, 85),
-                ForeColor = Color.Transparent,
+                ForeColor = Color.White, // Changed to improve readability
                 Tag = product,
                 Width = 60,
                 Height = 40,
                 Margin = new Padding(5)
             };
             editButton.Click += EditButton_Click;
-            //Button exportButton = new Button
-            //{
-            //    Text = "Export",
-            //    Tag = product.Id,
-            //    Width = 60,
-            //    Height = 30,
-            //    Margin = new Padding(5)
-            //};
 
             // Add the buttons to the FlowLayoutPanel
-
-            //buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
             buttonPanel.Controls.Add(deleteButton);
-
-            //buttonPanel.Controls.Add(exportButton);
-            //buttonPanel.Controls.Add(expandButton);
 
             // Add the label and button panel to the item panel
             itemPanel.Controls.Add(itemLabel);
@@ -236,6 +218,7 @@ namespace VisionTech_Anbar_Project
 
             return itemPanel;
         }
+
         //private Panel CreateSubItemsPanel(List<Product> products)
         //{
         //    Panel subItemsPanel = new Panel
@@ -347,9 +330,9 @@ namespace VisionTech_Anbar_Project
                 {
                     currentProduct = selectedProduct
                 };
+
                 addProductForm.setCurrentProduct();
                 addProductForm.ShowDialog();
-
                 // If changes were made, update the product and refresh the UI
                 if (addProductForm.DataSaved)
                 {

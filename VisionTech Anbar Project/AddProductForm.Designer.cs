@@ -52,7 +52,7 @@
             textBox1.ForeColor = SystemColors.InfoText;
             textBox1.Location = new Point(45, 81);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(177, 27);
+            textBox1.Size = new Size(177, 32);
             textBox1.TabIndex = 0;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
@@ -64,7 +64,7 @@
             label2.ForeColor = Color.DimGray;
             label2.Location = new Point(45, 54);
             label2.Name = "label2";
-            label2.Size = new Size(60, 20);
+            label2.Size = new Size(74, 25);
             label2.TabIndex = 1;
             label2.Text = "Barkod";
             // 
@@ -76,7 +76,7 @@
             label3.ForeColor = Color.DimGray;
             label3.Location = new Point(78, 145);
             label3.Name = "label3";
-            label3.Size = new Size(84, 20);
+            label3.Size = new Size(106, 25);
             label3.TabIndex = 3;
             label3.Text = "Kateqoriya";
             // 
@@ -88,7 +88,7 @@
             label4.ForeColor = Color.DimGray;
             label4.Location = new Point(605, 117);
             label4.Name = "label4";
-            label4.Size = new Size(36, 20);
+            label4.Size = new Size(47, 25);
             label4.TabIndex = 5;
             label4.Text = "Say";
             // 
@@ -100,7 +100,7 @@
             textBox3.Location = new Point(605, 157);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = " 0";
-            textBox3.Size = new Size(56, 23);
+            textBox3.Size = new Size(56, 27);
             textBox3.TabIndex = 4;
             textBox3.KeyPress += textBox3_KeyPress;
             // 
@@ -137,7 +137,7 @@
             label5.ForeColor = Color.DimGray;
             label5.Location = new Point(375, 116);
             label5.Name = "label5";
-            label5.Size = new Size(105, 20);
+            label5.Size = new Size(132, 25);
             label5.TabIndex = 9;
             label5.Text = "Məhsulun Adı";
             // 
@@ -146,7 +146,7 @@
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(779, 161);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(15, 14);
+            checkBox1.Size = new Size(18, 17);
             checkBox1.TabIndex = 10;
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
@@ -159,7 +159,7 @@
             label6.ForeColor = Color.DimGray;
             label6.Location = new Point(718, 156);
             label6.Name = "label6";
-            label6.Size = new Size(49, 20);
+            label6.Size = new Size(61, 25);
             label6.TabIndex = 11;
             label6.Text = "Daimi";
             // 
@@ -171,7 +171,7 @@
             label7.ForeColor = Color.DimGray;
             label7.Location = new Point(387, 248);
             label7.Name = "label7";
-            label7.Size = new Size(145, 20);
+            label7.Size = new Size(183, 25);
             label7.TabIndex = 14;
             label7.Text = "Əlavə barkod üçün:";
             // 
@@ -211,7 +211,7 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(375, 161);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(177, 28);
+            comboBox1.Size = new Size(177, 34);
             comboBox1.TabIndex = 20;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -241,10 +241,11 @@
             metroSetControlBox1.Text = "metroSetControlBox1";
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
+            metroSetControlBox1.Click += metroSetControlBox1_Click;
             // 
             // AddProductForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BackgroundColor = Color.AliceBlue;

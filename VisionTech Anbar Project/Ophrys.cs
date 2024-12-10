@@ -27,7 +27,7 @@ namespace VisionTech_Anbar_Project
         private readonly VendorService _vendorService;
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
-        
+
         private PictureBox loadingSpinner;
         // Buttons
         Button expandButton;
@@ -61,7 +61,7 @@ namespace VisionTech_Anbar_Project
             AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService, _imageService, _barcodeService);
             addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
-            
+
             await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
 
             if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
@@ -94,23 +94,25 @@ namespace VisionTech_Anbar_Project
                 subItemsPanel.Visible = false; // Keep sub-items hidden initially
             }
         }
-        
+
         private void SetupLoadingSpinner()
         {
             loadingSpinner = new PictureBox
             {
                 Image = Image.FromFile(FileManager.GetGIFPath()), // Add a GIF spinner in project resources
                 SizeMode = PictureBoxSizeMode.AutoSize,
-                BackColor = Color.FromArgb(243,246,249),
-                Visible = false, // Hidden initially
+                //Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom,
                 
+                BackColor = Color.White,
+                Visible = false, // Hidden initially
+
             };
-            
+
             loadingSpinner.Location = new Point((this.Width - loadingSpinner.Width) / 2, (this.Height - loadingSpinner.Height) / 2);
             this.Controls.Add(loadingSpinner);
             loadingSpinner.BringToFront();
         }
-        
+
         private void ShowLoadingSpinner()
         {
             loadingSpinner.Visible = true;
@@ -121,21 +123,23 @@ namespace VisionTech_Anbar_Project
         {
             loadingSpinner.Visible = false;
         }
-        
         private void SetupMainTableLayoutPanel()
         {
-            // Use the existing tableLayoutPanel1
             mainTableLayoutPanel = tableLayoutPanel1;
-
-            // Set properties for the existing TableLayoutPanel
-            mainTableLayoutPanel.BackColor = Color.FromArgb(243, 246, 249); // Soft light gray background
-            //mainTableLayoutPanel.Padding = new Padding(10, -1200, 10, 10); // Add padding for internal spacing
-            //mainTableLayoutPanel.Margin = 0;
+            mainTableLayoutPanel.Visible = false;
+            mainTableLayoutPanel.BackColor = Color.FromArgb(243, 246, 249);
             mainTableLayoutPanel.AutoScroll = true;
-            mainTableLayoutPanel.ColumnCount = 1; // Set column count to 1
-            mainTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.None; // No borders for cells
-        }
+            mainTableLayoutPanel.ColumnCount = 1;
+            mainTableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
 
+            // Remove extra space
+            mainTableLayoutPanel.Padding = new Padding(0);
+            mainTableLayoutPanel.Margin = new Padding(0);
+
+            // Ensure all rows auto-adjust
+            mainTableLayoutPanel.RowStyles.Clear();
+            mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        }
 
         private async void InitializeItems()
         {
@@ -145,13 +149,11 @@ namespace VisionTech_Anbar_Project
                 mainTableLayoutPanel.Controls.Clear();
 
                 var data = await Task.Run(() => _packageService.GetAllPackageWithNavigation());
-
                 foreach (var item in data)
                 {
                     Panel itemPanel = CreateItemPanel(item);
                     mainTableLayoutPanel.RowCount++;
                     mainTableLayoutPanel.Controls.Add(itemPanel, 0, mainTableLayoutPanel.RowCount - 1);
-
                     var products = item.PackageProducts.Select(pp => new PackageProduct
                     {
                         Product = pp.Product,
@@ -166,6 +168,9 @@ namespace VisionTech_Anbar_Project
                         subItemsPanel.Visible = false;
                     }
                 }
+                await Task.Delay(2000);
+                mainTableLayoutPanel.Visible = true;
+
             }
             finally
             {
@@ -309,9 +314,9 @@ namespace VisionTech_Anbar_Project
             {
                 FileExporter fileExporter = new FileExporter(_packageService, _imageService);
                 fileExporter.CreateAndWriteExportFile(packageIds);
-        
+
                 // Back on the UI thread to show the message
-                this.Invoke(() => 
+                this.Invoke(() =>
                 {
                     MessageBox.Show("Packages exported successfully!", "Export", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 });
@@ -419,11 +424,11 @@ namespace VisionTech_Anbar_Project
         public async void DeleteButton_Click(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this package?", 
-                "Confirm Deletion", 
-                MessageBoxButtons.YesNo, 
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this package?",
+                "Confirm Deletion",
+                MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
-            
+
             await _packageService.DeletePackageAsync(int.Parse(button.Tag.ToString()));
 
             if (result == DialogResult.Yes)

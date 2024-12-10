@@ -39,6 +39,8 @@ namespace VisionTech_Anbar_Project
 
         public TextBox barcodeTextBox;
 
+        private Button lockButton;
+
 
         private int selectedId = 1;
         private int currentParentId = 0;
@@ -298,19 +300,79 @@ namespace VisionTech_Anbar_Project
 
         //    //await categoryService.CreateCategoryAsync(new Category { CreatedTime = DateTime.Now, Name = "Ermenistan", UpdatedTime = DateTime.Now, ParentId =14});
         //}
+        private void AddLockButtonToControl(Control parentControl)
+        {
+            lockButton = new Button
+            {
+                Text = "🔒", // Initially locked
+                Font = new Font("Segoe UI Emoji", 14),
+                Size = new Size(60, 60),
+                BackColor = Color.Transparent,
+                FlatStyle = FlatStyle.Flat,
+                TabStop = false
+            };
+
+            // Invisible border
+            lockButton.FlatAppearance.BorderSize = 0;
+
+            // Position the button
+            lockButton.Location = new Point(
+                metroSetControlBox1.Location.X + metroSetControlBox1.Width - lockButton.Width - 5,
+                metroSetControlBox1.Location.Y + metroSetControlBox1.Height + 5
+            );
+
+            // Handle resizing
+            parentControl.Resize += (s, e) =>
+            {
+                lockButton.Location = new Point(
+                    metroSetControlBox1.Location.X + metroSetControlBox1.Width - lockButton.Width - 5,
+                    metroSetControlBox1.Location.Y + metroSetControlBox1.Height + 5
+                );
+            };
+
+            // Add click logic
+            lockButton.Click += (s, e) => ToggleLockState();
+
+            // Add button to the parent
+            parentControl.Controls.Add(lockButton);
+
+            // Manually trigger the lock state after adding the button
+            ToggleLockState();
+        }
+
+        private void ToggleLockState()
+        {
+            bool isLocked = lockButton.Text == "🔒";
+
+            // Update controls
+            textBox1.Enabled = !isLocked;
+            comboBox1.Enabled = !isLocked;
+            button2.Enabled = !isLocked;
+
+            foreach (ComboBox comboBox in _comboBoxes)
+            {
+                comboBox.Enabled = !isLocked;
+            }
+
+            // Update button text
+            lockButton.Text = isLocked ? "🔒" : "🔓";
+        }
+
         public async void setCurrentProduct()
         {
-            // write the products current data
             if (currentProduct != null)
             {
                 SetCurrentCategories();
+                AddLockButtonToControl(this);
                 comboBox1.Text = currentProduct.ProductName;
                 setCurrentBarcodes();
-                //comboBox1.Enabled = false;
-                textBox1.Enabled = false;
-                button2.Enabled = false;
+
+                textBox1.Visible = false;
+                button2.Visible = false;
+                label2.Visible = false;
             }
         }
+
         private async void SetCurrentCategories()
         {
             if (currentProduct == null) return;
@@ -483,11 +545,7 @@ namespace VisionTech_Anbar_Project
                 this.Controls.Add(newTextBox);
             }
         }
-
-
         // Helper method to clear existing TextBoxes
-
-
         private async void button2_Click(object sender, EventArgs e)
         {
 
@@ -506,13 +564,10 @@ namespace VisionTech_Anbar_Project
             // combobox1 category add
         }
 
-
-
         private void button3_Click(object sender, EventArgs e)
         {
             CreateTextBox();
         }
-
         private void CreateTextBox()
         {
             // Increment TextBox count to use as an identifier
@@ -551,9 +606,6 @@ namespace VisionTech_Anbar_Project
             // Add the new TextBox to the form
             this.Controls.Add(newTextBox);
         }
-
-
-
 
         private void NewTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
@@ -662,8 +714,6 @@ namespace VisionTech_Anbar_Project
             // Keep track of ComboBoxes
             _comboBoxes.Add(comboBox);
         }
-
-
         private async void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             var comboBox = sender as ComboBox;
@@ -744,7 +794,6 @@ namespace VisionTech_Anbar_Project
                 e.SuppressKeyPress = true;
             }
         }
-
         private void SetProducts(List<Product> products)
         {
             if (products.Count != 0)
@@ -781,6 +830,11 @@ namespace VisionTech_Anbar_Project
         }
 
         private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroSetControlBox1_Click(object sender, EventArgs e)
         {
 
         }
