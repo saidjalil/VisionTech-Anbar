@@ -61,6 +61,11 @@ namespace VisionTech_Anbar_Project
             AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService, _imageService, _barcodeService);
             addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
+
+            if (addColumnForm.NewPackage == null)
+            {
+                return;
+            }
             
             await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
 
@@ -101,12 +106,16 @@ namespace VisionTech_Anbar_Project
             {
                 Image = Image.FromFile(FileManager.GetGIFPath()), // Add a GIF spinner in project resources
                 SizeMode = PictureBoxSizeMode.AutoSize,
-                BackColor = Color.FromArgb(243,246,249),
+                BackColor = Color.Transparent,
                 Visible = false, // Hidden initially
                 
             };
             
-            loadingSpinner.Location = new Point((this.Width - loadingSpinner.Width) / 2, (this.Height - loadingSpinner.Height) / 2);
+            loadingSpinner.Anchor = AnchorStyles.None;
+            loadingSpinner.Location = new Point(
+                (this.ClientSize.Width - loadingSpinner.Width) / 2,
+                (this.ClientSize.Height - loadingSpinner.Height) / 2
+            );
             this.Controls.Add(loadingSpinner);
             loadingSpinner.BringToFront();
         }
@@ -114,6 +123,10 @@ namespace VisionTech_Anbar_Project
         private void ShowLoadingSpinner()
         {
             loadingSpinner.Visible = true;
+            loadingSpinner.Location = new Point(
+                (this.ClientSize.Width - loadingSpinner.Width) / 2,
+                (this.ClientSize.Height - loadingSpinner.Height) / 2
+            );
             loadingSpinner.BringToFront();
         }
 
@@ -133,7 +146,11 @@ namespace VisionTech_Anbar_Project
                 ColumnCount = 1,
                 CellBorderStyle = TableLayoutPanelCellBorderStyle.None
             };
+            
+            
             this.Controls.Add(mainTableLayoutPanel);
+            
+            
         }
 
         private async void InitializeItems()
@@ -142,9 +159,9 @@ namespace VisionTech_Anbar_Project
             {
                 ShowLoadingSpinner(); // Show spinner when loading starts
                 mainTableLayoutPanel.Controls.Clear();
-
+                mainTableLayoutPanel.Visible = false;
                 var data = await Task.Run(() => _packageService.GetAllPackageWithNavigation());
-
+                await Task.Delay(2000);
                 foreach (var item in data)
                 {
                     Panel itemPanel = CreateItemPanel(item);
@@ -169,6 +186,7 @@ namespace VisionTech_Anbar_Project
             finally
             {
                 HideLoadingSpinner(); // Hide spinner once data is loaded
+                mainTableLayoutPanel.Visible = true;
             }
         }
 
