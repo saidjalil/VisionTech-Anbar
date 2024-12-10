@@ -143,6 +143,7 @@
             ShowBorder = true;
             SmallLineColor1 = Color.Transparent;
             SmallLineColor2 = Color.Transparent;
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
