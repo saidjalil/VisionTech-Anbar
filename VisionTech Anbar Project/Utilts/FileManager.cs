@@ -69,20 +69,20 @@ namespace VisionTech_Anbar_Project.Utilts
 
         public static void CreateAndWriteExportFile(string id)
         {
-            var date = DateTime.Now;
-            var fileNameWithSpaces = "Export-" + date + ".js";
-            var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
-            string destinationFilePath = Path.Combine(GetDownloadsFolder(), fileName);
-
-            var package = JsonManager.GetPackageById(id);
-
-            var json = JsonConvert.SerializeObject(package);
-
-            using (FileStream fs = File.Create(destinationFilePath))
-            using (StreamWriter writer = new StreamWriter(fs))
-            {
-                writer.Write(json);
-            }
+            // var date = DateTime.Now;
+            // var fileNameWithSpaces = "Export-" + date + ".js";
+            // var fileName = fileNameWithSpaces.Replace(" ", "").Replace(":", "_");
+            // string destinationFilePath = Path.Combine(GetDownloadsFolder(), fileName);
+            //
+            // var package = JsonManager.GetPackageById(id);
+            //
+            // var json = JsonConvert.SerializeObject(package);
+            //
+            // using (FileStream fs = File.Create(destinationFilePath))
+            // using (StreamWriter writer = new StreamWriter(fs))
+            // {
+            //     writer.Write(json);
+            // }
 
         }
         public static string GetResurceFolder()

@@ -17,6 +17,7 @@ namespace VisionTech_Anbar_Project.Entities
 
 
         public bool IsExported { get; set; }
+        public string Type { get; set; }
         public string Reciver { get; set; }
         public string Adress { get; set; }
         public int VendorId { get; set; }

@@ -15,6 +15,7 @@ using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Services;
 using VisionTech_Anbar_Project.Entities;
 using System.Runtime.InteropServices;
+using Microsoft.Extensions.Configuration;
 
 namespace VisionTech_Anbar_Project
 {
@@ -27,6 +28,7 @@ namespace VisionTech_Anbar_Project
         private readonly VendorService _vendorService;
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
+        private readonly IConfiguration _configuration;
 
         private PictureBox loadingSpinner;
         // Buttons
@@ -36,7 +38,7 @@ namespace VisionTech_Anbar_Project
         TableLayoutPanel mainTableLayoutPanel;
 
         private List<Package> selectedProducts = new List<Package>();
-        public Ophrys(PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService)
+        public Ophrys(IConfiguration configuration, PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService)
         {
             this._packageService = packageService;
             this._productService = productService;
@@ -45,6 +47,7 @@ namespace VisionTech_Anbar_Project
             _vendorService = vendorService;
             _imageService = imageService;
             _barcodeService = barcodeService;
+            _configuration = configuration;
 
 
             InitializeComponent();
@@ -312,7 +315,7 @@ namespace VisionTech_Anbar_Project
         {
             Task.Run(() =>
             {
-                FileExporter fileExporter = new FileExporter(_packageService, _imageService);
+                FileExporter fileExporter = new FileExporter(_packageService, _imageService,_configuration,_categoryService);
                 fileExporter.CreateAndWriteExportFile(packageIds);
 
                 // Back on the UI thread to show the message

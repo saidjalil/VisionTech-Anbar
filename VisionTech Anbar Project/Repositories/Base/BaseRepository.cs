@@ -21,6 +21,7 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 
         public async Task<EntityEntry<T>> Create(T item)
         {
+            item.CreatedTime = DateTime.Now;
             var newItem =  _dbSet.Add(item);
             await Save();
             return newItem;
