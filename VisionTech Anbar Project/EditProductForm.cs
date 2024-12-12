@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Services;
+using System.Security.Policy;
 
 namespace VisionTech_Anbar_Project
 {
@@ -23,7 +24,7 @@ namespace VisionTech_Anbar_Project
         private readonly PackageService _packageService;
         private readonly BarcodeService _barcodeService;
 
-
+        public bool changed = false;
         TableLayoutPanel mainTableLayoutPanel;
         //List<Product> products = new List<Product>();
         List<PackageProduct> packProducts = new List<PackageProduct>();
@@ -157,6 +158,7 @@ namespace VisionTech_Anbar_Project
                 Height = 60, // Explicit height for the main item
                 BorderStyle = BorderStyle.None,
                 Dock = DockStyle.Top, // Align at the top
+                Tag = product.Id,
                 Margin = new Padding(0), // No extra margin outside the panel
                 Padding = new Padding(0) // No extra padding inside the panel
             };
@@ -218,58 +220,6 @@ namespace VisionTech_Anbar_Project
 
             return itemPanel;
         }
-
-        //private Panel CreateSubItemsPanel(List<Product> products)
-        //{
-        //    Panel subItemsPanel = new Panel
-        //    {
-        //        Height = 100,
-        //        AutoScroll = true,
-        //        BorderStyle = BorderStyle.None,
-        //        Padding = new Padding(5),
-        //        Dock = DockStyle.Top
-        //    };
-
-        //    // Add example subitems with full-width panels
-        //    if (products != null)
-        //    {
-        //        foreach (var item in products)
-        //        {
-        //            Panel subItemPanel = new Panel
-        //            {
-        //                Height = 30,
-        //                Dock = DockStyle.Top,
-        //                BorderStyle = BorderStyle.None,
-        //                Padding = new Padding(5)
-        //            };
-
-        //            Label subItemLabel = new Label
-        //            {
-        //                Text = $"Name:{item.Name} Count:{item.Quantity}",
-        //                AutoSize = true,
-        //                Location = new System.Drawing.Point(10, 5)
-        //            };
-
-        //            subItemPanel.Controls.Add(subItemLabel);
-        //            subItemsPanel.Controls.Add(subItemPanel);
-        //        }
-        //    }
-
-        //    return subItemsPanel;
-        //}
-        //private void ToggleSubItems(Panel itemPanel)
-        //{
-        //    // Find the associated subItemsPanel below itemPanel in the mainTableLayoutPanel
-        //    int itemIndex = mainTableLayoutPanel.Controls.GetChildIndex(itemPanel);
-        //    if (itemIndex >= 0 && itemIndex < mainTableLayoutPanel.Controls.Count - 1)
-        //    {
-        //        Panel subItemsPanel = mainTableLayoutPanel.Controls[itemIndex + 1] as Panel;
-        //        if (subItemsPanel != null)
-        //        {
-        //            subItemsPanel.Visible = !subItemsPanel.Visible;
-        //        }
-        //    }
-        //}
         private void RefreshProductList()
         {
             // Clear the panel first
@@ -284,12 +234,20 @@ namespace VisionTech_Anbar_Project
         }
         public async void DeleteButton_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;
-
-            if (button?.Tag == null)
+            if (sender is not Button button || button.Tag == null)
                 return;
 
             int productId = int.Parse(button.Tag.ToString());
+
+            DialogResult confirmResult = MessageBox.Show(
+                "Are you sure you want to delete this product?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (confirmResult != DialogResult.Yes)
+                return;
 
             // Delete the product from the backend
             await _productService.DeleteProductAsync(productId);
@@ -299,26 +257,53 @@ namespace VisionTech_Anbar_Project
             if (productToRemove != null)
             {
                 packProducts.Remove(productToRemove);
+
+                // Find and remove the corresponding panel from the UI
+                var panelToRemove = mainTableLayoutPanel.Controls
+                    .OfType<Panel>()
+                    .FirstOrDefault(panel => panel.Tag?.ToString() == productId.ToString());
+
+                if (panelToRemove != null)
+                {
+                    // Remove the panel from the TableLayoutPanel
+                    mainTableLayoutPanel.Controls.Remove(panelToRemove);
+
+                    // Adjust the RowCount only if it is greater than 0
+                    if (mainTableLayoutPanel.RowCount > 0)
+                    {
+                        mainTableLayoutPanel.RowCount--;
+                    }
+                }
             }
 
-            // Refresh the UI
-            RefreshProductList();
-
+            changed = true;
         }
+
+
         public void AddButton_Click(object sender, EventArgs e)
         {
             AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
             addProductForm.ShowDialog();
-            Button button = sender as Button;
 
-            if (addProductForm.DataSaved)
+            if (!addProductForm.DataSaved || addProductForm.NewProduct == null)
+                return;
+
+            // Add the new product to the local list
+            var newPackageProduct = new PackageProduct
             {
-                // Debug.WriteLine("I WORK");
-                //    JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
-                RestartPage();
-                InitializeItems();
-            }
+                Product = addProductForm.NewProduct.Product,
+                Quantity = addProductForm.NewProduct.Quantity
+            };
+            packProducts.Add(newPackageProduct);
+
+            // Create a new panel for the product and add it to the UI
+            Panel newItemPanel = CreateItemPanel(newPackageProduct.Product);
+            mainTableLayoutPanel.RowCount++;
+            mainTableLayoutPanel.Controls.Add(newItemPanel, 0, mainTableLayoutPanel.RowCount - 1);
+
+            changed = true;
         }
+
         public async void EditButton_Click(object sender, EventArgs e)
         {
             // Retrieve the button and the associated product
@@ -354,11 +339,8 @@ namespace VisionTech_Anbar_Project
             {
                 MessageBox.Show("Failed to identify the product to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            changed = true;
         }
 
-        private void metroSetControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

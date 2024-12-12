@@ -392,5 +392,9 @@ namespace VisionTech_Anbar_Project
             }
         }
 
+        private void metroSetControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

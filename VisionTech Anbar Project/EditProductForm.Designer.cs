@@ -44,7 +44,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(603, 5);
+            metroSetControlBox1.Location = new Point(600, 5);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -62,7 +62,6 @@
             metroSetControlBox1.Text = "metroSetControlBox1";
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
-            metroSetControlBox1.Click += metroSetControlBox1_Click;
             // 
             // button3
             // 
@@ -104,7 +103,7 @@
             // 
             // EditProductForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 5F;

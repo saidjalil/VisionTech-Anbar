@@ -69,3 +69,14 @@ ehthumbs.db
 
 # WPF-specific build artifacts
 AppData/
+VisionTech Anbar Project/obj/Debug/net6.0-windows/ref/VisionTech Anbar Project.dll
+VisionTech Anbar Project/obj/Debug/net6.0-windows/refint/VisionTech Anbar Project.dll
+VisionTech Anbar Project/obj/Debug/net6.0-windows/VisionTech Anbar Project.csproj.GenerateResource.cache
+VisionTech Anbar Project/obj/Debug/net6.0-windows/VisionTech Anbar Project.dll
+VisionTech Anbar Project/obj/Debug/net6.0-windows/VisionTech Anbar Project.pdb
+VisionTech Anbar Project/Logs/log-20241212.txt
+VisionTech Anbar Project/Logs/log-20241210.txt
+VisionTech Anbar Project/bin/Debug/net6.0-windows/VisionTech Anbar Project.pdb
+VisionTech Anbar Project/bin/Debug/net6.0-windows/VisionTech Anbar Project.dll
+.vs/VisionTech Anbar Project/v17/.suo
+.vs/VisionTech Anbar Project/DesignTimeBuild/.dtbcache.v2

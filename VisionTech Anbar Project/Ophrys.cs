@@ -60,14 +60,34 @@ namespace VisionTech_Anbar_Project
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            // Initialize managers and forms
             ImageManager imageManager = new(_imageService);
-            AddColumnForm addColumnForm = new AddColumnForm(_packageService, _categoryService, _productService, _warehouseService, _vendorService, _imageService, _barcodeService);
+            AddColumnForm addColumnForm = new AddColumnForm(
+                _packageService,
+                _categoryService,
+                _productService,
+                _warehouseService,
+                _vendorService,
+                _imageService,
+                _barcodeService
+            );
+
+            // Set form data and show dialog
             addColumnForm.SetAllData();
             addColumnForm.ShowDialog();
 
+            // Check if NewPackage is null
+            if (addColumnForm.NewPackage == null)
+            {
+                MessageBox.Show("Yeni paket yaradılmadı.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Save the package
             await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
 
-            if (!string.IsNullOrEmpty(addColumnForm.openFileDialog.FileName))
+            // Handle image saving
+            if (!string.IsNullOrEmpty(addColumnForm.openFileDialog?.FileName))
             {
                 var image = imageManager.SaveImage(addColumnForm.openFileDialog, addColumnForm.NewPackage.Id);
                 await _imageService.CreateImageAsync(image);
@@ -144,6 +164,7 @@ namespace VisionTech_Anbar_Project
             mainTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
         }
 
+
         private async void InitializeItems()
         {
             try
@@ -196,6 +217,7 @@ namespace VisionTech_Anbar_Project
                 BackColor = Color.White,
                 Dock = DockStyle.Top,
                 Margin = new Padding(0, 0, 0, 10),
+                Tag = package.Id,
                 Padding = new Padding(10)
             };
             itemPanel.SetBorderRadius(10);
@@ -414,10 +436,49 @@ namespace VisionTech_Anbar_Project
             }
         }
 
+        //private void AddSubItemToItemPanel(int packageId, Product product, int quantity)
+        //{
+        //    // Find the index of the corresponding itemPanel in the mainTableLayoutPanel
+        //    for (int i = 0; i < mainTableLayoutPanel.Controls.Count; i++)
+        //    {
+        //        if (mainTableLayoutPanel.Controls[i] is Panel itemPanel &&
+        //            itemPanel.Tag != null &&
+        //            int.Parse(itemPanel.Tag.ToString()) == packageId)
+        //        {
+        //            // Create the new subItemsPanel
+        //            Panel subItemsPanel = CreateSubItemsPanel(product, quantity);
+
+        //            // Add the subItemsPanel at the correct position
+        //            mainTableLayoutPanel.Controls.Add(subItemsPanel);
+
+        //            // Set the subItemsPanel below the current itemPanel
+        //            mainTableLayoutPanel.Controls.SetChildIndex(subItemsPanel, i + 1);
+
+        //            // Increment RowCount for proper layout adjustments
+        //            mainTableLayoutPanel.RowCount++;
+
+        //            // Ensure the layout refreshes properly
+        //            mainTableLayoutPanel.Refresh();
+        //            return;
+        //        }
+        //    }
+        //}
+
+
+
+
 
         public async void EditButton_Click(object sender, EventArgs e)
         {
             EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService);
+
+            // Subscribe to the FormClosed event
+            editProductForm.FormClosed += (s, args) =>
+            {
+                // Logic to restart the main form
+                RestartPage();
+                InitializeItems();
+            };
             editProductForm.Show();
 
             Button button = sender as Button;
@@ -454,21 +515,23 @@ namespace VisionTech_Anbar_Project
             AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
+            int packageId = Convert.ToInt32(button.Tag);
 
-            if (addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id))
+            if (addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(packageId, addProductForm.EditedProduct.Product.Id))
             {
-                await _packageService.AddProductToPackageAsync(Convert.ToInt32(button.Tag), addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
+                await _packageService.AddProductToPackageAsync(packageId, addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
                 await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
             }
 
             if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
-                await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
+                await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, packageId, addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
 
                 RestartPage();
                 InitializeItems();
+                //AddSubItemToItemPanel(packageId, addProductForm.NewProduct.Product, addProductForm.NewProduct.Quantity);
             }
-        }
+            }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

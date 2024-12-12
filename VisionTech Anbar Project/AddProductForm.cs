@@ -39,7 +39,11 @@ namespace VisionTech_Anbar_Project
 
         public TextBox barcodeTextBox;
 
+        private bool _isUpdatingComboBox = false;
+
+
         private Button lockButton;
+        private bool isLocked = false;
 
 
         private int selectedId = 1;
@@ -342,7 +346,7 @@ namespace VisionTech_Anbar_Project
 
         private void ToggleLockState()
         {
-            bool isLocked = lockButton.Text == "🔒";
+            isLocked = lockButton.Text == "🔒";
 
             // Update controls
             textBox1.Enabled = !isLocked;
@@ -355,7 +359,7 @@ namespace VisionTech_Anbar_Project
             }
 
             // Update button text
-            lockButton.Text = isLocked ? "🔒" : "🔓";
+            lockButton.Text = isLocked ? "🔓" : "🔒";
         }
 
         public async void setCurrentProduct()
@@ -402,7 +406,8 @@ namespace VisionTech_Anbar_Project
                     Location = new Point(10, _nextControlY),
                     Width = 200,
                     DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
-                    Tag = null // Top-level categories don't have a parent
+                    Tag = null, // Top-level categories don't have a parent
+                    Enabled = false // Disable by default
                 };
 
                 // Select the category that matches the hierarchy if applicable
@@ -436,7 +441,8 @@ namespace VisionTech_Anbar_Project
                     Location = new Point(10, _nextControlY),
                     Width = 200,
                     DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
-                    Tag = parentCategory // Store the parent category
+                    Tag = parentCategory, // Store the parent category
+                    Enabled = false // Disable by default
                 };
 
                 if (subCategories.Any(c => c.Id == category.Id))
@@ -688,7 +694,10 @@ namespace VisionTech_Anbar_Project
                 Width = 200,
                 DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
                 Tag = parentCategory // Store the parent category
+                
             };
+            if (isLocked == true)
+                comboBox.Enabled = false;
 
 
             // Set selectedId to the first category's ID if the ComboBox has categories
@@ -716,6 +725,8 @@ namespace VisionTech_Anbar_Project
         }
         private async void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (_isUpdatingComboBox) return; // Skip if updating programmatically
+
             var comboBox = sender as ComboBox;
             if (comboBox == null) return;
 
@@ -747,6 +758,7 @@ namespace VisionTech_Anbar_Project
             SetProducts(products);
         }
 
+
         private async void ComboBox_KeyDown(object sender, KeyEventArgs e)
         {
             var comboBox = sender as ComboBox;
@@ -755,6 +767,9 @@ namespace VisionTech_Anbar_Project
             // Check if the Enter key was pressed
             if (e.KeyCode == Keys.Enter)
             {
+                e.Handled = true; // Suppress default behavior
+                e.SuppressKeyPress = true; // Suppress "ding" sound
+
                 var inputText = comboBox.Text.Trim();
                 if (string.IsNullOrWhiteSpace(inputText)) return;
 
@@ -776,6 +791,9 @@ namespace VisionTech_Anbar_Project
                 };
                 await categoryService.CreateCategoryAsync(newCategory);
 
+                // Prevent triggering SelectedIndexChanged during DataSource update
+                _isUpdatingComboBox = true;
+
                 // Refresh ComboBox data
                 var categories = parentCategory == null
                     ? categoryService.GetTopLevelCategories()
@@ -789,11 +807,11 @@ namespace VisionTech_Anbar_Project
                 // Select the newly added item
                 comboBox.SelectedItem = categories.First(c => c.Id == newCategory.Id);
 
-                // Suppress the ding sound
-                e.Handled = true;
-                e.SuppressKeyPress = true;
+                // Re-enable SelectedIndexChanged event
+                _isUpdatingComboBox = false;
             }
         }
+
         private void SetProducts(List<Product> products)
         {
             if (products.Count != 0)
