@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using VisionTech_Anbar_Project.Services;
 using VisionTech_Anbar_Project.ViewModel;
 using Image = VisionTech_Anbar_Project.Entities.Image;
@@ -7,7 +8,7 @@ namespace VisionTech_Anbar_Project.Utilts;
 
 public class ExportDataMapper
 {
-    public static async Task<ExportViewModel> MapToExportVM(PackageService _packageService,CategoryService _categoryService,Package package, Image image, string hash)
+    public static async Task<ExportViewModel> MapToExportVM(IConfiguration _configuration ,PackageService _packageService,CategoryService _categoryService,Package package, Image image)
     {
         var products = (await _packageService.GetProductsByPackageIdAsync(package.Id)).ToList();
         
@@ -65,12 +66,25 @@ public class ExportDataMapper
             }
             
         }
+
+        Warehouse warehouse = new()
+        {
+            id = package.WarehouseId,
+            name = package.Warehouse.WarehouseName,
+            description = package.Warehouse.Description,
+        };
+        Vendor vendor = new()
+        {
+            id = package.VendorId,
+            name = package.Vendor.VendorName,
+            description = package.Vendor.Description,
+        };
         Data exportData = new()
         {
             id = package.Id,
             type = "income",
-            warehouse = package.Warehouse,
-            vendor = package.Vendor,
+            warehouse = warehouse,
+            vendor = vendor,
             departments = null,
             products = productsVM,
             recipient = package.Reciver,
@@ -78,6 +92,10 @@ public class ExportDataMapper
             file = image,
             created_at = package.CreatedTime,
         };
+        
+        Decoder decoder = new();
+        var hash = decoder.GenerateHash(_configuration, exportData);
+        
         ExportViewModel export = new();
         export.data = exportData;
         export.hash = hash;

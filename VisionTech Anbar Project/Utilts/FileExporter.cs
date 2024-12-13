@@ -40,9 +40,8 @@ public class FileExporter
         Decoder decoder = new Decoder();
         var package = await _packageService.GetPackageWithNavigation(id);
         var images = await _imageService.GetImagesByPackageIdAsync(id);
-        var hash = decoder.GenerateHash(_configuration, package);
 
-        var export = await ExportDataMapper.MapToExportVM(_packageService,_categoryService,package, images.First(), hash);
+        var export = await ExportDataMapper.MapToExportVM(_configuration ,_packageService,_categoryService,package, images.First());
 
         var json = JsonConvert.SerializeObject(export, settings);
 
@@ -79,9 +78,8 @@ public class FileExporter
             {
                 var package = await _packageService.GetPackageWithNavigation(id);
                 var images = await _imageService.GetImagesByPackageIdAsync(id);
-                var hash = decoder.GenerateHash(_configuration, package);
                 
-                var export = await ExportDataMapper.MapToExportVM(_packageService,_categoryService, package, images.First(),hash);
+                var export = await ExportDataMapper.MapToExportVM(_configuration ,_packageService,_categoryService, package, images.FirstOrDefault());
                 
                 
                 exportViewModels.Add(export);

@@ -75,6 +75,8 @@ namespace VisionTech_Anbar_Project
             services.AddTransient<CategoryService>();
             services.AddTransient<ImageService>();
 
+            
+            services.AddSingleton<IConfiguration>(configuration);
 
 
             // Register the main form
@@ -82,7 +84,7 @@ namespace VisionTech_Anbar_Project
             services.AddTransient<AddColumnForm>();
             services.AddTransient<AddProductForm>();
             services.AddTransient<EditProductForm>();
-            //services.AddTransient<test>();
+            services.AddTransient<HashTest>();
 
 
         }

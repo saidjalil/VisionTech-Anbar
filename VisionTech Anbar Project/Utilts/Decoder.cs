@@ -2,13 +2,14 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
-using VisionTech_Anbar_Project.Entities;
+using VisionTech_Anbar_Project.ViewModel;
+using Package = VisionTech_Anbar_Project.Entities.Package;
 
 namespace VisionTech_Anbar_Project.Utilts;
 
 public class Decoder
 {
-    public string GenerateHash(IConfiguration configuration, Package package)
+    public string GenerateHash(IConfiguration configuration, Data package)
     {
         var settings = new JsonSerializerSettings
         {
@@ -44,7 +45,7 @@ public class Decoder
         return sb.ToString();
     }
     
-    public bool VerifyHash(string hash,string Salt , IConfiguration configuration, Package package)
+    public bool VerifyHash(string hash,string Salt , IConfiguration configuration, Data package)
     {
         // 1. Serialize the Package object to JSON
         string serializedPackage = JsonConvert.SerializeObject(package);
