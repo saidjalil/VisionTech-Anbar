@@ -30,6 +30,7 @@ namespace VisionTech_Anbar_Project
         private readonly BarcodeService _barcodeService;
         private readonly IConfiguration _configuration;
 
+
         private PictureBox loadingSpinner;
         // Buttons
         Button expandButton;
@@ -79,10 +80,10 @@ namespace VisionTech_Anbar_Project
             // Check if NewPackage is null
             if (addColumnForm.NewPackage == null)
             {
-                MessageBox.Show("Yeni paket yaradılmadı.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Yeni paket yaradılmadı.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+             
             // Save the package
             await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
 

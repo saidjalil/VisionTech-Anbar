@@ -1,0 +1,231 @@
+2024-12-13 12:15:35.546 +04:00 [INF] Application Starting
+2024-12-13 12:16:00.793 +04:00 [INF] Application Starting
+2024-12-13 12:17:39.092 +04:00 [INF] Application Starting
+2024-12-13 12:21:26.229 +04:00 [INF] Application Starting
+2024-12-13 12:34:20.897 +04:00 [INF] Application Starting
+2024-12-13 12:36:33.032 +04:00 [INF] Application Starting
+2024-12-13 12:36:34.255 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:36:36.312 +04:00 [ERR] Error occurred while fetching all packages.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'Type'.
+Invalid column name 'Description'.
+Invalid column name 'Description'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__189_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.GetAllAsync(Func`2 includeProperties) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 117
+   at VisionTech_Anbar_Project.Services.PackageService.GetAllPackageWithNavigation() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 251
+ClientConnectionId:9a35d47b-ae23-4da4-8a67-60d9516e8fa4
+Error Number:207,State:1,Class:16
+2024-12-13 12:38:01.139 +04:00 [INF] Application Starting
+2024-12-13 12:38:02.353 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:38:03.492 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:38:12.386 +04:00 [INF] Fetching package with ID: 8 along with related navigation properties.
+2024-12-13 12:38:12.468 +04:00 [INF] Successfully retrieved package with ID: 8.
+2024-12-13 12:38:26.017 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:38:26.020 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:38:33.860 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:38:34.635 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:38:34.636 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:38:34.646 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:38:57.695 +04:00 [INF] Application Starting
+2024-12-13 12:38:59.042 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:39:00.297 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:39:03.035 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:39:03.807 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:39:03.807 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:39:03.818 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:39:06.402 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:39:07.145 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:39:07.145 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:39:07.148 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:39:18.965 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-13 12:39:19.218 +04:00 [ERR] Error occurred while creating a package.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Description', table 'VisionTechAnbar.dbo.Vendors'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__189_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:4509a88b-ee4f-4048-9d03-4103bc0e1a15
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Save() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 125
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Create(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 26
+   at VisionTech_Anbar_Project.Services.PackageService.CreatePackageAsync(Package package) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 79
+2024-12-13 12:45:01.555 +04:00 [INF] Application Starting
+2024-12-13 12:45:02.797 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:45:04.511 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:45:08.157 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:45:08.940 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:45:08.941 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:45:08.953 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:47:05.247 +04:00 [INF] Application Starting
+2024-12-13 12:47:06.451 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:47:07.714 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:47:11.403 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-13 12:47:11.491 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-13 12:47:12.086 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:47:12.089 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:47:13.043 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:47:13.806 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:47:13.812 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:47:13.823 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:47:40.366 +04:00 [INF] Application Starting
+2024-12-13 12:47:41.700 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:47:42.793 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:47:46.125 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:47:46.888 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:47:46.889 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:47:46.901 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:48:07.982 +04:00 [INF] Application Starting
+2024-12-13 12:48:09.228 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:48:10.381 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:48:10.437 +04:00 [ERR] Error occurred while fetching all warehouses.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.WarehouseRepository.GetAllAsync() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\WarehouseRepository.cs:line 16
+   at VisionTech_Anbar_Project.Services.WarehouseService.GetAllWarehousesAsync() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\WarehouseService.cs:line 21
+2024-12-13 12:48:15.594 +04:00 [INF] Application Starting
+2024-12-13 12:48:16.983 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:48:18.450 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:48:21.536 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:48:22.320 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:48:22.326 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:48:22.340 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:48:41.156 +04:00 [INF] Application Starting
+2024-12-13 12:48:42.381 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:48:43.453 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:48:47.714 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:48:48.489 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:48:48.489 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:48:48.501 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:49:02.047 +04:00 [INF] Application Starting
+2024-12-13 12:49:03.371 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:49:04.896 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:49:08.121 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:49:08.911 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:49:08.912 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:49:08.927 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:49:28.184 +04:00 [INF] Application Starting
+2024-12-13 12:49:29.500 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:49:30.591 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:49:33.909 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:49:34.672 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:49:34.673 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:49:34.685 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:51:30.305 +04:00 [INF] Application Starting
+2024-12-13 12:51:31.560 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:51:32.901 +04:00 [INF] Successfully retrieved 13 packages.
+2024-12-13 12:51:36.449 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:51:37.222 +04:00 [INF] Successfully retrieved 13 warehouses.
+2024-12-13 12:51:37.228 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:51:37.239 +04:00 [INF] Successfully retrieved 13 vendors.
+2024-12-13 12:51:48.657 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-13 12:51:48.873 +04:00 [INF] Package successfully created.
+2024-12-13 12:52:08.141 +04:00 [INF] Deleting package with ID: 1.
+2024-12-13 12:52:08.206 +04:00 [INF] Package with ID: 1 successfully deleted.
+2024-12-13 12:52:12.169 +04:00 [INF] Deleting package with ID: 1.
+2024-12-13 12:52:12.174 +04:00 [WRN] Package with ID: 1 not found. Cannot delete.
+2024-12-13 12:52:12.190 +04:00 [INF] Deleting package with ID: 1.
+2024-12-13 12:52:12.191 +04:00 [WRN] Package with ID: 1 not found. Cannot delete.
+2024-12-13 12:52:14.083 +04:00 [INF] Deleting package with ID: 8.
+2024-12-13 12:52:14.102 +04:00 [INF] Package with ID: 8 successfully deleted.
+2024-12-13 12:52:14.114 +04:00 [INF] Deleting package with ID: 8.
+2024-12-13 12:52:14.115 +04:00 [WRN] Package with ID: 8 not found. Cannot delete.
+2024-12-13 12:52:16.307 +04:00 [INF] Deleting package with ID: 6.
+2024-12-13 12:52:16.315 +04:00 [INF] Package with ID: 6 successfully deleted.
+2024-12-13 12:52:16.324 +04:00 [INF] Deleting package with ID: 6.
+2024-12-13 12:52:16.335 +04:00 [WRN] Package with ID: 6 not found. Cannot delete.
+2024-12-13 12:52:18.298 +04:00 [INF] Deleting package with ID: 11.
+2024-12-13 12:52:18.310 +04:00 [INF] Package with ID: 11 successfully deleted.
+2024-12-13 12:52:18.318 +04:00 [INF] Deleting package with ID: 11.
+2024-12-13 12:52:18.319 +04:00 [WRN] Package with ID: 11 not found. Cannot delete.
+2024-12-13 12:52:20.362 +04:00 [INF] Deleting package with ID: 13.
+2024-12-13 12:52:20.367 +04:00 [INF] Package with ID: 13 successfully deleted.
+2024-12-13 12:52:20.372 +04:00 [INF] Deleting package with ID: 13.
+2024-12-13 12:52:20.373 +04:00 [WRN] Package with ID: 13 not found. Cannot delete.
+2024-12-13 12:52:22.162 +04:00 [INF] Deleting package with ID: 12.
+2024-12-13 12:52:22.172 +04:00 [INF] Package with ID: 12 successfully deleted.
+2024-12-13 12:52:22.178 +04:00 [INF] Deleting package with ID: 12.
+2024-12-13 12:52:22.179 +04:00 [WRN] Package with ID: 12 not found. Cannot delete.
+2024-12-13 12:52:22.951 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:52:23.697 +04:00 [INF] Successfully retrieved 14 warehouses.
+2024-12-13 12:52:23.697 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:52:23.701 +04:00 [INF] Successfully retrieved 14 vendors.
+2024-12-13 12:52:43.188 +04:00 [INF] Fetching products for category ID: 1.
+2024-12-13 12:52:43.914 +04:00 [INF] Successfully retrieved 8 products for category ID: 1.
+2024-12-13 12:52:48.205 +04:00 [INF] Fetching products for category ID: 6.
+2024-12-13 12:52:48.214 +04:00 [WRN] No products found for category ID: 6.
+2024-12-13 12:52:49.611 +04:00 [INF] Creating a new category: asf.
+2024-12-13 12:52:49.623 +04:00 [INF] Category asf successfully created.
+2024-12-13 12:52:52.805 +04:00 [INF] Fetching products for category ID: 39.
+2024-12-13 12:52:52.806 +04:00 [WRN] No products found for category ID: 39.
+2024-12-13 12:52:54.609 +04:00 [INF] Creating a new category: sdads.
+2024-12-13 12:52:54.618 +04:00 [INF] Category sdads successfully created.
+2024-12-13 12:52:55.708 +04:00 [INF] Fetching products for category ID: 40.
+2024-12-13 12:52:55.710 +04:00 [WRN] No products found for category ID: 40.
+2024-12-13 12:53:09.290 +04:00 [INF] Fetching products for category ID: 1.
+2024-12-13 12:53:10.011 +04:00 [INF] Successfully retrieved 8 products for category ID: 1.
+2024-12-13 12:53:13.926 +04:00 [INF] Fetching products for category ID: 8.
+2024-12-13 12:53:13.928 +04:00 [WRN] No products found for category ID: 8.
+2024-12-13 12:53:15.514 +04:00 [INF] Creating a new category: fdaf.
+2024-12-13 12:53:15.524 +04:00 [INF] Category fdaf successfully created.
+2024-12-13 12:53:17.366 +04:00 [INF] Fetching products for category ID: 41.
+2024-12-13 12:53:17.368 +04:00 [WRN] No products found for category ID: 41.
+2024-12-13 12:57:58.236 +04:00 [INF] Application Starting
+2024-12-13 12:57:59.475 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:58:00.886 +04:00 [INF] Successfully retrieved 8 packages.
+2024-12-13 12:58:03.358 +04:00 [INF] Fetching all warehouses.
+2024-12-13 12:58:04.140 +04:00 [INF] Successfully retrieved 14 warehouses.
+2024-12-13 12:58:04.141 +04:00 [INF] Fetching all vendors.
+2024-12-13 12:58:04.152 +04:00 [INF] Successfully retrieved 14 vendors.
+2024-12-13 12:58:15.644 +04:00 [INF] Fetching products for category ID: 1.
+2024-12-13 12:58:16.405 +04:00 [INF] Successfully retrieved 8 products for category ID: 1.
+2024-12-13 12:58:18.694 +04:00 [INF] Fetching products for category ID: 1.
+2024-12-13 12:58:18.698 +04:00 [INF] Successfully retrieved 8 products for category ID: 1.
+2024-12-13 12:58:20.479 +04:00 [INF] Fetching products for category ID: 2.
+2024-12-13 12:58:20.481 +04:00 [WRN] No products found for category ID: 2.
+2024-12-13 12:58:22.688 +04:00 [INF] Fetching products for category ID: 5.
+2024-12-13 12:58:22.693 +04:00 [WRN] No products found for category ID: 5.
+2024-12-13 12:58:24.695 +04:00 [INF] Creating a new category: asfafs.
+2024-12-13 12:58:24.862 +04:00 [INF] Category asfafs successfully created.
+2024-12-13 12:58:26.902 +04:00 [INF] Fetching products for category ID: 42.
+2024-12-13 12:58:26.904 +04:00 [WRN] No products found for category ID: 42.
+2024-12-13 12:58:34.216 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-13 12:58:34.249 +04:00 [INF] Package successfully created.
+2024-12-13 12:58:48.657 +04:00 [INF] Fetching package with ID: 25 along with related navigation properties.
+2024-12-13 12:58:48.691 +04:00 [INF] Successfully retrieved package with ID: 25.
+2024-12-13 12:58:51.245 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-13 12:58:51.246 +04:00 [INF] Successfully retrieved 9 packages.

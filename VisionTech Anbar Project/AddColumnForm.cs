@@ -29,6 +29,10 @@ namespace VisionTech_Anbar_Project
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
 
+        private TextBox warehouseDesc;
+        private TextBox vendorDesc;
+
+
 
 
         public OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -149,9 +153,23 @@ namespace VisionTech_Anbar_Project
             string retriever = RetrieveComboBoxInput(comboBox3, "Retriever");
             string address = RetrieveTextBoxInput(textBox2, "Address");
 
+            string warehousedesc = RetrieveTextBoxInput(warehouseDesc, "Description");
+            string vendordesc = RetrieveTextBoxInput(vendorDesc, "Description");
+
+
             // Retrieve or create warehouse and vendor
             Warehouse selectedWarehouse = GetOrCreateWarehouse(comboBox1);
             Vendor selectedVendor = GetOrCreateVendor(comboBox2);
+
+            if (selectedWarehouse != null)
+            {
+                selectedWarehouse.Description = warehousedesc;
+            }
+            if (selectedVendor != null)
+            {
+                selectedVendor.Description = warehousedesc;
+            }
+
 
             // Add products to the package
             List<PackageProduct> packageProducts = products?.ToList() ?? new List<PackageProduct>();
@@ -174,7 +192,8 @@ namespace VisionTech_Anbar_Project
         {
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
-                throw new ArgumentException($"{fieldName} cannot be empty.");
+               // throw new ArgumentException($"{fieldName} cannot be empty.");
+                MessageBox.Show($"{fieldName} boş ola bilməz.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return textBox.Text.Trim();
         }
@@ -183,7 +202,10 @@ namespace VisionTech_Anbar_Project
         {
             if (comboBox.SelectedItem == null)
             {
-                throw new ArgumentException($"Please select a valid {fieldName}.");
+                MessageBox.Show($"düzgün {fieldName} seçin.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // throw new ArgumentException($"Please select a valid {fieldName}.");
+
             }
             return comboBox.Text;
         }
@@ -395,6 +417,81 @@ namespace VisionTech_Anbar_Project
         private void metroSetControlBox1_Click(object sender, EventArgs e)
         {
 
+        }
+        private void comboBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox == null) return;
+
+            // Check if the Enter key was pressed
+            if (e.KeyCode == Keys.Enter)
+            {
+                var inputText = comboBox.Text.Trim();
+                if (string.IsNullOrWhiteSpace(inputText)) return;
+
+                // Create Label and TextBox dynamically under the ComboBox
+                warehouseDesc = CreateDescriptionControls(comboBox);
+
+                // Suppress the ding sound
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private TextBox CreateDescriptionControls(ComboBox comboBox)
+        {
+            // Calculate position below the ComboBox
+            Point location = comboBox.Location;
+
+            // Create a new Label
+            var descriptionLabel = new Label
+            {
+                Text = "Description:",
+                Location = new Point(location.X - 130, location.Y + comboBox.Height + 5),
+                AutoSize = true
+            };
+
+            // Create a new TextBox
+            var descriptionTextBox = new TextBox
+            {
+                Location = new Point(location.X  , location.Y + comboBox.Height + 5),
+                Width = 200
+            };
+
+            // Add the controls to the parent container (assumes ComboBox is on a Panel)
+            var parent = comboBox.Parent;
+            if (parent != null)
+            {
+                parent.Controls.Add(descriptionLabel);
+                parent.Controls.Add(descriptionTextBox);
+            }
+            return descriptionTextBox;
+        }
+
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox == null) return;
+
+            // Check if the Enter key was pressed
+            if (e.KeyCode == Keys.Enter)
+            {
+                var inputText = comboBox.Text.Trim();
+                if (string.IsNullOrWhiteSpace(inputText)) return;
+
+                // Create Label and TextBox dynamically under the ComboBox
+                vendorDesc = CreateDescriptionControls(comboBox);
+
+                // Suppress the ding sound
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
