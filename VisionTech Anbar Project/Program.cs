@@ -84,7 +84,6 @@ namespace VisionTech_Anbar_Project
             services.AddTransient<AddColumnForm>();
             services.AddTransient<AddProductForm>();
             services.AddTransient<EditProductForm>();
-            services.AddTransient<HashTest>();
 
 
         }

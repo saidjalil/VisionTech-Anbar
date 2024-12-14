@@ -14,6 +14,6 @@ public class Data
     public List<Product> products { get; set; }
     public string recipient { get; set; }
     public string place { get; set; }
-    public object file { get; set; }
+    public string file { get; set; }
     public DateTime created_at { get; set; }
 }

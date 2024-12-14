@@ -79,9 +79,10 @@ public class PackageRepository : BaseRepository<Package>
     
     public async Task<IEnumerable<Product>> GetProductsByPackageIdAsync(int packageId)
     {
-        return await _context.PackageProducts
-            .Where(pp => pp.PackageId == packageId)
-            .Select(pp => pp.Product)
+        return await _context.Products
+            .Where(p => p.PackageProducts.Any(pp => pp.PackageId == packageId))
+            .Include(p => p.Category)         // Include the Category for each Product
+            .Include(p => p.Barcodes)         // Include the Barcodes for each Product
             .ToListAsync();
     }
 

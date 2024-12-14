@@ -119,20 +119,31 @@ namespace VisionTech_Anbar_Project
             }
         }
 
+        private void CenterLoadingSpinner()
+        {
+            // Calculate the center point of the form
+            int centerX = (this.ClientSize.Width - loadingSpinner.Width) / 2;
+            int centerY = (this.ClientSize.Height - loadingSpinner.Height) / 2;
+
+            // Set the location to the calculated center
+            loadingSpinner.Location = new Point(centerX, centerY);
+        }
         private void SetupLoadingSpinner()
         {
             loadingSpinner = new PictureBox
             {
                 Image = Image.FromFile(FileManager.GetGIFPath()), // Add a GIF spinner in project resources
                 SizeMode = PictureBoxSizeMode.AutoSize,
-                //Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom,
-                
                 BackColor = Color.White,
-                Visible = false, // Hidden initially
-
+                Visible = false // Hidden initially
             };
 
-            loadingSpinner.Location = new Point((this.Width - loadingSpinner.Width) / 2, (this.Height - loadingSpinner.Height) / 2);
+            // Center the spinner when the form is initially loaded
+            CenterLoadingSpinner();
+
+            // Add an event handler to re-center the spinner if the form is resized
+            this.Resize += (s, e) => CenterLoadingSpinner();
+
             this.Controls.Add(loadingSpinner);
             loadingSpinner.BringToFront();
         }

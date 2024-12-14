@@ -11,60 +11,58 @@ public class ExportDataMapper
     public static async Task<ExportViewModel> MapToExportVM(IConfiguration _configuration ,PackageService _packageService,CategoryService _categoryService,Package package, Image image)
     {
         var products = (await _packageService.GetProductsByPackageIdAsync(package.Id)).ToList();
-        
+
+
         List<Product> productsVM = new();
+
         foreach (var product in products)
         {
-            List<Category> categories = new List<Category>();
+            List<Category> categories = new();
 
-            Category category = new();
-            category.id = product.CategoryId;
-            category.name = product.Category.Name;
-            category.description = "";
-            category.icon = "";
-            category.parent_id = product.Category.ParentId;
-            categories.Add(category);
-            
-            while (true)
+            // Add the product's direct category first
+            Category category = new()
             {
-                if (product.Category.ParentId != null)
+                id = product.CategoryId,
+                name = product.Category.Name,
+                description = "",
+                icon = "",
+                parent_id = product.Category.ParentId
+            };
+            categories.Add(category);
+
+            // Traverse the parent categories
+            int? currentParentId = product.Category.ParentId; // Start with the parent of the product's category
+
+            while (currentParentId != null)
+            {
+                var parentCategory = await _categoryService.GetCategoryByIdAsync(currentParentId.Value);
+                if (parentCategory == null) break; // If the parent does not exist, exit the loop
+
+                Category parentCategoryVM = new()
                 {
-                    var parentCategory = await _categoryService.GetCategoryByIdAsync(product.Category.ParentId.Value);
-                    Category parentCategoryVM = new()
-                    {
-                        id = parentCategory.Id,
-                        description = "",
-                        name = parentCategory.Name,
-                        icon = "",
-                        parent_id = parentCategory.ParentId
-                    };
-                    categories.Add(parentCategoryVM);
-                }
-                else
-                {
-                    break;
-                }
+                    id = parentCategory.Id,
+                    name = parentCategory.Name,
+                    description = "",
+                    icon = "",
+                    parent_id = parentCategory.ParentId
+                };
+                categories.Add(parentCategoryVM);
+
+                currentParentId = parentCategory.ParentId; // Update the current parent ID to the next level up
             }
-            
+
             Product productVM = new()
             {
                 id = product.Id,
                 name = product.ProductName,
-                photo = null,
+                categories = categories,
+                photo = null, // Assuming this should be a placeholder for the image
                 quantity = product.PackageProducts.Where(x => x.ProductId == product.Id).Sum(x => x.Quantity),
                 barcodes = product.Barcodes.Select(b => b.BarCode).ToList(),
-                categories = categories,
+                is_permanent = product.IsRegular ? 1 : 0
             };
-            
-            if (product.IsRegular)
-            {
-                productVM.is_permanent = 1;
-            }
-            else
-            {
-                productVM.is_permanent = 0;
-            }
-            
+
+            productsVM.Add(productVM);
         }
 
         Warehouse warehouse = new()
@@ -89,7 +87,7 @@ public class ExportDataMapper
             products = productsVM,
             recipient = package.Reciver,
             place = package.Adress,
-            file = image,
+            file = image.Base64,
             created_at = package.CreatedTime,
         };
         
