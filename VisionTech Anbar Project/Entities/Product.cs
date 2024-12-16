@@ -17,6 +17,9 @@ namespace VisionTech_Anbar_Project.Entities
         // Foreign key for Category
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+        
+        public int BrandId { get; set; }
+        public Brand Brand { get; set; }
 
         // One-to-Many relationship with PackageProduct
         public ICollection<PackageProduct> PackageProducts { get; set; } = new List<PackageProduct>();

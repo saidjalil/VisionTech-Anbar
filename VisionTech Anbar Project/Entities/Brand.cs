@@ -10,5 +10,7 @@ namespace VisionTech_Anbar_Project.Entities
     public class Brand : BaseItem
     {
         public string BrandName { get; set; }
+
+        public List<Product> Products { get; set; }
     }
 }
