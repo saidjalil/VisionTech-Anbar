@@ -21,6 +21,14 @@ public class ProductRepository : BaseRepository<Product>
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<Product>> GetByBrandIdAsync(int brandId)
+    {
+        return await _context.Products
+            .Where(p => p.BrandId == brandId)
+            .Include(p => p.Brand)
+            .ToListAsync();
+    }
+
     public async Task UpdateProductBarcodes(Product product)
     {
         var barcodes = await _barcodeRepository.GetByProductIdAsync(product.Id);

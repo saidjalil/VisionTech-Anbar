@@ -242,4 +242,9 @@ public class ProductService
     {
         return await _productRepository.GetByCategoryIdAsync(id);
     }
+
+    public async Task<IEnumerable<Product>> GetProductByBrandId(int brandId)
+    {
+        return await _productRepository.GetByBrandIdAsync(brandId);
+    }
 }
