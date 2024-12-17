@@ -28,6 +28,8 @@ namespace VisionTech_Anbar_Project
         private readonly VendorService _vendorService;
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
+        private readonly BrandService _brandService;
+
         private readonly IConfiguration _configuration;
 
 
@@ -39,7 +41,7 @@ namespace VisionTech_Anbar_Project
         TableLayoutPanel mainTableLayoutPanel;
 
         private List<Package> selectedProducts = new List<Package>();
-        public Ophrys(IConfiguration configuration, PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService)
+        public Ophrys(IConfiguration configuration, PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService, BrandService brandService)
         {
             this._packageService = packageService;
             this._productService = productService;
@@ -48,9 +50,9 @@ namespace VisionTech_Anbar_Project
             _vendorService = vendorService;
             _imageService = imageService;
             _barcodeService = barcodeService;
+            _brandService = brandService;
+
             _configuration = configuration;
-
-
             InitializeComponent();
             SetupMainTableLayoutPanel();
             SetupLoadingSpinner();
@@ -70,7 +72,8 @@ namespace VisionTech_Anbar_Project
                 _warehouseService,
                 _vendorService,
                 _imageService,
-                _barcodeService
+                _barcodeService,
+                _brandService
             );
 
             // Set form data and show dialog
@@ -482,7 +485,7 @@ namespace VisionTech_Anbar_Project
 
         public async void EditButton_Click(object sender, EventArgs e)
         {
-            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService);
+            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService, _brandService);
 
             // Subscribe to the FormClosed event
             editProductForm.FormClosed += (s, args) =>
@@ -524,7 +527,7 @@ namespace VisionTech_Anbar_Project
 
         public async void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService);
             addProductForm.ShowDialog();
             Button button = sender as Button;
             int packageId = Convert.ToInt32(button.Tag);

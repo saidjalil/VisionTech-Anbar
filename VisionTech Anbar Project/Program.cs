@@ -62,6 +62,8 @@ namespace VisionTech_Anbar_Project
             services.AddTransient<WarehouseRepository>();
             services.AddTransient<BarcodeRepository>();
             services.AddTransient<ImageRepository>();
+            services.AddTransient<BrandRepository>();
+
 
 
 
@@ -74,8 +76,10 @@ namespace VisionTech_Anbar_Project
             services.AddTransient<WarehouseService>();
             services.AddTransient<CategoryService>();
             services.AddTransient<ImageService>();
+            services.AddTransient<BrandService>();
 
-            
+
+
             services.AddSingleton<IConfiguration>(configuration);
 
 

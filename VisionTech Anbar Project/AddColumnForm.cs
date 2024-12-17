@@ -28,6 +28,8 @@ namespace VisionTech_Anbar_Project
         private readonly CategoryService _categoryService;
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
+        private readonly BrandService _brandService;
+
 
         private TextBox warehouseDesc;
         private TextBox vendorDesc;
@@ -51,7 +53,7 @@ namespace VisionTech_Anbar_Project
 
 
 
-        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService)
+        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService, BrandService brandService)
         {
             //  _packageService = packageService;
             _categoryService = categoryService;
@@ -61,6 +63,8 @@ namespace VisionTech_Anbar_Project
             _vendorService = vendorService;
             _imageService = imageService;
             _barcodeService = barcodeService;
+
+            _brandService = brandService;
 
 
             InitializeComponent();
@@ -303,7 +307,7 @@ namespace VisionTech_Anbar_Project
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService);
             addProductForm.ShowDialog();
 
             // Add both sections to the accordion
@@ -341,6 +345,10 @@ namespace VisionTech_Anbar_Project
 
         private Panel CreateItemPanel(PackageProduct product)
         {
+            if(product == null)
+            {
+                return null;
+            }
             // Create the panel that represents a product
             Panel itemPanel = new Panel
             {

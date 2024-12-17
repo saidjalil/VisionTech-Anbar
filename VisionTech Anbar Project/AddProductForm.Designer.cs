@@ -44,6 +44,8 @@
             panelDynamic = new Panel();
             comboBox1 = new ComboBox();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
+            comboBox2 = new ComboBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // textBox1
@@ -86,7 +88,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(605, 117);
+            label4.Location = new Point(587, 127);
             label4.Name = "label4";
             label4.Size = new Size(47, 25);
             label4.TabIndex = 5;
@@ -97,7 +99,7 @@
             textBox3.BackColor = SystemColors.HighlightText;
             textBox3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             textBox3.ForeColor = SystemColors.MenuText;
-            textBox3.Location = new Point(605, 157);
+            textBox3.Location = new Point(587, 166);
             textBox3.Name = "textBox3";
             textBox3.PlaceholderText = " 0";
             textBox3.Size = new Size(56, 27);
@@ -135,7 +137,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
-            label5.Location = new Point(375, 116);
+            label5.Location = new Point(387, 127);
             label5.Name = "label5";
             label5.Size = new Size(132, 25);
             label5.TabIndex = 9;
@@ -144,7 +146,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(779, 161);
+            checkBox1.Location = new Point(789, 324);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(18, 17);
             checkBox1.TabIndex = 10;
@@ -157,7 +159,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
-            label6.Location = new Point(718, 156);
+            label6.Location = new Point(722, 319);
             label6.Name = "label6";
             label6.Size = new Size(61, 25);
             label6.TabIndex = 11;
@@ -190,7 +192,7 @@
             // button4
             // 
             button4.ForeColor = Color.Red;
-            button4.Location = new Point(633, 287);
+            button4.Location = new Point(614, 287);
             button4.Name = "button4";
             button4.Size = new Size(47, 43);
             button4.TabIndex = 16;
@@ -243,6 +245,26 @@
             metroSetControlBox1.ThemeName = "MetroLite";
             metroSetControlBox1.Click += metroSetControlBox1_Click;
             // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(680, 161);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(151, 34);
+            comboBox2.TabIndex = 22;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.DimGray;
+            label1.Location = new Point(719, 127);
+            label1.Name = "label1";
+            label1.Size = new Size(64, 25);
+            label1.TabIndex = 23;
+            label1.Text = "Brand";
+            // 
             // AddProductForm
             // 
             AutoScaleDimensions = new SizeF(13F, 26F);
@@ -252,6 +274,8 @@
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 15F;
             ClientSize = new Size(856, 523);
+            Controls.Add(label1);
+            Controls.Add(comboBox2);
             Controls.Add(metroSetControlBox1);
             Controls.Add(comboBox1);
             Controls.Add(panelDynamic);
@@ -298,5 +322,7 @@
         private Panel panelDynamic;
         private ComboBox comboBox1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
+        private ComboBox comboBox2;
+        private Label label1;
     }
 }

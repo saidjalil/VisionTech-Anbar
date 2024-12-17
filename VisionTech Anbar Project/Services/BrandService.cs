@@ -27,7 +27,7 @@ public class BrandService
     // Get all brands
     public async Task<IEnumerable<Brand>> GetAllBrandsAsync()
     {
-        return await _brandRepository.GetAsync();
+        return await _brandRepository.GetAll(x => x.Products);
     }
 
     // Get brand by ID

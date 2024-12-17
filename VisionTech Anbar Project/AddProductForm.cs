@@ -36,6 +36,7 @@ namespace VisionTech_Anbar_Project
         private readonly ProductService productService;
         private readonly CategoryService categoryService;
         private readonly BarcodeService barcodeService;
+        private readonly BrandService brandService;
 
         public TextBox barcodeTextBox;
 
@@ -63,17 +64,18 @@ namespace VisionTech_Anbar_Project
         private int textBoxCount = 0; // To keep track of TextBox IDs
 
         ComboBox mainComboBox;
-        public AddProductForm(CategoryService categoryService, ProductService productService, BarcodeService barcodeService)
+        public AddProductForm(CategoryService categoryService, ProductService productService, BarcodeService barcodeService, BrandService brandService)
         {
             this.categoryService = categoryService;
             this.productService = productService;
             this.barcodeService = barcodeService;
-
+            this.brandService = brandService;
 
             barcodeTextBox = textBox1;
             InitializeComponent();
             InitializeDynamicPanel();
             LoadTopCategories();
+            LoadBrands();
             //InitializeCategories();
             //if(textBoxCount == 0)
             //CreateTextBox();
@@ -147,124 +149,98 @@ namespace VisionTech_Anbar_Project
         }
         private async Task<bool> StoreInput()
         {
-            string Name;
-            // string Description;
-            int Quantity;
+            string name;
+            int quantity;
             int productId = 0;
             List<Barcode> barcodes = new List<Barcode>();
-
             bool isRegular;
+            Brand newBrand;
 
-            // string id;
-            //string categoryName;
-
+            // Safely retrieve inputs
             isRegular = checkBox1.Checked;
 
-            Name = comboBox1.Text;
-            //var selectedCategory = mainComboBox.SelectedItem as Category;
-
-
-            //Log.Information(selectedCategory.Name);
-            //Description = comboBox1.Text;
-
-            //if(!int.TryParse(textBox1.Text, out int currentbarcodeValue) && !string.IsNullOrWhiteSpace(textBox1.Text))
-            //{
-            //    barcodes.Add(createNewBarcode(currentbarcodeValue));
-            //}
-            if (string.IsNullOrWhiteSpace(textBox3.Text) || !int.TryParse(textBox3.Text, out int quantity))
+            // Get name input from comboBox1
+            name = comboBox1.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show(
-                    "Məhsulun miqdarı qeyd olunmayıb və ya düzgün formatda deyil.",
-                    "Daxiletmə xətası",
-                    MessageBoxButtons.OK);
+                MessageBox.Show("Məhsulun adı qeyd olunmayıb.", "Daxiletmə xətası", MessageBoxButtons.OK);
                 return false;
             }
-            Quantity = quantity;
 
+            // Safely get brand input (typed or selected)
+            var brandInput = comboBox2?.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(brandInput))
+            {
+                MessageBox.Show("Brend adı qeyd olunmayıb.", "Daxiletmə xətası", MessageBoxButtons.OK);
+                return false;
+            }
+            newBrand = CreateNewBrand(brandInput);
+
+            // Validate quantity input
+            if (string.IsNullOrWhiteSpace(textBox3.Text) || !int.TryParse(textBox3.Text, out quantity))
+            {
+                MessageBox.Show("Məhsulun miqdarı düzgün qeyd olunmayıb.", "Daxiletmə xətası", MessageBoxButtons.OK);
+                return false;
+            }
+
+            // Process barcodes from the textBoxList
             foreach (TextBox txtbox in textBoxList)
             {
                 if (string.IsNullOrWhiteSpace(txtbox.Text) && !currentlyHaveBarcode)
                 {
-                    MessageBox.Show(
-                        "Bütün barkod dəyərləri düzgün formatda olmalıdır.",
-                        "Daxiletmə xətası",
-                        MessageBoxButtons.OK);
+                    MessageBox.Show("Bütün barkod dəyərləri düzgün formatda olmalıdır.", "Daxiletmə xətası", MessageBoxButtons.OK);
                     return false;
                 }
-
-                //var barcode = new Barcode
-                //{
-                //    BarCode = barcodeValue,
-                //};
-                //barcodes.Add(barcode);
-                barcodes.Add(createNewBarcode(txtbox.Text));
+                barcodes.Add(CreateNewBarcode(txtbox.Text));
             }
 
+            // Validate primary barcode
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                foreach (Barcode barcode in barcodes)
+                foreach (var barcode in barcodes)
                 {
                     if (barcode.BarCode == textBox1.Text)
                     {
-                        MessageBox.Show(
-                            "Daxil olunan barkod verilən barkod ilə eyni ola bilməz!",
-                            "Daxiletmə xətası",
-                            MessageBoxButtons.OK);
+                        MessageBox.Show("Daxil olunan barkod verilən barkod ilə eyni ola bilməz!", "Daxiletmə xətası", MessageBoxButtons.OK);
                         return false;
                     }
-                    //productId = barcode.ProductId;
                 }
             }
-            else if (!string.IsNullOrWhiteSpace(textBox1.Text))
+
+
+            // Check for duplicate barcodes
+            var currentList = (await barcodeService.CheckBarcodes(barcodes)).ToList();
+            if (currentList.Any())
             {
-                MessageBox.Show(
-                    "Əsas barkod düzgün formatda deyil.",
-                    "Daxiletmə xətası",
-                    MessageBoxButtons.OK);
+                string duplicateBarcodes = string.Join(", ", currentList.Select(b => b.BarCode));
+                MessageBox.Show($"Bu barkodlar artıq əlavə edilib: {duplicateBarcodes}", "Daxiletmə xətası", MessageBoxButtons.OK);
                 return false;
             }
 
-            List<Barcode> currentList = new List<Barcode>();
-            currentList = (await barcodeService.CheckBarcodes(barcodes)).ToList();
-            if (currentList.Count > 0)
-            {
-                string mes = string.Empty;
-
-                foreach (Barcode barcode in currentList)
-                {
-                    mes += $"{barcode.BarCode},";
-                }
-
-                MessageBox.Show(
-                           $"Bu barkodlar artıq əlavə edilib:{mes} ",
-                           "Daxiletmə xətası",
-                           MessageBoxButtons.OK);
-                return false;
-            }
-
+            // Assign to product
             if (currentProduct != null)
             {
-                EditedProduct = new PackageProduct(currentProduct.Id, Name,
-                                         Quantity, selectedId, barcodes, isRegular);
+                EditedProduct = new PackageProduct(currentProduct.Id, name, quantity, selectedId, barcodes, isRegular, newBrand);
             }
             else
             {
-                //id = Guid.NewGuid().ToString();
-                NewProduct = new PackageProduct(productId, Name,
-                                         Quantity, selectedId, barcodes, isRegular);
+                NewProduct = new PackageProduct(productId, name, quantity, selectedId, barcodes, isRegular, newBrand);
             }
+
             currentlyHaveBarcode = false;
             return true;
-            //  barcodes.Clear();
         }
-        private Barcode createNewBarcode(string barcodeValue)
+
+        private Barcode CreateNewBarcode(string barcodeValue)
         {
-            var barcode = new Barcode
-            {
-                BarCode = barcodeValue,
-            };
-            return barcode;
+            return new Barcode { BarCode = barcodeValue?.Trim() };
         }
+
+        private Brand CreateNewBrand(string brandName)
+        {
+            return new Brand { BrandName = brandName?.Trim() };
+        }
+
         private void ShowErrors(List<string> errors, int max)
         {
             MessageBoxIcon icon;
@@ -659,17 +635,117 @@ namespace VisionTech_Anbar_Project
 
         private async void LoadTopCategories()
         {
+            // Get top-level categories and check if any exist
             var topCategories = categoryService.GetTopLevelCategories().ToList();
-            var products = (await productService.GetProductsByCategoryAsync(topCategories[0].Id)).ToList();
 
-            if (topCategories.Any())
+            if (!topCategories.Any())
             {
-                selectedId = topCategories.First().Id;
+                MessageBox.Show("No top-level categories found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Exit the method if no categories exist
             }
 
+            // Add ComboBox with the top categories
             AddComboBox(null, topCategories);
-            SetProducts(products);
         }
+        private async void LoadBrands()
+        {
+            // Load all brands from the service
+            var brands = (await brandService.GetAllBrandsAsync()).ToList();
+
+            if (!brands.Any())
+            {
+                MessageBox.Show("No brands found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Safely bind the brands to the ComboBox
+            comboBox2.DataSource = brands;
+            comboBox2.DisplayMember = "BrandName"; // Ensure "BrandName" is the property of the Brand
+            comboBox2.ValueMember = "Id";
+
+            // Set the default brand selection
+            selectedId = brands.First().Id;
+
+            // Load products for the first brand
+            //await LoadProductsByBrand(selectedId);
+        }
+
+        //private async Task LoadProductsByBrand(int brandId)
+        //{
+        //    Retrieve products based on the selected brand ID
+        //    var products = (await productService.GetProductsByBrandAsync(brandId)).ToList();
+
+        //    if (!products.Any())
+        //    {
+        //        MessageBox.Show("No products found for the selected brand.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+
+        //    Display the retrieved products
+        //    SetProducts(products);
+        //}
+
+        private async void ComboBoxBrands_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_isUpdatingComboBox) return; // Prevent redundant calls during programmatic updates
+
+            var comboBox = sender as ComboBox;
+            if (comboBox == null) return;
+
+            var selectedBrand = comboBox.SelectedItem as Brand;
+            if (selectedBrand == null) return;
+
+            // Update the selected ID to the current brand
+            selectedId = selectedBrand.Id;
+
+            // Load products based on the selected brand
+           // await LoadProductsByBrand(selectedId);
+        }
+
+
+        private async void ComboBoxBrands_KeyDown(object sender, KeyEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox == null) return;
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+                var inputText = comboBox.Text?.Trim();
+                if (string.IsNullOrWhiteSpace(inputText)) return;
+
+                // Check for duplicates
+                if (comboBox.Items.Cast<Brand>().Any(b => b.BrandName.Equals(inputText, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("This brand already exists!", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Add new brand to the database
+                var newBrand = new Brand { BrandName = inputText };
+                await brandService.CreateBrandAsync(newBrand);
+
+                // Refresh ComboBox data
+                _isUpdatingComboBox = true;
+
+                var brands = (await brandService.GetAllBrandsAsync()).ToList();
+                comboBox.DataSource = null;
+                comboBox.DataSource = brands;
+                comboBox.DisplayMember = "BrandName";
+                comboBox.ValueMember = "Id";
+
+                // Select the newly added brand
+                comboBox.SelectedItem = brands.First(b => b.Id == newBrand.Id);
+
+                _isUpdatingComboBox = false;
+
+                // Load products for the new brand
+               // await LoadProductsByBrand(newBrand.Id);
+            }
+        }
+
+
 
         private void AddComboBox(Category parentCategory, List<Category> categories)
         {
@@ -694,7 +770,7 @@ namespace VisionTech_Anbar_Project
                 Width = 200,
                 DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
                 Tag = parentCategory // Store the parent category
-                
+
             };
             if (isLocked == true)
                 comboBox.Enabled = false;
@@ -751,11 +827,11 @@ namespace VisionTech_Anbar_Project
 
             // Load subcategories of the selected category
             var subCategories = categoryService.GetSubCategories(selectedCategory.Id).ToList();
-            var products = (await productService.GetProductsByCategoryAsync(selectedCategory.Id)).ToList();
+           // var products = (await productService.GetProductsByCategoryAsync(selectedCategory.Id)).ToList();
 
             // Always add a new ComboBox, even if no subcategories exist
             AddComboBox(selectedCategory, subCategories);
-            SetProducts(products);
+            //SetProducts(products);
         }
 
 
