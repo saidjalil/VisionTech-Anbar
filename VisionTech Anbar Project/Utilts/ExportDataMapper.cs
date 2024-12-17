@@ -69,13 +69,13 @@ public class ExportDataMapper
         {
             id = package.WarehouseId,
             name = package.Warehouse.WarehouseName,
-            description = package.Warehouse.Description,
+            description = null,
         };
         Vendor vendor = new()
         {
             id = package.VendorId,
             name = package.Vendor.VendorName,
-            description = package.Vendor.Description,
+            description = null,
         };
         Data exportData = new()
         {
