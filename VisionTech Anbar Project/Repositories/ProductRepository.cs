@@ -15,7 +15,7 @@ public class ProductRepository : BaseRepository<Product>
 
     public async Task<IEnumerable<Product>> GetByCategoryIdAsync(int categoryId)
     {
-        return await _context.Products
+        return await _dbSet.AsNoTracking()
             .Where(p => p.CategoryId == categoryId)
             .Include(p => p.Category)
             .ToListAsync();
@@ -23,7 +23,7 @@ public class ProductRepository : BaseRepository<Product>
 
     public async Task<IEnumerable<Product>> GetByBrandIdAsync(int brandId)
     {
-        return await _context.Products
+        return await _dbSet.AsNoTracking()
             .Where(p => p.BrandId == brandId)
             .Include(p => p.Brand)
             .ToListAsync();

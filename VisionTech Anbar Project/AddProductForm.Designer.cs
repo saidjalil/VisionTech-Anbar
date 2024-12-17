@@ -252,6 +252,8 @@
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 34);
             comboBox2.TabIndex = 22;
+            comboBox2.SelectedIndexChanged += ComboBoxBrands_SelectedIndexChanged;
+            comboBox2.KeyDown += ComboBoxBrands_KeyDown;
             // 
             // label1
             // 

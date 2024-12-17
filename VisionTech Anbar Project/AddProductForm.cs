@@ -667,22 +667,23 @@ namespace VisionTech_Anbar_Project
             selectedId = brands.First().Id;
 
             // Load products for the first brand
-            //await LoadProductsByBrand(selectedId);
+            await LoadProductsByBrand(selectedId);
         }
 
-        //private async Task LoadProductsByBrand(int brandId)
-        //{
-        //    Retrieve products based on the selected brand ID
-        //    var products = (await productService.GetProductsByBrandAsync(brandId)).ToList();
+        private async Task LoadProductsByBrand(int brandId)
+        {
+            //Retrieve products based on the selected brand ID
+            var list = await productService.GetProductByBrandId(brandId);
+            var products = list.ToList();
 
-        //    if (!products.Any())
-        //    {
-        //        MessageBox.Show("No products found for the selected brand.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
+            if (!products.Any())
+            {
+                MessageBox.Show("No products found for the selected brand.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
-        //    Display the retrieved products
-        //    SetProducts(products);
-        //}
+            //Display the retrieved products
+            SetProducts(products);
+        }
 
         private async void ComboBoxBrands_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -698,7 +699,7 @@ namespace VisionTech_Anbar_Project
             selectedId = selectedBrand.Id;
 
             // Load products based on the selected brand
-           // await LoadProductsByBrand(selectedId);
+            await LoadProductsByBrand(selectedId);
         }
 
 
@@ -741,7 +742,7 @@ namespace VisionTech_Anbar_Project
                 _isUpdatingComboBox = false;
 
                 // Load products for the new brand
-               // await LoadProductsByBrand(newBrand.Id);
+                await LoadProductsByBrand(newBrand.Id);
             }
         }
 
@@ -827,7 +828,7 @@ namespace VisionTech_Anbar_Project
 
             // Load subcategories of the selected category
             var subCategories = categoryService.GetSubCategories(selectedCategory.Id).ToList();
-           // var products = (await productService.GetProductsByCategoryAsync(selectedCategory.Id)).ToList();
+            // var products = (await productService.GetProductsByCategoryAsync(selectedCategory.Id)).ToList();
 
             // Always add a new ComboBox, even if no subcategories exist
             AddComboBox(selectedCategory, subCategories);
@@ -932,6 +933,7 @@ namespace VisionTech_Anbar_Project
         {
 
         }
+
     }
 }
 
