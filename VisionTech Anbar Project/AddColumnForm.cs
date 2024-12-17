@@ -153,22 +153,22 @@ namespace VisionTech_Anbar_Project
             string retriever = RetrieveComboBoxInput(comboBox3, "Retriever");
             string address = RetrieveTextBoxInput(textBox2, "Address");
 
-            string warehousedesc = RetrieveTextBoxInput(warehouseDesc, "Description");
-            string vendordesc = RetrieveTextBoxInput(vendorDesc, "Description");
+            //string warehousedesc = RetrieveTextBoxInput(warehouseDesc, "Description");
+            //string vendordesc = RetrieveTextBoxInput(vendorDesc, "Description");
 
 
             // Retrieve or create warehouse and vendor
             Warehouse selectedWarehouse = GetOrCreateWarehouse(comboBox1);
             Vendor selectedVendor = GetOrCreateVendor(comboBox2);
 
-            if (selectedWarehouse != null)
-            {
-                selectedWarehouse.Description = warehousedesc;
-            }
-            if (selectedVendor != null)
-            {
-                selectedVendor.Description = warehousedesc;
-            }
+            //if (selectedWarehouse != null)
+            //{
+            //    selectedWarehouse.Description = warehousedesc;
+            //}
+            //if (selectedVendor != null)
+            //{
+            //    selectedVendor.Description = warehousedesc;
+            //}
 
 
             // Add products to the package
