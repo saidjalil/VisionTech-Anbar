@@ -1,4 +1,5 @@
 using System.Collections;
+using Microsoft.EntityFrameworkCore;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Repositories;
 using Serilog;
@@ -246,5 +247,49 @@ public class ProductService
     public async Task<IEnumerable<Product>> GetProductByBrandId(int brandId)
     {
         return await _productRepository.GetByBrandIdAsync(brandId);
+    }
+
+    public async Task<IEnumerable<Product>> GetAllProductsWithNavigation()
+    {
+        return await _productRepository.GetAllAsync(query => query
+            .Include(x => x.Brand)
+            .Include(x => x.Category)
+            .Include(x => x.PackageProducts)
+            .ThenInclude(pp => pp.Product)
+            
+        );
+    }
+
+    public async Task<Product> GetProductByIdWithNavigation(int id)
+    {
+        try
+        {
+            Log.Information("Fetching package with ID: {id} along with related navigation properties.", id);
+
+            var package = await _productRepository.FindAsyncByIdWithNavigation(
+                id,
+                query => query
+                    .Include(x => x.Brand)
+                    .Include(x => x.Category)
+                    .Include(x => x.PackageProducts)
+                    .ThenInclude(pp => pp.Product)
+                    .ThenInclude(pp => pp.Barcodes)
+                    
+            );
+
+            if (package == null)
+            {
+                Log.Warning("Package with ID: {id} not found.", id);
+                return null; // Optionally throw an exception here if not found is considered critical.
+            }
+
+            Log.Information("Successfully retrieved package with ID: {id}.", id);
+            return package;
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Error occurred while fetching package with ID: {id}.", id);
+            throw; // Re-throwing the exception allows the caller to handle it appropriately.
+        }
     }
 }

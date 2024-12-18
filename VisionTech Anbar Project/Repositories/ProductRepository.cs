@@ -18,7 +18,8 @@ public class ProductRepository : BaseRepository<Product>
         return await _dbSet.AsNoTracking()
             .Where(p => p.CategoryId == categoryId)
             .Include(p => p.Category)
-            .ToListAsync();
+            .ToListAsync()
+            .ConfigureAwait(false);;
     }
 
     public async Task<IEnumerable<Product>> GetByBrandIdAsync(int brandId)
@@ -26,7 +27,8 @@ public class ProductRepository : BaseRepository<Product>
         return await _dbSet.AsNoTracking()
             .Where(p => p.BrandId == brandId)
             .Include(p => p.Brand)
-            .ToListAsync();
+            .ToListAsync()
+            .ConfigureAwait(false);;
     }
 
     public async Task UpdateProductBarcodes(Product product)
