@@ -345,7 +345,9 @@ namespace VisionTech_Anbar_Project
                 SetCurrentCategories();
                 AddLockButtonToControl(this);
                 comboBox1.Text = currentProduct.ProductName;
+                comboBox2.SelectedItem = currentProduct.Brand;
                 setCurrentBarcodes();
+                
 
                 textBox1.Visible = false;
                 button2.Visible = false;
@@ -528,6 +530,55 @@ namespace VisionTech_Anbar_Project
             }
         }
         // Helper method to clear existing TextBoxes
+
+        //private async void SetCurrentBrands()
+        //{
+        //    if (currentProduct == null) return;
+
+        //    // Get the brand hierarchy for the current product
+        //    //var brandHierarchy = await GetBrandHierarchyAsync(currentProduct.BrandId);
+
+        //    // Reset the ComboBox position and clear previous selections
+        //    if (comboBox2 == null) return; // Ensure ComboBox exists
+
+        //    _isUpdatingComboBox = true; // Prevent triggering SelectedIndexChanged event
+
+        //    // Load all brands at the top level
+        //    var allBrands = (await brandService.GetAllBrandsAsync()).ToList();
+
+        //    // Bind the brands to the existing ComboBox
+        //    comboBox2.DataSource = null; // Clear old data
+        //    comboBox2.DataSource = allBrands;
+        //    comboBox2.DisplayMember = "BrandName"; // Property for displaying names
+        //    comboBox2.ValueMember = "Id";
+
+        //    // Select the correct brand based on hierarchy
+        //    //if (brandHierarchy.Any())
+        //    //{
+        //    //    var selectedBrand = brandHierarchy.FirstOrDefault();
+        //    //    comboBox2.SelectedItem = allBrands.FirstOrDefault(b => b.Id == selectedBrand.Id);
+        //    //}
+
+        //    _isUpdatingComboBox = false;
+
+        //    // Load products for the selected brand
+        //    await LoadProductsByBrand((int)comboBox2.SelectedValue);
+        //}
+        //private async Task<List<Brand>> GetBrandHierarchyAsync(int brandId)
+        //{
+        //    var hierarchy = new List<Brand>();
+
+        //    var currentBrand = await brandService.GetBrandByIdAsync(brandId);
+        //    while (currentBrand != null)
+        //    {
+        //        hierarchy.Insert(0, currentBrand); // Build hierarchy from top to bottom
+        //        currentBrand = await brandService.GetParentBrandAsync(currentBrand.ParentId);
+        //    }
+
+        //    return hierarchy;
+        //}
+
+
         private async void button2_Click(object sender, EventArgs e)
         {
 
@@ -536,11 +587,16 @@ namespace VisionTech_Anbar_Project
                 return;
             }
             currentProduct = await productService.GetProductByBarCode(textBox1.Text);
-            if (currentProduct != null)
+            if (currentProduct == null)
+            {
+                MessageBox.Show($"Bu barkoda uyğun məhsul tapılmadı", "Daxiletmə xətası", MessageBoxButtons.OK);
+            }
+            else
             {
                 comboBox1.Text = currentProduct.ProductName;
                 comboBox1.Enabled = false;
                 currentlyHaveBarcode = true;
+                SetCurrentCategories();
                 //setCurrentBarcodes();
             }
             // combobox1 category add
@@ -650,24 +706,31 @@ namespace VisionTech_Anbar_Project
         private async Task LoadBrands()
         {
             // Load all brands from the service
-            var brands = (await brandService.GetAllBrandsAsync()).ToList();
-
-            if (!brands.Any())
+            try
             {
-                MessageBox.Show("No brands found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                var brands = (await brandService.GetAllBrandsAsync()).ToList();
+                if (!brands.Any())
+                {
+                    MessageBox.Show("No brands found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Safely bind the brands to the ComboBox
+                comboBox2.DataSource = brands;
+                comboBox2.DisplayMember = "BrandName"; // Ensure "BrandName" is the property of the Brand
+                comboBox2.ValueMember = "Id";
+
+                // Set the default brand selection
+                selectedId = brands.First().Id;
+
+                // Load products for the first brand
+                await LoadProductsByBrand(selectedId);
+            }
+            catch (InvalidOperationException e)
+            {
+                Log.Error(e.Message);
             }
 
-            // Safely bind the brands to the ComboBox
-            comboBox2.DataSource = brands;
-            comboBox2.DisplayMember = "BrandName"; // Ensure "BrandName" is the property of the Brand
-            comboBox2.ValueMember = "Id";
-
-            // Set the default brand selection
-            selectedId = brands.First().Id;
-
-            // Load products for the first brand
-            await LoadProductsByBrand(selectedId);
         }
 
         private async Task LoadProductsByBrand(int brandId)
@@ -793,6 +856,8 @@ namespace VisionTech_Anbar_Project
             // Add ComboBox to the panel
             panelDynamic.Controls.Add(comboBox);
 
+            comboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
             // Update Y position for the next control
             _nextControlY += comboBox.Height;
 

@@ -333,3 +333,128 @@ System.InvalidOperationException: A second operation was started on this context
 2024-12-17 14:50:45.497 +04:00 [INF] Product with ID: 6 successfully updated.
 2024-12-17 14:50:46.658 +04:00 [INF] Fetching all packages with related navigation properties.
 2024-12-17 14:50:46.664 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-17 15:19:56.912 +04:00 [INF] Application Starting
+2024-12-17 15:19:58.255 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 15:19:59.514 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-17 15:20:15.186 +04:00 [INF] Fetching all warehouses.
+2024-12-17 15:20:15.938 +04:00 [INF] Successfully retrieved 1 warehouses.
+2024-12-17 15:20:15.938 +04:00 [INF] Fetching all vendors.
+2024-12-17 15:20:15.952 +04:00 [INF] Successfully retrieved 1 vendors.
+2024-12-17 15:20:50.416 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-17 15:20:55.060 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-17 15:20:59.568 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-17 15:20:59.607 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-17 15:21:00.341 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-17 15:21:00.344 +04:00 [INF] Fetching category with ID: 2.
+2024-12-17 15:21:01.090 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-17 15:21:01.090 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 15:21:01.093 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 15:21:04.067 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 15:21:04.074 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-17 15:21:05.172 +04:00 [INF] Fetching all warehouses.
+2024-12-17 15:21:05.904 +04:00 [INF] Successfully retrieved 1 warehouses.
+2024-12-17 15:21:05.904 +04:00 [INF] Fetching all vendors.
+2024-12-17 15:21:05.914 +04:00 [INF] Successfully retrieved 1 vendors.
+2024-12-17 15:21:12.570 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-17 15:21:12.578 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-17 15:21:13.281 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 15:21:13.287 +04:00 [INF] Successfully retrieved 2 packages.
+2024-12-17 15:21:14.301 +04:00 [INF] Fetching all warehouses.
+2024-12-17 15:21:15.029 +04:00 [INF] Successfully retrieved 1 warehouses.
+2024-12-17 15:21:15.029 +04:00 [INF] Fetching all vendors.
+2024-12-17 15:21:15.032 +04:00 [INF] Successfully retrieved 1 vendors.
+2024-12-17 15:21:21.399 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-17 15:21:33.879 +04:00 [INF] Creating a new package with details: VisionTech_Anbar_Project.Entities.Package.
+2024-12-17 15:21:34.103 +04:00 [INF] Package successfully created.
+2024-12-17 15:21:34.107 +04:00 [INF] Image saved successfully from C:\Users\Said\Downloads\1_pYNoBNenmkCnkSfez6IotQ.png to C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Images\Documents\4.png
+2024-12-17 15:21:34.134 +04:00 [INF] Image successfully converted to Base64.
+2024-12-17 15:51:47.198 +04:00 [INF] Application Starting
+2024-12-17 15:51:48.349 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 15:51:50.355 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 15:51:53.957 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-17 15:51:54.040 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-17 15:52:53.418 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 15:52:53.421 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 15:56:09.626 +04:00 [INF] Application Starting
+2024-12-17 15:56:10.659 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 15:56:11.883 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 15:56:48.804 +04:00 [INF] Fetching all warehouses.
+2024-12-17 15:56:49.545 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-17 15:56:49.546 +04:00 [INF] Fetching all vendors.
+2024-12-17 15:56:49.555 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-17 15:56:51.971 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-17 15:56:52.050 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-17 15:56:52.655 +04:00 [INF] Fetching category with ID: 2.
+2024-12-17 15:56:53.432 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-17 15:56:53.433 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 15:56:53.434 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 15:57:19.506 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 15:57:19.522 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:19:20.246 +04:00 [INF] Application Starting
+2024-12-17 18:19:22.247 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:19:23.860 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:19:29.531 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-17 18:19:29.698 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-17 18:19:30.860 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:19:31.821 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 18:19:40.820 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:19:42.036 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 18:19:46.951 +04:00 [INF] Fetching category with ID: 2.
+2024-12-17 18:19:48.017 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-17 18:19:48.018 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:19:48.022 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 18:19:58.795 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:20:00.202 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 18:20:04.041 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:20:04.045 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:20:10.675 +04:00 [INF] Fetching all warehouses.
+2024-12-17 18:20:11.735 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-17 18:20:11.736 +04:00 [INF] Fetching all vendors.
+2024-12-17 18:20:11.752 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-17 18:22:00.955 +04:00 [INF] Application Starting
+2024-12-17 18:22:03.326 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:22:05.132 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:22:09.178 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-17 18:22:09.341 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-17 18:22:15.475 +04:00 [INF] Fetching category with ID: 2.
+2024-12-17 18:22:16.612 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-17 18:22:16.612 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:22:16.616 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 18:22:24.593 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:22:24.596 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:22:26.469 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-17 18:22:26.485 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-17 18:22:28.260 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:22:29.529 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 18:22:36.754 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:22:36.757 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:22:53.149 +04:00 [INF] Application Starting
+2024-12-17 18:22:55.345 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:22:56.882 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:23:11.422 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-17 18:23:11.528 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-17 18:23:12.440 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:23:32.901 +04:00 [INF] Application Starting
+2024-12-17 18:23:34.806 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:23:36.511 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:23:41.032 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-17 18:23:41.176 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-17 18:24:11.882 +04:00 [INF] Fetching category with ID: 2.
+2024-12-17 18:24:29.386 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-17 18:24:29.386 +04:00 [INF] Fetching category with ID: 1.
+2024-12-17 18:24:29.389 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-17 18:24:37.615 +04:00 [INF] Fetching category with ID: 2.
+2024-12-17 18:24:37.792 +04:00 [ERR] Error occurred while fetching category with ID: 2.
+System.InvalidOperationException: A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+   at Microsoft.EntityFrameworkCore.Infrastructure.Internal.ConcurrencyDetector.EnterCriticalSection()
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.CategoryRepository.GetByIdAsync(Int32 id) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\CategoryRepository.cs:line 23
+   at VisionTech_Anbar_Project.Services.CategoryService.GetCategoryByIdAsync(Int32 id) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\CategoryService.cs:line 49
+2024-12-17 18:24:46.489 +04:00 [INF] Application Starting
+2024-12-17 18:24:48.452 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-17 18:24:50.156 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-17 18:24:54.347 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-17 18:24:54.509 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-17 18:24:55.711 +04:00 [INF] Fetching category with ID: 2.

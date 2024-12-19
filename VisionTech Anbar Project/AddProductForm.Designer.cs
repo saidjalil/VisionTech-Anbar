@@ -210,6 +210,8 @@
             // 
             // comboBox1
             // 
+            comboBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(375, 161);
             comboBox1.Name = "comboBox1";
@@ -247,6 +249,8 @@
             // 
             // comboBox2
             // 
+            comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox2.FormattingEnabled = true;
             comboBox2.Location = new Point(680, 161);
             comboBox2.Name = "comboBox2";
