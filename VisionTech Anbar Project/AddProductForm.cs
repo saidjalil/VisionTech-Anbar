@@ -647,7 +647,7 @@ namespace VisionTech_Anbar_Project
             // Add ComboBox with the top categories
             AddComboBox(null, topCategories);
         }
-        private async void LoadBrands()
+        private async Task LoadBrands()
         {
             // Load all brands from the service
             var brands = (await brandService.GetAllBrandsAsync()).ToList();
@@ -673,8 +673,7 @@ namespace VisionTech_Anbar_Project
         private async Task LoadProductsByBrand(int brandId)
         {
             //Retrieve products based on the selected brand ID
-            var list = await productService.GetProductByBrandId(brandId);
-            var products = list.ToList();
+            var products = await productService.GetProductByBrandId(brandId); // Ensure await is used correctly
 
             if (!products.Any())
             {
@@ -682,7 +681,7 @@ namespace VisionTech_Anbar_Project
             }
 
             //Display the retrieved products
-            SetProducts(products);
+            SetProducts(products.ToList());
         }
 
         private async void ComboBoxBrands_SelectedIndexChanged(object sender, EventArgs e)
