@@ -217,11 +217,13 @@ public class PackageService
                 packageId,
                 query => query
                     .Include(x => x.PackageProducts)
-                    .ThenInclude(pp => pp.Product).ThenInclude(x => x.Brand)
-                    .ThenInclude(pp => pp.Products).ThenInclude(x => x.Brand)
+                    .ThenInclude(pp => pp.Product)
+                    .ThenInclude(p => p.Brand)
+                    .Include(x => x.PackageProducts)
+                    .ThenInclude(pp => pp.Product)
+                    .ThenInclude(p => p.Barcodes) // Include the barcodes for each product
                     .Include(x => x.Vendor)
                     .Include(x => x.Warehouse)
-                    
             );
 
             if (package == null)

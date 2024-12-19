@@ -35,7 +35,7 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 
         public async Task<T> FindAsyncById(int id, params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = _dbSet.AsNoTracking();
+            IQueryable<T> query = _dbSet;
 
             foreach (var include in includes)
             {

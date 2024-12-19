@@ -1,0 +1,96 @@
+2024-12-19 14:12:28.054 +04:00 [INF] Application Starting
+2024-12-19 14:12:29.240 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-19 14:12:30.324 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-19 14:12:35.506 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-19 14:12:35.569 +04:00 [ERR] Error occurred while fetching package with ID: 1.
+System.InvalidOperationException: The Include path 'Brand->Products' results in a cycle. Cycles are not allowed in no-tracking queries; either use a tracking query or remove the cycle.
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at System.Linq.Expressions.Expression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.ExpandingExpressionVisitor.Expand(Expression expression, Boolean applyIncludes)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.PendingSelectorExpandingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.Expand(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryTranslationPreprocessor.Process(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass12_0`1.<ExecuteAsync>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, LambdaExpression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.FindAsyncByIdWithNavigation(Int32 id, Func`2 includeFunc) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 0
+   at VisionTech_Anbar_Project.Services.PackageService.GetPackageWithNavigation(Int32 packageId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 216
+2024-12-19 14:13:28.361 +04:00 [INF] Application Starting
+2024-12-19 14:13:29.497 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-19 14:13:30.656 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-19 14:13:34.453 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-19 14:13:34.508 +04:00 [ERR] Error occurred while fetching package with ID: 1.
+System.InvalidOperationException: The Include path 'Brand->Products' results in a cycle. Cycles are not allowed in no-tracking queries; either use a tracking query or remove the cycle.
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at System.Linq.Expressions.Expression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.ExpandingExpressionVisitor.Expand(Expression expression, Boolean applyIncludes)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.PendingSelectorExpandingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.Expand(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryTranslationPreprocessor.Process(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass12_0`1.<ExecuteAsync>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, LambdaExpression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.FindAsyncByIdWithNavigation(Int32 id, Func`2 includeFunc) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 0
+   at VisionTech_Anbar_Project.Services.PackageService.GetPackageWithNavigation(Int32 packageId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 216
+2024-12-19 14:15:27.604 +04:00 [INF] Application Starting
+2024-12-19 14:15:28.742 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-19 14:15:29.800 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-19 14:15:30.502 +04:00 [INF] Fetching all warehouses.
+2024-12-19 14:15:31.252 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-19 14:15:31.252 +04:00 [INF] Fetching all vendors.
+2024-12-19 14:15:31.264 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-19 14:16:31.337 +04:00 [INF] Application Starting
+2024-12-19 14:16:32.505 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-19 14:16:33.481 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-19 14:16:34.603 +04:00 [INF] Fetching all warehouses.
+2024-12-19 14:16:35.360 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-19 14:16:35.360 +04:00 [INF] Fetching all vendors.
+2024-12-19 14:16:35.370 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-19 14:26:05.019 +04:00 [INF] Application Starting
+2024-12-19 14:26:06.208 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-19 14:26:07.258 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-19 14:26:11.286 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-19 14:26:11.341 +04:00 [ERR] Error occurred while fetching package with ID: 1.
+System.InvalidOperationException: The Include path 'Brand->Products' results in a cycle. Cycles are not allowed in no-tracking queries; either use a tracking query or remove the cycle.
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VerifyNoCycles(IncludeTreeNode includeTreeNode)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.IncludeExpandingExpressionVisitor.VisitExtension(Expression extensionExpression)
+   at System.Linq.Expressions.Expression.Accept(ExpressionVisitor visitor)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.ExpandingExpressionVisitor.Expand(Expression expression, Boolean applyIncludes)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.PendingSelectorExpandingExpressionVisitor.Visit(Expression expression)
+   at Microsoft.EntityFrameworkCore.Query.Internal.NavigationExpandingExpressionVisitor.Expand(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryTranslationPreprocessor.Process(Expression query)
+   at Microsoft.EntityFrameworkCore.Query.QueryCompilationContext.CreateQueryExecutor[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass12_0`1.<ExecuteAsync>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.ExecuteAsync[TResult](Expression query, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.ExecuteAsync[TResult](Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, Expression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ExecuteAsync[TSource,TResult](MethodInfo operatorMethodInfo, IQueryable`1 source, LambdaExpression expression, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.FindAsyncByIdWithNavigation(Int32 id, Func`2 includeFunc) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 0
+   at VisionTech_Anbar_Project.Services.PackageService.GetPackageWithNavigation(Int32 packageId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\PackageService.cs:line 216
+2024-12-19 14:33:49.673 +04:00 [INF] Application Starting
+2024-12-19 14:33:50.856 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-19 14:33:52.016 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-19 14:33:55.632 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-19 14:33:55.724 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-19 14:33:59.684 +04:00 [INF] Fetching category with ID: 1.
+2024-12-19 14:34:00.460 +04:00 [INF] Category with ID: 1 successfully retrieved.

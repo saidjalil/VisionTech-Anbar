@@ -347,7 +347,7 @@ namespace VisionTech_Anbar_Project
                 comboBox1.Text = currentProduct.ProductName;
                 comboBox2.SelectedItem = currentProduct.Brand;
                 setCurrentBarcodes();
-                
+
 
                 textBox1.Visible = false;
                 button2.Visible = false;
@@ -577,8 +577,6 @@ namespace VisionTech_Anbar_Project
 
         //    return hierarchy;
         //}
-
-
         private async void button2_Click(object sender, EventArgs e)
         {
 
@@ -671,7 +669,6 @@ namespace VisionTech_Anbar_Project
                 e.Handled = true;
             }
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             if (textBoxCount > 0)
@@ -682,13 +679,11 @@ namespace VisionTech_Anbar_Project
                 textBoxCount--;
 
             }
-
         }
         private void InitializeDynamicPanel()
         {
             panelDynamic.AutoScroll = true;
         }
-
         private async void LoadTopCategories()
         {
             // Get top-level categories and check if any exist

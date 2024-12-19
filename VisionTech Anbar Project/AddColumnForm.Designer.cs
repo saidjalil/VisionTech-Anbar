@@ -244,7 +244,7 @@ namespace VisionTech_Anbar_Project
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderColor = Color.FromArgb(42, 45, 85);
-            BorderThickness = 10F;
+            BorderThickness = 0F;
             ClientSize = new Size(1063, 697);
             Controls.Add(pictureBox2);
             Controls.Add(button4);
@@ -265,7 +265,6 @@ namespace VisionTech_Anbar_Project
             Controls.Add(button1);
             HeaderColor = Color.Transparent;
             Name = "AddColumnForm";
-            ShowBorder = true;
             SmallLineColor1 = Color.Transparent;
             SmallLineColor2 = Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

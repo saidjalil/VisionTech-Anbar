@@ -252,7 +252,7 @@
             comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(680, 161);
+            comboBox2.Location = new Point(672, 166);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 34);
             comboBox2.TabIndex = 22;
@@ -265,7 +265,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(719, 127);
+            label1.Location = new Point(707, 127);
             label1.Name = "label1";
             label1.Size = new Size(64, 25);
             label1.TabIndex = 23;
@@ -278,7 +278,7 @@
             BackColor = Color.Transparent;
             BackgroundColor = Color.AliceBlue;
             BorderColor = Color.FromArgb(42, 45, 85);
-            BorderThickness = 15F;
+            BorderThickness = 0F;
             ClientSize = new Size(856, 523);
             Controls.Add(label1);
             Controls.Add(comboBox2);
@@ -298,7 +298,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(textBox1);
-            DropShadowEffect = false;
             HeaderColor = Color.Transparent;
             Name = "AddProductForm";
             RightToLeftLayout = true;

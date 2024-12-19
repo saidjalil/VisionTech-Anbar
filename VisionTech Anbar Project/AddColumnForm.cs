@@ -196,7 +196,7 @@ namespace VisionTech_Anbar_Project
         {
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
-               // throw new ArgumentException($"{fieldName} cannot be empty.");
+                // throw new ArgumentException($"{fieldName} cannot be empty.");
                 MessageBox.Show($"{fieldName} boş ola bilməz.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             return textBox.Text.Trim();
@@ -345,7 +345,7 @@ namespace VisionTech_Anbar_Project
 
         private Panel CreateItemPanel(PackageProduct product)
         {
-            if(product == null)
+            if (product == null)
             {
                 return null;
             }
@@ -462,7 +462,7 @@ namespace VisionTech_Anbar_Project
             // Create a new TextBox
             var descriptionTextBox = new TextBox
             {
-                Location = new Point(location.X  , location.Y + comboBox.Height + 5),
+                Location = new Point(location.X, location.Y + comboBox.Height + 5),
                 Width = 200
             };
 
