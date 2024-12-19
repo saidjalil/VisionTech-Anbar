@@ -58,7 +58,7 @@ public class ExportDataMapper
                 categories = categories,
                 photo = null, // Assuming this should be a placeholder for the image
                 quantity = product.PackageProducts.Where(x => x.ProductId == product.Id).Sum(x => x.Quantity),
-                barcodes = product.Barcodes.Select(b => b.BarCode).ToList(),
+                //barcodes = product.Barcodes.Select(b => b.BarCode).ToList(),
                 is_permanent = product.IsRegular ? 1 : 0
             };
 

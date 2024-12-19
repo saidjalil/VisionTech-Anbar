@@ -8,6 +8,7 @@ public class PackageProduct : BaseItem
 {
     public int PackageId { get; set; }
     public Package Package { get; set; }
+    public string Barcode { get; set; }
 
     public int ProductId { get; set; }
     public Product Product { get; set; }
@@ -27,7 +28,7 @@ public class PackageProduct : BaseItem
     {
         
         this.Package = null;
-        this.Product = new Product { ProductName = productName, CategoryId = categoryId, Barcodes = barcodes, Id = productId, IsRegular = isRegular, Brand = brand};
+        this.Product = new Product { ProductName = productName, CategoryId = categoryId, Id = productId, IsRegular = isRegular, Brand = brand};
         //Description = description;
         Quantity = quantity;
         ProductId = productId;

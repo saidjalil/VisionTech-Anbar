@@ -29,7 +29,7 @@ namespace VisionTech_Anbar_Project.DAL
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<PackageProduct> PackageProducts { get; set; }
-        public DbSet<Barcode> Barcodes { get; set; }
+        //public DbSet<Barcode> Barcodes { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Package> Packages { get; set; }
@@ -82,16 +82,16 @@ namespace VisionTech_Anbar_Project.DAL
                 .HasForeignKey(pkg => pkg.WarehouseId);
 
 
-            modelBuilder.Entity<Barcode>()
-                .HasOne(b => b.Product) // Each Barcode has one Product
-                .WithMany(p => p.Barcodes) // Each Product can have many Barcodes
-                .HasForeignKey(b => b.ProductId)
-                .OnDelete(DeleteBehavior.Cascade); // Cascade delete if the Product is deleted
+            // modelBuilder.Entity<Barcode>()
+            //     .HasOne(b => b.Product) // Each Barcode has one Product
+            //     .WithMany(p => p.Barcodes) // Each Product can have many Barcodes
+            //     .HasForeignKey(b => b.ProductId)
+            //     .OnDelete(DeleteBehavior.Cascade); // Cascade delete if the Product is deleted
 
             // Unique constraint on BarCode
-            modelBuilder.Entity<Barcode>()
-                .HasIndex(b => b.BarCode)
-                .IsUnique();
+            // modelBuilder.Entity<Barcode>()
+            //     .HasIndex(b => b.BarCode)
+            //     .IsUnique();
         }
 
     }

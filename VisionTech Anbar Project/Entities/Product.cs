@@ -25,6 +25,6 @@ namespace VisionTech_Anbar_Project.Entities
         public ICollection<PackageProduct> PackageProducts { get; set; } = new List<PackageProduct>();
 
         // One-to-Many relationship with Barcode
-        public ICollection<Barcode> Barcodes { get; set; } = new List<Barcode>();
+        //public ICollection<Barcode> Barcodes { get; set; } = new List<Barcode>();
     }
 }

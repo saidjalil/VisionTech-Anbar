@@ -130,7 +130,7 @@ public class PackageService
         }
     }
 
-    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity, Category category)
+    public async Task AddProductToPackageAsync(int packageId, int productId,string barcode, int quantity, Category category)
     {
         try
         {
@@ -138,7 +138,7 @@ public class PackageService
             Log.Information("Adding product with ID: {ProductId} to package with ID: {PackageId}, quantity: {Quantity}.", 
                 productId, packageId, quantity);
 
-            await _packageRepository.AddProductToPackageAsync(packageId, productId, quantity,categoryId);
+            await _packageRepository.AddProductToPackageAsync(packageId, productId, barcode, quantity,categoryId);
             Log.Information("Product with ID: {ProductId} successfully added to package with ID: {PackageId}.", 
                 productId, packageId);
         }
@@ -150,14 +150,14 @@ public class PackageService
         }
     }
     
-    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity, int categoryId)
+    public async Task AddProductToPackageAsync(int packageId, int productId,string barcode, int quantity, int categoryId)
     {
         try
         {
             Log.Information("Adding product with ID: {ProductId} to package with ID: {PackageId}, quantity: {Quantity}.", 
                 productId, packageId, quantity);
 
-            await _packageRepository.AddProductToPackageAsync(packageId, productId, quantity,categoryId);
+            await _packageRepository.AddProductToPackageAsync(packageId, productId, barcode, quantity,categoryId);
             Log.Information("Product with ID: {ProductId} successfully added to package with ID: {PackageId}.", 
                 productId, packageId);
         }
@@ -170,14 +170,14 @@ public class PackageService
     }
     
 
-    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity, Category category)
+    public async Task AddProductToPackageAsync(Product product, int packageId,string barcode, int quantity, Category category)
     {
         var categoryId = (await _categoryRepository.Create(category)).Entity.Id;
-        await _packageRepository.AddProductToPackageAsync(product, packageId, quantity,categoryId);
+        await _packageRepository.AddProductToPackageAsync(product, packageId, quantity, barcode,categoryId);
     }
-    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity, int categoryId)
+    public async Task AddProductToPackageAsync(Product product, int packageId,string barcode, int quantity, int categoryId)
     {
-        await _packageRepository.AddProductToPackageAsync(product, packageId, quantity, categoryId);
+        await _packageRepository.AddProductToPackageAsync(product, packageId,quantity,barcode, categoryId);
     }
     
 
@@ -221,9 +221,9 @@ public class PackageService
                     .ThenInclude(p => p.Brand)
                     .Include(x => x.PackageProducts)
                     .ThenInclude(pp => pp.Product)
-                    .ThenInclude(p => p.Barcodes) // Include the barcodes for each product
-                    .Include(x => x.Vendor)
-                    .Include(x => x.Warehouse)
+                    // .ThenInclude(p => p.Barcodes) // Include the barcodes for each product
+                    // .Include(x => x.Vendor)
+                    // .Include(x => x.Warehouse)
             );
 
             if (package == null)

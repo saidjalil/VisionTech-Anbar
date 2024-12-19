@@ -96,7 +96,7 @@ public class ProductService
                 throw new ArgumentNullException(nameof(product), "That product doesn't exist.");
             }
             
-            existedProduct.Barcodes = product.Barcodes;
+            //existedProduct.Barcodes = product.Barcodes;
             Log.Information("Updating product with ID: {Id}.", product.Id);
             await _productRepository.UpdateProductBarcodes(existedProduct);
             Log.Information("Product with ID: {Id} successfully updated.", product.Id);
@@ -123,11 +123,11 @@ public class ProductService
             {
                 throw new ArgumentNullException(nameof(product), "That product doesn't exist.");
             }
-            existedProduct.Barcodes.Clear();
-            foreach (var barcode in product.Barcodes)
-            {
-                existedProduct.Barcodes.Add(barcode);
-            }
+            //existedProduct.Barcodes.Clear();
+            // foreach (var barcode in product.Barcodes)
+            // {
+            //     existedProduct.Barcodes.Add(barcode);
+            // }
             Log.Information("Updating product with ID: {Id}.", product.Id);
             await _productRepository.Update(existedProduct);
             Log.Information("Product with ID: {Id} successfully updated.", product.Id);
@@ -195,8 +195,8 @@ public class ProductService
 
     public async Task<Product> GetProductByBarCode(string barcode)
     {
-        var res = (await _productRepository.GetAll(x => x.Barcodes)).FirstOrDefault(x => x.Barcodes.Any(x => x.BarCode == barcode));
-        return res;
+        //var res = (await _productRepository.GetAll(x => x.Barcodes)).FirstOrDefault(x => x.Barcodes.Any(x => x.BarCode == barcode));
+        return null;
     }
 
     public async Task CreateProductWithMultipleBarcode(Product product, List<string> barcodes)
@@ -220,7 +220,7 @@ public class ProductService
             {
                 BarCode = barcode
             };
-            product.Barcodes.Add(bar); 
+            //product.Barcodes.Add(bar); 
         }
         
         // Add product to the context
@@ -274,7 +274,7 @@ public class ProductService
                     .Include(x => x.Category)
                     .Include(x => x.PackageProducts)
                     .ThenInclude(pp => pp.Product)
-                    .ThenInclude(pp => pp.Barcodes)
+                    //.ThenInclude(pp => pp.Barcodes)
                     
             );
 

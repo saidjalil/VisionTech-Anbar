@@ -14,7 +14,7 @@ public class PackageRepository : BaseRepository<Package>
         _productRepository = productRepository;
     }
 
-    public async Task AddProductToPackageAsync(int packageId, int productId, int quantity, int categoryId)
+    public async Task AddProductToPackageAsync(int packageId, int productId,string barcode, int quantity, int categoryId)
     {
         // Check if the entity already exists in the context or database
         var existingPackageProduct = await _context.PackageProducts
@@ -27,6 +27,7 @@ public class PackageRepository : BaseRepository<Package>
                 PackageId = packageId,
                 ProductId = productId,
                 Quantity = quantity,
+                Barcode = barcode,
                 CreatedTime = DateTime.UtcNow,
                 UpdatedTime = DateTime.UtcNow,
             };
@@ -39,7 +40,7 @@ public class PackageRepository : BaseRepository<Package>
     }
 
 
-    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity, int categoryId)
+    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity,string barcode, int categoryId)
     {
         if (product == null)
         {
@@ -67,7 +68,8 @@ public class PackageRepository : BaseRepository<Package>
         {
             PackageId = packageId,
             ProductId = product.Id, // Use the newly generated or existing Product ID
-            Quantity = quantity
+            Quantity = quantity,
+            Barcode = barcode
         };
 
         // Add the PackageProduct to the context
@@ -82,7 +84,7 @@ public class PackageRepository : BaseRepository<Package>
         return await _context.Products
             .Where(p => p.PackageProducts.Any(pp => pp.PackageId == packageId))
             .Include(p => p.Category)         // Include the Category for each Product
-            .Include(p => p.Barcodes)         // Include the Barcodes for each Product
+            //.Include(p => p.Barcodes)         // Include the Barcodes for each Product
             .ToListAsync();
     }
 
