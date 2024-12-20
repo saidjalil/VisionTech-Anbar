@@ -17,3 +17,345 @@
 2024-12-20 13:14:17.109 +04:00 [INF] Category with ID: 1 successfully retrieved.
 2024-12-20 13:14:34.214 +04:00 [INF] Creating a new category: fefe.
 2024-12-20 13:14:34.221 +04:00 [INF] Category fefe successfully created.
+2024-12-20 14:13:44.177 +04:00 [INF] Application Starting
+2024-12-20 14:14:59.408 +04:00 [INF] Application Starting
+2024-12-20 14:15:00.544 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:15:01.525 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:15:05.220 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:15:05.289 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:15:06.736 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:15:07.516 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:15:07.516 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:15:07.549 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:16:21.413 +04:00 [ERR] Error occurred while updating product with ID: 0.
+System.ArgumentNullException: That product doesn't exist. (Parameter 'product')
+   at VisionTech_Anbar_Project.Services.ProductService.UpdateProductWithBarcodes(Product product, Int32 packageId) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\ProductService.cs:line 96
+2024-12-20 14:17:01.013 +04:00 [INF] Application Starting
+2024-12-20 14:17:02.282 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:17:03.289 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:17:06.929 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:17:07.013 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:17:08.333 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:17:09.111 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:17:09.111 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:17:09.145 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:18:33.249 +04:00 [INF] Application Starting
+2024-12-20 14:18:34.492 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:18:35.441 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:18:39.373 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:18:39.443 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:18:40.545 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:18:41.326 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:18:41.327 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:18:41.360 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:20:30.729 +04:00 [INF] Application Starting
+2024-12-20 14:20:31.966 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:20:33.025 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:20:36.612 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:20:36.680 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:20:38.906 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:20:39.674 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:20:39.674 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:20:39.709 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:23:42.750 +04:00 [INF] Application Starting
+2024-12-20 14:23:44.179 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:23:45.195 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:23:48.674 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:23:48.750 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:23:54.941 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:23:55.707 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:24:11.266 +04:00 [INF] Updating product with ID: 3.
+2024-12-20 14:24:11.427 +04:00 [INF] Product with ID: 3 successfully updated.
+2024-12-20 14:24:11.429 +04:00 [INF] Updating product with ID: 3.
+2024-12-20 14:24:11.432 +04:00 [INF] Product with ID: 3 successfully updated.
+2024-12-20 14:24:16.810 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:24:16.812 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:24:20.055 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:24:20.057 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:24:23.247 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:24:24.004 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:24:43.426 +04:00 [INF] Updating product with ID: 3.
+2024-12-20 14:24:43.431 +04:00 [INF] Product with ID: 3 successfully updated.
+2024-12-20 14:24:43.432 +04:00 [INF] Updating product with ID: 3.
+2024-12-20 14:24:43.434 +04:00 [INF] Product with ID: 3 successfully updated.
+2024-12-20 14:24:56.590 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-20 14:24:56.590 +04:00 [INF] Fetching category with ID: 7.
+2024-12-20 14:24:57.330 +04:00 [WRN] Category with ID: 7 not found.
+2024-12-20 14:25:01.517 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:25:02.267 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:25:03.678 +04:00 [INF] Fetching category with ID: 7.
+2024-12-20 14:25:04.424 +04:00 [WRN] Category with ID: 7 not found.
+2024-12-20 14:25:11.494 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:25:12.237 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:25:15.414 +04:00 [INF] Fetching category with ID: 7.
+2024-12-20 14:25:16.165 +04:00 [WRN] Category with ID: 7 not found.
+2024-12-20 14:25:19.479 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:25:20.223 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:25:20.223 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:25:20.261 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:25:21.508 +04:00 [INF] Fetching category with ID: 7.
+2024-12-20 14:25:22.249 +04:00 [WRN] Category with ID: 7 not found.
+2024-12-20 14:25:26.016 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:25:26.769 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:25:26.769 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:25:26.800 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:25:33.527 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:25:34.270 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:25:34.271 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:25:34.305 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:25:36.699 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:25:36.706 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:26:08.034 +04:00 [INF] Application Starting
+2024-12-20 14:26:09.193 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:26:10.206 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:26:13.819 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:26:13.893 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:26:14.501 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:26:15.278 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:26:17.816 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:26:18.565 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:26:18.565 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:26:18.595 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:26:20.440 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:26:20.441 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:26:32.914 +04:00 [INF] Application Starting
+2024-12-20 14:26:34.057 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:26:35.075 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:26:38.652 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:26:38.717 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:26:41.531 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:26:42.297 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:26:42.298 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:26:42.331 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:26:44.906 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:26:44.907 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:26:54.788 +04:00 [INF] Application Starting
+2024-12-20 14:26:56.180 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:26:57.240 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:27:01.278 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:27:01.348 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:27:06.113 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:27:06.114 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:27:18.047 +04:00 [INF] Application Starting
+2024-12-20 14:27:19.281 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:27:20.285 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:27:23.765 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:27:23.831 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:27:30.520 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:27:30.522 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:28:43.464 +04:00 [INF] Application Starting
+2024-12-20 14:28:44.604 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:28:45.699 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:28:50.746 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:28:50.814 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:28:59.898 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:28:59.899 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:29:14.069 +04:00 [INF] Application Starting
+2024-12-20 14:29:15.371 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:29:16.382 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:29:20.300 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:29:20.373 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:29:27.802 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:29:27.806 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:29:29.610 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:29:29.613 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:29:33.370 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:29:33.371 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:29:55.573 +04:00 [INF] Application Starting
+2024-12-20 14:29:56.791 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:29:57.848 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:30:01.408 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:30:01.475 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:30:02.912 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:30:03.683 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:30:08.828 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:30:09.563 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:30:15.621 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:30:16.349 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:30:16.349 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:30:16.352 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:30:19.276 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:30:20.012 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:30:20.012 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:30:20.015 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:30:25.179 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:30:25.914 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:30:55.763 +04:00 [INF] Fetching category with ID: 3.
+2024-12-20 14:30:56.499 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-20 14:30:56.499 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 14:30:56.502 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 14:30:56.502 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:30:56.503 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:31:03.208 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:31:03.214 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:31:26.696 +04:00 [INF] Application Starting
+2024-12-20 14:31:27.994 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:31:28.980 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:31:32.653 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:31:32.728 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:31:33.573 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:31:34.335 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:31:50.741 +04:00 [INF] Creating a new category: ffeasa.
+2024-12-20 14:31:50.913 +04:00 [INF] Category ffeasa successfully created.
+2024-12-20 14:33:30.901 +04:00 [INF] Updating product with ID: 3.
+2024-12-20 14:33:30.934 +04:00 [INF] Product with ID: 3 successfully updated.
+2024-12-20 14:33:30.935 +04:00 [INF] Updating product with ID: 3.
+2024-12-20 14:33:30.937 +04:00 [INF] Product with ID: 3 successfully updated.
+2024-12-20 14:33:39.443 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:33:39.448 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:34:11.062 +04:00 [INF] Application Starting
+2024-12-20 14:34:12.314 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:34:13.307 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:34:17.278 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:34:17.358 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:34:20.569 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:34:20.573 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:34:22.030 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-20 14:34:22.033 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-20 14:34:23.180 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 14:34:23.184 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 14:34:24.856 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 14:34:24.859 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 14:34:29.467 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 14:34:30.263 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 14:34:44.105 +04:00 [INF] Creating a new category: egeg.
+2024-12-20 14:34:44.275 +04:00 [INF] Category egeg successfully created.
+2024-12-20 15:09:51.439 +04:00 [INF] Application Starting
+2024-12-20 15:09:52.557 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:09:53.532 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:09:58.251 +04:00 [INF] Application Starting
+2024-12-20 15:09:59.546 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:10:00.763 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:10:04.963 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:10:05.034 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:10:06.587 +04:00 [INF] Fetching category with ID: 3.
+2024-12-20 15:10:07.348 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-20 15:10:07.348 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 15:10:07.360 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 15:10:07.360 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:10:07.361 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 15:10:25.599 +04:00 [INF] Creating a new category: kuku.
+2024-12-20 15:10:25.614 +04:00 [INF] Category kuku successfully created.
+2024-12-20 15:11:27.273 +04:00 [INF] Updating product with ID: 10.
+2024-12-20 15:11:27.377 +04:00 [ERR] Error occurred while updating product with ID: 10.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_PackageProducts_Packages_PackageId". The conflict occurred in database "VisionTechAnbar", table "dbo.Packages", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__189_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:0763d043-1f68-4829-b916-ddd9d50b7bbe
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Save() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 125
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Create(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 26
+   at VisionTech_Anbar_Project.Repositories.ProductRepository.UpdateProductBarcodes(List`1 packageProducts) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\ProductRepository.cs:line 40
+   at VisionTech_Anbar_Project.Services.ProductService.UpdateProductWithBarcodes(Int32 packageId, Int32 productId, List`1 packageProduct) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\ProductService.cs:line 103
+2024-12-20 15:14:01.931 +04:00 [INF] Application Starting
+2024-12-20 15:14:03.165 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:14:04.198 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:14:08.080 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:14:08.166 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:14:08.783 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:14:09.568 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 15:14:56.635 +04:00 [INF] Updating product with ID: 3.
+2024-12-20 15:14:56.736 +04:00 [ERR] Error occurred while updating product with ID: 3.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_PackageProducts_Packages_PackageId". The conflict occurred in database "VisionTechAnbar", table "dbo.Packages", column 'Id'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__189_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.Tasks.Task.<>c.<.cctor>b__272_0(Object obj)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:42e5a5f8-218f-492a-932f-fcd50f78675e
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Save() in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 125
+   at VisionTech_Anbar_Project.Repositories.Base.BaseRepository`1.Create(T item) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\Base\BaseRepository.cs:line 26
+   at VisionTech_Anbar_Project.Repositories.ProductRepository.UpdateProductBarcodes(List`1 packageProducts) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Repositories\ProductRepository.cs:line 40
+   at VisionTech_Anbar_Project.Services.ProductService.UpdateProductWithBarcodes(Int32 packageId, Int32 productId, List`1 packageProduct) in C:\Users\Said\source\repos\VisionTechProject\VisionTechProject\VisionTech-Anbar\VisionTech Anbar Project\Services\ProductService.cs:line 103
+2024-12-20 15:16:23.087 +04:00 [INF] Application Starting
+2024-12-20 15:16:24.292 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:16:25.415 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:16:30.542 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:16:30.612 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:16:31.245 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:16:32.022 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 15:16:35.942 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 15:16:36.688 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 15:16:36.688 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:16:36.718 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 15:16:57.423 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:16:57.424 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:17:29.670 +04:00 [INF] Application Starting
+2024-12-20 15:17:31.129 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:17:32.157 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:17:35.863 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:17:35.931 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:17:37.425 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 15:18:16.326 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 15:18:16.326 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:18:16.378 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 15:18:56.423 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:18:56.472 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:21:39.248 +04:00 [INF] Application Starting
+2024-12-20 15:21:40.504 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:21:41.527 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:21:45.190 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:21:45.257 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:21:45.832 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:21:46.593 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 15:21:52.216 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:21:52.222 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:23:18.504 +04:00 [INF] Application Starting
+2024-12-20 15:23:19.673 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:23:20.688 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:23:24.333 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:23:24.405 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:23:24.946 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:23:44.869 +04:00 [INF] Application Starting
+2024-12-20 15:23:46.123 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:23:47.146 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:23:50.409 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:23:50.477 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:23:51.559 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 15:28:55.242 +04:00 [INF] Application Starting
+2024-12-20 15:28:56.480 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 15:28:57.448 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 15:29:01.117 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 15:29:01.185 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 15:29:02.029 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 15:29:02.800 +04:00 [INF] Category with ID: 1 successfully retrieved.

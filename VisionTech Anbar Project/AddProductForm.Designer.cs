@@ -31,8 +31,6 @@
             textBox1 = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
-            textBox3 = new TextBox();
             button1 = new Button();
             button2 = new Button();
             label5 = new Label();
@@ -80,30 +78,6 @@
             label3.Size = new Size(106, 25);
             label3.TabIndex = 3;
             label3.Text = "Kateqoriya";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(587, 127);
-            label4.Name = "label4";
-            label4.Size = new Size(47, 25);
-            label4.TabIndex = 5;
-            label4.Text = "Say";
-            // 
-            // textBox3
-            // 
-            textBox3.BackColor = SystemColors.HighlightText;
-            textBox3.Font = new Font("Microsoft Sans Serif", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.ForeColor = SystemColors.MenuText;
-            textBox3.Location = new Point(587, 166);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = " 0";
-            textBox3.Size = new Size(56, 27);
-            textBox3.TabIndex = 4;
-            textBox3.KeyPress += textBox3_KeyPress;
             // 
             // button1
             // 
@@ -240,7 +214,7 @@
             comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(672, 166);
+            comboBox2.Location = new Point(580, 157);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 34);
             comboBox2.TabIndex = 22;
@@ -253,7 +227,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(707, 127);
+            label1.Location = new Point(615, 118);
             label1.Name = "label1";
             label1.Size = new Size(64, 25);
             label1.TabIndex = 23;
@@ -280,8 +254,6 @@
             Controls.Add(label5);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(label4);
-            Controls.Add(textBox3);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(textBox1);
@@ -301,8 +273,6 @@
         private TextBox textBox1;
         private Label label2;
         private Label label3;
-        private Label label4;
-        private TextBox textBox3;
         private Button button1;
         private Button button2;
         private Label label5;

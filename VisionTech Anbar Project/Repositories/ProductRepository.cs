@@ -40,7 +40,7 @@ public class ProductRepository : BaseRepository<Product>
             await _packageProductRepository.Create(new()
             {
                 ProductId = packageProduct.ProductId,
-                PackageId = packageProduct.Id,
+                PackageId = packageProduct.PackageId,
                 Quantity = packageProduct.Quantity,
                 Barcode = packageProduct.Barcode,
             });

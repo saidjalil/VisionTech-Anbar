@@ -1,4 +1,5 @@
 ﻿using MetroSet_UI.Forms;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,7 @@ namespace VisionTech_Anbar_Project
         private int selectedId = 1;
         private int currentParentId = 0;
 
+        private int currentProductId = 0;
 
 
         private List<Category> categories = new List<Category>();
@@ -115,7 +117,7 @@ namespace VisionTech_Anbar_Project
         {
             // comboBox1.Text = Category;
             comboBox1.Text = OriginalProduct.Product.ProductName.ToString();
-            textBox3.Text = OriginalProduct.Quantity.ToString();
+            //textBox3.Text = OriginalProduct.Quantity.ToString();
 
             categories = (await categoryService.GetAllCategoriesAsync()).ToList();
 
@@ -126,7 +128,7 @@ namespace VisionTech_Anbar_Project
         {
             textBox1.Clear();
             comboBox1.ResetText();
-            textBox3.Clear();
+           // textBox3.Clear();
 
         }
         private async void button1_Click(object sender, EventArgs e)
@@ -160,7 +162,6 @@ namespace VisionTech_Anbar_Project
         {
             string name;
             int quantity;
-            int productId = 0;
             bool isRegular;
             Brand newBrand;
             EditedProductList = new List<PackageProduct>();
@@ -206,7 +207,7 @@ namespace VisionTech_Anbar_Project
                 }
 
                 // Create a new PackageProduct for each barcode and quantity
-                var packageProduct = new PackageProduct(productId, name, quantity, selectedId, barcodeInput, isRegular, newBrand);
+                var packageProduct = new PackageProduct(currentProductId, name, quantity, selectedId, barcodeInput, isRegular, newBrand);
 
                 // Add to appropriate list
                 if (currentProduct != null)
@@ -351,9 +352,9 @@ namespace VisionTech_Anbar_Project
                 SetCurrentCategories();
                 AddLockButtonToControl(this);
                 comboBox1.Text = currentProduct.ProductName;
-                comboBox2.SelectedItem = currentProduct.Brand;
+                comboBox2.SelectedIndex = currentProduct.BrandId;
                 setCurrentBarcodes();
-
+                currentProductId = currentProduct.Id;
 
                 textBox1.Visible = false;
                 button2.Visible = false;
@@ -501,35 +502,7 @@ namespace VisionTech_Anbar_Project
                 // Increment TextBox count
                 textBoxCount++;
 
-                // Calculate position relative to the button (same logic as CreateTextBox)
-                var buttonPosition = button3.Location;
-                var buttonSize = button3.Size;
-
-                // Calculate the X position (to the right of the button)
-                int xOffset = buttonPosition.X + buttonSize.Width + 10; // 10 pixels padding to the right of the button
-
-                // Calculate the Y position based on the count of existing TextBoxes
-                int yOffset = buttonPosition.Y + (textBoxCount - 1) * (30 + 10); // 30 is TextBox height, 5 is vertical padding
-
-                // Create a new TextBox
-                TextBox newTextBox = new TextBox
-                {
-                    Name = "TextBox" + textBoxCount,
-                    Width = 200,
-                    Location = new System.Drawing.Point(xOffset, yOffset), // Adjusted position
-                    Tag = textBoxCount,
-                    Size = new System.Drawing.Size(177, 26),
-                    PlaceholderText = "**********",
-                    Text = barcodes[i].ToString() // Populate with the barcode
-                };
-
-                newTextBox.KeyPress += NewTextBoxKeyPress;
-
-                // Add the new TextBox to the list
-                barcodeTextBoxes.Add(newTextBox);
-
-                // Add the new TextBox to the form
-                this.Controls.Add(newTextBox);
+                AddRow();
             }
         }
         // Helper method to clear existing TextBoxes
