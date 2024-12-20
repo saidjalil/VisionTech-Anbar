@@ -31,7 +31,7 @@ public class ProductRepository : BaseRepository<Product>
             .ConfigureAwait(false);;
     }
 
-    public async Task UpdateProductBarcodes(List<PackageProduct> packageProducts)
+    public async Task UpdateProductBarcodes(List<PackageProduct> packageProducts, int productId, int packageId)
     {
         
 
@@ -39,8 +39,8 @@ public class ProductRepository : BaseRepository<Product>
         {
             await _packageProductRepository.Create(new()
             {
-                ProductId = packageProduct.ProductId,
-                PackageId = packageProduct.PackageId,
+                ProductId = productId,
+                PackageId = packageId,
                 Quantity = packageProduct.Quantity,
                 Barcode = packageProduct.Barcode,
             });

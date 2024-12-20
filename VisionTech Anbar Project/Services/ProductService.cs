@@ -100,7 +100,7 @@ public class ProductService
             
             //existedProduct.Barcodes = product.Barcodes;
             Log.Information("Updating product with ID: {Id}.", productId);
-            await _productRepository.UpdateProductBarcodes(packageProduct);
+            await _productRepository.UpdateProductBarcodes(packageProduct, productId ,packageId);
             Log.Information("Product with ID: {Id} successfully updated.", productId);
         }
         catch (Exception ex)
