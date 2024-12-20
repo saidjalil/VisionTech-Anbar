@@ -80,30 +80,32 @@ public class ProductService
         }
     }
 
-    public async Task UpdateProductWithBarcodes(Product product)
+    public async Task UpdateProductWithBarcodes(int packageId, int productId,List<PackageProduct> packageProduct)
     {
-        if (product == null)
+        if (packageProduct == null)
         {
             Log.Error("Attempted to update a null product.");
-            throw new ArgumentNullException(nameof(product), "Product cannot be null.");
+            throw new ArgumentNullException(nameof(packageProduct), "Product cannot be null.");
         }
 
         try
         {
-            var existedProduct = await _productRepository.FindAsyncById(product.Id);
-            if (existedProduct == null)
-            {
-                throw new ArgumentNullException(nameof(product), "That product doesn't exist.");
-            }
+            // var existedProduct = await _productRepository.FindAsyncById(packageProduct.Id);
+            // if (existedProduct == null)
+            // {
+            //     throw new ArgumentNullException(nameof(product), "That product doesn't exist.");
+            // }
+            
+            _productRepository.RemoveProductBarcodes(packageId, productId);
             
             //existedProduct.Barcodes = product.Barcodes;
-            Log.Information("Updating product with ID: {Id}.", product.Id);
-            await _productRepository.UpdateProductBarcodes(existedProduct);
-            Log.Information("Product with ID: {Id} successfully updated.", product.Id);
+            Log.Information("Updating product with ID: {Id}.", productId);
+            await _productRepository.UpdateProductBarcodes(packageProduct);
+            Log.Information("Product with ID: {Id} successfully updated.", productId);
         }
         catch (Exception ex)
         {
-            Log.Error(ex, "Error occurred while updating product with ID: {Id}.", product.Id);
+            Log.Error(ex, "Error occurred while updating product with ID: {Id}.", productId);
             throw;
         }
     }
