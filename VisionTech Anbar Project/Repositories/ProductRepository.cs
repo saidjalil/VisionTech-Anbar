@@ -27,8 +27,7 @@ public class ProductRepository : BaseRepository<Product>
         return await _dbSet.AsNoTracking()
             .Where(p => p.BrandId == brandId)
             .Include(p => p.Brand)
-            .ToListAsync()
-            .ConfigureAwait(false);;
+            .ToListAsync();
     }
 
     public async Task UpdateProductBarcodes(List<PackageProduct> packageProducts, int productId, int packageId)
@@ -58,8 +57,11 @@ public class ProductRepository : BaseRepository<Product>
         {
             await _packageProductRepository.Remove(packageProduct);
         }
-
-
-
+    }
+    
+    
+    public async Task<List<PackageProduct>> GetPackageProductByIds(int packageId, int productId)
+    {
+        return await _packageProductRepository.GetPackageProductByProductId(packageId, productId);
     }
 }

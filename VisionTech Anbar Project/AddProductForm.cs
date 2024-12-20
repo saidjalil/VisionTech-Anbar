@@ -737,7 +737,7 @@ namespace VisionTech_Anbar_Project
             // Load all brands from the service
             try
             {
-                var brands = (await brandService.GetAllBrandsAsync()).ToList();
+                var brands = (await brandService.GetAllBrandsAsync().ConfigureAwait(false)).ToList();
                 if (!brands.Any())
                 {
                     MessageBox.Show("No brands found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -295,4 +295,10 @@ public class ProductService
             throw; // Re-throwing the exception allows the caller to handle it appropriately.
         }
     }
+
+
+    public async Task<List<PackageProduct>> GetPackageProductsByIds(int packageId, int productId)
+    {
+        return await _productRepository.GetPackageProductByIds(packageId, productId);
+    }
 }
