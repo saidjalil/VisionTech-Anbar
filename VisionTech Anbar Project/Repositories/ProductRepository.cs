@@ -31,7 +31,7 @@ public class ProductRepository : BaseRepository<Product>
             .ConfigureAwait(false);;
     }
 
-    public async Task UpdateProductBarcodes(Product product, int packageId)
+    public async Task UpdateProductBarcodes(Product product,List<PackageProduct> packageProducts, int packageId)
     {
         var barcodes = await _packageProductRepository.GetPackageProductByProductId(product.Id,packageId);
         foreach (var barcode in barcodes)
@@ -39,8 +39,21 @@ public class ProductRepository : BaseRepository<Product>
             await _packageProductRepository.Remove(barcode);
         }
 
+        foreach (var packageProduct in packageProducts)
+        {
+            await _packageProductRepository.Create(new()
+            {
+                ProductId = product.Id,
+                PackageId = packageProduct.Id,
+                Quantity = packageProduct.Quantity,
+                Barcode = packageProduct.Barcode,
+            });
+        }
+        
         await Update(product);
     }
+    
+    
     
     
     
