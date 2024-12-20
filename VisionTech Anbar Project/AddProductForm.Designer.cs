@@ -40,7 +40,6 @@
             label6 = new Label();
             label7 = new Label();
             button3 = new Button();
-            button4 = new Button();
             panelDynamic = new Panel();
             comboBox1 = new ComboBox();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
@@ -146,7 +145,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(789, 324);
+            checkBox1.Location = new Point(808, 230);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(18, 17);
             checkBox1.TabIndex = 10;
@@ -159,7 +158,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
-            label6.Location = new Point(722, 319);
+            label6.Location = new Point(741, 225);
             label6.Name = "label6";
             label6.Size = new Size(61, 25);
             label6.TabIndex = 11;
@@ -188,17 +187,6 @@
             button3.Text = "+";
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.ForeColor = Color.Red;
-            button4.Location = new Point(614, 287);
-            button4.Name = "button4";
-            button4.Size = new Size(47, 43);
-            button4.TabIndex = 16;
-            button4.Text = "🗑 ";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // panelDynamic
             // 
@@ -285,7 +273,6 @@
             Controls.Add(metroSetControlBox1);
             Controls.Add(comboBox1);
             Controls.Add(panelDynamic);
-            Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -323,7 +310,6 @@
         private Label label6;
         private Label label7;
         private Button button3;
-        private Button button4;
         private Panel panelDynamic;
         private ComboBox comboBox1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;

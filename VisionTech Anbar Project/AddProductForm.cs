@@ -15,6 +15,7 @@ using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Entities.Categories;
 using VisionTech_Anbar_Project.Repositories;
 using VisionTech_Anbar_Project.Services;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace VisionTech_Anbar_Project
 {
@@ -38,6 +39,10 @@ namespace VisionTech_Anbar_Project
         private readonly BarcodeService barcodeService;
         private readonly BrandService brandService;
 
+        public List<PackageProduct> EditedProductList { get; set; }
+        public List<PackageProduct> NewProductList { get; set; }
+
+
         public TextBox barcodeTextBox;
 
         private bool _isUpdatingComboBox = false;
@@ -60,7 +65,11 @@ namespace VisionTech_Anbar_Project
         private List<ComboBox> comboBoxes = new List<ComboBox>();
         //private List<Tuple<ComboBox, ComboBox, int?>> comboBoxRelationships = new List<Tuple<ComboBox, ComboBox, int?>>();
 
-        private List<TextBox> textBoxList = new List<TextBox>();
+        private List<TextBox> barcodeTextBoxes = new List<TextBox>();
+        private List<TextBox> quantityTextBoxes = new List<TextBox>();
+        private List<Button> deleteButtons = new List<Button>();
+        private List<Control[]> rows = new List<Control[]>();
+
         private int textBoxCount = 0; // To keep track of TextBox IDs
 
         ComboBox mainComboBox;
@@ -152,9 +161,10 @@ namespace VisionTech_Anbar_Project
             string name;
             int quantity;
             int productId = 0;
-            List<Barcode> barcodes = new List<Barcode>();
             bool isRegular;
             Brand newBrand;
+            EditedProductList = new List<PackageProduct>();
+            NewProductList = new List<PackageProduct>();
 
             // Safely retrieve inputs
             isRegular = checkBox1.Checked;
@@ -176,30 +186,45 @@ namespace VisionTech_Anbar_Project
             }
             newBrand = CreateNewBrand(brandInput);
 
-            // Validate quantity input
-            if (string.IsNullOrWhiteSpace(textBox3.Text) || !int.TryParse(textBox3.Text, out quantity))
+            // Process barcodes and quantities from the lists
+            for (int i = 0; i < barcodeTextBoxes.Count; i++)
             {
-                MessageBox.Show("Məhsulun miqdarı düzgün qeyd olunmayıb.", "Daxiletmə xətası", MessageBoxButtons.OK);
-                return false;
-            }
-
-            // Process barcodes from the textBoxList
-            foreach (TextBox txtbox in textBoxList)
-            {
-                if (string.IsNullOrWhiteSpace(txtbox.Text) && !currentlyHaveBarcode)
+                // Retrieve barcode
+                var barcodeInput = barcodeTextBoxes[i].Text?.Trim();
+                if (string.IsNullOrWhiteSpace(barcodeInput))
                 {
                     MessageBox.Show("Bütün barkod dəyərləri düzgün formatda olmalıdır.", "Daxiletmə xətası", MessageBoxButtons.OK);
                     return false;
                 }
-                barcodes.Add(CreateNewBarcode(txtbox.Text));
+
+                // Retrieve quantity
+                if (i >= quantityTextBoxes.Count || string.IsNullOrWhiteSpace(quantityTextBoxes[i].Text) ||
+                    !int.TryParse(quantityTextBoxes[i].Text, out quantity))
+                {
+                    MessageBox.Show($"Məhsulun miqdarı düzgün qeyd olunmayıb. Sətir: {i + 1}", "Daxiletmə xətası", MessageBoxButtons.OK);
+                    return false;
+                }
+
+                // Create a new PackageProduct for each barcode and quantity
+                var packageProduct = new PackageProduct(productId, name, quantity, selectedId, barcodeInput, isRegular, newBrand);
+
+                // Add to appropriate list
+                if (currentProduct != null)
+                {
+                    EditedProductList.Add(packageProduct);
+                }
+                else
+                {
+                    NewProductList.Add(packageProduct);
+                }
             }
 
             // Validate primary barcode
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                foreach (var barcode in barcodes)
+                foreach (var barcode in barcodeTextBoxes.Select(txtbox => txtbox.Text?.Trim()))
                 {
-                    if (barcode.BarCode == textBox1.Text)
+                    if (barcode == textBox1.Text)
                     {
                         MessageBox.Show("Daxil olunan barkod verilən barkod ilə eyni ola bilməz!", "Daxiletmə xətası", MessageBoxButtons.OK);
                         return false;
@@ -207,33 +232,14 @@ namespace VisionTech_Anbar_Project
                 }
             }
 
-
-            // Check for duplicate barcodes
-            var currentList = (await barcodeService.CheckBarcodes(barcodes)).ToList();
-            if (currentList.Any())
-            {
-                string duplicateBarcodes = string.Join(", ", currentList.Select(b => b.BarCode));
-                MessageBox.Show($"Bu barkodlar artıq əlavə edilib: {duplicateBarcodes}", "Daxiletmə xətası", MessageBoxButtons.OK);
-                return false;
-            }
-
-            // Assign to product
-            if (currentProduct != null)
-            {
-                EditedProduct = new PackageProduct(currentProduct.Id, name, quantity, selectedId, barcodes, isRegular, newBrand);
-            }
-            else
-            {
-                NewProduct = new PackageProduct(productId, name, quantity, selectedId, barcodes, isRegular, newBrand);
-            }
-
             currentlyHaveBarcode = false;
             return true;
         }
 
-        private Barcode CreateNewBarcode(string barcodeValue)
+
+        private string CreateNewBarcode(string barcodeValue)
         {
-            return new Barcode { BarCode = barcodeValue?.Trim() };
+            return barcodeValue?.Trim();
         }
 
         private Brand CreateNewBrand(string brandName)
@@ -454,9 +460,6 @@ namespace VisionTech_Anbar_Project
                 }
             }
         }
-
-
-
         /// <summary>
         /// Retrieves the category hierarchy for a given category ID.
         /// </summary>
@@ -478,14 +481,14 @@ namespace VisionTech_Anbar_Project
         private void setCurrentBarcodes()
         {
             // Clear existing TextBoxes related to barcodes from the form and the list
-            foreach (var textBox in textBoxList)
+            foreach (var textBox in barcodeTextBoxes)
             {
                 this.Controls.Remove(textBox);
             }
-            textBoxList.Clear();
+            barcodeTextBoxes.Clear();
 
             // Get the current product barcodes
-            List<Barcode> barcodes = currentProduct.Barcodes.ToList();
+            List<string> barcodes = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).Select(x => x.Barcode).ToList();
 
             if (barcodes == null || !barcodes.Any())
                 return;
@@ -517,13 +520,13 @@ namespace VisionTech_Anbar_Project
                     Tag = textBoxCount,
                     Size = new System.Drawing.Size(177, 26),
                     PlaceholderText = "**********",
-                    Text = barcodes[i].BarCode.ToString() // Populate with the barcode
+                    Text = barcodes[i].ToString() // Populate with the barcode
                 };
 
                 newTextBox.KeyPress += NewTextBoxKeyPress;
 
                 // Add the new TextBox to the list
-                textBoxList.Add(newTextBox);
+                barcodeTextBoxes.Add(newTextBox);
 
                 // Add the new TextBox to the form
                 this.Controls.Add(newTextBox);
@@ -602,45 +605,103 @@ namespace VisionTech_Anbar_Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CreateTextBox();
+            AddRow();
         }
-        private void CreateTextBox()
+        // Declare necessary lists to hold dynamically created controls
+
+
+        private void AddRow()
         {
-            // Increment TextBox count to use as an identifier
-            textBoxCount++;
+            // Determine base positioning
+            int startX = button3.Location.X + button3.Width + 10;
+            int startY = button3.Location.Y + (barcodeTextBoxes.Count) * (30 + 10); // Vertical padding
 
-            // Get the position and size of the button
-            var buttonPosition = button3.Location;
-            var buttonSize = button3.Size;
-
-            // Calculate the X position (to the right of the button)
-            int xOffset = buttonPosition.X + buttonSize.Width + 10; // 10 pixels padding to the right of the button
-
-            // Calculate the Y position based on the count of existing TextBoxes
-            int yOffset = buttonPosition.Y + (textBoxCount - 1) * (30 + 10); // 30 is TextBox height, 5 is vertical padding
-
-            // Create a new TextBox
-            TextBox newTextBox = new TextBox
+            // Create a new TextBox for Barcode
+            TextBox barcodeTextBox = new TextBox
             {
-                Name = "TextBox" + textBoxCount,
-                Width = 200,
-                Location = new System.Drawing.Point(
-                    xOffset, // Position it to the right of the button
-                    yOffset  // Stack vertically with padding
-                ),
-                Size = new System.Drawing.Size(177, 30), // Height is 30, adjust if needed
-                PlaceholderText = "**********",
-                Tag = textBoxCount // Store the ID as a tag
+                Name = "BarcodeTextBox" + (barcodeTextBoxes.Count + 1),
+                Location = new Point(startX, startY),
+                Size = new Size(150, 30),
+                PlaceholderText = "Barcode",
+                Tag = barcodeTextBoxes.Count // Store index
             };
+            barcodeTextBoxes.Add(barcodeTextBox);
+            this.Controls.Add(barcodeTextBox);
 
-            // Attach an event handler for KeyPress
-            newTextBox.KeyPress += NewTextBoxKeyPress;
+            // Create a new TextBox for Quantity
+            TextBox quantityTextBox = new TextBox
+            {
+                Name = "QuantityTextBox" + (quantityTextBoxes.Count + 1),
+                Location = new Point(startX + 160, startY), // Positioned to the right of Barcode
+                Size = new Size(100, 30),
+                PlaceholderText = "Quantity",
+                Tag = quantityTextBoxes.Count // Store index
+            };
+            quantityTextBoxes.Add(quantityTextBox);
+            this.Controls.Add(quantityTextBox);
 
-            // Add the new TextBox to the list
-            textBoxList.Add(newTextBox);
+            // Create a new Button for Deletion
+            Button deleteButton = new Button
+            {
+                Name = "DeleteButton" + (deleteButtons.Count + 1),
+                Location = new Point(startX + 270, startY), // Positioned to the right of Quantity
+                Size = new Size(40, 30),
+                Text = "🗑",
+                BackColor = Color.Red,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Tag = deleteButtons.Count // Store index
+            };
+            deleteButton.Click += DeleteRow;
+            deleteButtons.Add(deleteButton);
+            this.Controls.Add(deleteButton);
+        }
 
-            // Add the new TextBox to the form
-            this.Controls.Add(newTextBox);
+        private void DeleteRow(object sender, EventArgs e)
+        {
+            if (sender is Button deleteButton)
+            {
+                int rowIndex = (int)deleteButton.Tag; // Identify the row index from the button's Tag
+
+                // Remove controls from the form
+                this.Controls.Remove(barcodeTextBoxes[rowIndex]);
+                this.Controls.Remove(quantityTextBoxes[rowIndex]);
+                this.Controls.Remove(deleteButtons[rowIndex]);
+
+                // Remove controls from their respective lists
+                barcodeTextBoxes.RemoveAt(rowIndex);
+                quantityTextBoxes.RemoveAt(rowIndex);
+                deleteButtons.RemoveAt(rowIndex);
+
+                // Update Tags and reposition remaining rows
+                UpdateRowPositions();
+            }
+        }
+
+        private void UpdateRowPositions()
+        {
+            int startX = button3.Location.X + button3.Width + 10;
+            int startY = button3.Location.Y;
+            int verticalPadding = 10;
+
+            for (int i = 0; i < barcodeTextBoxes.Count; i++)
+            {
+                // Update positions
+                barcodeTextBoxes[i].Location = new Point(startX, startY + i * (30 + verticalPadding));
+                quantityTextBoxes[i].Location = new Point(startX + 160, startY + i * (30 + verticalPadding));
+                deleteButtons[i].Location = new Point(startX + 270, startY + i * (30 + verticalPadding));
+
+                // Update Tags to reflect new indices
+                barcodeTextBoxes[i].Tag = i;
+                quantityTextBoxes[i].Tag = i;
+                deleteButtons[i].Tag = i;
+            }
+        }
+
+        private void QuantityTextBoxKeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow only numeric input
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void NewTextBoxKeyPress(object sender, KeyPressEventArgs e)
@@ -674,8 +735,8 @@ namespace VisionTech_Anbar_Project
             if (textBoxCount > 0)
             {
 
-                Controls.Remove(textBoxList[textBoxCount - 1]);
-                textBoxList.RemoveAt(textBoxCount - 1);
+                Controls.Remove(barcodeTextBoxes[textBoxCount - 1]);
+                barcodeTextBoxes.RemoveAt(textBoxCount - 1);
                 textBoxCount--;
 
             }

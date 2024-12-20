@@ -265,6 +265,7 @@ namespace VisionTech_Anbar_Project
             Controls.Add(button1);
             HeaderColor = Color.Transparent;
             Name = "AddColumnForm";
+            ShowBorder = true;
             SmallLineColor1 = Color.Transparent;
             SmallLineColor2 = Color.Transparent;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

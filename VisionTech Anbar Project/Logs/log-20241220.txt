@@ -1,0 +1,19 @@
+2024-12-20 13:12:51.727 +04:00 [INF] Application Starting
+2024-12-20 13:12:53.544 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 13:12:55.608 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 13:13:00.186 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 13:13:00.263 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 13:13:21.212 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 13:13:21.214 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 13:13:23.092 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 13:13:23.100 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 13:13:25.922 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-20 13:13:25.923 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-20 13:14:14.719 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-20 13:14:14.734 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-20 13:14:16.323 +04:00 [INF] Fetching category with ID: 2.
+2024-12-20 13:14:17.085 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-20 13:14:17.085 +04:00 [INF] Fetching category with ID: 1.
+2024-12-20 13:14:17.109 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-20 13:14:34.214 +04:00 [INF] Creating a new category: fefe.
+2024-12-20 13:14:34.221 +04:00 [INF] Category fefe successfully created.

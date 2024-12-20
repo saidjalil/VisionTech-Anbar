@@ -534,19 +534,27 @@ namespace VisionTech_Anbar_Project
 
             if (addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(packageId, addProductForm.EditedProduct.Product.Id))
             {
-                await _packageService.AddProductToPackageAsync(packageId, addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
-                await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
+                foreach (var editedProduct in addProductForm.EditedProductList)
+                {
+                    await _packageService.AddProductToPackageAsync(packageId, editedProduct.Product.Id, editedProduct.Barcode, editedProduct.Quantity, editedProduct.Product.CategoryId);
+                    await _productService.UpdateProductAsync(editedProduct.Product);
+                }
+               
             }
+
 
             if (addProductForm.DataSaved && addProductForm.NewProduct != null)
             {
-                await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, packageId, addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
+                foreach (var newProduct in addProductForm.NewProductList)
+                {
+                    await _packageService.AddProductToPackageAsync(newProduct.Product, packageId, newProduct.Barcode, newProduct.Quantity, newProduct.Product.CategoryId);
 
+                }
                 RestartPage();
                 InitializeItems();
                 //AddSubItemToItemPanel(packageId, addProductForm.NewProduct.Product, addProductForm.NewProduct.Quantity);
             }
-            }
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -90,25 +90,33 @@ namespace VisionTech_Anbar_Project
 
             // Add new Package to list and UI
 
-            if (addProductForm.DataSaved && addProductForm.EditedProduct != null && await _packageService.IsExsistProductInPackage(currentPackageId, addProductForm.EditedProduct.Product.Id))
+            //&& await _packageService.IsExsistProductInPackage(currentPackageId, addProductForm.EditedProduct.Product.Id
+
+            if (addProductForm.DataSaved && addProductForm.EditedProductList.Count > 0 )
             {
-                await _packageService.AddProductToPackageAsync(currentPackageId, addProductForm.EditedProduct.Product.Id, addProductForm.EditedProduct.Quantity, addProductForm.EditedProduct.Product.CategoryId);
-                // TURAL METHOD YAZMALIDIKI, HAZIRKI BARCODELAR VAR OLAN PRODUCTDA ELAVE EDILSEN 
-                await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
+                foreach (var editedProduct in addProductForm.EditedProductList)
+                {
+                    await _packageService.AddProductToPackageAsync(currentPackageId, editedProduct.Product.Id, editedProduct.Barcode, editedProduct.Quantity, editedProduct.Product.CategoryId);
+                    // TURAL METHOD YAZMALIDIKI, HAZIRKI BARCODELAR VAR OLAN PRODUCTDA ELAVE EDILSEN 
+                    await _productService.UpdateProductAsync(addProductForm.EditedProduct.Product);
+                }
 
             }
-            if (addProductForm.DataSaved && addProductForm.NewProduct != null)
+            if (addProductForm.DataSaved && addProductForm.NewProductList.Count > 0)
             {
                 //JsonManager.AddProductToPackage(addProductForm.NewProduct, button.Tag.ToString());
                 //await packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, Convert.ToInt32(button.Tag), addProductForm.NewProduct.Quantity);
-                await _packageService.AddProductToPackageAsync(addProductForm.NewProduct.Product, currentPackageId, addProductForm.NewProduct.Quantity, addProductForm.NewProduct.Product.CategoryId);
-                var newPackageProduct = new PackageProduct
+                foreach (var newProduct in addProductForm.NewProductList)
                 {
-                    Product = addProductForm.NewProduct.Product,
-                    Quantity = addProductForm.NewProduct.Quantity
-                };
-                packProducts.Add(newPackageProduct);
+                    await _packageService.AddProductToPackageAsync(newProduct.Product, currentPackageId, newProduct.Barcode, newProduct.Quantity, newProduct.Product.CategoryId);
+                    var newPackageProduct = new PackageProduct
+                    {
+                        Product = newProduct.Product,
+                        Quantity = newProduct.Quantity
+                    };
+                    packProducts.Add(newPackageProduct);
 
+                }
                 // Refresh the UI
                 RefreshProductList();
             }
