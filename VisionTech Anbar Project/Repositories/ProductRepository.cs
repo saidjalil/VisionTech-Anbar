@@ -7,10 +7,10 @@ namespace VisionTech_Anbar_Project.Repositories;
 
 public class ProductRepository : BaseRepository<Product>
 {
-    BarcodeRepository _barcodeRepository;
-    public ProductRepository(AppDbContext context, BarcodeRepository barcodeRepository) : base(context)
+    PackageProductRepository _packageProductRepository;
+    public ProductRepository(AppDbContext context, PackageProductRepository packageProductRepository) : base(context)
     {
-        _barcodeRepository = barcodeRepository;
+        _packageProductRepository = packageProductRepository;
     }
 
     public async Task<IEnumerable<Product>> GetByCategoryIdAsync(int categoryId)
@@ -31,12 +31,12 @@ public class ProductRepository : BaseRepository<Product>
             .ConfigureAwait(false);;
     }
 
-    public async Task UpdateProductBarcodes(Product product)
+    public async Task UpdateProductBarcodes(Product product, int packageId)
     {
-        var barcodes = await _barcodeRepository.GetByProductIdAsync(product.Id);
+        var barcodes = await _packageProductRepository.GetPackageProductByProductId(product.Id,packageId);
         foreach (var barcode in barcodes)
         {
-            await _barcodeRepository.Remove(barcode);
+            await _packageProductRepository.Remove(barcode);
         }
 
         await Update(product);
