@@ -73,4 +73,9 @@ public class BrandService
         }
         await _brandRepository.Remove(brand);
     }
+
+    public async Task<Brand> GetBrandByName(string brandName)
+    {
+        return (await _brandRepository.GetAll()).FirstOrDefault(x => x.BrandName == brandName);
+    }
 } 
