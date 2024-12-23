@@ -55,7 +55,8 @@ public class PackageRepository : BaseRepository<Package>
         
         if (existingProduct == null)
         {
-            product.CategoryId = categoryId;    
+            product.CategoryId = categoryId;
+            product.BrandId = product.BrandId;
             // Product does not exist, so add it to the database
             product = (await  _productRepository.Create(product)).Entity;
             await _context.SaveChangesAsync(); // Save to generate the Product ID
