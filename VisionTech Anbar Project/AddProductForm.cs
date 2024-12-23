@@ -46,6 +46,8 @@ namespace VisionTech_Anbar_Project
         public List<PackageProduct> EditedProductList { get; set; }
         public List<PackageProduct> NewProductList { get; set; }
 
+        private List<Panel> rowPanels = new List<Panel>();
+
 
         public TextBox barcodeTextBox;
 
@@ -91,6 +93,7 @@ namespace VisionTech_Anbar_Project
             InitializeDynamicPanel();
             LoadTopCategories();
             LoadBrands();
+            AddDefaultRow();
             //InitializeCategories();
             //if(textBoxCount == 0)
             //CreateTextBox();
@@ -133,7 +136,7 @@ namespace VisionTech_Anbar_Project
         {
             textBox1.Clear();
             comboBox1.ResetText();
-           // textBox3.Clear();
+            // textBox3.Clear();
 
         }
         private async void button1_Click(object sender, EventArgs e)
@@ -193,22 +196,40 @@ namespace VisionTech_Anbar_Project
             newBrand = CreateNewBrand(brandInput);
 
             // Process barcodes and quantities from the lists
-            for (int i = 0; i < barcodeTextBoxes.Count; i++)
+            for (int i = 0; i < (barcodeTextBoxes.Count > 0 ? barcodeTextBoxes.Count : 1); i++)
             {
-                // Retrieve barcode
-                var barcodeInput = barcodeTextBoxes[i].Text?.Trim();
-                if (string.IsNullOrWhiteSpace(barcodeInput))
+                string barcodeInput;
+
+                if (barcodeTextBoxes.Count > 0)
                 {
-                    MessageBox.Show("Bütün barkod dəyərləri düzgün formatda olmalıdır.", "Daxiletmə xətası", MessageBoxButtons.OK);
-                    return false;
+                    // Retrieve barcode
+                    barcodeInput = barcodeTextBoxes[i].Text?.Trim();
+                    if (string.IsNullOrWhiteSpace(barcodeInput))
+                    {
+                        MessageBox.Show("Bütün barkod dəyərləri düzgün formatda olmalıdır.", "Daxiletmə xətası", MessageBoxButtons.OK);
+                        return false;
+                    }
+                }
+                else
+                {
+                    // Default barcode value if no textboxes are present
+                    barcodeInput = "Barkodsuz"; // Replace with a suitable default value
                 }
 
-                // Retrieve quantity
-                if (i >= quantityTextBoxes.Count || string.IsNullOrWhiteSpace(quantityTextBoxes[i].Text) ||
-                    !int.TryParse(quantityTextBoxes[i].Text, out quantity))
+                if (quantityTextBoxes.Count > 0 && i < quantityTextBoxes.Count)
                 {
-                    MessageBox.Show($"Məhsulun miqdarı düzgün qeyd olunmayıb. Sətir: {i + 1}", "Daxiletmə xətası", MessageBoxButtons.OK);
-                    return false;
+                    // Retrieve quantity
+                    if (string.IsNullOrWhiteSpace(quantityTextBoxes[i].Text) ||
+                        !int.TryParse(quantityTextBoxes[i].Text, out quantity))
+                    {
+                        MessageBox.Show($"Məhsulun miqdarı düzgün qeyd olunmayıb. Sətir: {i + 1}", "Daxiletmə xətası", MessageBoxButtons.OK);
+                        return false;
+                    }
+                }
+                else
+                {
+                    // Default quantity if no quantity textboxes are present
+                    quantity = 1; // Replace with a suitable default quantity
                 }
 
                 // Create a new PackageProduct for each barcode and quantity
@@ -224,6 +245,7 @@ namespace VisionTech_Anbar_Project
                     NewProductList.Add(packageProduct);
                 }
             }
+
 
             // Validate primary barcode
             if (!string.IsNullOrWhiteSpace(textBox1.Text))
@@ -357,7 +379,8 @@ namespace VisionTech_Anbar_Project
                 SetCurrentCategories();
                 AddLockButtonToControl(this);
                 comboBox1.Text = currentProduct.ProductName;
-                comboBox2.SelectedIndex = currentProduct.BrandId;
+                //comboBox2.SelectedIndex = currentProduct.BrandId;
+                comboBox2.Text = currentProduct.Brand.BrandName;
                 setCurrentBarcodes();
                 currentProductId = currentProduct.Id;
 
@@ -587,71 +610,123 @@ namespace VisionTech_Anbar_Project
         }
         // Declare necessary lists to hold dynamically created controls
 
+        private void AddDefaultRow()
+        {
+            // Determine base positioning
+            int startX = button3.Location.X + button3.Width + 10;
+            int startY = button3.Location.Y + rowPanels.Count * (30 + 10); // Vertical padding
+
+            // Create a panel to encapsulate the row
+            Panel rowPanel = new Panel
+            {
+                Location = new Point(startX, startY),
+                Size = new Size(400, 30), // Adjust size as needed
+                Tag = rowPanels.Count, // Store row index in the Tag
+                BackColor = Color.Transparent
+
+            };
+
+            // Create a TextBox for Barcode (disabled with default text)
+            TextBox barcodeTextBox = new TextBox
+            {
+                Name = "DefaultBarcodeTextBox",
+                Location = new Point(0, 0),
+                Size = new Size(150, 30),
+                Text = "Barkodsuz", // Default text
+                Enabled = false // Disable editing
+            };
+            barcodeTextBoxes.Add(barcodeTextBox); // Add to the list
+            rowPanel.Controls.Add(barcodeTextBox);
+
+            // Create a TextBox for Quantity
+            TextBox quantityTextBox = new TextBox
+            {
+                Name = "DefaultQuantityTextBox",
+                Location = new Point(160, 0), // Positioned to the right of Barcode
+                Size = new Size(100, 30),
+                PlaceholderText = "Quantity"
+            };
+            quantityTextBoxes.Add(quantityTextBox); // Add to the list
+            rowPanel.Controls.Add(quantityTextBox);
+
+            // Add the panel to the form and list
+            rowPanels.Add(rowPanel);
+            this.Controls.Add(rowPanel);
+        }
 
         private void AddRow()
         {
             // Determine base positioning
             int startX = button3.Location.X + button3.Width + 10;
-            int startY = button3.Location.Y + (barcodeTextBoxes.Count) * (30 + 10); // Vertical padding
+            int startY = button3.Location.Y + rowPanels.Count * (30 + 10); // Vertical padding
 
-            // Create a new TextBox for Barcode
+            // Create a panel to encapsulate the row
+            Panel rowPanel = new Panel
+            {
+                Location = new Point(startX, startY),
+                Size = new Size(400, 30), // Adjust size as needed
+                Tag = rowPanels.Count, // Store row index in the Tag
+                BackColor = Color.Transparent
+            };
+
+            // Create a TextBox for Barcode
             TextBox barcodeTextBox = new TextBox
             {
-                Name = "BarcodeTextBox" + (barcodeTextBoxes.Count + 1),
-                Location = new Point(startX, startY),
+                Name = "BarcodeTextBox" + (rowPanels.Count + 1),
+                Location = new Point(0, 0),
                 Size = new Size(150, 30),
-                PlaceholderText = "Barcode",
-                Tag = barcodeTextBoxes.Count // Store index
+                PlaceholderText = "Barcode"
             };
-            barcodeTextBoxes.Add(barcodeTextBox);
-            this.Controls.Add(barcodeTextBox);
+            barcodeTextBoxes.Add(barcodeTextBox); // Add to the list
+            rowPanel.Controls.Add(barcodeTextBox);
 
-            // Create a new TextBox for Quantity
+            // Create a TextBox for Quantity
             TextBox quantityTextBox = new TextBox
             {
-                Name = "QuantityTextBox" + (quantityTextBoxes.Count + 1),
-                Location = new Point(startX + 160, startY), // Positioned to the right of Barcode
+                Name = "QuantityTextBox" + (rowPanels.Count + 1),
+                Location = new Point(160, 0), // Positioned to the right of Barcode
                 Size = new Size(100, 30),
-                PlaceholderText = "Quantity",
-                Tag = quantityTextBoxes.Count // Store index
+                PlaceholderText = "Quantity"
             };
-            quantityTextBoxes.Add(quantityTextBox);
-            this.Controls.Add(quantityTextBox);
+            quantityTextBoxes.Add(quantityTextBox); // Add to the list
+            rowPanel.Controls.Add(quantityTextBox);
 
-            // Create a new Button for Deletion
+            // Create a Button for Deletion
             Button deleteButton = new Button
             {
-                Name = "DeleteButton" + (deleteButtons.Count + 1),
-                Location = new Point(startX + 270, startY), // Positioned to the right of Quantity
+                Name = "DeleteButton" + (rowPanels.Count + 1),
+                Location = new Point(270, 0), // Positioned to the right of Quantity
                 Size = new Size(40, 30),
                 Text = "🗑",
                 BackColor = Color.Red,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Tag = deleteButtons.Count // Store index
+                Tag = rowPanels.Count // Store row index in the Tag
             };
             deleteButton.Click += DeleteRow;
-            deleteButtons.Add(deleteButton);
-            this.Controls.Add(deleteButton);
+            rowPanel.Controls.Add(deleteButton);
+
+            // Add the panel to the form and list
+            rowPanels.Add(rowPanel);
+            this.Controls.Add(rowPanel);
         }
 
         private void DeleteRow(object sender, EventArgs e)
         {
             if (sender is Button deleteButton)
             {
-                int rowIndex = (int)deleteButton.Tag; // Identify the row index from the button's Tag
+                int rowIndex = (int)deleteButton.Tag; // Get the row index from the button's Tag
 
                 // Remove controls from the form
-                this.Controls.Remove(barcodeTextBoxes[rowIndex]);
-                this.Controls.Remove(quantityTextBoxes[rowIndex]);
-                this.Controls.Remove(deleteButtons[rowIndex]);
+                Panel rowPanel = rowPanels[rowIndex];
+                this.Controls.Remove(rowPanel);
+                rowPanels.RemoveAt(rowIndex);
 
-                // Remove controls from their respective lists
+                // Remove associated TextBoxes from their lists
                 barcodeTextBoxes.RemoveAt(rowIndex);
                 quantityTextBoxes.RemoveAt(rowIndex);
-                deleteButtons.RemoveAt(rowIndex);
 
-                // Update Tags and reposition remaining rows
+                // Update positions and tags of remaining rows
                 UpdateRowPositions();
             }
         }
@@ -662,17 +737,18 @@ namespace VisionTech_Anbar_Project
             int startY = button3.Location.Y;
             int verticalPadding = 10;
 
-            for (int i = 0; i < barcodeTextBoxes.Count; i++)
+            for (int i = 0; i < rowPanels.Count; i++)
             {
-                // Update positions
-                barcodeTextBoxes[i].Location = new Point(startX, startY + i * (30 + verticalPadding));
-                quantityTextBoxes[i].Location = new Point(startX + 160, startY + i * (30 + verticalPadding));
-                deleteButtons[i].Location = new Point(startX + 270, startY + i * (30 + verticalPadding));
+                // Update panel positions
+                rowPanels[i].Location = new Point(startX, startY + i * (30 + verticalPadding));
+                rowPanels[i].Tag = i;
 
-                // Update Tags to reflect new indices
-                barcodeTextBoxes[i].Tag = i;
-                quantityTextBoxes[i].Tag = i;
-                deleteButtons[i].Tag = i;
+                // Update the Tag of the delete button inside the panel
+                Button deleteButton = rowPanels[i].Controls.OfType<Button>().FirstOrDefault();
+                if (deleteButton != null)
+                {
+                    deleteButton.Tag = i;
+                }
             }
         }
 

@@ -1,0 +1,509 @@
+2024-12-23 13:37:34.302 +04:00 [INF] Application Starting
+2024-12-23 13:37:35.538 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 13:37:36.628 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 13:37:40.093 +04:00 [INF] Fetching all warehouses.
+2024-12-23 13:37:40.850 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-23 13:37:40.851 +04:00 [INF] Fetching all vendors.
+2024-12-23 13:37:40.861 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-23 13:37:43.261 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 13:37:43.350 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 13:38:03.019 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 13:38:07.243 +04:00 [INF] Application Starting
+2024-12-23 13:38:08.617 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 13:38:09.565 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 13:38:13.660 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 13:38:13.730 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 13:38:14.317 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 13:38:15.133 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 13:38:49.402 +04:00 [INF] Creating a new category: refe.
+2024-12-23 13:38:49.584 +04:00 [INF] Category refe successfully created.
+2024-12-23 13:39:48.506 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 13:39:48.512 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:01:08.977 +04:00 [INF] Application Starting
+2024-12-23 14:01:10.160 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:01:11.243 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:01:15.340 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 14:01:15.415 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 14:01:41.263 +04:00 [INF] Creating a new category: fefe.
+2024-12-23 14:01:41.439 +04:00 [INF] Category fefe successfully created.
+2024-12-23 14:01:53.351 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 14:01:54.091 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 14:01:54.091 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 14:01:54.094 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 14:01:54.094 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 14:01:54.096 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 14:01:54.096 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:01:54.098 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:01:54.098 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:01:54.099 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:03.988 +04:00 [INF] Fetching category with ID: 7.
+2024-12-23 14:02:04.718 +04:00 [INF] Category with ID: 7 successfully retrieved.
+2024-12-23 14:02:04.718 +04:00 [INF] Fetching category with ID: 4.
+2024-12-23 14:02:04.721 +04:00 [INF] Category with ID: 4 successfully retrieved.
+2024-12-23 14:02:04.721 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:04.723 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:04.723 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:04.726 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:05.860 +04:00 [INF] Fetching category with ID: 5.
+2024-12-23 14:02:06.595 +04:00 [INF] Category with ID: 5 successfully retrieved.
+2024-12-23 14:02:06.595 +04:00 [INF] Fetching category with ID: 4.
+2024-12-23 14:02:06.598 +04:00 [INF] Category with ID: 4 successfully retrieved.
+2024-12-23 14:02:06.598 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:06.600 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:06.600 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:06.602 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:08.132 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 14:02:08.883 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 14:02:08.884 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 14:02:08.886 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 14:02:08.886 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 14:02:08.887 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 14:02:08.887 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:08.889 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:08.889 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:08.890 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:10.670 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:11.398 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:11.398 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:11.400 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:13.029 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:13.762 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:15.876 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 14:02:16.622 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 14:02:16.622 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 14:02:16.624 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 14:02:16.624 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 14:02:16.626 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 14:02:16.626 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:16.627 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:16.627 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:16.628 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:24.099 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 14:02:24.841 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 14:02:24.841 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 14:02:24.843 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 14:02:24.843 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 14:02:24.845 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 14:02:24.845 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:24.847 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:24.847 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:24.848 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:27.739 +04:00 [INF] Fetching category with ID: 7.
+2024-12-23 14:02:28.474 +04:00 [INF] Category with ID: 7 successfully retrieved.
+2024-12-23 14:02:28.474 +04:00 [INF] Fetching category with ID: 4.
+2024-12-23 14:02:28.476 +04:00 [INF] Category with ID: 4 successfully retrieved.
+2024-12-23 14:02:28.476 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:28.477 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:28.477 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:28.478 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:30.253 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 14:02:30.998 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 14:02:30.998 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 14:02:31.000 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 14:02:31.000 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 14:02:31.002 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 14:02:31.002 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:02:31.003 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:02:31.003 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:02:31.004 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:02:44.516 +04:00 [INF] Creating a new category: rere.
+2024-12-23 14:02:44.525 +04:00 [INF] Category rere successfully created.
+2024-12-23 14:02:59.733 +04:00 [INF] Fetching category with ID: 9.
+2024-12-23 14:03:00.474 +04:00 [INF] Category with ID: 9 successfully retrieved.
+2024-12-23 14:03:00.474 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 14:03:00.476 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 14:03:00.476 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 14:03:00.478 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 14:03:00.478 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 14:03:00.479 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 14:03:00.479 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:03:00.480 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:03:00.480 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:03:00.481 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:03:30.932 +04:00 [INF] Fetching category with ID: 9.
+2024-12-23 14:03:31.677 +04:00 [INF] Category with ID: 9 successfully retrieved.
+2024-12-23 14:03:31.677 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 14:03:31.680 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 14:03:31.680 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 14:03:31.682 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 14:03:31.682 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 14:03:31.683 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 14:03:31.683 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 14:03:31.684 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 14:03:31.684 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 14:03:31.685 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 14:04:00.241 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:04:00.247 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:04:03.035 +04:00 [INF] Fetching all warehouses.
+2024-12-23 14:04:03.773 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-23 14:04:03.773 +04:00 [INF] Fetching all vendors.
+2024-12-23 14:04:03.785 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-23 14:04:06.398 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 14:04:06.404 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 14:04:08.103 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:04:08.105 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:04:40.454 +04:00 [INF] Application Starting
+2024-12-23 14:04:41.669 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:04:42.691 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:04:46.226 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 14:04:46.298 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 14:05:40.328 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:05:40.340 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:07:20.855 +04:00 [INF] Application Starting
+2024-12-23 14:07:22.119 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:07:23.101 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:07:26.421 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 14:07:26.492 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 14:07:42.090 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:07:42.098 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:08:05.067 +04:00 [INF] Application Starting
+2024-12-23 14:08:06.342 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:08:07.315 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:08:10.988 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 14:08:11.058 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 14:08:36.502 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:08:36.516 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:08:47.925 +04:00 [INF] Application Starting
+2024-12-23 14:08:49.193 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:08:50.164 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:08:54.260 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 14:08:54.333 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 14:09:36.519 +04:00 [INF] Application Starting
+2024-12-23 14:09:37.759 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 14:09:38.761 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 14:09:42.703 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 14:09:42.773 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:13:28.570 +04:00 [INF] Application Starting
+2024-12-23 15:13:29.897 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:13:30.995 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:13:34.542 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:13:34.619 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:13:49.355 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:13:50.106 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:17:58.166 +04:00 [INF] Application Starting
+2024-12-23 15:17:59.547 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:18:00.584 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:18:04.591 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:18:04.662 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:18:05.731 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:06.516 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:08.988 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:09.731 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:14.554 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:15.289 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:29.172 +04:00 [INF] Updating product with ID: 15.
+2024-12-23 15:18:29.396 +04:00 [INF] Product with ID: 15 successfully updated.
+2024-12-23 15:18:31.681 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:18:32.422 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:18:32.422 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:32.425 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:36.763 +04:00 [INF] Fetching category with ID: 9.
+2024-12-23 15:18:37.506 +04:00 [INF] Category with ID: 9 successfully retrieved.
+2024-12-23 15:18:37.506 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 15:18:37.509 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 15:18:37.509 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 15:18:37.512 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 15:18:37.512 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 15:18:37.513 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 15:18:37.513 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:18:37.515 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:18:37.515 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:37.517 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:39.194 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 15:18:39.945 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 15:18:39.945 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 15:18:39.948 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 15:18:39.948 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 15:18:39.949 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 15:18:39.949 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:18:39.951 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:18:39.951 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:39.951 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:41.530 +04:00 [INF] Fetching category with ID: 7.
+2024-12-23 15:18:42.279 +04:00 [INF] Category with ID: 7 successfully retrieved.
+2024-12-23 15:18:42.279 +04:00 [INF] Fetching category with ID: 4.
+2024-12-23 15:18:42.282 +04:00 [INF] Category with ID: 4 successfully retrieved.
+2024-12-23 15:18:42.282 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:18:42.283 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:18:42.283 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:42.285 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:44.074 +04:00 [INF] Fetching category with ID: 9.
+2024-12-23 15:18:44.809 +04:00 [INF] Category with ID: 9 successfully retrieved.
+2024-12-23 15:18:44.810 +04:00 [INF] Fetching category with ID: 8.
+2024-12-23 15:18:44.812 +04:00 [INF] Category with ID: 8 successfully retrieved.
+2024-12-23 15:18:44.812 +04:00 [INF] Fetching category with ID: 6.
+2024-12-23 15:18:44.814 +04:00 [INF] Category with ID: 6 successfully retrieved.
+2024-12-23 15:18:44.814 +04:00 [INF] Fetching category with ID: 3.
+2024-12-23 15:18:44.815 +04:00 [INF] Category with ID: 3 successfully retrieved.
+2024-12-23 15:18:44.815 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:18:44.817 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:18:44.817 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:44.818 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:18:47.490 +04:00 [INF] Fetching category with ID: 5.
+2024-12-23 15:18:48.234 +04:00 [INF] Category with ID: 5 successfully retrieved.
+2024-12-23 15:18:48.235 +04:00 [INF] Fetching category with ID: 4.
+2024-12-23 15:18:48.237 +04:00 [INF] Category with ID: 4 successfully retrieved.
+2024-12-23 15:18:48.237 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:18:48.239 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:18:48.239 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:18:48.240 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:19:03.799 +04:00 [INF] Creating a new category: 4ff.
+2024-12-23 15:19:03.805 +04:00 [INF] Category 4ff successfully created.
+2024-12-23 15:19:13.771 +04:00 [INF] Fetching category with ID: 10.
+2024-12-23 15:19:14.519 +04:00 [INF] Category with ID: 10 successfully retrieved.
+2024-12-23 15:19:14.519 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:19:14.522 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:20:10.214 +04:00 [INF] Fetching category with ID: 10.
+2024-12-23 15:20:10.969 +04:00 [INF] Category with ID: 10 successfully retrieved.
+2024-12-23 15:20:10.969 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:20:10.972 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:20:15.127 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:20:15.147 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:20:55.587 +04:00 [INF] Application Starting
+2024-12-23 15:20:56.886 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:20:57.887 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:29:56.351 +04:00 [INF] Application Starting
+2024-12-23 15:29:57.488 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:29:58.544 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:30:02.602 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:30:02.676 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:30:03.729 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:30:04.506 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:30:04.506 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:30:04.513 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:30:11.910 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:30:11.912 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:30:22.504 +04:00 [INF] Application Starting
+2024-12-23 15:30:23.813 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:30:24.827 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:30:28.353 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:30:28.427 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:30:29.666 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:30:30.508 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:30:30.508 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:30:38.472 +04:00 [INF] Application Starting
+2024-12-23 15:30:39.869 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:30:40.961 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:30:44.762 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:30:44.835 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:30:45.490 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:30:46.362 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:30:51.045 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:30:51.842 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:30:51.842 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:30:51.856 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:31:05.876 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:31:06.683 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:31:06.683 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:31:10.240 +04:00 [INF] Application Starting
+2024-12-23 15:31:11.489 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:31:12.456 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:31:16.376 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-23 15:31:16.447 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-23 15:31:17.430 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:31:18.295 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-23 15:31:18.296 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:31:18.303 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:31:22.256 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:31:22.263 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:31:25.689 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:31:25.695 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:31:27.523 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:31:27.523 +04:00 [INF] Fetching category with ID: 2.
+2024-12-23 15:31:30.576 +04:00 [INF] Application Starting
+2024-12-23 15:31:31.807 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:31:32.765 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:31:36.299 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:31:36.368 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:31:38.947 +04:00 [INF] Fetching category with ID: 10.
+2024-12-23 15:31:39.785 +04:00 [INF] Category with ID: 10 successfully retrieved.
+2024-12-23 15:31:39.785 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:32:07.281 +04:00 [INF] Application Starting
+2024-12-23 15:32:08.554 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:32:09.501 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:32:13.268 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-23 15:32:13.338 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-23 15:32:13.925 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:32:13.928 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:32:16.929 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:32:16.933 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:32:58.814 +04:00 [INF] Application Starting
+2024-12-23 15:32:59.496 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:33:00.005 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:33:03.667 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:33:03.712 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:33:05.555 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:33:38.941 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:33:52.683 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:34:05.194 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:34:11.947 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:34:17.410 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:34:34.314 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 15:34:41.703 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:34:41.709 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:35:08.236 +04:00 [INF] Application Starting
+2024-12-23 15:35:09.468 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:35:10.445 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:35:18.511 +04:00 [INF] Application Starting
+2024-12-23 15:35:19.757 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:35:20.768 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:35:25.058 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:35:25.129 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:52:03.561 +04:00 [INF] Application Starting
+2024-12-23 15:52:05.262 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:52:07.092 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:52:11.034 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:52:11.133 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:52:12.021 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 15:52:12.921 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 15:53:51.531 +04:00 [INF] Application Starting
+2024-12-23 15:53:52.256 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:53:52.792 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:53:56.498 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:53:56.558 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:54:29.069 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:54:29.071 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:55:28.318 +04:00 [INF] Application Starting
+2024-12-23 15:55:29.638 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:55:30.835 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:55:34.483 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:55:34.555 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:56:31.743 +04:00 [INF] Application Starting
+2024-12-23 15:56:33.211 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:56:34.352 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 15:56:37.803 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 15:56:37.879 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 15:57:01.397 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 15:57:01.416 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:00:12.615 +04:00 [INF] Application Starting
+2024-12-23 16:00:13.967 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:00:14.976 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:00:19.019 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:00:19.107 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:00:46.647 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:00:46.692 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:02:42.499 +04:00 [INF] Application Starting
+2024-12-23 16:02:43.838 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:02:44.895 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:02:49.503 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:02:49.575 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:04:37.635 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:04:37.651 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:06:58.510 +04:00 [INF] Application Starting
+2024-12-23 16:06:59.847 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:07:01.046 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:07:18.565 +04:00 [INF] Application Starting
+2024-12-23 16:07:19.961 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:07:21.128 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:07:25.463 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:07:25.543 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:08:00.426 +04:00 [INF] Fetching category with ID: 10.
+2024-12-23 16:08:05.077 +04:00 [INF] Application Starting
+2024-12-23 16:08:06.492 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:08:07.510 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:08:11.067 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:08:11.135 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:08:12.154 +04:00 [INF] Fetching category with ID: 10.
+2024-12-23 16:08:13.008 +04:00 [INF] Category with ID: 10 successfully retrieved.
+2024-12-23 16:08:13.008 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:08:16.932 +04:00 [INF] Application Starting
+2024-12-23 16:08:18.273 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:08:19.242 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:08:22.785 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:08:22.857 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:08:23.754 +04:00 [INF] Fetching category with ID: 10.
+2024-12-23 16:08:24.610 +04:00 [INF] Category with ID: 10 successfully retrieved.
+2024-12-23 16:08:24.610 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:08:35.695 +04:00 [INF] Application Starting
+2024-12-23 16:08:37.108 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:08:38.102 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:09:13.509 +04:00 [INF] Application Starting
+2024-12-23 16:09:14.906 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:09:15.933 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:09:19.569 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:09:19.647 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:09:43.194 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 16:10:19.574 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:10:19.581 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:10:41.535 +04:00 [INF] Application Starting
+2024-12-23 16:10:42.799 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:10:43.805 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:10:48.276 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:10:48.349 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:10:49.258 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:10:50.114 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 16:12:14.232 +04:00 [INF] Application Starting
+2024-12-23 16:12:16.568 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:12:18.101 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:12:22.463 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:12:22.591 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:14:19.446 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 16:14:19.458 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:14:21.737 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 16:15:21.893 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:15:23.787 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 16:15:30.104 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 16:17:41.189 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 16:17:41.189 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:17:42.010 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 16:17:43.667 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:17:43.674 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:17:47.077 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:17:47.083 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:18:01.269 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:18:01.271 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:18:03.030 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-23 16:18:03.035 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-23 16:18:12.370 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:18:12.376 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:18:14.411 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:18:14.417 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:18:45.080 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:18:45.082 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:18:48.989 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:18:48.991 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:18:57.890 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:18:57.891 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:19:00.024 +04:00 [INF] Fetching package with ID: 3 along with related navigation properties.
+2024-12-23 16:19:00.030 +04:00 [INF] Successfully retrieved package with ID: 3.
+2024-12-23 16:20:35.942 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:20:35.948 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:23:16.899 +04:00 [INF] Application Starting
+2024-12-23 16:23:18.188 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:23:19.249 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:23:22.935 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:23:23.008 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:24:09.549 +04:00 [INF] Application Starting
+2024-12-23 16:24:10.797 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:24:11.794 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:24:16.287 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:24:16.361 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:24:41.620 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:24:41.621 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:24:46.253 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:24:46.262 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:24:48.808 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:24:48.823 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:25:29.776 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:25:29.788 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:25:34.056 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 16:25:53.043 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 16:26:24.763 +04:00 [ERR] A second operation was started on this context instance before a previous operation completed. This is usually caused by different threads concurrently using the same instance of DbContext. For more information on how to avoid threading issues with DbContext, see https://go.microsoft.com/fwlink/?linkid=2097913.
+2024-12-23 16:26:24.766 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:26:25.599 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 16:26:29.694 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:26:30.509 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-23 16:26:37.801 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:26:37.807 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:28:10.897 +04:00 [INF] Application Starting
+2024-12-23 16:28:12.141 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:28:13.235 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:28:16.854 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:28:16.924 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:33:05.081 +04:00 [INF] Application Starting
+2024-12-23 16:33:07.485 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-23 16:33:09.118 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-23 16:33:12.947 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-23 16:33:13.058 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-23 16:33:22.614 +04:00 [INF] Fetching category with ID: 1.
+2024-12-23 16:33:23.798 +04:00 [INF] Category with ID: 1 successfully retrieved.

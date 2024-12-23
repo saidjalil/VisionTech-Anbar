@@ -236,16 +236,26 @@ namespace VisionTech_Anbar_Project
         }
         private void RefreshProductList()
         {
+            // Use a HashSet to track unique product names
+            var uniqueProductNames = new HashSet<int>();
+
             // Clear the panel first
             mainTableLayoutPanel.Controls.Clear();
 
-            // Repopulate the panel with updated products
+            // Repopulate the panel with updated unique products
             foreach (PackageProduct packProduct in packProducts)
             {
-                Panel itemPanel = CreateItemPanel(packProduct.Product);
-                mainTableLayoutPanel.Controls.Add(itemPanel);
+                int productId = packProduct.Product.Id;
+
+                // Add only if the product name is not already in the HashSet
+                if (uniqueProductNames.Add(productId)) // Add returns false if the name already exists
+                {
+                    Panel itemPanel = CreateItemPanel(packProduct.Product);
+                    mainTableLayoutPanel.Controls.Add(itemPanel);
+                }
             }
         }
+
         public async void DeleteButton_Click(object sender, EventArgs e)
         {
             if (sender is not Button button || button.Tag == null)

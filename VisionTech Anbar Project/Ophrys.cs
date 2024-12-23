@@ -318,9 +318,15 @@ namespace VisionTech_Anbar_Project
             return itemPanel;
         }
 
-        private void ExportButton_Click(object sender, EventArgs e)
+        private async void ExportButton_Click(object sender, EventArgs e)
         {
             // Only Export current 
+            var fileExporter = new FileExporter(_packageService, _imageService, _configuration, _categoryService);
+            Button button = sender as Button;
+
+            fileExporter.CreateAndWriteExportFile(int.Parse(button.Tag.ToString()));
+
+
         }
 
         private void ExportAllButton_Click(object sender, EventArgs e)

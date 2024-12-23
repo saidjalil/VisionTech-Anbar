@@ -84,7 +84,7 @@
             button1.BackColor = Color.FromArgb(42, 45, 85);
             button1.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(707, 440);
+            button1.Location = new Point(808, 491);
             button1.Name = "button1";
             button1.Size = new Size(134, 53);
             button1.TabIndex = 6;
@@ -119,7 +119,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(808, 230);
+            checkBox1.Location = new Point(868, 170);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(18, 17);
             checkBox1.TabIndex = 10;
@@ -132,7 +132,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
-            label6.Location = new Point(741, 225);
+            label6.Location = new Point(781, 165);
             label6.Name = "label6";
             label6.Size = new Size(61, 25);
             label6.TabIndex = 11;
@@ -189,7 +189,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(741, 8);
+            metroSetControlBox1.Location = new Point(844, 8);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = true;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -241,7 +241,7 @@
             BackgroundColor = Color.AliceBlue;
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 0F;
-            ClientSize = new Size(856, 523);
+            ClientSize = new Size(959, 572);
             Controls.Add(label1);
             Controls.Add(comboBox2);
             Controls.Add(metroSetControlBox1);
