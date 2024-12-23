@@ -48,7 +48,10 @@ public class PackageRepository : BaseRepository<Package>
         }
 
         // Check if the product exists in the database
-        var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ProductName == product.ProductName);
+        var existingProduct = await _context.Products.FirstOrDefaultAsync(p => 
+            p.ProductName == product.ProductName &&
+            p.CategoryId == product.CategoryId &&
+            p.BrandId == product.BrandId);
         
         if (existingProduct == null)
         {
