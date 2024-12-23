@@ -193,7 +193,16 @@ namespace VisionTech_Anbar_Project
                 MessageBox.Show("Brend adı qeyd olunmayıb.", "Daxiletmə xətası", MessageBoxButtons.OK);
                 return false;
             }
-            newBrand = CreateNewBrand(brandInput);
+            
+            // Ensure the ComboBox has a valid selected value
+            if (comboBox2.SelectedItem is Brand selectedBrand)
+            {
+                newBrand = selectedBrand;
+            }
+            else
+            {
+                newBrand = CreateNewBrand(brandInput);
+            }
 
             // Process barcodes and quantities from the lists
             for (int i = 0; i < (barcodeTextBoxes.Count > 0 ? barcodeTextBoxes.Count : 1); i++)
