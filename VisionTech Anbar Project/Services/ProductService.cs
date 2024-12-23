@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Repositories;
 using Serilog;
+using VisionTech_Anbar_Project.DAL;
 
 namespace VisionTech_Anbar_Project.Services;
 
@@ -10,11 +11,13 @@ public class ProductService
 {
     private readonly ProductRepository _productRepository;
     private readonly BarcodeRepository _barcodeRepository;
+    private readonly IDbContextFactory<AppDbContext> _contextFactory;
 
-    public ProductService(ProductRepository productRepository, BarcodeRepository barcodeRepository)
+    public ProductService(ProductRepository productRepository, BarcodeRepository barcodeRepository, IDbContextFactory<AppDbContext> contextFactory)
     {
         _productRepository = productRepository;
         _barcodeRepository = barcodeRepository;
+        _contextFactory = contextFactory;
     }
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()

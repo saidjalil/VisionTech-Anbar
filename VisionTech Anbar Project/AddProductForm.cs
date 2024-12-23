@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Microsoft.EntityFrameworkCore;
+using VisionTech_Anbar_Project.DAL;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Entities.Categories;
 using VisionTech_Anbar_Project.Repositories;
@@ -27,6 +29,7 @@ namespace VisionTech_Anbar_Project
         public PackageProduct EditedProduct;
         public PackageProduct NewProduct;
         public bool DataSaved;
+        private readonly IDbContextFactory<AppDbContext> _contextFactory;
 
         private int _nextControlY = 10; // Tracks Y position for next ComboBox and Button
         private readonly List<ComboBox> _comboBoxes = new(); // Keep track of all ComboBoxes
@@ -75,12 +78,13 @@ namespace VisionTech_Anbar_Project
         private int textBoxCount = 0; // To keep track of TextBox IDs
 
         ComboBox mainComboBox;
-        public AddProductForm(CategoryService categoryService, ProductService productService, BarcodeService barcodeService, BrandService brandService)
+        public AddProductForm(CategoryService categoryService, ProductService productService, BarcodeService barcodeService, BrandService brandService, IDbContextFactory<AppDbContext> contextFactory)
         {
             this.categoryService = categoryService;
             this.productService = productService;
             this.barcodeService = barcodeService;
             this.brandService = brandService;
+            _contextFactory = contextFactory;
 
             barcodeTextBox = textBox1;
             InitializeComponent();
@@ -92,11 +96,12 @@ namespace VisionTech_Anbar_Project
             //CreateTextBox();
             //InitializeMainComboBox();
         }
-        public AddProductForm(PackageProduct product)
+        public AddProductForm(PackageProduct product, IDbContextFactory<AppDbContext> contextFactory)
         {
             InitializeComponent();
             IsEdit = true;
             OriginalProduct = product;
+            _contextFactory = contextFactory;
         }
         private void AddEditMovie_Load(object sender, EventArgs e)
         {
@@ -362,7 +367,7 @@ namespace VisionTech_Anbar_Project
             }
         }
 
-        private async void SetCurrentCategories()
+        private async Task SetCurrentCategories()
         {
             if (currentProduct == null) return;
 
@@ -734,46 +739,59 @@ namespace VisionTech_Anbar_Project
         }
         private async Task LoadBrands()
         {
-            // Load all brands from the service
             try
             {
-                var brands = (await brandService.GetAllBrandsAsync().ConfigureAwait(false)).ToList();
+                _isUpdatingComboBox = true;
+                var brands = (await brandService.GetAllBrandsAsync()).ToList();
+            
                 if (!brands.Any())
                 {
-                    MessageBox.Show("No brands found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No brands found.", "Information", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                // Safely bind the brands to the ComboBox
+                comboBox2.DataSource = null; // Clear existing data source
                 comboBox2.DataSource = brands;
-                comboBox2.DisplayMember = "BrandName"; // Ensure "BrandName" is the property of the Brand
+                comboBox2.DisplayMember = "BrandName";
                 comboBox2.ValueMember = "Id";
 
-                // Set the default brand selection
                 selectedId = brands.First().Id;
-
-                // Load products for the first brand
                 await LoadProductsByBrand(selectedId);
             }
-            catch (InvalidOperationException e)
+            catch (Exception ex)
             {
-                Log.Error(e.Message);
+                Log.Error(ex, "Error loading brands");
+                MessageBox.Show("Error loading brands. Please try again.", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                _isUpdatingComboBox = false;
             }
 
         }
 
         private async Task LoadProductsByBrand(int brandId)
         {
-            //Retrieve products based on the selected brand ID
-            var products = await productService.GetProductByBrandId(brandId); // Ensure await is used correctly
-
-            if (!products.Any())
+            try
             {
-                MessageBox.Show("No products found for the selected brand.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                var products = await productService.GetProductByBrandId(brandId);
+            
+                if (!products.Any())
+                {
+                    MessageBox.Show("No products found for the selected brand.", 
+                        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-            //Display the retrieved products
-            SetProducts(products.ToList());
+                SetProducts(products.ToList());
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error loading products for brand {BrandId}", brandId);
+                MessageBox.Show("Error loading products. Please try again.", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void ComboBoxBrands_SelectedIndexChanged(object sender, EventArgs e)

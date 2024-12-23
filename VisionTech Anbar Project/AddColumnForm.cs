@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
+using VisionTech_Anbar_Project.DAL;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Services;
 using VisionTech_Anbar_Project.Utilts;
@@ -29,6 +31,7 @@ namespace VisionTech_Anbar_Project
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
         private readonly BrandService _brandService;
+        private readonly IDbContextFactory<AppDbContext> _contextFactory;
 
 
         private TextBox warehouseDesc;
@@ -53,7 +56,7 @@ namespace VisionTech_Anbar_Project
 
 
 
-        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService, BrandService brandService)
+        public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService, BrandService brandService, IDbContextFactory<AppDbContext> contextFactory)
         {
             //  _packageService = packageService;
             _categoryService = categoryService;
@@ -65,6 +68,7 @@ namespace VisionTech_Anbar_Project
             _barcodeService = barcodeService;
 
             _brandService = brandService;
+            _contextFactory = contextFactory;
 
 
             InitializeComponent();
@@ -307,7 +311,7 @@ namespace VisionTech_Anbar_Project
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService,_contextFactory);
             addProductForm.ShowDialog();
 
             // Add both sections to the accordion

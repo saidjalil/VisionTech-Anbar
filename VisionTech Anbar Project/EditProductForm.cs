@@ -13,6 +13,8 @@ using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Entities;
 using VisionTech_Anbar_Project.Services;
 using System.Security.Policy;
+using Microsoft.EntityFrameworkCore;
+using VisionTech_Anbar_Project.DAL;
 
 namespace VisionTech_Anbar_Project
 {
@@ -24,6 +26,7 @@ namespace VisionTech_Anbar_Project
         private readonly PackageService _packageService;
         private readonly BarcodeService _barcodeService;
         private readonly BrandService _brandService;
+        private readonly IDbContextFactory<AppDbContext> _contextFactory;
 
 
         public bool changed = false;
@@ -35,13 +38,14 @@ namespace VisionTech_Anbar_Project
         int currentPackageId;
         Package currentPackage;
 
-        public EditProductForm(CategoryService categoryService, ProductService productService, PackageService packageService, BarcodeService barcodeService, BrandService brandService)
+        public EditProductForm(CategoryService categoryService, ProductService productService, PackageService packageService, BarcodeService barcodeService, BrandService brandService, IDbContextFactory<AppDbContext> contextFactory)
         {
             _categoryService = categoryService;
             _productService = productService;
             _packageService = packageService;
             _barcodeService = barcodeService;
             _brandService = brandService;
+            _contextFactory = contextFactory;
 
             InitializeComponent();
             SetupMainTableLayoutPanel();
@@ -74,7 +78,7 @@ namespace VisionTech_Anbar_Project
         private async void button1_Click(object sender, EventArgs e)
         {
 
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService,_contextFactory);
             addProductForm.ShowDialog();
             // Example for Section 1
             //            Control[] section1Controls = {
@@ -292,7 +296,7 @@ namespace VisionTech_Anbar_Project
 
         public void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService,_contextFactory);
             addProductForm.ShowDialog();
 
             if (!addProductForm.DataSaved || addProductForm.NewProduct == null)
@@ -321,7 +325,7 @@ namespace VisionTech_Anbar_Project
             if (button?.Tag is Product selectedProduct)
             {
                 // Show the AddProductForm with the selected product for editing
-                AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService)
+                AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService,_contextFactory)
                 {
                     currentProduct = selectedProduct
                 };

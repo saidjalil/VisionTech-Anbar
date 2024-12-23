@@ -15,7 +15,9 @@ using VisionTech_Anbar_Project.Utilts;
 using VisionTech_Anbar_Project.Services;
 using VisionTech_Anbar_Project.Entities;
 using System.Runtime.InteropServices;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using VisionTech_Anbar_Project.DAL;
 
 namespace VisionTech_Anbar_Project
 {
@@ -29,6 +31,7 @@ namespace VisionTech_Anbar_Project
         private readonly ImageService _imageService;
         private readonly BarcodeService _barcodeService;
         private readonly BrandService _brandService;
+        private readonly IDbContextFactory<AppDbContext> _contextFactory;
 
         private readonly IConfiguration _configuration;
 
@@ -41,7 +44,7 @@ namespace VisionTech_Anbar_Project
         TableLayoutPanel mainTableLayoutPanel;
 
         private List<Package> selectedProducts = new List<Package>();
-        public Ophrys(IConfiguration configuration, PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService, BrandService brandService)
+        public Ophrys(IConfiguration configuration, PackageService packageService, ProductService productService, CategoryService categoryService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService, BrandService brandService, IDbContextFactory<AppDbContext> contextFactory)
         {
             this._packageService = packageService;
             this._productService = productService;
@@ -51,6 +54,7 @@ namespace VisionTech_Anbar_Project
             _imageService = imageService;
             _barcodeService = barcodeService;
             _brandService = brandService;
+            _contextFactory = contextFactory;
 
             _configuration = configuration;
             InitializeComponent();
@@ -73,7 +77,9 @@ namespace VisionTech_Anbar_Project
                 _vendorService,
                 _imageService,
                 _barcodeService,
-                _brandService
+                _brandService,
+                _contextFactory
+                
             );
 
             // Set form data and show dialog
@@ -485,7 +491,7 @@ namespace VisionTech_Anbar_Project
 
         public async void EditButton_Click(object sender, EventArgs e)
         {
-            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService, _brandService);
+            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService, _brandService,_contextFactory);
 
             // Subscribe to the FormClosed event
             editProductForm.FormClosed += (s, args) =>
@@ -527,7 +533,7 @@ namespace VisionTech_Anbar_Project
 
         public async void AddButton_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService, _contextFactory);
             addProductForm.ShowDialog();
             Button button = sender as Button;
             int packageId = Convert.ToInt32(button.Tag);
