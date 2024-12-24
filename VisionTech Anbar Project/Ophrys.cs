@@ -593,6 +593,7 @@ namespace VisionTech_Anbar_Project
             {
                 // Logic to restart the main form
                 RestartPage();
+                mainTableLayoutPanel.Visible = false;
                 InitializeItems();
             };
             editProductForm.Show();

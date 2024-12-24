@@ -40,7 +40,7 @@ public class PackageRepository : BaseRepository<Package>
     }
 
 
-    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity,string barcode, int categoryId)
+    public async Task AddProductToPackageAsync(Product product, int packageId, int quantity, string barcode, int categoryId)
     {
         if (product == null)
         {
@@ -48,22 +48,25 @@ public class PackageRepository : BaseRepository<Package>
         }
 
         // Check if the product exists in the database
-        var existingProduct = await _context.Products.FirstOrDefaultAsync(p => 
-            p.ProductName == product.ProductName &&
-            p.CategoryId == product.CategoryId &&
-            p.BrandId == product.BrandId);
-        
+        var existingProduct = await _context.Products
+            .AsNoTracking()  // Ensures that no tracking occurs for this query
+            .FirstOrDefaultAsync(p => 
+                p.ProductName == product.ProductName &&
+                p.CategoryId == product.CategoryId &&
+                p.BrandId == product.Brand.Id);
+    
         if (existingProduct == null)
         {
-            product.CategoryId = categoryId;
-            product.BrandId = product.BrandId;
             // Product does not exist, so add it to the database
-            product = (await  _productRepository.Create(product)).Entity;
+            product.CategoryId = categoryId;
+            product.BrandId = product.Brand.Id;
+            // Product is new, so create it
+            product = (await _productRepository.Create(product)).Entity;
             await _context.SaveChangesAsync(); // Save to generate the Product ID
         }
         else
         {
-            // Use the existing product
+            // Use the existing product and ensure it's not re-attached
             product = existingProduct;
         }
 
@@ -82,6 +85,9 @@ public class PackageRepository : BaseRepository<Package>
         // Save changes to the database
         await Save();
     }
+
+
+
     
     public async Task<IEnumerable<Product>> GetProductsByPackageIdAsync(int packageId)
     {
