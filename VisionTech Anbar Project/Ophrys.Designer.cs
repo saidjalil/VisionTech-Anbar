@@ -88,14 +88,26 @@
             // 
             button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button3.BackColor = Color.FromArgb(42, 45, 85);
-            button3.ForeColor = Color.Transparent;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.ForeColor = Color.White;  // Changed from Transparent for better visibility
             button3.Location = new Point(561, 51);
             button3.Name = "button3";
-            button3.Size = new Size(64, 39);
+            button3.Size = new Size(64, 40);  // Slightly adjusted height for better proportion
             button3.TabIndex = 17;
             button3.Text = "+";
+            button3.Font = new Font("Segoe UI", 16, FontStyle.Bold);  // Enhanced font for the plus symbol
+            button3.Cursor = Cursors.Hand;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button1_Click;
+
+            // Add hover effect
+            button3.MouseEnter += (s, e) => {
+                button3.BackColor = Color.FromArgb(52, 55, 95);  // Slightly lighter on hover
+            };
+            button3.MouseLeave += (s, e) => {
+                button3.BackColor = Color.FromArgb(42, 45, 85);  // Return to original color
+            };
             // 
             // ExportAll
             // 

@@ -85,7 +85,7 @@ namespace VisionTech_Anbar_Project.Utilts
             // }
 
         }
-        public static string GetResurceFolder()
+        public static string GetResourceFolder()
         {
             string currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string twoFoldersUp = Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(Path.GetDirectoryName(currentDirectory))));
