@@ -18,6 +18,7 @@ using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using VisionTech_Anbar_Project.DAL;
+using System.Drawing.Drawing2D;
 
 namespace VisionTech_Anbar_Project
 {
@@ -61,12 +62,12 @@ namespace VisionTech_Anbar_Project
             SetupMainTableLayoutPanel();
             SetupLoadingSpinner();
             InitializeItems();
-
             button3.BringToFront();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void AddPackage_Click(object sender, EventArgs e)
         {
+
             // Initialize managers and forms
             ImageManager imageManager = new(_imageService);
             AddColumnForm addColumnForm = new AddColumnForm(
@@ -79,7 +80,7 @@ namespace VisionTech_Anbar_Project
                 _barcodeService,
                 _brandService,
                 _contextFactory
-                
+
             );
 
             // Set form data and show dialog
@@ -92,7 +93,7 @@ namespace VisionTech_Anbar_Project
                 //MessageBox.Show("Yeni paket yaradılmadı.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-             
+
             // Save the package
             await _packageService.CreatePackageAsync(addColumnForm.NewPackage);
 
@@ -228,6 +229,45 @@ namespace VisionTech_Anbar_Project
         {
             mainTableLayoutPanel.Controls.Clear();
         }
+        private Button CreateStyledButton(string path, Color backColor, Color foreColor)
+        {
+            var button = new Button
+            {
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                BackColor = backColor,
+                ForeColor = foreColor,
+                FlatStyle = FlatStyle.Flat,
+                //Tag = package.Id,
+                Size = new Size(40, 40),
+                Margin = new Padding(5),
+                TextAlign = ContentAlignment.MiddleCenter,
+                Cursor = Cursors.Hand
+            };
+
+            try
+            {
+                using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                using (var img = Image.FromStream(fileStream))
+                {
+                    var resizedImage = new Bitmap(img, new Size(24, 24));
+                    button.Image = resizedImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading image: {ex.Message}");
+                MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatAppearance.MouseOverBackColor = Color.FromArgb(
+                (int)(backColor.R * 0.95),
+                (int)(backColor.G * 0.95),
+                (int)(backColor.B * 0.95));
+
+            return button;
+        }
 
         private Panel CreateItemPanel(Package package)
         {
@@ -242,7 +282,7 @@ namespace VisionTech_Anbar_Project
                 Padding = new Padding(16, 20, 16, 16),  // Increased top padding to 20
             };
             itemPanel.SetBorderRadius(10);
-            
+
             // Hover effects
             itemPanel.MouseEnter += (sender, e) =>
             {
@@ -307,70 +347,32 @@ namespace VisionTech_Anbar_Project
                     }
                 }
             };
-
-            Button CreateStyledButton(string path, Color backColor, Color foreColor)
-            {
-                var button = new Button
-                {
-                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                    BackColor = backColor,
-                    ForeColor = foreColor,
-                    FlatStyle = FlatStyle.Flat,
-                    Tag = package.Id,
-                    Size = new Size(40, 40),
-                    Margin = new Padding(5),
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    Cursor = Cursors.Hand
-                };
-
-                try
-                {
-                    using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
-                    using (var img = Image.FromStream(fileStream))
-                    {
-                        var resizedImage = new Bitmap(img, new Size(24, 24));
-                        button.Image = resizedImage;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error loading image: {ex.Message}");
-                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error", 
-                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                button.FlatAppearance.BorderSize = 0;
-                button.FlatAppearance.MouseOverBackColor = Color.FromArgb(
-                    (int)(backColor.R * 0.95),
-                    (int)(backColor.G * 0.95),
-                    (int)(backColor.B * 0.95));
-                
-                return button;
-            }
-
             Button expandButton = package.PackageProducts.Count == 0
-                ? CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"), 
+                ? CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"),
                     Color.FromArgb(230, 236, 240), Color.Red)
-                : CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"), 
+                : CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"),
                     Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
             expandButton.Click += (s, e) => ToggleSubItems(itemPanel, (Button)s);
 
-            Button deleteButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "trash.png"), 
+            Button deleteButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "trash.png"),
                 Color.FromArgb(255, 223, 223), Color.Red);
             deleteButton.Click += DeleteButton_Click;
-
-            Button addButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "cube-plus.png"), 
+            deleteButton.Tag = package.Id;
+            Button addButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "cube-plus.png"),
                 Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             addButton.Click += AddButton_Click;
+            addButton.Tag = package.Id;
 
-            Button editButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "edit.png"), 
+            Button editButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "edit.png"),
                 Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             editButton.Click += EditButton_Click;
+            editButton.Tag = package.Id;
 
-            Button exportButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "file-arrow-right.png"), 
+            Button exportButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "file-arrow-right.png"),
                 Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             exportButton.Click += ExportButton_Click;
-            
+            exportButton.Tag = package.Id;
+
             buttonPanel.Controls.Add(expandButton);
             buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(addButton);
@@ -423,7 +425,7 @@ namespace VisionTech_Anbar_Project
         {
             Task.Run(() =>
             {
-                FileExporter fileExporter = new FileExporter(_packageService, _imageService,_configuration,_categoryService);
+                FileExporter fileExporter = new FileExporter(_packageService, _imageService, _configuration, _categoryService);
                 fileExporter.CreateAndWriteExportFile(packageIds);
 
                 // Back on the UI thread to show the message
@@ -526,7 +528,7 @@ namespace VisionTech_Anbar_Project
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error loading image: {ex.Message}");
-                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error", 
+                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } // Down arrow
             }
@@ -544,7 +546,7 @@ namespace VisionTech_Anbar_Project
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error loading image: {ex.Message}");
-                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error", 
+                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 } // Down arrow
             }
@@ -584,7 +586,7 @@ namespace VisionTech_Anbar_Project
 
         public async void EditButton_Click(object sender, EventArgs e)
         {
-            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService, _brandService,_contextFactory);
+            EditProductForm editProductForm = new EditProductForm(_categoryService, _productService, _packageService, _barcodeService, _brandService, _contextFactory);
 
             // Subscribe to the FormClosed event
             editProductForm.FormClosed += (s, args) =>
@@ -638,7 +640,7 @@ namespace VisionTech_Anbar_Project
                     await _packageService.AddProductToPackageAsync(packageId, editedProduct.Product.Id, editedProduct.Barcode, editedProduct.Quantity, editedProduct.Product.CategoryId);
                     await _productService.UpdateProductAsync(editedProduct.Product);
                 }
-               
+
             }
 
 
@@ -653,23 +655,6 @@ namespace VisionTech_Anbar_Project
                 InitializeItems();
                 //AddSubItemToItemPanel(packageId, addProductForm.NewProduct.Product, addProductForm.NewProduct.Quantity);
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void metroSetBadge1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 

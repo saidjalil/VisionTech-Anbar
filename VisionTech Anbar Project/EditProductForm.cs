@@ -166,74 +166,135 @@ namespace VisionTech_Anbar_Project
         }
         private Panel CreateItemPanel(Product product)
         {
-            // Create the main panel for the item
             Panel itemPanel = new Panel
             {
-                Height = 60, // Explicit height for the main item
+                Height = 80,
                 BorderStyle = BorderStyle.None,
-                Dock = DockStyle.Top, // Align at the top
+                BackColor = Color.FromArgb(252, 253, 255),
+                Dock = DockStyle.Top,
+                Margin = new Padding(15, 8, 15, 12),
                 Tag = product.Id,
-                Margin = new Padding(0), // No extra margin outside the panel
-                Padding = new Padding(0) // No extra padding inside the panel
+                Padding = new Padding(16, 20, 16, 16),
             };
 
-            // Label to display item text
+            // Add rounded corners
+            itemPanel.Paint += (sender, e) =>
+            {
+                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+                {
+                    var radius = 10f;
+                    var rect = itemPanel.ClientRectangle;
+                    path.AddArc(rect.X, rect.Y, radius * 2, radius * 2, 180, 90);
+                    path.AddArc(rect.Right - radius * 2, rect.Y, radius * 2, radius * 2, 270, 90);
+                    path.AddArc(rect.Right - radius * 2, rect.Bottom - radius * 2, radius * 2, radius * 2, 0, 90);
+                    path.AddArc(rect.X, rect.Bottom - radius * 2, radius * 2, radius * 2, 90, 90);
+                    path.CloseFigure();
+
+                    using (var pen = new Pen(Color.FromArgb(230, 232, 240), 1))
+                    {
+                        e.Graphics.DrawPath(pen, path);
+                    }
+                }
+            };
+
+            // Add hover effects
+            itemPanel.MouseEnter += (sender, e) =>
+            {
+                itemPanel.BackColor = Color.FromArgb(248, 249, 252);
+            };
+
+            itemPanel.MouseLeave += (sender, e) =>
+            {
+                itemPanel.BackColor = Color.FromArgb(252, 253, 255);
+            };
+
+            // Product name label with enhanced styling
             Label itemLabel = new Label
             {
                 Text = product.ProductName.ToString(),
+                Font = new Font("Segoe UI Semibold", 13, FontStyle.Regular),
+                ForeColor = Color.FromArgb(42, 45, 85),
                 AutoSize = true,
-                Location = new Point(10, 15), // Adjusted to ensure consistent positioning
-                Font = new Font("Arial", 10, FontStyle.Regular),
-                ForeColor = Color.Black
+                Location = new Point(16, itemPanel.Height / 2 - 10),
+                Padding = new Padding(0, 0, 10, 0)
             };
 
-            // Create a FlowLayoutPanel to hold all buttons in a single line
+            // Button creation helper method
+            Button CreateStyledButton(string iconPath, Color backColor, Color foreColor)
+            {
+                var button = new Button
+                {
+                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                    BackColor = backColor,
+                    ForeColor = foreColor,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = product.Id,
+                    Size = new Size(40, 40),
+                    Margin = new Padding(5),
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Cursor = Cursors.Hand
+                };
+
+                try
+                {
+                    using (var fileStream = new FileStream(iconPath, FileMode.Open, FileAccess.Read))
+                    using (var img = System.Drawing.Image.FromStream(fileStream))
+                    {
+                        button.Image = new Bitmap(img, new Size(24, 24));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error loading image: {ex.Message}");
+                }
+
+                button.FlatAppearance.BorderSize = 0;
+                button.FlatAppearance.MouseOverBackColor = Color.FromArgb(
+                    (int)(backColor.R * 0.95),
+                    (int)(backColor.G * 0.95),
+                    (int)(backColor.B * 0.95));
+
+                return button;
+            }
+
+            // Create button panel with right-aligned buttons
             FlowLayoutPanel buttonPanel = new FlowLayoutPanel
             {
-                FlowDirection = FlowDirection.LeftToRight, // Align buttons horizontally
+                FlowDirection = FlowDirection.RightToLeft,
                 Dock = DockStyle.Right,
                 AutoSize = true,
-                WrapContents = false, // Prevent buttons from wrapping to the next line
-                Margin = new Padding(0), // No extra margin
-                Padding = new Padding(0) // No extra padding
+                WrapContents = false,
+                Margin = new Padding(0),
+                Padding = new Padding(5, 0, 0, 0)
             };
 
-            // Button: Delete
-            Button deleteButton = new Button
-            {
-                Text = "🗑",
-                Tag = product.Id,
-                ForeColor = Color.Red,
-                Width = 50,
-                Height = 40,
-                Margin = new Padding(5)
-            };
+            // Create styled buttons
+            Button deleteButton = CreateStyledButton(
+                Path.Combine(FileManager.GetResourceFolder(), "trash.png"),
+                Color.FromArgb(255, 223, 223),
+                Color.Red);
+            deleteButton.Tag = product;
             deleteButton.Click += DeleteButton_Click;
 
-            // Button: Edit
-            Button editButton = new Button
-            {
-                Text = "✎",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                BackColor = Color.FromArgb(42, 45, 85),
-                ForeColor = Color.White, // Changed to improve readability
-                Tag = product,
-                Width = 60,
-                Height = 40,
-                Margin = new Padding(5)
-            };
+            Button editButton = CreateStyledButton(
+                Path.Combine(FileManager.GetResourceFolder(), "edit.png"),
+                Color.FromArgb(220, 240, 255),
+                Color.FromArgb(0, 120, 215));
+            editButton.Tag = product;
             editButton.Click += EditButton_Click;
 
-            // Add the buttons to the FlowLayoutPanel
-            buttonPanel.Controls.Add(editButton);
+            // Add buttons to panel
             buttonPanel.Controls.Add(deleteButton);
+            buttonPanel.Controls.Add(editButton);
 
-            // Add the label and button panel to the item panel
+            // Add all controls to main panel
             itemPanel.Controls.Add(itemLabel);
             itemPanel.Controls.Add(buttonPanel);
 
             return itemPanel;
         }
+
         private void RefreshProductList()
         {
             // Use a HashSet to track unique product names

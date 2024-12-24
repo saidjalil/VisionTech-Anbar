@@ -1,4 +1,6 @@
-﻿namespace VisionTech_Anbar_Project
+﻿using VisionTech_Anbar_Project.Utilts;
+
+namespace VisionTech_Anbar_Project
 {
     partial class Ophrys
     {
@@ -49,7 +51,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // metroSetControlBox1
             // 
@@ -88,35 +89,30 @@
             // 
             button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button3.BackColor = Color.FromArgb(42, 45, 85);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.ForeColor = Color.White;  // Changed from Transparent for better visibility
-            button3.Location = new Point(561, 51);
+            button3.Cursor = Cursors.Hand;
+            //button3.FlatAppearance.BorderSize = 0;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.ForeColor = Color.White;
+            button3.Location = new Point(539, 50);
             button3.Name = "button3";
-            button3.Size = new Size(64, 40);  // Slightly adjusted height for better proportion
+            button3.Size = new Size(64, 40);
             button3.TabIndex = 17;
             button3.Text = "+";
-            button3.Font = new Font("Segoe UI", 16, FontStyle.Bold);  // Enhanced font for the plus symbol
-            button3.Cursor = Cursors.Hand;
             button3.UseVisualStyleBackColor = false;
-            button3.Click += button1_Click;
-
-            // Add hover effect
-            button3.MouseEnter += (s, e) => {
-                button3.BackColor = Color.FromArgb(52, 55, 95);  // Slightly lighter on hover
-            };
-            button3.MouseLeave += (s, e) => {
-                button3.BackColor = Color.FromArgb(42, 45, 85);  // Return to original color
-            };
+            button3.Click += AddPackage_Click;
             // 
             // ExportAll
             // 
             ExportAll.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ExportAll.Cursor = Cursors.Hand;
+            //ExportAll.FlatAppearance.BorderSize = 0;
+            ExportAll.FlatStyle = FlatStyle.Popup;
             ExportAll.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             ExportAll.ForeColor = Color.FromArgb(42, 45, 85);
-            ExportAll.Location = new Point(631, 50);
+            ExportAll.Location = new Point(611, 50);
             ExportAll.Name = "ExportAll";
-            ExportAll.Size = new Size(44, 39);
+            ExportAll.Size = new Size(64, 40);
             ExportAll.TabIndex = 18;
             ExportAll.Text = "📤 ";
             ExportAll.TextAlign = ContentAlignment.MiddleRight;
@@ -141,7 +137,7 @@
             // Ophrys
             // 
             AccessibleRole = AccessibleRole.Grip;
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 5F;
