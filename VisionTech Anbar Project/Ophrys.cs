@@ -193,7 +193,7 @@ namespace VisionTech_Anbar_Project
                 ShowLoadingSpinner(); // Show spinner when loading starts
                 mainTableLayoutPanel.Controls.Clear();
 
-                var data = await Task.Run(() => _packageService.GetAllPackageWithNavigation());
+                var data = await _packageService.GetAllPackageWithNavigation();
                 foreach (var item in data)
                 {
                     Panel itemPanel = CreateItemPanel(item);
@@ -233,47 +233,85 @@ namespace VisionTech_Anbar_Project
         {
             Panel itemPanel = new Panel
             {
-                Height = 70,
+                Height = 80,
                 BorderStyle = BorderStyle.None,
-                BackColor = Color.White,
+                BackColor = Color.FromArgb(252, 253, 255),
                 Dock = DockStyle.Top,
-                Margin = new Padding(0, 0, 0, 10),
+                Margin = new Padding(15, 8, 15, 12),  // Added top margin of 8
                 Tag = package.Id,
-                Padding = new Padding(10)
+                Padding = new Padding(16, 20, 16, 16),  // Increased top padding to 20
             };
             itemPanel.SetBorderRadius(10);
+            
+            // Hover effects
+            itemPanel.MouseEnter += (sender, e) =>
+            {
+                itemPanel.BackColor = Color.FromArgb(248, 249, 252);
+            };
 
-            // Checkbox
+            itemPanel.MouseLeave += (sender, e) =>
+            {
+                itemPanel.BackColor = Color.FromArgb(252, 253, 255);
+            };
+
+            // Enhanced checkbox with custom styling - adjusted Y position
             CheckBox packageCheckBox = new CheckBox
             {
                 AutoSize = true,
-                Location = new Point(10, (itemPanel.Height - 20) / 2),
-                Tag = package.Id // Store the package ID in the Tag
+                Location = new Point(16, (itemPanel.Height - 24) / 2 + 2),  // Adjusted for new padding
+                Tag = package.Id,
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand
             };
+            packageCheckBox.FlatAppearance.BorderColor = Color.FromArgb(107, 114, 237);
+            packageCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(107, 114, 237);
 
+            // Enhanced label - adjusted Y position
             Label itemLabel = new Label
             {
                 Text = package.Warehouse.WarehouseName.ToString(),
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                Font = new Font("Segoe UI Semibold", 13, FontStyle.Regular),
                 ForeColor = Color.FromArgb(42, 45, 85),
                 AutoSize = true,
-                Location = new Point(50, 20)
+                Location = new Point(58, itemPanel.Height / 2 - 10),  // Adjusted for new padding
+                Padding = new Padding(0, 0, 10, 0)
             };
 
+            // Rest of your code remains the same
             FlowLayoutPanel buttonPanel = new FlowLayoutPanel
             {
                 FlowDirection = FlowDirection.RightToLeft,
                 Dock = DockStyle.Right,
                 AutoSize = true,
                 WrapContents = false,
-                Margin = new Padding(0)
+                Margin = new Padding(0),
+                Padding = new Padding(5, 0, 0, 0)
             };
 
-            Button CreateStyledButton(string text, Color backColor, Color foreColor)
+            itemPanel.Paint += (sender, e) =>
+            {
+                e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+                {
+                    var radius = 12f;
+                    var rect = itemPanel.ClientRectangle;
+                    path.AddArc(rect.X, rect.Y, radius * 2, radius * 2, 180, 90);
+                    path.AddArc(rect.Right - radius * 2, rect.Y, radius * 2, radius * 2, 270, 90);
+                    path.AddArc(rect.Right - radius * 2, rect.Bottom - radius * 2, radius * 2, radius * 2, 0, 90);
+                    path.AddArc(rect.X, rect.Bottom - radius * 2, radius * 2, radius * 2, 90, 90);
+                    path.CloseFigure();
+
+                    using (var pen = new Pen(Color.FromArgb(230, 232, 240), 1))
+                    {
+                        e.Graphics.DrawPath(pen, path);
+                    }
+                }
+            };
+
+            Button CreateStyledButton(string path, Color backColor, Color foreColor)
             {
                 var button = new Button
                 {
-                    Text = text,
                     Font = new Font("Segoe UI", 10, FontStyle.Bold),
                     BackColor = backColor,
                     ForeColor = foreColor,
@@ -281,35 +319,63 @@ namespace VisionTech_Anbar_Project
                     Tag = package.Id,
                     Size = new Size(40, 40),
                     Margin = new Padding(5),
-                    TextAlign = ContentAlignment.MiddleCenter
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Cursor = Cursors.Hand
                 };
+
+                try
+                {
+                    using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                    using (var img = Image.FromStream(fileStream))
+                    {
+                        var resizedImage = new Bitmap(img, new Size(24, 24));
+                        button.Image = resizedImage;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error loading image: {ex.Message}");
+                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error", 
+                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 button.FlatAppearance.BorderSize = 0;
+                button.FlatAppearance.MouseOverBackColor = Color.FromArgb(
+                    (int)(backColor.R * 0.95),
+                    (int)(backColor.G * 0.95),
+                    (int)(backColor.B * 0.95));
+                
                 return button;
             }
 
             Button expandButton = package.PackageProducts.Count == 0
-                ? CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.Red)
-                : CreateStyledButton("▽", Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
+                ? CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"), 
+                    Color.FromArgb(230, 236, 240), Color.Red)
+                : CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"), 
+                    Color.FromArgb(230, 236, 240), Color.FromArgb(42, 45, 85));
             expandButton.Click += (s, e) => ToggleSubItems(itemPanel, (Button)s);
 
-            Button deleteButton = CreateStyledButton("🗑", Color.FromArgb(255, 223, 223), Color.Red);
+            Button deleteButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "trash.png"), 
+                Color.FromArgb(255, 223, 223), Color.Red);
             deleteButton.Click += DeleteButton_Click;
 
-            Button addButton = CreateStyledButton("➕", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
+            Button addButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "cube-plus.png"), 
+                Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             addButton.Click += AddButton_Click;
 
-            Button editButton = CreateStyledButton("✎", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
+            Button editButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "edit.png"), 
+                Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             editButton.Click += EditButton_Click;
 
-            Button exportButton = CreateStyledButton("⇪", Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
+            Button exportButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "file-arrow-right.png"), 
+                Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             exportButton.Click += ExportButton_Click;
-
+            
             buttonPanel.Controls.Add(expandButton);
             buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
             buttonPanel.Controls.Add(exportButton);
-
 
             itemPanel.Controls.Add(packageCheckBox);
             itemPanel.Controls.Add(itemLabel);
@@ -317,16 +383,9 @@ namespace VisionTech_Anbar_Project
 
             return itemPanel;
         }
-
-        private async void ExportButton_Click(object sender, EventArgs e)
+        private void ExportButton_Click(object sender, EventArgs e)
         {
             // Only Export current 
-            var fileExporter = new FileExporter(_packageService, _imageService, _configuration, _categoryService);
-            Button button = sender as Button;
-
-            fileExporter.CreateAndWriteExportFile(int.Parse(button.Tag.ToString()));
-
-
         }
 
         private void ExportAllButton_Click(object sender, EventArgs e)
@@ -455,11 +514,39 @@ namespace VisionTech_Anbar_Project
             // Update the expand button text based on visibility
             if (areSubItemsVisible)
             {
-                expandButton.Text = "△"; // Up arrow
+                try
+                {
+                    using (var fileStream = new FileStream(Path.Combine(FileManager.GetResourceFolder(), "caret-up.png"), FileMode.Open, FileAccess.Read))
+                    using (var img = Image.FromStream(fileStream))
+                    {
+                        var resizedImage = new Bitmap(img, new Size(24, 24));
+                        expandButton.Image = resizedImage;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error loading image: {ex.Message}");
+                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } // Down arrow
             }
             else
             {
-                expandButton.Text = "▽"; // Down arrow
+                try
+                {
+                    using (var fileStream = new FileStream(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"), FileMode.Open, FileAccess.Read))
+                    using (var img = Image.FromStream(fileStream))
+                    {
+                        var resizedImage = new Bitmap(img, new Size(24, 24));
+                        expandButton.Image = resizedImage;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error loading image: {ex.Message}");
+                    MessageBox.Show($"Error loading image: {ex.Message}", "Image Load Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                } // Down arrow
             }
         }
 
