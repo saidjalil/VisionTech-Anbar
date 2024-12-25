@@ -277,13 +277,12 @@ namespace VisionTech_Anbar_Project
                 BorderStyle = BorderStyle.None,
                 BackColor = Color.FromArgb(252, 253, 255),
                 Dock = DockStyle.Top,
-                Margin = new Padding(15, 8, 15, 12),  // Added top margin of 8
+                Margin = new Padding(15, 8, 15, 12),
                 Tag = package.Id,
-                Padding = new Padding(16, 20, 16, 16),  // Increased top padding to 20
+                Padding = new Padding(16, 20, 16, 16),
             };
             itemPanel.SetBorderRadius(10);
 
-            // Hover effects
             itemPanel.MouseEnter += (sender, e) =>
             {
                 itemPanel.BackColor = Color.FromArgb(248, 249, 252);
@@ -294,30 +293,83 @@ namespace VisionTech_Anbar_Project
                 itemPanel.BackColor = Color.FromArgb(252, 253, 255);
             };
 
-            // Enhanced checkbox with custom styling - adjusted Y position
-            CheckBox packageCheckBox = new CheckBox
+            // Create a container panel for checkbox and label
+            Panel checkboxContainer = new Panel
             {
                 AutoSize = true,
-                Location = new Point(16, (itemPanel.Height - 24) / 2 + 2),  // Adjusted for new padding
+                Height = 30,
+                BackColor = Color.Transparent,
+                Location = new Point(16, (itemPanel.Height - 30) / 2)
+            };
+
+            // Enhanced checkbox with custom styling
+            CheckBox packageCheckBox = new CheckBox
+            {
+                AutoSize = false,
+                Size = new Size(20, 20),
+                Location = new Point(0, 5),
                 Tag = package.Id,
                 FlatStyle = FlatStyle.Flat,
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                BackColor = Color.Transparent,
+                Appearance = Appearance.Button
             };
+
+            packageCheckBox.FlatAppearance.BorderSize = 2;
             packageCheckBox.FlatAppearance.BorderColor = Color.FromArgb(107, 114, 237);
             packageCheckBox.FlatAppearance.CheckedBackColor = Color.FromArgb(107, 114, 237);
 
-            // Enhanced label - adjusted Y position
+            packageCheckBox.Paint += (sender, e) =>
+            {
+                var checkBox = (CheckBox)sender;
+                var g = e.Graphics;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+
+                using (var path = new GraphicsPath())
+                {
+                    path.AddRectangle(new Rectangle(0, 0, checkBox.Width - 1, checkBox.Height - 1));
+                    using (var pen = new Pen(checkBox.FlatAppearance.BorderColor, 2))
+                    {
+                        g.DrawPath(pen, path);
+                    }
+                }
+
+                if (checkBox.Checked)
+                {
+                    using (var brush = new SolidBrush(Color.FromArgb(107, 114, 237)))
+                    {
+                        g.FillRectangle(brush, new Rectangle(2, 2, checkBox.Width - 4, checkBox.Height - 4));
+                    }
+
+                    using (var pen = new Pen(Color.White, 2))
+                    {
+                        var checkmarkPoints = new Point[]
+                        {
+                            new Point(4, checkBox.Height / 2),
+                            new Point(checkBox.Width / 3, checkBox.Height - 4),
+                            new Point(checkBox.Width - 4, 4)
+                        };
+                        g.DrawLines(pen, checkmarkPoints);
+                    }
+                }
+            };
+
+            // Label aligned with checkbox
             Label itemLabel = new Label
             {
                 Text = package.Warehouse.WarehouseName.ToString(),
                 Font = new Font("Segoe UI Semibold", 13, FontStyle.Regular),
                 ForeColor = Color.FromArgb(42, 45, 85),
                 AutoSize = true,
-                Location = new Point(58, itemPanel.Height / 2 - 10),  // Adjusted for new padding
+                Location = new Point(30, 2),
                 Padding = new Padding(0, 0, 10, 0)
             };
 
-            // Rest of your code remains the same
+            // Add checkbox and label to container
+            checkboxContainer.Controls.Add(packageCheckBox);
+            checkboxContainer.Controls.Add(itemLabel);
+
+            // Button panel
             FlowLayoutPanel buttonPanel = new FlowLayoutPanel
             {
                 FlowDirection = FlowDirection.RightToLeft,
@@ -328,6 +380,7 @@ namespace VisionTech_Anbar_Project
                 Padding = new Padding(5, 0, 0, 0)
             };
 
+            // Panel border paint handler
             itemPanel.Paint += (sender, e) =>
             {
                 e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
@@ -347,6 +400,7 @@ namespace VisionTech_Anbar_Project
                     }
                 }
             };
+
             Button expandButton = package.PackageProducts.Count == 0
                 ? CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "caret-down.png"),
                     Color.FromArgb(230, 236, 240), Color.Red)
@@ -358,6 +412,7 @@ namespace VisionTech_Anbar_Project
                 Color.FromArgb(255, 223, 223), Color.Red);
             deleteButton.Click += DeleteButton_Click;
             deleteButton.Tag = package.Id;
+
             Button addButton = CreateStyledButton(Path.Combine(FileManager.GetResourceFolder(), "cube-plus.png"),
                 Color.FromArgb(220, 240, 255), Color.FromArgb(0, 120, 215));
             addButton.Click += AddButton_Click;
@@ -373,14 +428,15 @@ namespace VisionTech_Anbar_Project
             exportButton.Click += ExportButton_Click;
             exportButton.Tag = package.Id;
 
+            // Add buttons to button panel
             buttonPanel.Controls.Add(expandButton);
             buttonPanel.Controls.Add(deleteButton);
             buttonPanel.Controls.Add(addButton);
             buttonPanel.Controls.Add(editButton);
             buttonPanel.Controls.Add(exportButton);
 
-            itemPanel.Controls.Add(packageCheckBox);
-            itemPanel.Controls.Add(itemLabel);
+            // Add container and button panel to main panel
+            itemPanel.Controls.Add(checkboxContainer);
             itemPanel.Controls.Add(buttonPanel);
 
             return itemPanel;
@@ -447,8 +503,9 @@ namespace VisionTech_Anbar_Project
                 BackColor = Color.FromArgb(247, 249, 251),
                 AutoScroll = true,
                 BorderStyle = BorderStyle.None,
-                Padding = new Padding(5, 5, 5, 5),
-                Dock = DockStyle.Top
+                Padding = new Padding(25, 5, 15, 5), // Increased left padding to move items right
+                Dock = DockStyle.Top,
+                Margin = new Padding(10, 0, 10, 0) // Added horizontal margin to make panel smaller than parent
             };
             subItemsPanel.SetBorderRadius(8);
 
@@ -459,7 +516,8 @@ namespace VisionTech_Anbar_Project
                     Height = 40,
                     Dock = DockStyle.Top,
                     BackColor = Color.White,
-                    Margin = new Padding(0, 0, 0, 5)
+                    Margin = new Padding(0, 0, 0, 5),
+                    Width = subItemsPanel.Width - 20 // Make sub item panel slightly smaller
                 };
                 subItemPanel.SetBorderRadius(6);
 
