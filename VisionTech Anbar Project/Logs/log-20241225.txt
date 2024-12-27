@@ -1,0 +1,47 @@
+2024-12-25 14:41:09.125 +04:00 [INF] Application Starting
+2024-12-25 14:41:10.473 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-25 14:41:13.177 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-25 14:41:21.774 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-25 14:41:21.860 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-25 14:41:26.868 +04:00 [INF] Fetching category with ID: 2.
+2024-12-25 14:41:27.988 +04:00 [INF] Category with ID: 2 successfully retrieved.
+2024-12-25 14:41:27.988 +04:00 [INF] Fetching category with ID: 1.
+2024-12-25 14:41:27.992 +04:00 [INF] Category with ID: 1 successfully retrieved.
+2024-12-25 14:41:34.506 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-25 14:41:34.613 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-25 14:42:22.522 +04:00 [INF] Fetching package with ID: 4 along with related navigation properties.
+2024-12-25 14:42:22.531 +04:00 [INF] Successfully retrieved package with ID: 4.
+2024-12-25 14:42:33.608 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-25 14:42:33.618 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-25 14:43:49.997 +04:00 [INF] Fetching all warehouses.
+2024-12-25 14:43:50.858 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-25 14:43:50.859 +04:00 [INF] Fetching all vendors.
+2024-12-25 14:43:50.880 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-25 15:44:43.406 +04:00 [INF] Application Starting
+2024-12-25 15:44:45.829 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-25 15:44:48.927 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-25 15:44:51.762 +04:00 [INF] Fetching all warehouses.
+2024-12-25 15:44:52.708 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-25 15:44:52.709 +04:00 [INF] Fetching all vendors.
+2024-12-25 15:44:52.738 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-25 15:46:24.124 +04:00 [INF] Application Starting
+2024-12-25 15:46:26.522 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-25 15:46:28.285 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-25 15:46:31.091 +04:00 [INF] Fetching all warehouses.
+2024-12-25 15:46:31.954 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-25 15:46:31.955 +04:00 [INF] Fetching all vendors.
+2024-12-25 15:46:32.004 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-25 15:47:47.503 +04:00 [INF] Application Starting
+2024-12-25 15:47:49.736 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-25 15:47:51.527 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-25 15:48:13.397 +04:00 [INF] Fetching all warehouses.
+2024-12-25 15:48:14.199 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-25 15:48:14.201 +04:00 [INF] Fetching all vendors.
+2024-12-25 15:48:14.248 +04:00 [INF] Successfully retrieved 2 vendors.
+2024-12-25 15:51:34.900 +04:00 [INF] Application Starting
+2024-12-25 15:51:36.992 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-25 15:51:38.665 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-25 15:51:41.176 +04:00 [INF] Fetching all warehouses.
+2024-12-25 15:51:42.047 +04:00 [INF] Successfully retrieved 2 warehouses.
+2024-12-25 15:51:42.049 +04:00 [INF] Fetching all vendors.
+2024-12-25 15:51:42.087 +04:00 [INF] Successfully retrieved 2 vendors.

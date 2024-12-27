@@ -19,6 +19,7 @@ using VisionTech_Anbar_Project.Entities.Categories;
 using VisionTech_Anbar_Project.Repositories;
 using VisionTech_Anbar_Project.Services;
 using static System.Net.Mime.MediaTypeNames;
+using MetroSet_UI.Controls;
 
 namespace VisionTech_Anbar_Project
 {
@@ -94,10 +95,234 @@ namespace VisionTech_Anbar_Project
             LoadTopCategories();
             LoadBrands();
             AddDefaultRow();
+            DesignComponent();
             //InitializeCategories();
             //if(textBoxCount == 0)
             //CreateTextBox();
             //InitializeMainComboBox();
+        }
+        private void DesignComponent()
+        {
+            // TextBox - Barcode
+            textBox1 = new TextBox
+            {
+                BackColor = Color.White,
+                ForeColor = Color.FromArgb(64, 64, 64),
+                Location = new Point(45, 81),
+                Name = "textBox1",
+                Size = new Size(177, 36),
+                Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point),
+                BorderStyle = BorderStyle.None,
+                Padding = new Padding(10, 5, 10, 5),
+                TabIndex = 0
+            };
+            textBox1.KeyPress += textBox1_KeyPress;
+
+            // Create panel for textbox border effect
+            Panel textBoxPanel = new Panel
+            {
+                Location = textBox1.Location,
+                Size = new Size(177, 36),
+                BackColor = Color.White,
+                Padding = new Padding(0)
+            };
+            textBoxPanel.Paint += (s, e) =>
+            {
+                using (var pen = new Pen(Color.FromArgb(230, 230, 230)))
+                {
+                    e.Graphics.DrawRectangle(pen, 0, 0, textBoxPanel.Width - 1, textBoxPanel.Height - 1);
+                }
+            };
+            textBoxPanel.Controls.Add(textBox1);
+
+            // Labels - Modern styling
+            label2 = CreateStyledLabel("Barkod", new Point(45, 54));
+            label3 = CreateStyledLabel("Kateqoriya", new Point(78, 145));
+            label5 = CreateStyledLabel("Məhsulun Adı", new Point(387, 127));
+            label6 = CreateStyledLabel("Daimi", new Point(781, 165));
+            label7 = CreateStyledLabel("Əlavə barkod üçün:", new Point(387, 248));
+            label1 = CreateStyledLabel("Brand", new Point(615, 118));
+
+            // Primary Action Button
+            button1 = CreatePrimaryButton("Əlavə et", new Point(808, 491), new Size(134, 53));
+            button1.Click += button1_Click;
+
+            // Secondary Action Button
+            button2 = CreateSecondaryButton("Yoxla", new Point(218, 81), new Size(84, 32));
+            button2.Click += button2_Click;
+
+            // Add Button
+            button3 = CreateIconButton("+", new Point(375, 287), new Size(52, 43));
+            button3.Click += button3_Click;
+
+            // Modern Checkbox
+            checkBox1 = CreateStyledCheckbox(new Point(868, 170));
+
+            // Dynamic Panel
+            panelDynamic = new Panel
+            {
+                Location = new Point(45, 173),
+                Name = "panelDynamic",
+                Size = new Size(274, 320),
+                BackColor = Color.Transparent,
+                TabIndex = 19
+            };
+
+            // ComboBoxes
+            comboBox1 = CreateStyledComboBox(new Point(375, 161), new Size(177, 34));
+            comboBox2 = CreateStyledComboBox(new Point(580, 157), new Size(151, 34));
+            comboBox2.SelectedIndexChanged += ComboBoxBrands_SelectedIndexChanged;
+            comboBox2.KeyDown += ComboBoxBrands_KeyDown;
+
+            // Control Box
+            metroSetControlBox1 = new MetroSetControlBox
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                CloseHoverBackColor = Color.FromArgb(220, 53, 69),
+                CloseHoverForeColor = Color.White,
+                CloseNormalForeColor = Color.FromArgb(120, 120, 120),
+                DisabledForeColor = Color.FromArgb(180, 180, 180),
+                IsDerivedStyle = true,
+                Location = new Point(844, 8),
+                MaximizeBox = false,
+                MinimizeBox = true,
+                MinimizeHoverBackColor = Color.FromArgb(248, 249, 250),
+                MinimizeHoverForeColor = Color.FromArgb(42, 45, 85),
+                MinimizeNormalForeColor = Color.FromArgb(120, 120, 120),
+                Name = "metroSetControlBox1",
+                Size = new Size(100, 25),
+                Style = MetroSet_UI.Enums.Style.Light,
+                TabIndex = 21
+            };
+
+            // Form Settings
+            AutoScaleDimensions = new SizeF(13F, 26F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            BackgroundColor = Color.FromArgb(250, 252, 255);
+            BorderColor = Color.FromArgb(42, 45, 85);
+            BorderThickness = 1F;
+            ClientSize = new Size(959, 572);
+
+            // Add controls
+            Controls.AddRange(new Control[] {
+        label1, comboBox2, metroSetControlBox1, comboBox1,
+        panelDynamic, button3, label7, label6, checkBox1,
+        label5, button2, button1, label3, label2, textBoxPanel
+    });
+
+            Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            HeaderColor = Color.FromArgb(42, 45, 85);
+            Name = "AddProductForm";
+            ShowBorder = true;
+            TextColor = Color.FromArgb(64, 64, 64);
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        private Label CreateStyledLabel(string text, Point location)
+        {
+            return new Label
+            {
+                AutoSize = true,
+                BackColor = Color.Transparent,
+                Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point),
+                ForeColor = Color.FromArgb(90, 90, 90),
+                Location = location,
+                Text = text
+            };
+        }
+
+        private Button CreatePrimaryButton(string text, Point location, Size size)
+        {
+            Button button = new Button
+            {
+                BackColor = Color.FromArgb(42, 45, 85),
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point),
+                ForeColor = Color.White,
+                Location = location,
+                Size = size,
+                Text = text,
+                Cursor = Cursors.Hand
+            };
+
+            button.FlatAppearance.BorderSize = 0;
+            button.MouseEnter += (s, e) => button.BackColor = Color.FromArgb(52, 55, 95);
+            button.MouseLeave += (s, e) => button.BackColor = Color.FromArgb(42, 45, 85);
+
+            return button;
+        }
+
+        private Button CreateSecondaryButton(string text, Point location, Size size)
+        {
+            Button button = new Button
+            {
+                BackColor = Color.FromArgb(248, 249, 250),
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point),
+                ForeColor = Color.FromArgb(90, 90, 90),
+                Location = location,
+                Size = size,
+                Text = text,
+                Cursor = Cursors.Hand
+            };
+
+            button.FlatAppearance.BorderColor = Color.FromArgb(230, 230, 230);
+            button.MouseEnter += (s, e) => button.BackColor = Color.FromArgb(240, 241, 242);
+            button.MouseLeave += (s, e) => button.BackColor = Color.FromArgb(248, 249, 250);
+
+            return button;
+        }
+
+        private Button CreateIconButton(string text, Point location, Size size)
+        {
+            Button button = new Button
+            {
+                BackColor = Color.FromArgb(42, 45, 85),
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point),
+                ForeColor = Color.White,
+                Location = location,
+                Size = size,
+                Text = text,
+                Cursor = Cursors.Hand
+            };
+
+            button.FlatAppearance.BorderSize = 0;
+            button.MouseEnter += (s, e) => button.BackColor = Color.FromArgb(52, 55, 95);
+            button.MouseLeave += (s, e) => button.BackColor = Color.FromArgb(42, 45, 85);
+
+            return button;
+        }
+
+        private CheckBox CreateStyledCheckbox(Point location)
+        {
+            return new CheckBox
+            {
+                AutoSize = true,
+                Location = location,
+                Size = new Size(18, 17),
+                UseVisualStyleBackColor = true,
+                Cursor = Cursors.Hand
+            };
+        }
+
+        private ComboBox CreateStyledComboBox(Point location, Size size)
+        {
+            return new ComboBox
+            {
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems,
+                FormattingEnabled = true,
+                Location = location,
+                Size = size,
+                Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point),
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.White,
+                ForeColor = Color.FromArgb(64, 64, 64),
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
         }
         public AddProductForm(PackageProduct product, IDbContextFactory<AppDbContext> contextFactory)
         {
@@ -193,7 +418,7 @@ namespace VisionTech_Anbar_Project
                 MessageBox.Show("Brend adı qeyd olunmayıb.", "Daxiletmə xətası", MessageBoxButtons.OK);
                 return false;
             }
-            
+
             // Ensure the ComboBox has a valid selected value
             if (comboBox2.SelectedItem is Brand selectedBrand)
             {
@@ -621,105 +846,164 @@ namespace VisionTech_Anbar_Project
 
         private void AddDefaultRow()
         {
-            // Determine base positioning
             int startX = button3.Location.X + button3.Width + 10;
-            int startY = button3.Location.Y + rowPanels.Count * (30 + 10); // Vertical padding
+            int startY = button3.Location.Y + rowPanels.Count * (40 + 12); // Increased height and padding
 
-            // Create a panel to encapsulate the row
-            Panel rowPanel = new Panel
-            {
-                Location = new Point(startX, startY),
-                Size = new Size(400, 30), // Adjust size as needed
-                Tag = rowPanels.Count, // Store row index in the Tag
-                BackColor = Color.Transparent
+            Panel rowPanel = CreateBaseRowPanel(startX, startY);
 
-            };
-
-            // Create a TextBox for Barcode (disabled with default text)
-            TextBox barcodeTextBox = new TextBox
-            {
-                Name = "DefaultBarcodeTextBox",
-                Location = new Point(0, 0),
-                Size = new Size(150, 30),
-                Text = "Barkodsuz", // Default text
-                Enabled = false // Disable editing
-            };
-            barcodeTextBoxes.Add(barcodeTextBox); // Add to the list
+            // Barcode TextBox with modern styling
+            TextBox barcodeTextBox = CreateStyledTextBox(
+                "DefaultBarcodeTextBox",
+                new Point(0, 0),
+                new Size(200, 36), // Increased width and height
+                "Barkodsuz",
+                true); // Disabled
+            barcodeTextBoxes.Add(barcodeTextBox);
             rowPanel.Controls.Add(barcodeTextBox);
 
-            // Create a TextBox for Quantity
-            TextBox quantityTextBox = new TextBox
-            {
-                Name = "DefaultQuantityTextBox",
-                Location = new Point(160, 0), // Positioned to the right of Barcode
-                Size = new Size(100, 30),
-                PlaceholderText = "Quantity"
-            };
-            quantityTextBoxes.Add(quantityTextBox); // Add to the list
+            // Quantity TextBox with modern styling
+            TextBox quantityTextBox = CreateStyledTextBox(
+                "DefaultQuantityTextBox",
+                new Point(210, 0),
+                new Size(100, 36), // Increased size
+                "Quantity",
+                false); // Enabled
+            quantityTextBoxes.Add(quantityTextBox);
             rowPanel.Controls.Add(quantityTextBox);
 
-            // Add the panel to the form and list
             rowPanels.Add(rowPanel);
             this.Controls.Add(rowPanel);
         }
 
         private void AddRow()
         {
-            // Determine base positioning
             int startX = button3.Location.X + button3.Width + 10;
-            int startY = button3.Location.Y + rowPanels.Count * (30 + 10); // Vertical padding
+            int startY = button3.Location.Y + rowPanels.Count * (40 + 12); // Increased height and padding
 
-            // Create a panel to encapsulate the row
-            Panel rowPanel = new Panel
-            {
-                Location = new Point(startX, startY),
-                Size = new Size(400, 30), // Adjust size as needed
-                Tag = rowPanels.Count, // Store row index in the Tag
-                BackColor = Color.Transparent
-            };
+            Panel rowPanel = CreateBaseRowPanel(startX, startY);
 
-            // Create a TextBox for Barcode
-            TextBox barcodeTextBox = new TextBox
-            {
-                Name = "BarcodeTextBox" + (rowPanels.Count + 1),
-                Location = new Point(0, 0),
-                Size = new Size(150, 30),
-                PlaceholderText = "Barcode"
-            };
-            barcodeTextBoxes.Add(barcodeTextBox); // Add to the list
+            // Barcode TextBox
+            TextBox barcodeTextBox = CreateStyledTextBox(
+                $"BarcodeTextBox{rowPanels.Count + 1}",
+                new Point(0, 0),
+                new Size(200, 36),
+                "Barcode",
+                false);
+            barcodeTextBoxes.Add(barcodeTextBox);
             rowPanel.Controls.Add(barcodeTextBox);
 
-            // Create a TextBox for Quantity
-            TextBox quantityTextBox = new TextBox
-            {
-                Name = "QuantityTextBox" + (rowPanels.Count + 1),
-                Location = new Point(160, 0), // Positioned to the right of Barcode
-                Size = new Size(100, 30),
-                PlaceholderText = "Quantity"
-            };
-            quantityTextBoxes.Add(quantityTextBox); // Add to the list
+            // Quantity TextBox
+            TextBox quantityTextBox = CreateStyledTextBox(
+                $"QuantityTextBox{rowPanels.Count + 1}",
+                new Point(210, 0),
+                new Size(100, 36),
+                "Quantity",
+                false);
+            quantityTextBoxes.Add(quantityTextBox);
             rowPanel.Controls.Add(quantityTextBox);
 
-            // Create a Button for Deletion
-            Button deleteButton = new Button
-            {
-                Name = "DeleteButton" + (rowPanels.Count + 1),
-                Location = new Point(270, 0), // Positioned to the right of Quantity
-                Size = new Size(40, 30),
-                Text = "🗑",
-                BackColor = Color.Red,
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Tag = rowPanels.Count // Store row index in the Tag
-            };
+            // Delete Button with modern styling
+            Button deleteButton = CreateStyledDeleteButton(
+                $"DeleteButton{rowPanels.Count + 1}",
+                new Point(340, 0),
+                rowPanels.Count);
             deleteButton.Click += DeleteRow;
             rowPanel.Controls.Add(deleteButton);
 
-            // Add the panel to the form and list
             rowPanels.Add(rowPanel);
             this.Controls.Add(rowPanel);
         }
 
+        // Helper methods for consistent styling
+        private Panel CreateBaseRowPanel(int x, int y)
+        {
+            return new Panel
+            {
+                Location = new Point(x, y),
+                Size = new Size(450, 36), // Increased width and height
+                Tag = rowPanels.Count,
+                BackColor = Color.Transparent,
+                Padding = new Padding(0),
+                Margin = new Padding(0, 0, 0, 12) // Added bottom margin
+            };
+        }
+
+        private TextBox CreateStyledTextBox(string name, Point location, Size size, string placeholder, bool disabled)
+        {
+            TextBox textBox = new TextBox
+            {
+                Name = name,
+                Location = location,
+                Size = size,
+                PlaceholderText = placeholder,
+                Enabled = !disabled,
+                Font = new Font("Segoe UI", 10F),
+                BorderStyle = BorderStyle.FixedSingle,
+                BackColor = disabled ? Color.FromArgb(245, 245, 245) : Color.White,
+                ForeColor = disabled ? Color.FromArgb(120, 120, 120) : Color.FromArgb(64, 64, 64)
+            };
+
+            if (disabled)
+            {
+                textBox.Text = placeholder;
+            }
+
+            // Add modern styling
+            textBox.Enter += (s, e) =>
+            {
+                if (!disabled)
+                {
+                    textBox.BackColor = Color.FromArgb(252, 253, 255);
+                    textBox.BorderStyle = BorderStyle.FixedSingle;
+                }
+            };
+
+            textBox.Leave += (s, e) =>
+            {
+                if (!disabled)
+                {
+                    textBox.BackColor = Color.White;
+                    textBox.BorderStyle = BorderStyle.FixedSingle;
+                }
+            };
+
+            return textBox;
+        }
+
+        private Button CreateStyledDeleteButton(string name, Point location, int rowIndex)
+        {
+            Button button = new Button
+            {
+                Name = name,
+                Location = location,
+                Size = new Size(36, 36), // Square button
+                Text = "🗑",
+                Tag = rowIndex,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 12F),
+                Cursor = Cursors.Hand,
+                BackColor = Color.FromArgb(255, 239, 239), // Light red background
+                ForeColor = Color.FromArgb(220, 53, 69), // Darker red text
+            };
+
+            // Remove border
+            button.FlatAppearance.BorderSize = 0;
+
+            // Hover effects
+            button.MouseEnter += (s, e) =>
+            {
+                button.BackColor = Color.FromArgb(220, 53, 69);
+                button.ForeColor = Color.White;
+            };
+
+            button.MouseLeave += (s, e) =>
+            {
+                button.BackColor = Color.FromArgb(255, 239, 239);
+                button.ForeColor = Color.FromArgb(220, 53, 69);
+            };
+
+            return button;
+        }
         private void DeleteRow(object sender, EventArgs e)
         {
             if (sender is Button deleteButton)
@@ -828,10 +1112,10 @@ namespace VisionTech_Anbar_Project
             {
                 _isUpdatingComboBox = true;
                 var brands = (await brandService.GetAllBrandsAsync()).ToList();
-            
+
                 if (!brands.Any())
                 {
-                    MessageBox.Show("No brands found.", "Information", 
+                    MessageBox.Show("No brands found.", "Information",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -847,7 +1131,7 @@ namespace VisionTech_Anbar_Project
             catch (Exception ex)
             {
                 Log.Error(ex, "Error loading brands");
-                MessageBox.Show("Error loading brands. Please try again.", 
+                MessageBox.Show("Error loading brands. Please try again.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
@@ -862,10 +1146,10 @@ namespace VisionTech_Anbar_Project
             try
             {
                 var products = await productService.GetProductByBrandId(brandId);
-            
+
                 if (!products.Any())
                 {
-                    MessageBox.Show("No products found for the selected brand.", 
+                    MessageBox.Show("No products found for the selected brand.",
                         "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -874,7 +1158,7 @@ namespace VisionTech_Anbar_Project
             catch (Exception ex)
             {
                 Log.Error(ex, "Error loading products for brand {BrandId}", brandId);
-                MessageBox.Show("Error loading products. Please try again.", 
+                MessageBox.Show("Error loading products. Please try again.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -942,95 +1226,76 @@ namespace VisionTech_Anbar_Project
 
 
 
+        private const int MARGIN_TOP = 10;
+        private const int COMBOBOX_WIDTH = 200;
+
         private void AddComboBox(Category parentCategory, List<Category> categories)
         {
-            // Ensure the initial margin is added only once
-            if (_comboBoxes.Count == 0)
-            {
-                _nextControlY = 10; // Start with a 10px margin from the top
-            }
-            else
-            {
-                // Add spacing between controls before adding a new ComboBox
-                _nextControlY += 10;
-            }
+            // Calculate vertical position
+            _nextControlY += (_comboBoxes.Count == 0) ? MARGIN_TOP : MARGIN_TOP;
 
-            // Create a new ComboBox
+            // Create and configure ComboBox
             var comboBox = new ComboBox
             {
                 DataSource = categories,
                 DisplayMember = "Name",
                 ValueMember = "Id",
                 Location = new Point(10, _nextControlY),
-                Width = 200,
-                DropDownStyle = ComboBoxStyle.DropDown, // Allow user to type
-                Tag = parentCategory // Store the parent category
-
+                Width = COMBOBOX_WIDTH,
+                DropDownStyle = ComboBoxStyle.DropDown,
+                Tag = parentCategory,
+                Enabled = !isLocked,
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems
             };
-            if (isLocked == true)
-                comboBox.Enabled = false;
 
-
-            // Set selectedId to the first category's ID if the ComboBox has categories
+            // Set initial selection if categories exist
             if (categories.Any())
             {
-                // HAS AN Exception
-                //  comboBox.SelectedIndex = 0; // Select the first item
                 selectedId = categories.First().Id;
             }
 
-            // ComboBox SelectionChanged Event
+            // Wire up events
             comboBox.SelectedIndexChanged += ComboBox_SelectedIndexChanged;
-
-            // ComboBox KeyDown Event for custom input
             comboBox.KeyDown += ComboBox_KeyDown;
 
-            // Add ComboBox to the panel
+            // Add to controls and update state
             panelDynamic.Controls.Add(comboBox);
-
-            comboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            comboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
-            // Update Y position for the next control
             _nextControlY += comboBox.Height;
-
-            // Keep track of ComboBoxes
             _comboBoxes.Add(comboBox);
         }
+
         private async void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (_isUpdatingComboBox) return; // Skip if updating programmatically
+            if (_isUpdatingComboBox) return;
 
             var comboBox = sender as ComboBox;
-            if (comboBox == null) return;
+            var selectedCategory = comboBox?.SelectedItem as Category;
+            if (comboBox == null || selectedCategory == null) return;
 
-            var selectedCategory = comboBox.SelectedItem as Category;
-            if (selectedCategory == null) return;
-
-            // Selected currently category id
+            // Update selected ID
             selectedId = selectedCategory.Id;
 
-            // Find the index of the current ComboBox
+            // Find index and clean up subsequent ComboBoxes
             var index = _comboBoxes.IndexOf(comboBox);
+            RemoveSubsequentComboBoxes(index);
 
-            // Remove all ComboBoxes that are below the current one
+            // Update position for next control
+            _nextControlY = comboBox.Bottom + MARGIN_TOP;
+
+            // Load and add new subcategories
+            var subCategories = categoryService.GetSubCategories(selectedCategory.Id).ToList();
+            AddComboBox(selectedCategory, subCategories);
+        }
+
+        private void RemoveSubsequentComboBoxes(int index)
+        {
             for (int i = _comboBoxes.Count - 1; i > index; i--)
             {
                 panelDynamic.Controls.Remove(_comboBoxes[i]);
                 _comboBoxes.RemoveAt(i);
             }
-
-            // Dynamically recalculate the Y position for the next control
-            _nextControlY = (index + 1) * (comboBox.Height + 5);
-
-            // Load subcategories of the selected category
-            var subCategories = categoryService.GetSubCategories(selectedCategory.Id).ToList();
-            // var products = (await productService.GetProductsByCategoryAsync(selectedCategory.Id)).ToList();
-
-            // Always add a new ComboBox, even if no subcategories exist
-            AddComboBox(selectedCategory, subCategories);
-            //SetProducts(products);
         }
-
 
         private async void ComboBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -1105,30 +1370,7 @@ namespace VisionTech_Anbar_Project
             //}
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void panelDynamic_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void metroSetControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
     }
 }

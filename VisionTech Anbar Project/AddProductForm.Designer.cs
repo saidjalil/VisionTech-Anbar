@@ -84,7 +84,7 @@
             button1.BackColor = Color.FromArgb(42, 45, 85);
             button1.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(808, 491);
+            button1.Location = new Point(892, 593);
             button1.Name = "button1";
             button1.Size = new Size(134, 53);
             button1.TabIndex = 6;
@@ -124,7 +124,6 @@
             checkBox1.Size = new Size(18, 17);
             checkBox1.TabIndex = 10;
             checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // label6
             // 
@@ -168,7 +167,6 @@
             panelDynamic.Name = "panelDynamic";
             panelDynamic.Size = new Size(274, 320);
             panelDynamic.TabIndex = 19;
-            panelDynamic.Paint += panelDynamic_Paint;
             // 
             // comboBox1
             // 
@@ -179,7 +177,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(177, 34);
             comboBox1.TabIndex = 20;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // metroSetControlBox1
             // 
@@ -189,9 +186,9 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(844, 8);
+            metroSetControlBox1.Location = new Point(926, 8);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
-            metroSetControlBox1.MaximizeBox = true;
+            metroSetControlBox1.MaximizeBox = false;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
             metroSetControlBox1.MaximizeHoverForeColor = Color.Gray;
             metroSetControlBox1.MaximizeNormalForeColor = Color.Gray;
@@ -207,7 +204,6 @@
             metroSetControlBox1.Text = "metroSetControlBox1";
             metroSetControlBox1.ThemeAuthor = "Narwin";
             metroSetControlBox1.ThemeName = "MetroLite";
-            metroSetControlBox1.Click += metroSetControlBox1_Click;
             // 
             // comboBox2
             // 
@@ -235,13 +231,14 @@
             // 
             // AddProductForm
             // 
+            AllowResize = false;
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Transparent;
             BackgroundColor = Color.AliceBlue;
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 0F;
-            ClientSize = new Size(959, 572);
+            ClientSize = new Size(1041, 673);
             Controls.Add(label1);
             Controls.Add(comboBox2);
             Controls.Add(metroSetControlBox1);

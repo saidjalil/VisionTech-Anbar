@@ -118,12 +118,12 @@ namespace VisionTech_Anbar_Project
             ExportAll.TextAlign = ContentAlignment.MiddleRight;
             ExportAll.UseVisualStyleBackColor = true;
             ExportAll.Click += ExportAllButton_Click;
-            using (var fileStream = new FileStream(Path.Combine(FileManager.GetResourceFolder(), "transfer-in.png"), FileMode.Open, FileAccess.Read))
-            using (var img = Image.FromStream(fileStream))
-            {
-                var resizedImage = new Bitmap(img, new Size(24, 24));
-                ExportAll.Image = resizedImage;
-            }
+            //using (var fileStream = new FileStream(Path.Combine(FileManager.GetResourceFolder(), "transfer-in.png"), FileMode.Open, FileAccess.Read))
+            //using (var img = Image.FromStream(fileStream))
+            //{
+            //    var resizedImage = new Bitmap(img, new Size(24, 24));
+            //    ExportAll.Image = resizedImage;
+            //}
             // 
             // tableLayoutPanel1
             // 

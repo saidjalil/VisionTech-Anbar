@@ -67,7 +67,7 @@ namespace VisionTech_Anbar_Project
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
-            label4.Location = new Point(41, 114);
+            label4.Location = new Point(41, 124);
             label4.Name = "label4";
             label4.Size = new Size(70, 26);
             label4.TabIndex = 8;
@@ -92,7 +92,7 @@ namespace VisionTech_Anbar_Project
             metroSetControlBox1.IsDerivedStyle = true;
             metroSetControlBox1.Location = new Point(959, 2);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
-            metroSetControlBox1.MaximizeBox = true;
+            metroSetControlBox1.MaximizeBox = false;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
             metroSetControlBox1.MaximizeHoverForeColor = Color.Gray;
             metroSetControlBox1.MaximizeNormalForeColor = Color.Gray;
@@ -113,7 +113,7 @@ namespace VisionTech_Anbar_Project
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(136, 111);
+            comboBox1.Location = new Point(136, 119);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(218, 34);
             comboBox1.TabIndex = 11;
@@ -123,7 +123,7 @@ namespace VisionTech_Anbar_Project
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(136, 208);
+            comboBox2.Location = new Point(136, 196);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(218, 34);
             comboBox2.TabIndex = 13;
@@ -134,7 +134,7 @@ namespace VisionTech_Anbar_Project
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(29, 216);
+            label1.Location = new Point(41, 196);
             label1.Name = "label1";
             label1.Size = new Size(82, 26);
             label1.TabIndex = 12;
@@ -172,7 +172,7 @@ namespace VisionTech_Anbar_Project
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
-            label5.Location = new Point(411, 273);
+            label5.Location = new Point(411, 268);
             label5.Name = "label5";
             label5.Size = new Size(59, 26);
             label5.TabIndex = 17;
@@ -241,6 +241,7 @@ namespace VisionTech_Anbar_Project
             // 
             // AddColumnForm
             // 
+            AllowResize = false;
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderColor = Color.FromArgb(42, 45, 85);

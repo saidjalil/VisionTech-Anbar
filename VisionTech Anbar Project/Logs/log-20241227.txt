@@ -1,0 +1,14 @@
+2024-12-27 14:18:38.167 +04:00 [INF] Application Starting
+2024-12-27 14:18:39.809 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-27 14:18:42.058 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-27 14:18:45.694 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-27 14:18:45.771 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-27 14:19:54.195 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-27 14:19:54.208 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-27 14:20:30.844 +04:00 [INF] Application Starting
+2024-12-27 14:20:32.001 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-27 14:20:32.993 +04:00 [INF] Successfully retrieved 3 packages.
+2024-12-27 14:20:36.559 +04:00 [INF] Fetching package with ID: 1 along with related navigation properties.
+2024-12-27 14:20:36.635 +04:00 [INF] Successfully retrieved package with ID: 1.
+2024-12-27 14:20:41.530 +04:00 [INF] Fetching all packages with related navigation properties.
+2024-12-27 14:20:41.541 +04:00 [INF] Successfully retrieved 3 packages.

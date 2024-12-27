@@ -58,6 +58,7 @@ namespace VisionTech_Anbar_Project
 
         public AddColumnForm(PackageService packageService, CategoryService categoryService, ProductService productService, WarehouseService warehouseService, VendorService vendorService, ImageService imageService, BarcodeService barcodeService, BrandService brandService, IDbContextFactory<AppDbContext> contextFactory)
         {
+
             //  _packageService = packageService;
             _categoryService = categoryService;
             _productService = productService;
@@ -311,16 +312,19 @@ namespace VisionTech_Anbar_Project
 
         private async void button3_Click(object sender, EventArgs e)
         {
-            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService,_contextFactory);
+            AddProductForm addProductForm = new AddProductForm(_categoryService, _productService, _barcodeService, _brandService, _contextFactory);
             addProductForm.ShowDialog();
 
             // Add both sections to the accordion
             // Add new Package to list and UI
             if (addProductForm.DataSaved)
             {
-                products.Add(addProductForm.NewProduct);
-                //await packageService.CreatePackageAsync(addProductForm.NewProduct);
-                Debug.WriteLine(products);
+                foreach (var newProduct in addProductForm.NewProductList)
+                {
+                    products.Add(newProduct);
+                    //await packageService.CreatePackageAsync(addProductForm.NewProduct);
+                }
+
                 //RestartPage();
                 InitializeItems();
             }
