@@ -304,4 +304,9 @@ public class ProductService
     {
         return await _productRepository.GetPackageProductByIds(packageId, productId);
     }
+
+    public async Task<List<Product>> GetProductsByBrandAndCategory(int brandId, int categoryId)
+    {
+        return await _productRepository.GetProductsByBrandAdnCategoryId(brandId, categoryId);
+    }
 }

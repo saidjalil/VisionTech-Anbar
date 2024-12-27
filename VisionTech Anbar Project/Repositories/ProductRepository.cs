@@ -67,4 +67,13 @@ public class ProductRepository : BaseRepository<Product>
     {
         return await _packageProductRepository.GetPackageProductByProductId(packageId, productId);
     }
+
+    public async Task<List<Product>> GetProductsByBrandAdnCategoryId(int br, int categoryId)
+    {
+        var products = _dbSet.AsNoTracking()
+            .Include(p => p.Category)
+            .Include(p => p.Brand).Where(p => p.BrandId == br && p.CategoryId == categoryId);
+        return products.ToList();
+    }
+    
 }
