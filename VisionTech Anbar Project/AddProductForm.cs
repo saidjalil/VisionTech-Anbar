@@ -20,6 +20,7 @@ using VisionTech_Anbar_Project.Repositories;
 using VisionTech_Anbar_Project.Services;
 using static System.Net.Mime.MediaTypeNames;
 using MetroSet_UI.Controls;
+using System.Security.Policy;
 
 namespace VisionTech_Anbar_Project
 {
@@ -78,6 +79,8 @@ namespace VisionTech_Anbar_Project
         private List<Button> deleteButtons = new List<Button>();
         private List<Control[]> rows = new List<Control[]>();
 
+       private Button button3 = new Button();
+
         private int textBoxCount = 0; // To keep track of TextBox IDs
 
         ComboBox mainComboBox;
@@ -92,10 +95,13 @@ namespace VisionTech_Anbar_Project
             barcodeTextBox = textBox1;
             InitializeComponent();
             InitializeDynamicPanel();
-            LoadTopCategories();
             LoadBrands();
-            AddDefaultRow();
+
             DesignComponent();
+            LoadTopCategories();
+
+            AddDefaultRow();
+
             //InitializeCategories();
             //if(textBoxCount == 0)
             //CreateTextBox();
@@ -103,6 +109,7 @@ namespace VisionTech_Anbar_Project
         }
         private void DesignComponent()
         {
+            //Controls.Add(button3);
             // TextBox - Barcode
             textBox1 = new TextBox
             {
@@ -169,8 +176,8 @@ namespace VisionTech_Anbar_Project
             };
 
             // ComboBoxes
-            comboBox1 = CreateStyledComboBox(new Point(375, 161), new Size(177, 34));
-            comboBox2 = CreateStyledComboBox(new Point(580, 157), new Size(151, 34));
+            //comboBox1 = CreateStyledComboBox(new Point(375, 161), new Size(177, 34));
+            // comboBox2 = CreateStyledComboBox(new Point(580, 157), new Size(151, 34));
             comboBox2.SelectedIndexChanged += ComboBoxBrands_SelectedIndexChanged;
             comboBox2.KeyDown += ComboBoxBrands_KeyDown;
 
@@ -194,7 +201,6 @@ namespace VisionTech_Anbar_Project
                 Style = MetroSet_UI.Enums.Style.Light,
                 TabIndex = 21
             };
-
             // Form Settings
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -1242,13 +1248,21 @@ namespace VisionTech_Anbar_Project
                 ValueMember = "Id",
                 Location = new Point(10, _nextControlY),
                 Width = COMBOBOX_WIDTH,
-                DropDownStyle = ComboBoxStyle.DropDown,
+                //DropDownStyle = ComboBoxStyle.DropDown,
                 Tag = parentCategory,
                 Enabled = !isLocked,
-                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
-                AutoCompleteSource = AutoCompleteSource.ListItems
-            };
 
+
+                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                AutoCompleteSource = AutoCompleteSource.ListItems,
+                FormattingEnabled = true,
+                Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point),
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.White,
+                ForeColor = Color.FromArgb(64, 64, 64),
+                DropDownStyle = ComboBoxStyle.DropDownList
+            };
+            comboBox.BringToFront();
             // Set initial selection if categories exist
             if (categories.Any())
             {
@@ -1369,9 +1383,6 @@ namespace VisionTech_Anbar_Project
             //    comboBox1.Text = currentProduct.ProductName;
             //}
         }
-
-
-
     }
 }
 

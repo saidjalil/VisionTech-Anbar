@@ -31,13 +31,13 @@
             textBox1 = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            button1 = new Button();
+           // button1 = new Button();
             button2 = new Button();
             label5 = new Label();
             checkBox1 = new CheckBox();
             label6 = new Label();
             label7 = new Label();
-            button3 = new Button();
+            
             panelDynamic = new Panel();
             comboBox1 = new ComboBox();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
@@ -81,16 +81,6 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.FromArgb(42, 45, 85);
-            button1.Font = new Font("Microsoft Sans Serif", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(892, 593);
-            button1.Name = "button1";
-            button1.Size = new Size(134, 53);
-            button1.TabIndex = 6;
-            button1.Text = "Əlavə et";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -151,15 +141,6 @@
             // 
             // button3
             // 
-            button3.BackColor = Color.FromArgb(42, 45, 85);
-            button3.ForeColor = Color.Transparent;
-            button3.Location = new Point(375, 287);
-            button3.Name = "button3";
-            button3.Size = new Size(52, 43);
-            button3.TabIndex = 15;
-            button3.Text = "+";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
             // 
             // panelDynamic
             // 
@@ -244,7 +225,7 @@
             Controls.Add(metroSetControlBox1);
             Controls.Add(comboBox1);
             Controls.Add(panelDynamic);
-            Controls.Add(button3);
+            
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(checkBox1);
@@ -276,7 +257,6 @@
         private CheckBox checkBox1;
         private Label label6;
         private Label label7;
-        private Button button3;
         private Panel panelDynamic;
         private ComboBox comboBox1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
