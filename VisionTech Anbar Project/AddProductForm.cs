@@ -111,36 +111,8 @@ namespace VisionTech_Anbar_Project
         {
             //Controls.Add(button3);
             // TextBox - Barcode
-            textBox1 = new TextBox
-            {
-                BackColor = Color.White,
-                ForeColor = Color.FromArgb(64, 64, 64),
-                Location = new Point(45, 81),
-                Name = "textBox1",
-                Size = new Size(177, 36),
-                Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point),
-                BorderStyle = BorderStyle.None,
-                Padding = new Padding(10, 5, 10, 5),
-                TabIndex = 0
-            };
-            textBox1.KeyPress += textBox1_KeyPress;
 
             // Create panel for textbox border effect
-            Panel textBoxPanel = new Panel
-            {
-                Location = textBox1.Location,
-                Size = new Size(177, 36),
-                BackColor = Color.White,
-                Padding = new Padding(0)
-            };
-            textBoxPanel.Paint += (s, e) =>
-            {
-                using (var pen = new Pen(Color.FromArgb(230, 230, 230)))
-                {
-                    e.Graphics.DrawRectangle(pen, 0, 0, textBoxPanel.Width - 1, textBoxPanel.Height - 1);
-                }
-            };
-            textBoxPanel.Controls.Add(textBox1);
 
             // Labels - Modern styling
             label2 = CreateStyledLabel("Barkod", new Point(45, 54));
@@ -166,14 +138,6 @@ namespace VisionTech_Anbar_Project
             checkBox1 = CreateStyledCheckbox(new Point(868, 170));
 
             // Dynamic Panel
-            panelDynamic = new Panel
-            {
-                Location = new Point(45, 173),
-                Name = "panelDynamic",
-                Size = new Size(274, 320),
-                BackColor = Color.Transparent,
-                TabIndex = 19
-            };
 
             // ComboBoxes
             //comboBox1 = CreateStyledComboBox(new Point(375, 161), new Size(177, 34));
@@ -214,7 +178,7 @@ namespace VisionTech_Anbar_Project
             Controls.AddRange(new Control[] {
         label1, comboBox2, metroSetControlBox1, comboBox1,
         panelDynamic, button3, label7, label6, checkBox1,
-        label5, button2, button1, label3, label2, textBoxPanel
+        label5, button2, button1, label3, label2
     });
 
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
@@ -342,7 +306,7 @@ namespace VisionTech_Anbar_Project
             DataSaved = false;
             if (IsEdit)
             {
-                PopulateOriginalProduct();
+                //PopulateOriginalProduct();
                 this.Text = "Edit";
             }
 
@@ -651,6 +615,7 @@ namespace VisionTech_Anbar_Project
             var firstComboBoxCategories = categoryService.GetTopLevelCategories().ToList(); // Root categories
             if (firstComboBoxCategories.Any())
             {
+                firstComboBoxCategories.Insert(0, new Category { Id = 0, Name = " " });
                 var firstComboBox = new ComboBox
                 {
                     DataSource = firstComboBoxCategories,
@@ -902,7 +867,7 @@ namespace VisionTech_Anbar_Project
             TextBox quantityTextBox = CreateStyledTextBox(
                 $"QuantityTextBox{rowPanels.Count + 1}",
                 new Point(210, 0),
-                new Size(100, 36),
+                new Size(60, 36),
                 "Quantity",
                 false);
             quantityTextBoxes.Add(quantityTextBox);
@@ -911,7 +876,7 @@ namespace VisionTech_Anbar_Project
             // Delete Button with modern styling
             Button deleteButton = CreateStyledDeleteButton(
                 $"DeleteButton{rowPanels.Count + 1}",
-                new Point(340, 0),
+                new Point(280,-5),
                 rowPanels.Count);
             deleteButton.Click += DeleteRow;
             rowPanel.Controls.Add(deleteButton);
@@ -1125,7 +1090,7 @@ namespace VisionTech_Anbar_Project
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-
+                brands.Insert(0, new Brand { Id = 0, BrandName = " " });
                 comboBox2.DataSource = null; // Clear existing data source
                 comboBox2.DataSource = brands;
                 comboBox2.DisplayMember = "BrandName";
@@ -1251,8 +1216,6 @@ namespace VisionTech_Anbar_Project
                 //DropDownStyle = ComboBoxStyle.DropDown,
                 Tag = parentCategory,
                 Enabled = !isLocked,
-
-
                 AutoCompleteMode = AutoCompleteMode.SuggestAppend,
                 AutoCompleteSource = AutoCompleteSource.ListItems,
                 FormattingEnabled = true,
@@ -1368,6 +1331,7 @@ namespace VisionTech_Anbar_Project
         {
             if (products.Count != 0)
             {
+                products.Insert(0, new Product { Id = 0, ProductName = " " });
                 comboBox1.DataSource = products;
                 comboBox1.DisplayMember = "ProductName"; // Display the 'Name' in the ComboBox
                 comboBox1.ValueMember = "ProductName";

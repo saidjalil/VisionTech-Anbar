@@ -32,7 +32,6 @@
             label2 = new Label();
             label3 = new Label();
            // button1 = new Button();
-            button2 = new Button();
             label5 = new Label();
             checkBox1 = new CheckBox();
             label6 = new Label();
@@ -84,15 +83,7 @@
             // 
             // button2
             // 
-            button2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = Color.DimGray;
-            button2.Location = new Point(218, 81);
-            button2.Name = "button2";
-            button2.Size = new Size(84, 32);
-            button2.TabIndex = 8;
-            button2.Text = "Yoxla";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+
             // 
             // label5
             // 
