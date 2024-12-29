@@ -49,32 +49,39 @@ public class PackageRepository : BaseRepository<Package>
 
         // Check if the product exists in the database
         var existingProduct = await _context.Products
-            .AsNoTracking()  // Ensures that no tracking occurs for this query
+            .AsNoTracking()
             .FirstOrDefaultAsync(p => 
                 p.ProductName == product.ProductName &&
                 p.CategoryId == product.CategoryId &&
                 p.BrandId == product.Brand.Id);
+
+        int productId;
     
         if (existingProduct == null)
         {
-            // Product does not exist, so add it to the database
-            product.CategoryId = categoryId;
-            product.BrandId = product.Brand.Id;
-            // Product is new, so create it
-            product = (await _productRepository.Create(product)).Entity;
-            await _context.SaveChangesAsync(); // Save to generate the Product ID
+            // Create a new product instance instead of using the passed one
+            var newProduct = new Product
+            {
+                ProductName = product.ProductName,
+                CategoryId = categoryId,
+                BrandId = product.Brand.Id,
+                // Copy other necessary properties
+            };
+        
+            // Add the new product
+            var createdProduct = await _productRepository.Create(newProduct);
+            productId = createdProduct.Entity.Id;
         }
         else
         {
-            // Use the existing product and ensure it's not re-attached
-            product = existingProduct;
+            productId = existingProduct.Id;
         }
 
         // Create a new PackageProduct instance
         var packageProduct = new PackageProduct
         {
             PackageId = packageId,
-            ProductId = product.Id, // Use the newly generated or existing Product ID
+            ProductId = productId,
             Quantity = quantity,
             Barcode = barcode
         };
