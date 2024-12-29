@@ -60,7 +60,9 @@ namespace VisionTech_Anbar_Project
         private bool isLocked = false;
 
 
-        private int selectedId = 1;
+        private int selectedCategoryId = 1;
+        private int selectedBrandId = 1;
+
         private int currentParentId = 0;
 
         private int currentProductId = 0;
@@ -79,7 +81,7 @@ namespace VisionTech_Anbar_Project
         private List<Button> deleteButtons = new List<Button>();
         private List<Control[]> rows = new List<Control[]>();
 
-       private Button button3 = new Button();
+        private Button button3 = new Button();
 
         private int textBoxCount = 0; // To keep track of TextBox IDs
 
@@ -123,7 +125,7 @@ namespace VisionTech_Anbar_Project
             label1 = CreateStyledLabel("Brand", new Point(615, 118));
 
             // Primary Action Button
-            button1 = CreatePrimaryButton("Əlavə et", new Point(808, 491), new Size(134, 53));
+            button1 = CreatePrimaryButton("Əlavə et", new Point(828, 581), new Size(134, 53));
             button1.Click += button1_Click;
 
             // Secondary Action Button
@@ -172,7 +174,7 @@ namespace VisionTech_Anbar_Project
             BackgroundColor = Color.FromArgb(250, 252, 255);
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 1F;
-            ClientSize = new Size(959, 572);
+            ClientSize = new Size(989, 632);
 
             // Add controls
             Controls.AddRange(new Control[] {
@@ -437,7 +439,7 @@ namespace VisionTech_Anbar_Project
                 }
 
                 // Create a new PackageProduct for each barcode and quantity
-                var packageProduct = new PackageProduct(currentProductId, name, quantity, selectedId, barcodeInput, isRegular, newBrand);
+                var packageProduct = new PackageProduct(currentProductId, name, quantity, selectedCategoryId, barcodeInput, isRegular, newBrand);
 
                 // Add to appropriate list
                 if (currentProduct != null)
@@ -876,7 +878,7 @@ namespace VisionTech_Anbar_Project
             // Delete Button with modern styling
             Button deleteButton = CreateStyledDeleteButton(
                 $"DeleteButton{rowPanels.Count + 1}",
-                new Point(280,-5),
+                new Point(280, -5),
                 rowPanels.Count);
             deleteButton.Click += DeleteRow;
             rowPanel.Controls.Add(deleteButton);
@@ -1096,8 +1098,8 @@ namespace VisionTech_Anbar_Project
                 comboBox2.DisplayMember = "BrandName";
                 comboBox2.ValueMember = "Id";
 
-                selectedId = brands.First().Id;
-                await LoadProductsByBrand(selectedId);
+                selectedBrandId = brands.First().Id;
+                await LoadProductsByBrand(selectedBrandId);
             }
             catch (Exception ex)
             {
@@ -1116,14 +1118,14 @@ namespace VisionTech_Anbar_Project
         {
             try
             {
-                var products = await productService.GetProductByBrandId(brandId);
-
-                if (!products.Any())
-                {
-                    MessageBox.Show("No products found for the selected brand.",
-                        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
+                // var products = await productService.GetProductByBrandId(brandId);
+                var products = await productService.GetProductsByBrandAndCategory(brandId, selectedCategoryId);
+                //if (!products.Any())
+                //{
+                //    MessageBox.Show("No products found for the selected brand.",
+                //        "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
+                //else { }
                 SetProducts(products.ToList());
             }
             catch (Exception ex)
@@ -1144,11 +1146,13 @@ namespace VisionTech_Anbar_Project
             var selectedBrand = comboBox.SelectedItem as Brand;
             if (selectedBrand == null) return;
 
+            //var selectedCategory = categories.
+
             // Update the selected ID to the current brand
-            selectedId = selectedBrand.Id;
+            selectedBrandId = selectedBrand.Id;
 
             // Load products based on the selected brand
-            await LoadProductsByBrand(selectedId);
+            await LoadProductsByBrand(selectedBrandId);
         }
 
 
@@ -1229,7 +1233,7 @@ namespace VisionTech_Anbar_Project
             // Set initial selection if categories exist
             if (categories.Any())
             {
-                selectedId = categories.First().Id;
+                selectedCategoryId = categories.First().Id;
             }
 
             // Wire up events
@@ -1251,7 +1255,7 @@ namespace VisionTech_Anbar_Project
             if (comboBox == null || selectedCategory == null) return;
 
             // Update selected ID
-            selectedId = selectedCategory.Id;
+            selectedCategoryId = selectedCategory.Id;
 
             // Find index and clean up subsequent ComboBoxes
             var index = _comboBoxes.IndexOf(comboBox);

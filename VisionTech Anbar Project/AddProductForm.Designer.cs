@@ -31,12 +31,10 @@
             textBox1 = new TextBox();
             label2 = new Label();
             label3 = new Label();
-           // button1 = new Button();
             label5 = new Label();
             checkBox1 = new CheckBox();
             label6 = new Label();
             label7 = new Label();
-            
             panelDynamic = new Panel();
             comboBox1 = new ComboBox();
             metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
@@ -77,13 +75,6 @@
             label3.Size = new Size(106, 25);
             label3.TabIndex = 3;
             label3.Text = "Kateqoriya";
-            // 
-            // button1
-            // 
-            // 
-            // button2
-            // 
-
             // 
             // label5
             // 
@@ -130,9 +121,6 @@
             label7.TabIndex = 14;
             label7.Text = "Əlavə barkod üçün:";
             // 
-            // button3
-            // 
-            // 
             // panelDynamic
             // 
             panelDynamic.Location = new Point(45, 173);
@@ -158,7 +146,7 @@
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(926, 8);
+            metroSetControlBox1.Location = new Point(1063, 8);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = false;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -210,19 +198,16 @@
             BackgroundColor = Color.AliceBlue;
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 0F;
-            ClientSize = new Size(1041, 673);
+            ClientSize = new Size(1178, 726);
             Controls.Add(label1);
             Controls.Add(comboBox2);
             Controls.Add(metroSetControlBox1);
             Controls.Add(comboBox1);
             Controls.Add(panelDynamic);
-            
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(checkBox1);
             Controls.Add(label5);
-            Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(textBox1);
