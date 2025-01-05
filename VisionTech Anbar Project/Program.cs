@@ -55,28 +55,28 @@ namespace VisionTech_Anbar_Project
                     .EnableSensitiveDataLogging());
             services.AddScoped<AppDbContext>();
             
-            services.AddTransient<PackageRepository>();
-            services.AddTransient<ProductRepository>();
-            services.AddTransient<CategoryRepository>();
-            services.AddTransient<VendorRepository>();
-            services.AddTransient<WarehouseRepository>();
-            services.AddTransient<BarcodeRepository>();
-            services.AddTransient<ImageRepository>();
-            services.AddTransient<BrandRepository>();
-            services.AddTransient<PackageProductRepository>();
+            services.AddScoped<PackageRepository>();
+            services.AddScoped<ProductRepository>();
+            services.AddScoped<CategoryRepository>();
+            services.AddScoped<VendorRepository>();
+            services.AddScoped<WarehouseRepository>();
+            services.AddScoped<BarcodeRepository>();
+            services.AddScoped<ImageRepository>();
+            services.AddScoped<BrandRepository>();
+            services.AddScoped<PackageProductRepository>();
 
 
 
 
             // Register other services like PackageService, etc.
-            services.AddTransient<PackageService>();
-            services.AddTransient<ProductService>();
-            services.AddTransient<BarcodeService>();
-            services.AddTransient<VendorService>();
-            services.AddTransient<WarehouseService>();
-            services.AddTransient<CategoryService>();
-            services.AddTransient<ImageService>();
-            services.AddTransient<BrandService>();
+            services.AddScoped<PackageService>();
+            services.AddScoped<ProductService>();
+            services.AddScoped<BarcodeService>();
+            services.AddScoped<VendorService>();
+            services.AddScoped<WarehouseService>();
+            services.AddScoped<CategoryService>();
+            services.AddScoped<ImageService>();
+            services.AddScoped<BrandService>();
             
 
 
@@ -84,10 +84,10 @@ namespace VisionTech_Anbar_Project
 
 
             // Register the main form
-            services.AddTransient<Ophrys>();
-            services.AddTransient<AddColumnForm>();
-            services.AddTransient<AddProductForm>();
-            services.AddTransient<EditProductForm>();
+            services.AddScoped<Ophrys>();
+            services.AddScoped<AddColumnForm>();
+            services.AddScoped<AddProductForm>();
+            services.AddScoped<EditProductForm>();
 
 
         }

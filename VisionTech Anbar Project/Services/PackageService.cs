@@ -73,11 +73,24 @@ public class PackageService
             throw new ArgumentNullException(nameof(package), "Package cannot be null.");
         }
 
+        var packageProducts = package.PackageProducts;
+        package.PackageProducts = new List<PackageProduct>();
         try
         {
             Log.Information("Creating a new package with details: {Package}.", package);
-            await _packageRepository.Create(package);
+            var newPackage = await _packageRepository.Create(package);
             Log.Information("Package successfully created.");
+            foreach (var packageProduct in packageProducts)
+            {
+                if (packageProduct.Product.Id == 0)
+                {
+                    await _packageRepository.AddProductToPackageAsync(packageProduct.Product,newPackage.Entity.Id,packageProduct.Quantity, packageProduct.Barcode, packageProduct.Product.CategoryId);
+                }
+                else
+                {
+                    await _packageRepository.AddProductToPackageAsync(newPackage.Entity.Id,packageProduct.Product.Id,packageProduct.Barcode,packageProduct.Quantity,  packageProduct.Product.CategoryId);
+                }
+            }
         }
         catch (Exception ex)
         {
