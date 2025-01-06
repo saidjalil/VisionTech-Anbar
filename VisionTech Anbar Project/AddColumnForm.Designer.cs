@@ -90,7 +90,7 @@ namespace VisionTech_Anbar_Project
             metroSetControlBox1.CloseNormalForeColor = Color.Gray;
             metroSetControlBox1.DisabledForeColor = Color.DimGray;
             metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(959, 2);
+            metroSetControlBox1.Location = new Point(972, 2);
             metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
             metroSetControlBox1.MaximizeBox = false;
             metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
@@ -218,7 +218,7 @@ namespace VisionTech_Anbar_Project
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50.8287277F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 49.1712723F));
-            tableLayoutPanel1.Size = new Size(1033, 278);
+            tableLayoutPanel1.Size = new Size(1046, 278);
             tableLayoutPanel1.TabIndex = 24;
             // 
             // button4
@@ -246,7 +246,7 @@ namespace VisionTech_Anbar_Project
             AutoScaleMode = AutoScaleMode.Font;
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 0F;
-            ClientSize = new Size(1063, 697);
+            ClientSize = new Size(1076, 697);
             Controls.Add(pictureBox2);
             Controls.Add(button4);
             Controls.Add(tableLayoutPanel1);

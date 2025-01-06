@@ -274,7 +274,7 @@ namespace VisionTech_Anbar_Project
                 Path.Combine(FileManager.GetResourceFolder(), "trash.png"),
                 Color.FromArgb(255, 223, 223),
                 Color.Red);
-            deleteButton.Tag = product;
+            deleteButton.Tag = product.Id;
             deleteButton.Click += DeleteButton_Click;
 
             Button editButton = CreateStyledButton(

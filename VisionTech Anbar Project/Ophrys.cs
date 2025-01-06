@@ -444,6 +444,20 @@ namespace VisionTech_Anbar_Project
         private void ExportButton_Click(object sender, EventArgs e)
         {
             // Only Export current 
+            List<int> selectedPackageIds = new List<int>();
+            Button button = sender as Button;
+            selectedPackageIds.Add(int.Parse(button.Tag.ToString()));
+
+
+            if (selectedPackageIds.Count > 0)
+            {
+                // Call your export logic here with the selected IDs
+                ExportSelectedPackages(selectedPackageIds);
+            }
+            else
+            {
+                MessageBox.Show("No packages selected for export.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void ExportAllButton_Click(object sender, EventArgs e)

@@ -125,7 +125,7 @@ namespace VisionTech_Anbar_Project
             label1 = CreateStyledLabel("Brand", new Point(615, 118));
 
             // Primary Action Button
-            button1 = CreatePrimaryButton("Əlavə et", new Point(828, 581), new Size(134, 53));
+            button1 = CreatePrimaryButton("Əlavə et", new Point(888, 561), new Size(134, 53));
             button1.Click += button1_Click;
 
             // Secondary Action Button
@@ -174,7 +174,7 @@ namespace VisionTech_Anbar_Project
             BackgroundColor = Color.FromArgb(250, 252, 255);
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 1F;
-            ClientSize = new Size(989, 632);
+            ClientSize = new Size(1044, 632);
 
             // Add controls
             Controls.AddRange(new Control[] {
@@ -568,10 +568,18 @@ namespace VisionTech_Anbar_Project
             textBox1.Enabled = !isLocked;
             comboBox1.Enabled = !isLocked;
             button2.Enabled = !isLocked;
-
+            comboBox2.Enabled = !isLocked;
             foreach (ComboBox comboBox in _comboBoxes)
             {
                 comboBox.Enabled = !isLocked;
+            }
+            foreach(TextBox barcodeBox in barcodeTextBoxes)
+            { 
+                barcodeBox.Enabled = !isLocked;
+            }
+            foreach (TextBox quantityBox in quantityTextBoxes)
+            {
+                quantityBox.Enabled = !isLocked;
             }
 
             // Update button text
@@ -583,11 +591,11 @@ namespace VisionTech_Anbar_Project
             if (currentProduct != null)
             {
                 SetCurrentCategories();
+                setCurrentBarcodes();
                 AddLockButtonToControl(this);
                 comboBox1.Text = currentProduct.ProductName;
                 //comboBox2.SelectedIndex = currentProduct.BrandId;
                 comboBox2.Text = currentProduct.Brand.BrandName;
-                setCurrentBarcodes();
                 currentProductId = currentProduct.Id;
 
                 textBox1.Visible = false;
@@ -724,20 +732,29 @@ namespace VisionTech_Anbar_Project
             barcodeTextBoxes.Clear();
 
             // Get the current product barcodes
-            List<string> barcodes = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).Select(x => x.Barcode).ToList();
+           // List<string> barcodes = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).Select(x => x.Barcode).ToList();
+            List<PackageProduct> packProducts = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).ToList();
 
-            if (barcodes == null || !barcodes.Any())
+            // List<int> quantities = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).Select(x => x.Quantity).ToList();
+
+            if (packProducts == null || !packProducts.Any())
                 return;
 
             // Reset the count and position logic
             textBoxCount = 0;
 
-            for (int i = 0; i < barcodes.Count; i++)
+            for (int i = 1; i < packProducts.Count; i++)
             {
                 // Increment TextBox count
                 textBoxCount++;
 
-                AddRow();
+                AddRow(packProducts[i].Barcode, packProducts[i].Quantity);
+            }
+            if(packProducts.Count == 1) 
+            {
+                //barcodeTextBoxes[0].Text = packProducts[0].Barcode;
+                quantityTextBoxes[0].Text = packProducts[0].Quantity.ToString();
+
             }
         }
         // Helper method to clear existing TextBoxes
@@ -813,7 +830,7 @@ namespace VisionTech_Anbar_Project
 
         private void button3_Click(object sender, EventArgs e)
         {
-            AddRow();
+            AddRow(string.Empty, 0);
         }
         // Declare necessary lists to hold dynamically created controls
 
@@ -831,6 +848,7 @@ namespace VisionTech_Anbar_Project
                 new Size(200, 36), // Increased width and height
                 "Barkodsuz",
                 true); // Disabled
+            barcodeTextBox.KeyPress += BarcodeTextBox_KeyPress;
             barcodeTextBoxes.Add(barcodeTextBox);
             rowPanel.Controls.Add(barcodeTextBox);
 
@@ -841,6 +859,7 @@ namespace VisionTech_Anbar_Project
                 new Size(100, 36), // Increased size
                 "Quantity",
                 false); // Enabled
+            quantityTextBox.KeyPress += BarcodeTextBox_KeyPress;
             quantityTextBoxes.Add(quantityTextBox);
             rowPanel.Controls.Add(quantityTextBox);
 
@@ -848,7 +867,22 @@ namespace VisionTech_Anbar_Project
             this.Controls.Add(rowPanel);
         }
 
-        private void AddRow()
+        private void BarcodeTextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+                // Allow control keys like Backspace, Enter, and Tab
+                if (char.IsControl(e.KeyChar))
+                {
+                    return;
+                }
+                // Check if the key is a number
+                if (!char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                }
+            
+        }
+
+        private void AddRow(string barcode, int quantity)
         {
             int startX = button3.Location.X + button3.Width + 10;
             int startY = button3.Location.Y + rowPanels.Count * (40 + 12); // Increased height and padding
@@ -860,8 +894,12 @@ namespace VisionTech_Anbar_Project
                 $"BarcodeTextBox{rowPanels.Count + 1}",
                 new Point(0, 0),
                 new Size(200, 36),
-                "Barcode",
+                "*********",
                 false);
+            if (barcode != null)
+            {
+                barcodeTextBox.Text = barcode;
+            }
             barcodeTextBoxes.Add(barcodeTextBox);
             rowPanel.Controls.Add(barcodeTextBox);
 
@@ -870,8 +908,11 @@ namespace VisionTech_Anbar_Project
                 $"QuantityTextBox{rowPanels.Count + 1}",
                 new Point(210, 0),
                 new Size(60, 36),
-                "Quantity",
+                "Say",
                 false);
+            if (quantity != null || quantity != 0)
+            quantityTextBox.Text = quantity.ToString();
+
             quantityTextBoxes.Add(quantityTextBox);
             rowPanel.Controls.Add(quantityTextBox);
 
