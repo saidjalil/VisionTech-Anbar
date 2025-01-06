@@ -753,6 +753,7 @@ namespace VisionTech_Anbar_Project
             // Reset the count and position logic
             textBoxCount = 0;
 
+
             if (packProducts.Count == 1)
             {
                 //barcodeTextBoxes[0].Text = packProducts[0].Barcode;
