@@ -31,4 +31,8 @@
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Documents\6.jpg" />
+  </ItemGroup>
+
 </Project>

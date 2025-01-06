@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VisionTech Anbar Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fc99e7afa769e29055614e10a54646cdaede7e1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1601b6647e48653c269613faad5698c012b1a741")]
 [assembly: System.Reflection.AssemblyProductAttribute("VisionTech Anbar Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VisionTech Anbar Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

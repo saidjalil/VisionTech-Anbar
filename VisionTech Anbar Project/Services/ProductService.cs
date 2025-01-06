@@ -12,12 +12,14 @@ public class ProductService
     private readonly ProductRepository _productRepository;
     private readonly BarcodeRepository _barcodeRepository;
     private readonly IDbContextFactory<AppDbContext> _contextFactory;
+    private readonly BrandRepository _brandRepository;
 
-    public ProductService(ProductRepository productRepository, BarcodeRepository barcodeRepository, IDbContextFactory<AppDbContext> contextFactory)
+    public ProductService(ProductRepository productRepository, BarcodeRepository barcodeRepository, IDbContextFactory<AppDbContext> contextFactory, BrandRepository brandRepository)
     {
         _productRepository = productRepository;
         _barcodeRepository = barcodeRepository;
         _contextFactory = contextFactory;
+        _brandRepository = brandRepository;
     }
 
     public async Task<IEnumerable<Product>> GetAllProductsAsync()
@@ -99,7 +101,9 @@ public class ProductService
             //     throw new ArgumentNullException(nameof(product), "That product doesn't exist.");
             // }
             
-            _productRepository.RemoveProductBarcodes(packageId, productId);
+            await _productRepository.RemoveProductBarcodes(packageId, productId);
+            
+            
             
             //existedProduct.Barcodes = product.Barcodes;
             Log.Information("Updating product with ID: {Id}.", productId);
@@ -133,6 +137,8 @@ public class ProductService
             // {
             //     existedProduct.Barcodes.Add(barcode);
             // }
+            
+            
             Log.Information("Updating product with ID: {Id}.", product.Id);
             await _productRepository.Update(existedProduct);
             Log.Information("Product with ID: {Id} successfully updated.", product.Id);

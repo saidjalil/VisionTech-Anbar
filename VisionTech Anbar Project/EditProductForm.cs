@@ -407,8 +407,7 @@ namespace VisionTech_Anbar_Project
                 if (addProductForm.DataSaved)
                 {
                     // Update the product in the data source
-                   
-                        await _productService.UpdateProductWithBarcodes(currentPackageId, addProductForm.EditedProductList.First().ProductId, addProductForm.EditedProductList);
+                    await _productService.UpdateProductWithBarcodes(currentPackageId, addProductForm.EditedProductList.First().ProductId, addProductForm.EditedProductList);
                     foreach (var editedProduct in addProductForm.EditedProductList)
                     {
                         // Update the product in the packProducts list

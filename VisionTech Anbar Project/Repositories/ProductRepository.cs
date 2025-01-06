@@ -35,8 +35,6 @@ public class ProductRepository : BaseRepository<Product>
 
     public async Task UpdateProductBarcodes(List<PackageProduct> packageProducts, int productId, int packageId)
     {
-        
-
         foreach (var packageProduct in packageProducts)
         {
             await _packageProductRepository.Create(new()
@@ -46,14 +44,14 @@ public class ProductRepository : BaseRepository<Product>
                 Quantity = packageProduct.Quantity,
                 Barcode = packageProduct.Barcode,
             });
-            
+            packageProduct.Product.BrandId = packageProduct.Product.Brand.Id;
             await Update(packageProduct.Product);
         }
         
         
     }
 
-    public async void RemoveProductBarcodes(int packageId, int productId)
+    public async Task RemoveProductBarcodes(int packageId, int productId)
     {
         var packageProducts = await _packageProductRepository.GetPackageProductByProductId(packageId, productId);
         foreach (var packageProduct in packageProducts)

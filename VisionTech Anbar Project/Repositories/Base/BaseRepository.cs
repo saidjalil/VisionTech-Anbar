@@ -94,15 +94,22 @@ namespace VisionTech_Anbar_Project.Repositories.Base
 
         public async Task Update(T item)
         {
-            var existingEntity = _context.Products.FirstOrDefault(p => p.Id == item.Id);
+            var existingEntity = await _dbSet.FindAsync(item.Id);
             if (existingEntity != null)
             {
-                _context.Entry(existingEntity).State = EntityState.Detached;
+                // Update the existing entity's properties
+                _context.Entry(existingEntity).CurrentValues.SetValues(item);
             }
-            _dbSet.Update(item);
-            await Save();
+            else
+            {
+                // Attach the entity if it's not already tracked
+                _dbSet.Attach(item);
+                _context.Entry(item).State = EntityState.Modified;
+            }
 
+            await Save();
         }
+
         
         
         public async Task<List<T>> GetAllAsync(Func<IQueryable<T>, IQueryable<T>> includeProperties = null)
