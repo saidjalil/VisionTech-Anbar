@@ -37,7 +37,6 @@
             label7 = new Label();
             panelDynamic = new Panel();
             comboBox1 = new ComboBox();
-            metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
             comboBox2 = new ComboBox();
             label1 = new Label();
             SuspendLayout();
@@ -123,9 +122,9 @@
             // 
             // panelDynamic
             // 
-            panelDynamic.Location = new Point(45, 173);
+            panelDynamic.Location = new Point(15, 173);
             panelDynamic.Name = "panelDynamic";
-            panelDynamic.Size = new Size(274, 320);
+            panelDynamic.Size = new Size(281, 320);
             panelDynamic.TabIndex = 19;
             // 
             // comboBox1
@@ -137,33 +136,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(177, 34);
             comboBox1.TabIndex = 20;
-            // 
-            // metroSetControlBox1
-            // 
-            metroSetControlBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            metroSetControlBox1.CloseHoverBackColor = Color.FromArgb(183, 40, 40);
-            metroSetControlBox1.CloseHoverForeColor = Color.White;
-            metroSetControlBox1.CloseNormalForeColor = Color.Gray;
-            metroSetControlBox1.DisabledForeColor = Color.DimGray;
-            metroSetControlBox1.IsDerivedStyle = true;
-            metroSetControlBox1.Location = new Point(1063, 8);
-            metroSetControlBox1.Margin = new Padding(3, 2, 3, 2);
-            metroSetControlBox1.MaximizeBox = false;
-            metroSetControlBox1.MaximizeHoverBackColor = Color.FromArgb(238, 238, 238);
-            metroSetControlBox1.MaximizeHoverForeColor = Color.Gray;
-            metroSetControlBox1.MaximizeNormalForeColor = Color.Gray;
-            metroSetControlBox1.MinimizeBox = true;
-            metroSetControlBox1.MinimizeHoverBackColor = Color.FromArgb(238, 238, 238);
-            metroSetControlBox1.MinimizeHoverForeColor = Color.Gray;
-            metroSetControlBox1.MinimizeNormalForeColor = Color.Gray;
-            metroSetControlBox1.Name = "metroSetControlBox1";
-            metroSetControlBox1.Size = new Size(100, 25);
-            metroSetControlBox1.Style = MetroSet_UI.Enums.Style.Light;
-            metroSetControlBox1.StyleManager = null;
-            metroSetControlBox1.TabIndex = 21;
-            metroSetControlBox1.Text = "metroSetControlBox1";
-            metroSetControlBox1.ThemeAuthor = "Narwin";
-            metroSetControlBox1.ThemeName = "MetroLite";
             // 
             // comboBox2
             // 
@@ -201,7 +173,6 @@
             ClientSize = new Size(1178, 726);
             Controls.Add(label1);
             Controls.Add(comboBox2);
-            Controls.Add(metroSetControlBox1);
             Controls.Add(comboBox1);
             Controls.Add(panelDynamic);
             Controls.Add(label7);
@@ -235,8 +206,8 @@
         private Label label7;
         private Panel panelDynamic;
         private ComboBox comboBox1;
-        private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
         private ComboBox comboBox2;
         private Label label1;
+        private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
     }
 }

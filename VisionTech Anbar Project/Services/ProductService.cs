@@ -286,7 +286,6 @@ public class ProductService
                     .Include(x => x.Brand)
                     .Include(x => x.Category)
                     .Include(x => x.PackageProducts)
-                    .ThenInclude(pp => pp.Product)
                     //.ThenInclude(pp => pp.Barcodes)
                     
             );

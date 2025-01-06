@@ -573,8 +573,8 @@ namespace VisionTech_Anbar_Project
             {
                 comboBox.Enabled = !isLocked;
             }
-            foreach(TextBox barcodeBox in barcodeTextBoxes)
-            { 
+            foreach (TextBox barcodeBox in barcodeTextBoxes)
+            {
                 barcodeBox.Enabled = !isLocked;
             }
             foreach (TextBox quantityBox in quantityTextBoxes)
@@ -590,12 +590,20 @@ namespace VisionTech_Anbar_Project
         {
             if (currentProduct != null)
             {
+                //foreach (var textBox in barcodeTextBoxes)
+                //{
+                //    this.Controls.Remove(textBox);
+                //}
+                //barcodeTextBoxes.Clear();
+                //AddDefaultRow();
+               // quantityTextBoxes[0].Text = "34";
                 SetCurrentCategories();
                 setCurrentBarcodes();
                 AddLockButtonToControl(this);
+                comboBox2.Text = currentProduct.Brand.BrandName;
+                ComboBoxBrands_SelectedIndexChanged(comboBox2, EventArgs.Empty);
                 comboBox1.Text = currentProduct.ProductName;
                 //comboBox2.SelectedIndex = currentProduct.BrandId;
-                comboBox2.Text = currentProduct.Brand.BrandName;
                 currentProductId = currentProduct.Id;
 
                 textBox1.Visible = false;
@@ -642,6 +650,7 @@ namespace VisionTech_Anbar_Project
                 if (categoryHierarchy.Any())
                 {
                     var rootCategory = categoryHierarchy.First();
+                    firstComboBox.Text = rootCategory.Name;
                     firstComboBox.SelectedItem = firstComboBoxCategories.FirstOrDefault(c => c.Id == rootCategory.Id);
                 }
 
@@ -722,17 +731,18 @@ namespace VisionTech_Anbar_Project
             return hierarchy;
         }
 
-        private void setCurrentBarcodes()
+        private async void setCurrentBarcodes()
         {
             // Clear existing TextBoxes related to barcodes from the form and the list
-            foreach (var textBox in barcodeTextBoxes)
-            {
-                this.Controls.Remove(textBox);
-            }
-            barcodeTextBoxes.Clear();
+            //foreach (var textBox in barcodeTextBoxes)
+            //{
+            //    this.Controls.Remove(textBox);
+            //}
+            //barcodeTextBoxes.Clear();
 
             // Get the current product barcodes
-           // List<string> barcodes = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).Select(x => x.Barcode).ToList();
+            // List<string> barcodes = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).Select(x => x.Barcode).ToList();
+            currentProduct = await productService.GetProductByIdWithNavigation(currentProduct.Id);
             List<PackageProduct> packProducts = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).ToList();
 
             // List<int> quantities = currentProduct.PackageProducts.Where(x => x.ProductId == currentProduct.Id).Select(x => x.Quantity).ToList();
@@ -743,18 +753,26 @@ namespace VisionTech_Anbar_Project
             // Reset the count and position logic
             textBoxCount = 0;
 
-            for (int i = 1; i < packProducts.Count; i++)
-            {
-                // Increment TextBox count
-                textBoxCount++;
-
-                AddRow(packProducts[i].Barcode, packProducts[i].Quantity);
-            }
-            if(packProducts.Count == 1) 
+            if (packProducts.Count == 1)
             {
                 //barcodeTextBoxes[0].Text = packProducts[0].Barcode;
                 quantityTextBoxes[0].Text = packProducts[0].Quantity.ToString();
 
+            }
+            else
+            {
+
+                quantityTextBoxes[0].Text = packProducts[0].Quantity.ToString();
+                //barcodeTextBoxes.Remove(barcodeTextBoxes[0]);
+                //quantityTextBoxes.Remove(quantityTextBoxes[0]);
+
+                for (int i = 1; i < packProducts.Count; i++)
+                {
+                    // Increment TextBox count
+                    textBoxCount++;
+
+                    AddRow(packProducts[i].Barcode, packProducts[i].Quantity);
+                }
             }
         }
         // Helper method to clear existing TextBoxes
@@ -869,17 +887,17 @@ namespace VisionTech_Anbar_Project
 
         private void BarcodeTextBox_KeyPress(object? sender, KeyPressEventArgs e)
         {
-                // Allow control keys like Backspace, Enter, and Tab
-                if (char.IsControl(e.KeyChar))
-                {
-                    return;
-                }
-                // Check if the key is a number
-                if (!char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true;
-                }
-            
+            // Allow control keys like Backspace, Enter, and Tab
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+            // Check if the key is a number
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
         }
 
         private void AddRow(string barcode, int quantity)
@@ -911,7 +929,7 @@ namespace VisionTech_Anbar_Project
                 "Say",
                 false);
             if (quantity != null || quantity != 0)
-            quantityTextBox.Text = quantity.ToString();
+                quantityTextBox.Text = quantity.ToString();
 
             quantityTextBoxes.Add(quantityTextBox);
             rowPanel.Controls.Add(quantityTextBox);
@@ -1027,27 +1045,30 @@ namespace VisionTech_Anbar_Project
                 // Remove controls from the form
                 Panel rowPanel = rowPanels[rowIndex];
                 this.Controls.Remove(rowPanel);
-                rowPanels.RemoveAt(rowIndex);
 
                 // Remove associated TextBoxes from their lists
                 barcodeTextBoxes.RemoveAt(rowIndex);
                 quantityTextBoxes.RemoveAt(rowIndex);
+
+                // Remove the row panel from the list
+                rowPanels.RemoveAt(rowIndex);
 
                 // Update positions and tags of remaining rows
                 UpdateRowPositions();
             }
         }
 
+
         private void UpdateRowPositions()
         {
             int startX = button3.Location.X + button3.Width + 10;
             int startY = button3.Location.Y;
-            int verticalPadding = 10;
+            int verticalPadding = 12;
 
             for (int i = 0; i < rowPanels.Count; i++)
             {
                 // Update panel positions
-                rowPanels[i].Location = new Point(startX, startY + i * (30 + verticalPadding));
+                rowPanels[i].Location = new Point(startX, startY + i * (40 + verticalPadding)); // Match the height and padding used in AddRow
                 rowPanels[i].Tag = i;
 
                 // Update the Tag of the delete button inside the panel
@@ -1058,6 +1079,7 @@ namespace VisionTech_Anbar_Project
                 }
             }
         }
+
 
         private void QuantityTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
@@ -1261,14 +1283,14 @@ namespace VisionTech_Anbar_Project
                 //DropDownStyle = ComboBoxStyle.DropDown,
                 Tag = parentCategory,
                 Enabled = !isLocked,
-                AutoCompleteMode = AutoCompleteMode.SuggestAppend,
-                AutoCompleteSource = AutoCompleteSource.ListItems,
-                FormattingEnabled = true,
-                Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point),
-                FlatStyle = FlatStyle.Flat,
-                BackColor = Color.White,
-                ForeColor = Color.FromArgb(64, 64, 64),
-                DropDownStyle = ComboBoxStyle.DropDownList
+                //AutoCompleteMode = AutoCompleteMode.SuggestAppend,
+                //AutoCompleteSource = AutoCompleteSource.ListItems,
+                //FormattingEnabled = true,
+                //Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point),
+                //FlatStyle = FlatStyle.Flat,
+                //BackColor = Color.White,
+                //ForeColor = Color.FromArgb(64, 64, 64),
+                //DropDownStyle = ComboBoxStyle.DropDownList
             };
             comboBox.BringToFront();
             // Set initial selection if categories exist
@@ -1392,6 +1414,7 @@ namespace VisionTech_Anbar_Project
             //    comboBox1.Text = currentProduct.ProductName;
             //}
         }
+
     }
 }
 
