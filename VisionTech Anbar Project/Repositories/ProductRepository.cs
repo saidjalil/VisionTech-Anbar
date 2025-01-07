@@ -53,7 +53,7 @@ public class ProductRepository : BaseRepository<Product>
 
     public async Task RemoveProductBarcodes(int packageId, int productId)
     {
-        var packageProducts = await _packageProductRepository.GetPackageProductByProductId(packageId, productId);
+        var packageProducts = await _packageProductRepository.GetPackageProductByProductId(productId,packageId);
         foreach (var packageProduct in packageProducts)
         {
             await _packageProductRepository.Remove(packageProduct);

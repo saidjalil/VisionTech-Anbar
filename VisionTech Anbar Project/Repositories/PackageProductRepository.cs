@@ -12,6 +12,6 @@ public class PackageProductRepository : BaseRepository<PackageProduct>
 
     public async Task<List<PackageProduct>> GetPackageProductByProductId(int productId, int packageId)
     {
-        return _dbSet.Where(x =>x.ProductId == productId && x.ProductId == packageId).ToList();
+        return _dbSet.Where(x =>x.ProductId == productId && x.PackageId == packageId).ToList();
     }
 }

@@ -53,7 +53,7 @@ namespace VisionTech_Anbar_Project
             services.AddDbContextFactory<AppDbContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
                     .EnableSensitiveDataLogging());
-            services.AddScoped<AppDbContext>();
+            services.AddTransient<AppDbContext>();
             
             services.AddScoped<PackageRepository>();
             services.AddScoped<ProductRepository>();
