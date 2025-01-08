@@ -70,11 +70,11 @@ namespace VisionTech_Anbar_Project
 
         private List<Category> categories = new List<Category>();
 
-        private int comboBoxCount = 0; // Counter for dynamically created ComboBoxes
-        private Dictionary<int, ComboBox> comboBoxDictionary = new Dictionary<int, ComboBox>();
+        //private int comboBoxCount = 0; // Counter for dynamically created ComboBoxes
+        //private Dictionary<int, ComboBox> comboBoxDictionary = new Dictionary<int, ComboBox>();
 
-        private List<ComboBox> comboBoxes = new List<ComboBox>();
-        //private List<Tuple<ComboBox, ComboBox, int?>> comboBoxRelationships = new List<Tuple<ComboBox, ComboBox, int?>>();
+        //private List<ComboBox> comboBoxes = new List<ComboBox>();
+        ////private List<Tuple<ComboBox, ComboBox, int?>> comboBoxRelationships = new List<Tuple<ComboBox, ComboBox, int?>>();
 
         private List<TextBox> barcodeTextBoxes = new List<TextBox>();
         private List<TextBox> quantityTextBoxes = new List<TextBox>();
@@ -133,7 +133,7 @@ namespace VisionTech_Anbar_Project
             button2.Click += button2_Click;
 
             // Add Button
-            button3 = CreateIconButton("+", new Point(375, 287), new Size(52, 43));
+            button3 = CreateIconButton("+", new Point(375, 287), new Size(52, 30));
             button3.Click += button3_Click;
 
             // Modern Checkbox
@@ -253,12 +253,14 @@ namespace VisionTech_Anbar_Project
             {
                 BackColor = Color.FromArgb(42, 45, 85),
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point),
+                Font = new Font("Segoe UI", 8F, FontStyle.Bold, GraphicsUnit.Point),
                 ForeColor = Color.White,
                 Location = location,
                 Size = size,
                 Text = text,
-                Cursor = Cursors.Hand
+                Cursor = Cursors.Hand,
+                TextAlign = ContentAlignment.BottomCenter, // Align text higher within the button
+                Padding = new Padding(0, -25, 0, 0) // Move the text upwards by reducing top padding
             };
 
             button.FlatAppearance.BorderSize = 0;
@@ -596,7 +598,7 @@ namespace VisionTech_Anbar_Project
                 //}
                 //barcodeTextBoxes.Clear();
                 //AddDefaultRow();
-               // quantityTextBoxes[0].Text = "34";
+                // quantityTextBoxes[0].Text = "34";
                 SetCurrentCategories();
                 setCurrentBarcodes();
                 AddLockButtonToControl(this);
@@ -868,6 +870,7 @@ namespace VisionTech_Anbar_Project
                 "Barkodsuz",
                 true); // Disabled
             barcodeTextBox.KeyPress += BarcodeTextBox_KeyPress;
+            barcodeTextBox.TextChanged += BarcodeTextBox_TextChanged;
             barcodeTextBoxes.Add(barcodeTextBox);
             rowPanel.Controls.Add(barcodeTextBox);
 
@@ -884,6 +887,23 @@ namespace VisionTech_Anbar_Project
 
             rowPanels.Add(rowPanel);
             this.Controls.Add(rowPanel);
+        }
+
+        private void BarcodeTextBox_TextChanged(object? sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (textBox != null)
+            {
+                string validText = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+                if (textBox.Text != validText)
+                {
+                    int cursorPosition = textBox.SelectionStart - (textBox.Text.Length - validText.Length);
+                    textBox.Text = validText; // Remove invalid characters
+                    textBox.SelectionStart = Math.Max(cursorPosition, 0); // Restore cursor position
+                }
+            }
         }
 
         private void BarcodeTextBox_KeyPress(object? sender, KeyPressEventArgs e)
@@ -915,6 +935,8 @@ namespace VisionTech_Anbar_Project
                 new Size(200, 36),
                 "*********",
                 false);
+            barcodeTextBox.KeyPress += BarcodeTextBox_KeyPress;
+            barcodeTextBox.TextChanged += BarcodeTextBox_TextChanged;
             if (barcode != null)
             {
                 barcodeTextBox.Text = barcode;
@@ -1416,6 +1438,22 @@ namespace VisionTech_Anbar_Project
             //}
         }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            if (textBox != null)
+            {
+                string validText = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+                if (textBox.Text != validText)
+                {
+                    int cursorPosition = textBox.SelectionStart - (textBox.Text.Length - validText.Length);
+                    textBox.Text = validText; // Remove invalid characters
+                    textBox.SelectionStart = Math.Max(cursorPosition, 0); // Restore cursor position
+                }
+            }
+        }
     }
 }
 

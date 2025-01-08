@@ -49,6 +49,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(177, 32);
             textBox1.TabIndex = 0;
+            textBox1.TextChanged += textBox1_TextChanged;
             textBox1.KeyPress += textBox1_KeyPress;
             // 
             // label2
@@ -124,7 +125,7 @@
             // 
             panelDynamic.Location = new Point(15, 173);
             panelDynamic.Name = "panelDynamic";
-            panelDynamic.Size = new Size(281, 320);
+            panelDynamic.Size = new Size(305, 320);
             panelDynamic.TabIndex = 19;
             // 
             // comboBox1
@@ -142,7 +143,7 @@
             comboBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             comboBox2.AutoCompleteSource = AutoCompleteSource.ListItems;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(580, 157);
+            comboBox2.Location = new Point(578, 161);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(151, 34);
             comboBox2.TabIndex = 22;
@@ -155,7 +156,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(615, 118);
+            label1.Location = new Point(615, 127);
             label1.Name = "label1";
             label1.Size = new Size(64, 25);
             label1.TabIndex = 23;
