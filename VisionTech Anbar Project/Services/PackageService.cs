@@ -77,6 +77,17 @@ public class PackageService
         package.PackageProducts = new List<PackageProduct>();
         try
         {
+            if (package.Vendor.Id > 0 )
+            {
+                package.VendorId = package.Vendor.Id;
+                package.Vendor = null;
+            }
+
+            if (package.Warehouse.Id > 0)
+            {
+                package.WarehouseId = package.Warehouse.Id;
+                package.Warehouse = null;
+            }
             Log.Information("Creating a new package with details: {Package}.", package);
             var newPackage = await _packageRepository.Create(package);
             Log.Information("Package successfully created.");
