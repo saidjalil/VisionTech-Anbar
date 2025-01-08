@@ -12,15 +12,17 @@ public class PackageService
     private readonly VendorRepository _vendorRepository;
     private readonly WarehouseRepository _warehouseRepository;
     private readonly CategoryRepository _categoryRepository;
+    private readonly BrandRepository _brandRepository;
 
     
 
-    public PackageService(PackageRepository packageRepository, VendorRepository vendorRepository, WarehouseRepository warehouseRepository, CategoryRepository categoryRepository)
+    public PackageService(PackageRepository packageRepository, VendorRepository vendorRepository, WarehouseRepository warehouseRepository, CategoryRepository categoryRepository, BrandRepository brandRepository)
     {
         _packageRepository = packageRepository;
         _vendorRepository = vendorRepository;
         _warehouseRepository = warehouseRepository;
         _categoryRepository = categoryRepository;
+        _brandRepository = brandRepository;
     }
 
     public async Task<IEnumerable<Package>> GetAllPackagesAsync()
@@ -67,6 +69,7 @@ public class PackageService
 
     public async Task CreatePackageAsync(Package package)
     {
+        
         if (package == null)
         {
             Log.Error("Attempted to create a null package.");
@@ -75,6 +78,18 @@ public class PackageService
 
         var packageProducts = package.PackageProducts;
         package.PackageProducts = new List<PackageProduct>();
+        foreach (var packageProduct in packageProducts)
+        {
+            if (packageProduct.Product.BrandId > 0)
+            {
+                packageProduct.Product.BrandId = packageProduct.Product.Brand.Id;
+                packageProduct.Product.Brand = null;
+            }
+            else
+            {
+                var brand = await _brandRepository.Create(packageProduct.Product.Brand);
+            }
+        }
         try
         {
             if (package.Vendor.Id > 0 )
