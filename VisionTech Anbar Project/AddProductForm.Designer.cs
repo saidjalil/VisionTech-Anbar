@@ -32,7 +32,6 @@
             label2 = new Label();
             label3 = new Label();
             label5 = new Label();
-            checkBox1 = new CheckBox();
             label6 = new Label();
             label7 = new Label();
             panelDynamic = new Panel();
@@ -88,15 +87,7 @@
             label5.TabIndex = 9;
             label5.Text = "Məhsulun Adı";
             // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(868, 170);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(18, 17);
-            checkBox1.TabIndex = 10;
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
+
             // label6
             // 
             label6.AutoSize = true;
@@ -148,7 +139,7 @@
             comboBox2.Size = new Size(151, 34);
             comboBox2.TabIndex = 22;
             comboBox2.SelectedIndexChanged += ComboBoxBrands_SelectedIndexChanged;
-            comboBox2.KeyDown += ComboBoxBrands_KeyDown;
+           // comboBox2.KeyDown += ComboBoxBrands_KeyDown;
             // 
             // label1
             // 
@@ -172,10 +163,10 @@
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 0F;
             ClientSize = new Size(1178, 726);
+            Controls.Add(panelDynamic);
             Controls.Add(label1);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
-            Controls.Add(panelDynamic);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(checkBox1);
@@ -208,7 +199,7 @@
         private Panel panelDynamic;
         private ComboBox comboBox1;
         private ComboBox comboBox2;
-        private Label label1;
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
+        private Label label1;
     }
 }

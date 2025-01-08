@@ -122,7 +122,7 @@ namespace VisionTech_Anbar_Project
             label5 = CreateStyledLabel("Məhsulun Adı", new Point(387, 127));
             label6 = CreateStyledLabel("Daimi", new Point(781, 165));
             label7 = CreateStyledLabel("Əlavə barkod üçün:", new Point(387, 248));
-            label1 = CreateStyledLabel("Brand", new Point(615, 118));
+            label1 = CreateStyledLabel("Brand", new Point(615, 128));
 
             // Primary Action Button
             button1 = CreatePrimaryButton("Əlavə et", new Point(888, 561), new Size(134, 53));
@@ -145,7 +145,7 @@ namespace VisionTech_Anbar_Project
             //comboBox1 = CreateStyledComboBox(new Point(375, 161), new Size(177, 34));
             // comboBox2 = CreateStyledComboBox(new Point(580, 157), new Size(151, 34));
             comboBox2.SelectedIndexChanged += ComboBoxBrands_SelectedIndexChanged;
-            comboBox2.KeyDown += ComboBoxBrands_KeyDown;
+           // comboBox2.KeyDown += ComboBoxBrands_KeyDown;
 
             // Control Box
             metroSetControlBox1 = new MetroSetControlBox
@@ -156,7 +156,7 @@ namespace VisionTech_Anbar_Project
                 CloseNormalForeColor = Color.FromArgb(120, 120, 120),
                 DisabledForeColor = Color.FromArgb(180, 180, 180),
                 IsDerivedStyle = true,
-                Location = new Point(844, 8),
+                Location = new Point(874, 8),
                 MaximizeBox = false,
                 MinimizeBox = true,
                 MinimizeHoverBackColor = Color.FromArgb(248, 249, 250),
@@ -170,7 +170,7 @@ namespace VisionTech_Anbar_Project
             // Form Settings
             AutoScaleDimensions = new SizeF(13F, 26F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            //BackColor = Color.White;
             BackgroundColor = Color.FromArgb(250, 252, 255);
             BorderColor = Color.FromArgb(42, 45, 85);
             BorderThickness = 1F;
@@ -1242,49 +1242,48 @@ namespace VisionTech_Anbar_Project
         }
 
 
-        private async void ComboBoxBrands_KeyDown(object sender, KeyEventArgs e)
-        {
-            var comboBox = sender as ComboBox;
-            if (comboBox == null) return;
+        //private async void ComboBoxBrands_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    var comboBox = sender as ComboBox;
+        //    if (comboBox == null) return;
 
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.Handled = true;
-                e.SuppressKeyPress = true;
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        e.Handled = true;
+        //        e.SuppressKeyPress = true;
 
-                var inputText = comboBox.Text?.Trim();
-                if (string.IsNullOrWhiteSpace(inputText)) return;
+        //        var inputText = comboBox.Text?.Trim();
+        //        if (string.IsNullOrWhiteSpace(inputText)) return;
 
-                // Check for duplicates
-                if (comboBox.Items.Cast<Brand>().Any(b => b.BrandName.Equals(inputText, StringComparison.OrdinalIgnoreCase)))
-                {
-                    MessageBox.Show("This brand already exists!", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+        //        // Check for duplicates
+        //        if (comboBox.Items.Cast<Brand>().Any(b => b.BrandName.Equals(inputText, StringComparison.OrdinalIgnoreCase)))
+        //        {
+        //            MessageBox.Show("This brand already exists!", "Duplicate Entry", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            return;
+        //        }
 
-                // Add new brand to the database
-                var newBrand = new Brand { BrandName = inputText };
-                await brandService.CreateBrandAsync(newBrand);
+        //        // Add new brand to the database
+        //        var newBrand = new Brand { BrandName = inputText };
+        //        await brandService.CreateBrandAsync(newBrand);
 
-                // Refresh ComboBox data
-                _isUpdatingComboBox = true;
+        //        // Refresh ComboBox data
+        //        _isUpdatingComboBox = true;
 
-                var brands = (await brandService.GetAllBrandsAsync()).ToList();
-                comboBox.DataSource = null;
-                comboBox.DataSource = brands;
-                comboBox.DisplayMember = "BrandName";
-                comboBox.ValueMember = "Id";
+        //        var brands = (await brandService.GetAllBrandsAsync()).ToList();
+        //        comboBox.DataSource = null;
+        //        comboBox.DataSource = brands;
+        //        comboBox.DisplayMember = "BrandName";
+        //        comboBox.ValueMember = "Id";
 
-                // Select the newly added brand
-                comboBox.SelectedItem = brands.First(b => b.Id == newBrand.Id);
+        //        // Select the newly added brand
+        //        comboBox.SelectedItem = brands.First(b => b.Id == newBrand.Id);
 
-                _isUpdatingComboBox = false;
+        //        _isUpdatingComboBox = false;
 
-                // Load products for the new brand
-                await LoadProductsByBrand(newBrand.Id);
-            }
-        }
-
+        //        // Load products for the new brand
+        //        await LoadProductsByBrand(newBrand.Id);
+        //    }
+        //}
 
 
         private const int MARGIN_TOP = 10;
@@ -1454,6 +1453,7 @@ namespace VisionTech_Anbar_Project
                 }
             }
         }
+
     }
 }
 

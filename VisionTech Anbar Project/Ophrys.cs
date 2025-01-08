@@ -336,6 +336,7 @@ namespace VisionTech_Anbar_Project
 
                 if (checkBox.Checked)
                 {
+          
                     using (var brush = new SolidBrush(Color.FromArgb(107, 114, 237)))
                     {
                         g.FillRectangle(brush, new Rectangle(2, 2, checkBox.Width - 4, checkBox.Height - 4));
@@ -444,15 +445,15 @@ namespace VisionTech_Anbar_Project
         private void ExportButton_Click(object sender, EventArgs e)
         {
             // Only Export current 
-            List<int> selectedPackageIds = new List<int>();
+            List<int> selectedPackageId = new List<int>();
             Button button = sender as Button;
-            selectedPackageIds.Add(int.Parse(button.Tag.ToString()));
+            selectedPackageId.Add(int.Parse(button.Tag.ToString()));
 
 
-            if (selectedPackageIds.Count > 0)
+            if (selectedPackageId.Count > 0)
             {
                 // Call your export logic here with the selected IDs
-                ExportSelectedPackages(selectedPackageIds);
+                ExportSelectedPackages(selectedPackageId);
             }
             else
             {
@@ -469,12 +470,17 @@ namespace VisionTech_Anbar_Project
             {
                 if (control is Panel itemPanel)
                 {
-                    // Find the CheckBox within the panel
-                    CheckBox packageCheckBox = itemPanel.Controls.OfType<CheckBox>().FirstOrDefault();
+                    // Find the checkboxContainer inside the panel
+                    Panel checkboxContainer = itemPanel.Controls.OfType<Panel>().FirstOrDefault(p => p.Controls.OfType<CheckBox>().Any());
 
-                    if (packageCheckBox != null && packageCheckBox.Checked)
+                    if (checkboxContainer != null)
                     {
-                        selectedPackageIds.Add((int)packageCheckBox.Tag); // Get package ID from Tag
+                        CheckBox packageCheckBox = checkboxContainer.Controls.OfType<CheckBox>().FirstOrDefault();
+
+                        if (packageCheckBox != null && packageCheckBox.Checked)
+                        {
+                            selectedPackageIds.Add((int)packageCheckBox.Tag); // Get package ID from Tag
+                        }
                     }
                 }
             }
@@ -489,6 +495,7 @@ namespace VisionTech_Anbar_Project
                 MessageBox.Show("No packages selected for export.", "Export", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         // Your export logic
         private void ExportSelectedPackages(List<int> packageIds)
