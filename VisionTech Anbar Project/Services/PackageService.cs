@@ -80,7 +80,7 @@ public class PackageService
         package.PackageProducts = new List<PackageProduct>();
         foreach (var packageProduct in packageProducts)
         {
-            if (packageProduct.Product.BrandId > 0)
+            if (packageProduct.Product.Brand.Id > 0)
             {
                 packageProduct.Product.BrandId = packageProduct.Product.Brand.Id;
                 packageProduct.Product.Brand = null;

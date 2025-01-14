@@ -53,7 +53,7 @@ public class PackageRepository : BaseRepository<Package>
             .FirstOrDefaultAsync(p => 
                 p.ProductName == product.ProductName &&
                 p.CategoryId == product.CategoryId &&
-                p.BrandId == product.Brand.Id);
+                p.BrandId == product.BrandId);
 
         int productId;
     
